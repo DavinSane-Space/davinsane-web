@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Toyota Dealer Hub — Santiago Morales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "background": "#131313", "surface-container-low": "#1c1b1b",
+          "surface": "#131313", "primary": "#abc7ff", "on-surface-variant": "#c2c6d4",
+          "text-muted": "#A3A3A3", "outline-variant": "#424752", "surface-variant": "#353534",
+          "surface-container": "#201f1f", "secondary": "#c6c6c7",
+          "surface-elevated": "#1A1A1A", "border-low-contrast": "#262626",
+          "on-surface": "#e5e2e1", "outline": "#8c919e"
+        },
+        borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+        spacing: { "section-gap": "120px", "gutter": "24px", "element-gap": "32px", "margin-desktop": "64px", "margin-mobile": "20px" },
+        fontFamily: { "label-sm": ["JetBrains Mono"], "headline-lg": ["JetBrains Mono"], "headline-lg-mobile": ["JetBrains Mono"], "body-lg": ["Inter"], "label-md": ["JetBrains Mono"], "headline-md": ["JetBrains Mono"], "body-md": ["Inter"] },
+        fontSize: {
+          "label-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+          "headline-lg-mobile": ["36px", { "lineHeight": "1.15", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "headline-lg": ["60px", { "lineHeight": "1.05", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+          "body-lg": ["20px", { "lineHeight": "1.8", "fontWeight": "400" }],
+          "label-md": ["15px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
+          "headline-md": ["30px", { "lineHeight": "1.25", "fontWeight": "500" }],
+          "body-md": ["17px", { "lineHeight": "1.75", "fontWeight": "400" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  #particles-bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; overflow: hidden; }
+  .prose-content p { margin-bottom: 1.5rem; }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<div id="particles-bg"></div>
+
+<nav class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border-low-contrast">
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-5 flex items-center justify-between">
+    <a href="quantum.html" class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors duration-200 font-label-sm text-label-sm group">
+      <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style="font-size:18px;">arrow_back</span>
+      <span data-i18n="nav_back">Back</span>
+    </a>
+    <span class="font-label-md text-label-md text-on-surface uppercase tracking-widest">SANTIAGO MORALES</span>
+    <a href="toyota-ds.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors" data-i18n="nav_next">Next →</a>
+  </div>
+</nav>
+
+<main class="flex-grow">
+  <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pt-24 pb-16 fade-in">
+    <div class="flex gap-2 mb-6">
+      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Platform</span>
+      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Internal</span>
+    </div>
+    <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6 tracking-tight">Toyota Dealer Hub</h1>
+    <p class="font-body-lg text-body-lg text-text-muted max-w-3xl" data-i18n="hero_desc">
+      An internal operations platform designed to unify Toyota dealer workflows — from inventory management and customer records to service scheduling and performance reporting — into a single, structured environment.
+    </p>
+    <div class="mt-14 border-t border-border-low-contrast grid grid-cols-2 md:grid-cols-5">
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_role">Role</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_role_val">Lead UX Designer</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_year">Year</p>
+        <p class="font-label-md text-label-md text-on-surface">2024</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_duration">Duration</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_duration_val">16 weeks</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_deliverables">Deliverables</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_deliverables_val">UI Design, Components, Handoff</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_tools">Tools</p>
+        <p class="font-label-md text-label-md text-on-surface">Figma, FigJam</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 mb-20 fade-in">
+    <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+      <img src="https://picsum.photos/seed/toyota-hub-hero/1280/720" alt="Toyota Dealer Hub hero" class="w-full h-auto block opacity-90"/>
+    </div>
+    <p class="mt-3 font-label-sm text-label-sm text-outline text-center" data-i18n="hero_caption">Toyota Dealer Hub — inventory overview and daily operations dashboard</p>
+  </div>
+
+  <article class="max-w-[920px] mx-auto px-margin-mobile md:px-16 prose-content">
+
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s1_title">01 Overview</h2>
+      <p class="font-body-lg text-body-lg text-on-surface" data-i18n="s1_p1">
+        Toyota authorized dealers in Latin America operate across five disconnected software systems to manage their daily business — a legacy DMS for inventory, a separate CRM for customer records, a third tool for service scheduling, a fourth for financial reporting, and a fifth for parts ordering. The cognitive overhead of switching between these systems cost dealers an estimated 40 minutes per salesperson per day.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s1_p2">
+        The Toyota Dealer Hub is the unified platform designed to replace that fragmented stack. The goal was not to build a feature-complete ERP — it was to build the operational layer that dealers actually touch during customer-facing interactions, with deep links to backend systems for the rest.
+      </p>
+    </section>
+
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s2_title">02 The Problem</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p1">
+        Contextual observation at four dealerships in two countries revealed the real workflow: a salesperson helping a customer configure a new vehicle had to open three different applications to answer basic questions about available stock, financing options, and delivery timelines. In multiple observed sessions, this context-switching caused the salesperson to lose the customer's attention entirely.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p2">
+        Service advisors faced a parallel problem: they couldn't see a customer's full vehicle history, open recalls, and scheduled appointment in the same view. Information that should have informed every service interaction was scattered across two systems with no shared identifier.
+      </p>
+    </section>
+
+    <div class="mb-16 fade-in">
+      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+        <img src="https://picsum.photos/seed/toyota-hub-research/920/580" alt="Dealer workflow research" class="w-full h-auto block opacity-80 grayscale"/>
+      </div>
+      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="img_research">Contextual observation — shadowing sales and service teams across four dealerships</p>
+    </div>
+
+    <section class="mb-10 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s3_title">03 Process</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p1">
+        The design process began with a role mapping exercise — identifying the six distinct roles that interact with dealer operations software (general manager, sales manager, salesperson, service advisor, service technician, parts coordinator) and mapping the distinct set of information each role needs at each touchpoint in the customer journey.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p2">
+        From this mapping, a clear architectural principle emerged: the system needed to be role-aware, not just role-permissioned. A salesperson and a service advisor logging into the same dealership should see completely different default views — not the same interface with some items greyed out.
+      </p>
+    </section>
+
+    <section class="mb-12 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s4_title">04 Solution</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p1">
+        The Dealer Hub presents each user with a role-configured home screen on login. A salesperson sees their pipeline, today's scheduled test drives, and the top 10 most-searched models in their dealership's inventory. A service advisor sees the day's appointments, active service bays, and any vehicles awaiting parts.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p2">
+        The vehicle detail view — the most used screen in the system — shows inventory, financing scenarios, available accessories, and delivery timeline in a single scroll. Salespeople can configure a vehicle and generate a quote without leaving the screen, and the quote is automatically saved to the customer's record.
+      </p>
+    </section>
+
+    <div class="grid grid-cols-2 gap-4 mb-16 fade-in">
+      <div>
+        <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+          <img src="https://picsum.photos/seed/toyota-hub-sales/460/580" alt="Sales dashboard" class="w-full h-auto block opacity-85"/>
+        </div>
+        <p class="mt-2 font-label-sm text-label-sm text-outline" data-i18n="img_sales">Sales dashboard — pipeline view with inventory availability</p>
+      </div>
+      <div>
+        <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+          <img src="https://picsum.photos/seed/toyota-hub-service/460/580" alt="Service advisor view" class="w-full h-auto block opacity-85 grayscale"/>
+        </div>
+        <p class="mt-2 font-label-sm text-label-sm text-outline" data-i18n="img_service">Service advisor view — daily bay schedule with vehicle history panel</p>
+      </div>
+    </div>
+
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-8" data-i18n="s5_title">05 Results</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-border-low-contrast border border-border-low-contrast">
+        <div class="bg-background p-8">
+          <p class="font-headline-lg text-[64px] leading-none font-bold text-on-surface mb-3">−40min</p>
+          <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest" data-i18n="metric1_label">Daily switching overhead</p>
+        </div>
+        <div class="bg-background p-8">
+          <p class="font-headline-lg text-[64px] leading-none font-bold text-on-surface mb-3">+28%</p>
+          <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest" data-i18n="metric2_label">Quote conversion rate</p>
+        </div>
+        <div class="bg-background p-8">
+          <p class="font-headline-lg text-[64px] leading-none font-bold text-on-surface mb-3">94%</p>
+          <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest" data-i18n="metric3_label">Dealer satisfaction score</p>
+        </div>
+      </div>
+    </section>
+
+  </article>
+
+  <div class="border-t border-border-low-contrast">
+    <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-20">
+      <div class="flex items-center justify-between mb-10">
+        <h2 class="font-label-md text-label-md text-text-muted tracking-widest uppercase" data-i18n="toyota_work">Toyota Work</h2>
+        <a href="quantum.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span>
+          <span data-i18n="all_projects">All projects</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        <a href="toyota-app.html" class="group flex flex-col gap-4">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden transition-colors duration-300 group-hover:border-primary">
+            <img src="https://picsum.photos/seed/toyota-app/800/600" alt="Toyota Connected App" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div><h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Toyota Connected App</h3>
+            <div class="flex gap-2 mt-2"><span class="font-label-sm text-label-sm text-text-muted">App</span><span class="font-label-sm text-label-sm text-outline-variant">·</span><span class="font-label-sm text-label-sm text-text-muted">Mobile</span></div></div>
+            <span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300 mt-1" style="font-size:18px;">arrow_outward</span>
+          </div>
+        </a>
+        <div class="flex flex-col gap-4 opacity-60 cursor-default">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-primary/30 overflow-hidden">
+            <img src="https://picsum.photos/seed/toyota-dealer/800/600" alt="Toyota Dealer Hub" class="w-full h-full object-cover opacity-80"/>
+            <div class="absolute inset-0 bg-background/40 flex items-center justify-center">
+              <span class="px-3 py-1 border border-primary/50 font-label-sm text-label-sm text-primary rounded-full" data-i18n="current_page">Current page</span>
+            </div>
+          </div>
+          <div><h3 class="font-headline-md text-headline-md text-on-surface">Toyota Dealer Hub</h3>
+          <div class="flex gap-2 mt-2"><span class="font-label-sm text-label-sm text-text-muted">Platform</span><span class="font-label-sm text-label-sm text-outline-variant">·</span><span class="font-label-sm text-label-sm text-text-muted">Internal</span></div></div>
+        </div>
+        <a href="toyota-ds.html" class="group flex flex-col gap-4">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden transition-colors duration-300 group-hover:border-primary">
+            <img src="https://picsum.photos/seed/toyota-ds/800/600" alt="Toyota Design System" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div><h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Toyota Design System</h3>
+            <div class="flex gap-2 mt-2"><span class="font-label-sm text-label-sm text-text-muted">Design System</span><span class="font-label-sm text-label-sm text-outline-variant">·</span><span class="font-label-sm text-label-sm text-text-muted">Components</span></div></div>
+            <span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300 mt-1" style="font-size:18px;">arrow_outward</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="w-full py-gutter px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-element-gap border-t border-border-low-contrast bg-background font-label-sm text-label-sm opacity-80 hover:opacity-100 transition-opacity">
+  <div class="font-label-md text-label-md uppercase tracking-widest text-on-surface">SANTIAGO MORALES</div>
+  <div class="text-on-surface" data-i18n="footer_copy">© 2026 Santiago Morales - DavinSane. All rights reserved.</div>
+  <nav class="flex gap-6">
+    <a class="text-text-muted hover:text-primary transition-colors" href="#" data-i18n="footer_privacy">Privacy</a>
+    <a class="text-text-muted hover:text-primary transition-colors" href="#">Github</a>
+  </nav>
+</footer>
+
+<button id="lang-toggle" onclick="toggleLang()" aria-label="Toggle language" class="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-3 py-2 bg-surface-elevated border border-border-low-contrast rounded-full font-label-sm text-label-sm text-on-surface hover:border-primary hover:text-primary transition-colors duration-200 shadow-lg">
+  <span class="material-symbols-outlined" style="font-size:16px;">language</span>
+  <span id="lang-label">ES</span>
+</button>
+
+<script type="module" src="particles-bg.js"></script>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const translations = {
+    en: {
+      nav_back: 'Back', nav_next: 'Next →',
+      hero_desc: 'An internal operations platform designed to unify Toyota dealer workflows — from inventory management and customer records to service scheduling and performance reporting — into a single, structured environment.',
+      meta_role: 'Role', meta_role_val: 'Lead UX Designer', meta_year: 'Year', meta_duration: 'Duration', meta_duration_val: '16 weeks',
+      meta_deliverables: 'Deliverables', meta_deliverables_val: 'UI Design, Components, Handoff', meta_tools: 'Tools',
+      hero_caption: 'Toyota Dealer Hub — inventory overview and daily operations dashboard',
+      s1_title: '01 Overview', s1_p1: "Toyota authorized dealers in Latin America operate across five disconnected software systems to manage their daily business. The cognitive overhead of switching between these systems cost dealers an estimated 40 minutes per salesperson per day.", s1_p2: 'The Toyota Dealer Hub is the unified platform designed to replace that fragmented stack. The goal was not to build a feature-complete ERP — it was to build the operational layer that dealers actually touch during customer-facing interactions.',
+      s2_title: '02 The Problem', s2_p1: 'Contextual observation at four dealerships revealed the real workflow: a salesperson helping a customer configure a new vehicle had to open three different applications to answer basic questions about available stock, financing options, and delivery timelines.', s2_p2: "Service advisors faced a parallel problem: they couldn't see a customer's full vehicle history, open recalls, and scheduled appointment in the same view.",
+      img_research: 'Contextual observation — shadowing sales and service teams across four dealerships',
+      s3_title: '03 Process', s3_p1: 'The design process began with a role mapping exercise — identifying the six distinct roles that interact with dealer operations software and mapping the distinct set of information each role needs at each touchpoint in the customer journey.', s3_p2: 'A clear architectural principle emerged: the system needed to be role-aware, not just role-permissioned. A salesperson and a service advisor should see completely different default views.',
+      s4_title: '04 Solution', s4_p1: 'The Dealer Hub presents each user with a role-configured home screen on login. A salesperson sees their pipeline, today\'s scheduled test drives, and the top 10 most-searched models. A service advisor sees the day\'s appointments, active service bays, and any vehicles awaiting parts.', s4_p2: 'The vehicle detail view — the most used screen in the system — shows inventory, financing scenarios, available accessories, and delivery timeline in a single scroll.',
+      img_sales: 'Sales dashboard — pipeline view with inventory availability',
+      img_service: 'Service advisor view — daily bay schedule with vehicle history panel',
+      s5_title: '05 Results', metric1_label: 'Daily switching overhead', metric2_label: 'Quote conversion rate', metric3_label: 'Dealer satisfaction score',
+      toyota_work: 'Toyota Work', all_projects: 'All projects', current_page: 'Current page',
+      footer_copy: '© 2026 Santiago Morales - DavinSane. All rights reserved.', footer_privacy: 'Privacy'
+    },
+    es: {
+      nav_back: 'Atrás', nav_next: 'Siguiente →',
+      hero_desc: 'Una plataforma de operaciones interna diseñada para unificar los flujos de trabajo de los concesionarios Toyota — desde gestión de inventario y registros de clientes hasta programación de servicios e informes de rendimiento.',
+      meta_role: 'Rol', meta_role_val: 'Diseñador UX Principal', meta_year: 'Año', meta_duration: 'Duración', meta_duration_val: '16 semanas',
+      meta_deliverables: 'Entregables', meta_deliverables_val: 'Diseño UI, Componentes, Handoff', meta_tools: 'Herramientas',
+      hero_caption: 'Toyota Dealer Hub — visión general de inventario y dashboard de operaciones diarias',
+      s1_title: '01 Descripción', s1_p1: 'Los concesionarios autorizados de Toyota en América Latina operan en cinco sistemas de software desconectados para gestionar su negocio diario. El costo cognitivo de cambiar entre estos sistemas costaba a los concesionarios un estimado de 40 minutos por vendedor por día.', s1_p2: 'El Toyota Dealer Hub es la plataforma unificada diseñada para reemplazar ese conjunto fragmentado. El objetivo no era construir un ERP completo, sino la capa operativa que los concesionarios realmente usan durante las interacciones con clientes.',
+      s2_title: '02 El Problema', s2_p1: 'La observación contextual en cuatro concesionarios reveló el flujo de trabajo real: un vendedor ayudando a un cliente a configurar un vehículo nuevo tenía que abrir tres aplicaciones diferentes para responder preguntas básicas sobre inventario disponible, opciones de financiamiento y plazos de entrega.', s2_p2: 'Los asesores de servicio enfrentaban un problema paralelo: no podían ver el historial completo del vehículo de un cliente, los recalls abiertos y la cita programada en la misma vista.',
+      img_research: 'Observación contextual — siguiendo a equipos de ventas y servicio en cuatro concesionarios',
+      s3_title: '03 Proceso', s3_p1: 'El proceso de diseño comenzó con un ejercicio de mapeo de roles — identificando los seis roles distintos que interactúan con el software de operaciones de concesionarios y mapeando el conjunto distinto de información que cada rol necesita en cada punto de contacto.', s3_p2: 'Emergió un principio arquitectónico claro: el sistema necesitaba ser consciente del rol, no solo con permisos por rol. Un vendedor y un asesor de servicio deberían ver vistas predeterminadas completamente diferentes.',
+      s4_title: '04 Solución', s4_p1: 'El Dealer Hub presenta a cada usuario una pantalla de inicio configurada por rol al iniciar sesión. Un vendedor ve su pipeline, los test drives programados para hoy y los 10 modelos más buscados. Un asesor de servicio ve las citas del día, los bahías de servicio activos y los vehículos esperando piezas.', s4_p2: 'La vista de detalle del vehículo — la pantalla más usada en el sistema — muestra inventario, escenarios de financiamiento, accesorios disponibles y cronograma de entrega en un solo scroll.',
+      img_sales: 'Dashboard de ventas — vista de pipeline con disponibilidad de inventario',
+      img_service: 'Vista del asesor de servicio — horario diario de bahías con panel de historial del vehículo',
+      s5_title: '05 Resultados', metric1_label: 'Tiempo de cambio diario', metric2_label: 'Tasa de conversión de cotizaciones', metric3_label: 'Puntuación de satisfacción del concesionario',
+      toyota_work: 'Proyectos Toyota', all_projects: 'Todos los proyectos', current_page: 'Página actual',
+      footer_copy: '© 2026 Santiago Morales - DavinSane. Todos los derechos reservados.', footer_privacy: 'Privacidad'
+    }
+  };
+
+  let currentLang = localStorage.getItem('lang') || 'en';
+  function applyLang(lang) {
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.dataset.i18n; if (t[k] !== undefined) el.textContent = t[k]; });
+    document.getElementById('lang-label').textContent = lang === 'en' ? 'ES' : 'EN';
+    document.documentElement.lang = lang;
+  }
+  function toggleLang() { currentLang = currentLang === 'en' ? 'es' : 'en'; localStorage.setItem('lang', currentLang); applyLang(currentLang); }
+  applyLang(currentLang);
+</script>
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iQor HUB V2 — Santiago Morales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "background": "#131313", "surface-container-low": "#1c1b1b",
+          "surface": "#131313", "primary": "#abc7ff",
+          "on-surface-variant": "#c2c6d4", "surface-bright": "#3a3939",
+          "on-background": "#e5e2e1", "text-muted": "#A3A3A3",
+          "outline-variant": "#424752", "surface-variant": "#353534",
+          "surface-container": "#201f1f", "secondary": "#c6c6c7",
+          "surface-container-highest": "#353534", "surface-dim": "#131313",
+          "surface-elevated": "#1A1A1A", "border-low-contrast": "#262626",
+          "on-surface": "#e5e2e1", "outline": "#8c919e"
+        },
+        borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+        spacing: { "section-gap": "120px", "gutter": "24px", "element-gap": "32px", "margin-desktop": "64px", "margin-mobile": "20px", "container-max": "1200px" },
+        fontFamily: { "label-sm": ["JetBrains Mono"], "headline-lg": ["JetBrains Mono"], "headline-lg-mobile": ["JetBrains Mono"], "body-lg": ["Inter"], "label-md": ["JetBrains Mono"], "headline-md": ["JetBrains Mono"], "headline-sm": ["JetBrains Mono"], "body-md": ["Inter"] },
+        fontSize: {
+          "label-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+          "headline-lg-mobile": ["36px", { "lineHeight": "1.15", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "headline-lg": ["60px", { "lineHeight": "1.05", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+          "headline-sm": ["22px", { "lineHeight": "1.3", "fontWeight": "600" }],
+          "body-lg": ["20px", { "lineHeight": "1.8", "fontWeight": "400" }],
+          "label-md": ["15px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
+          "headline-md": ["30px", { "lineHeight": "1.25", "fontWeight": "500" }],
+          "body-md": ["17px", { "lineHeight": "1.75", "fontWeight": "400" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  #particles-bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; overflow: hidden; }
+  .prose-content p { margin-bottom: 1.5rem; }
+  .prose-content h2 { margin-top: 3rem; margin-bottom: 1rem; }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<div id="particles-bg"></div>
+
+<!-- Nav -->
+<nav class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border-low-contrast">
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-5 flex items-center justify-between">
+    <a href="iqor.html" class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors duration-200 font-label-sm text-label-sm group">
+      <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style="font-size:18px;">arrow_back</span>
+      <span data-i18n="nav_back">Back</span>
+    </a>
+    <span class="font-label-md text-label-md text-on-surface uppercase tracking-widest">SANTIAGO MORALES</span>
+    <div class="flex gap-2">
+      <a href="iqor-recruit.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors" data-i18n="nav_next">Next →</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow">
+  <!-- Hero -->
+  <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pt-24 pb-16 fade-in">
+    <div class="flex gap-2 mb-6">
+      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Intranet</span>
+      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">UX Design</span>
+    </div>
+    <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6 tracking-tight">iQor HUB V2</h1>
+    <p class="font-body-lg text-body-lg text-text-muted max-w-3xl" data-i18n="hero_desc">
+      The second major evolution of iQor's internal platform — a complete UX overhaul driven by real usage data, employee feedback, and an expanded communication framework built for a workforce of 44,000+.
+    </p>
+
+    <!-- Meta row -->
+    <div class="mt-14 border-t border-border-low-contrast grid grid-cols-2 md:grid-cols-5">
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_role">Role</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_role_val">Lead Designer</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_year">Year</p>
+        <p class="font-label-md text-label-md text-on-surface">2026</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_duration">Duration</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_duration_val">16 weeks</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_deliverables">Deliverables</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_deliverables_val">Design System, Features, Research</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_tools">Tools</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_tools_val">Figma, Replit AI, Claude AI</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Image -->
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 mb-20 fade-in">
+    <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+      <img src="iQor_HUB/img/iQorHUB.jpg"
+           alt="iQor HUB V2 hero" class="w-full h-auto block opacity-90"/>
+    </div>
+    <p class="mt-3 font-label-sm text-label-sm text-outline text-center" data-i18n="hero_caption">iQor HUB V2, the current production version of the internal operations platform</p>
+  </div>
+
+  <!-- Article Body -->
+  <article class="max-w-[920px] mx-auto px-margin-mobile md:px-16 prose-content">
+
+    <!-- Overview -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s1_title">01 Overview</h2>
+      <p class="font-body-lg text-body-lg text-on-surface" data-i18n="s1_p1">
+        iQor HUB V2 is the current production version of the company's internal operating platform, serving over 44,000 employees worldwide. Built on the foundation established by V1, this iteration focused on resolving friction points discovered through real usage and expanding the platform's communication capabilities.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s1_p2">
+        The redesign touched every layer of the product — information architecture, navigation patterns, the dashboard system, and the communication module — while preserving the role-aware access model that made V1 successful. The result is a platform that feels as cohesive for a first-day employee as it does for a tenured power user.
+      </p>
+    </section>
+
+    <!-- Problem -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s2_title">02 The Problem</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p1">
+        Six months of V1 in production surfaced a clear set of recurring issues. Navigation depth was the most cited pain point — employees with broad tool access had to traverse multiple menu layers to reach frequently used applications, a problem that grew worse as iQor onboarded more internal services to the HUB.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p2">
+        The communication module, built as a lightweight addition in V1, became a bottleneck. Team leads reported that the absence of threaded messaging and notification grouping made high-volume channels unusable. Meanwhile, the static dashboard layout left no room for employees to surface the information most relevant to their daily routines.
+      </p>
+    </section>
+
+    <!-- Process -->
+    <section class="mb-10 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s3_title">03 Process</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p1">
+        The V2 process started with data before it started with design. We pulled six months of analytics from V1 — heatmaps, navigation paths, drop-off points, and feature usage rates — and cross-referenced those signals against a structured set of employee interviews conducted across four departments and three regional offices.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p2">
+        The pattern that emerged from both sources was consistent: employees weren't struggling with what the platform offered, they were struggling with how to reach it. That insight reframed V2 entirely: the primary design challenge was navigation architecture, not feature addition.
+      </p>
+    </section>
+
+    <!-- Hero image repeated as process artifact -->
+    <div class="mb-6 fade-in">
+      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+        <img src="iQor_HUB/img/iQorHUB.jpg"
+             alt="iQor HUB V2 interface" class="w-full h-auto block opacity-90"/>
+      </div>
+      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="hub_caption">iQor HUB V2, redesigned navigation and dashboard system</p>
+    </div>
+
+    <!-- Process pt.2 -->
+    <section class="mb-10 fade-in">
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p3">
+        With that anchor in place, we ran two rounds of concept testing. The first tested three navigation models with a cross-functional group of 18 employees. The second validated the winning direction with a broader cohort of 40 participants before moving to high-fidelity design.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p4">
+        Prototypes were built in Figma and tested iteratively, with each round producing a prioritized list of issues resolved before the next cycle began. The communication module was designed in parallel by a second workstream, then integrated in the final sprint before handoff to development.
+      </p>
+    </section>
+
+<!-- Solution -->
+    <section class="mb-12 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s4_title">04 Solution</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p1">
+        V2 introduced a persistent shortcut rail that puts the eight most-accessed applications one click away regardless of where the employee is in the platform. Application navigation was restructured from a deep menu tree into a flat, searchable launcher — reducing median navigation time from four interactions to one.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p2">
+        The communication module was rebuilt from the ground up. Threaded messaging, notification batching, and channel-level read receipts addressed the high-volume channel problem directly. Video calls were upgraded from a third-party embed to a native interface, removing the context break that came with launching an external window.
+      </p>
+    </section>
+
+    <!-- V1 photo as comparison -->
+    <div class="mb-6 fade-in">
+      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+        <img src="iQor_HUB/img/HUBV1.jpg"
+             alt="iQor HUB V1 for comparison" class="w-full h-auto block opacity-90"/>
+      </div>
+      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="v1_caption">iQor HUB V1 — the baseline that informed V2's redesign priorities</p>
+    </div>
+
+    <!-- HUB video -->
+    <div class="mb-6 fade-in">
+      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+        <video src="iQor_HUB/img/HUBvideo.mkv" controls class="w-full h-auto block opacity-90" preload="metadata"></video>
+      </div>
+      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="video_caption">iQor HUB V2, platform walkthrough</p>
+    </div>
+
+    <!-- Solution pt.2 -->
+    <section class="mb-16 fade-in">
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p3">
+        The dashboard system received a modular redesign. Employees can now pin, reorder, and resize the insight widgets most relevant to their role, giving managers a metrics-first view while keeping frontline agents focused on their task queue. The role-aware access model from V1 was preserved and extended — now covering 14 distinct role profiles across the organization.
+      </p>
+    </section>
+
+    <!-- Results -->
+    <section class="mb-24 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s5_title">05 Results</h2>
+      <p class="font-body-md text-body-md text-text-muted mb-10" data-i18n="s5_intro">The following metrics reflect performance improvements measured after the V2 rollout across iQor's global workforce.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-border-low-contrast border border-border-low-contrast">
+        <div class="bg-background p-8">
+          <p class="font-headline-lg text-[64px] leading-none font-bold text-on-surface mb-3">91%</p>
+          <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest" data-i18n="metric_1">Platform satisfaction score</p>
+        </div>
+        <div class="bg-background p-8">
+          <p class="font-headline-lg text-[64px] leading-none font-bold text-on-surface mb-3">74%</p>
+          <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest" data-i18n="metric_2">Reduction in navigation steps</p>
+        </div>
+        <div class="bg-background p-8">
+          <p class="font-headline-lg text-[64px] leading-none font-bold text-on-surface mb-3">3×</p>
+          <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest" data-i18n="metric_3">Increase in comms module usage</p>
+        </div>
+      </div>
+    </section>
+
+  </article>
+
+  <!-- iQor Projects -->
+  <div class="border-t border-border-low-contrast">
+    <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-20">
+      <div class="flex items-center justify-between mb-10">
+        <h2 class="font-label-md text-label-md text-text-muted tracking-widest uppercase" data-i18n="iqor_work">iQor Work</h2>
+        <a href="iqor.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span>
+          <span data-i18n="all_projects">All projects</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+
+        <!-- iQor HUB V1 -->
+        <a href="iqor-hub.html" class="group flex flex-col gap-4">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden transition-colors duration-300 group-hover:border-primary">
+            <img src="iQor_HUB/img/HUBV1.jpg"
+                 alt="iQor HUB V1" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">iQor HUB V1</h3>
+              <div class="flex gap-2 mt-2">
+                <span class="font-label-sm text-label-sm text-text-muted">Intranet</span>
+                <span class="font-label-sm text-label-sm text-outline-variant">·</span>
+                <span class="font-label-sm text-label-sm text-text-muted">UX Design</span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300 mt-1" style="font-size:18px;">arrow_outward</span>
+          </div>
+        </a>
+
+        <!-- iQor HUB V2 (current) -->
+        <div class="flex flex-col gap-4 opacity-60 cursor-default">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-primary/30 overflow-hidden">
+            <img src="iQor_HUB/img/iQorHUB.jpg"
+                 alt="iQor HUB V2" class="w-full h-full object-cover opacity-80"/>
+            <div class="absolute inset-0 bg-background/40 flex items-center justify-center">
+              <span class="px-3 py-1 border border-primary/50 font-label-sm text-label-sm text-primary rounded-full" data-i18n="iqor_current">Current page</span>
+            </div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-on-surface">iQor HUB V2</h3>
+              <div class="flex gap-2 mt-2">
+                <span class="font-label-sm text-label-sm text-text-muted">Intranet</span>
+                <span class="font-label-sm text-label-sm text-outline-variant">·</span>
+                <span class="font-label-sm text-label-sm text-text-muted">UX Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- iQor CMS -->
+        <a href="iqor-cms.html" class="group flex flex-col gap-4">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden transition-colors duration-300 group-hover:border-primary">
+            <img src="iQor_HUB/img/CMS.jpg"
+                 alt="iQor CMS" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">iQor CMS</h3>
+              <div class="flex gap-2 mt-2">
+                <span class="font-label-sm text-label-sm text-text-muted">CMS</span>
+                <span class="font-label-sm text-label-sm text-outline-variant">·</span>
+                <span class="font-label-sm text-label-sm text-text-muted">Internal Tool</span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300 mt-1" style="font-size:18px;">arrow_outward</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="w-full py-gutter px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-element-gap border-t border-border-low-contrast bg-background font-label-sm text-label-sm opacity-80 hover:opacity-100 transition-opacity">
+  <div class="font-label-md text-label-md uppercase tracking-widest text-on-surface">SANTIAGO MORALES</div>
+  <div class="text-on-surface" data-i18n="footer_copy">© 2026 Santiago Morales - DavinSane. All rights reserved.</div>
+  <nav class="flex gap-6">
+    <a class="text-text-muted hover:text-primary transition-colors" href="#" data-i18n="footer_privacy">Privacy</a>
+    <a class="text-text-muted hover:text-primary transition-colors" href="#">Github</a>
+  </nav>
+</footer>
+
+<!-- Floating language toggle -->
+<button id="lang-toggle" onclick="toggleLang()" aria-label="Toggle language" class="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-3 py-2 bg-surface-elevated border border-border-low-contrast rounded-full font-label-sm text-label-sm text-on-surface hover:border-primary hover:text-primary transition-colors duration-200 shadow-lg">
+  <span class="material-symbols-outlined" style="font-size:16px;">language</span>
+  <span id="lang-label">ES</span>
+</button>
+
+<script type="module" src="particles-bg.js"></script>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const translations = {
+    en: {
+      nav_back: 'Back',
+      nav_next: 'Next →',
+      hero_desc: "The second major evolution of iQor's internal platform — a complete UX overhaul driven by real usage data, employee feedback, and an expanded communication framework built for a workforce of 44,000+.",
+      meta_role: 'Role',
+      meta_role_val: 'Lead Designer',
+      meta_year: 'Year',
+      meta_duration: 'Duration',
+      meta_duration_val: '16 weeks',
+      meta_deliverables: 'Deliverables',
+      meta_deliverables_val: 'Design System, Features, Research',
+      meta_tools: 'Tools',
+      meta_tools_val: 'Figma, Replit AI, Claude AI',
+      hero_caption: 'iQor HUB V2, the current production version of the internal operations platform',
+      s1_title: '01 Overview',
+      s1_p1: "iQor HUB V2 is the current production version of the company's internal operating platform, serving over 44,000 employees worldwide. Built on the foundation established by V1, this iteration focused on resolving friction points discovered through real usage and expanding the platform's communication capabilities.",
+      s1_p2: "The redesign touched every layer of the product — information architecture, navigation patterns, the dashboard system, and the communication module — while preserving the role-aware access model that made V1 successful. The result is a platform that feels as cohesive for a first-day employee as it does for a tenured power user.",
+      s2_title: '02 The Problem',
+      s2_p1: "Six months of V1 in production surfaced a clear set of recurring issues. Navigation depth was the most cited pain point — employees with broad tool access had to traverse multiple menu layers to reach frequently used applications, a problem that grew worse as iQor onboarded more internal services to the HUB.",
+      s2_p2: "The communication module, built as a lightweight addition in V1, became a bottleneck. Team leads reported that the absence of threaded messaging and notification grouping made high-volume channels unusable. Meanwhile, the static dashboard layout left no room for employees to surface the information most relevant to their daily routines.",
+      s3_title: '03 Process',
+      s3_p1: "The V2 process started with data before it started with design. We pulled six months of analytics from V1 — heatmaps, navigation paths, drop-off points, and feature usage rates — and cross-referenced those signals against a structured set of employee interviews conducted across four departments and three regional offices.",
+      s3_p2: "The pattern that emerged from both sources was consistent: employees weren't struggling with what the platform offered, they were struggling with how to reach it. That insight reframed V2 entirely: the primary design challenge was navigation architecture, not feature addition.",
+      hub_caption: 'iQor HUB V2, redesigned navigation and dashboard system',
+      s3_p3: "With that anchor in place, we ran two rounds of concept testing. The first tested three navigation models with a cross-functional group of 18 employees. The second validated the winning direction with a broader cohort of 40 participants before moving to high-fidelity design.",
+      s3_p4: "Prototypes were built in Figma and tested iteratively, with each round producing a prioritized list of issues resolved before the next cycle began. The communication module was designed in parallel by a second workstream, then integrated in the final sprint before handoff to development.",
+      wireframe_caption: 'Structural wireframes for the V2 navigation system and dashboard layout',
+      s4_title: '04 Solution',
+      s4_p1: "V2 introduced a persistent shortcut rail that puts the eight most-accessed applications one click away regardless of where the employee is in the platform. Application navigation was restructured from a deep menu tree into a flat, searchable launcher — reducing median navigation time from four interactions to one.",
+      s4_p2: "The communication module was rebuilt from the ground up. Threaded messaging, notification batching, and channel-level read receipts addressed the high-volume channel problem directly. Video calls were upgraded from a third-party embed to a native interface, removing the context break that came with launching an external window.",
+      v1_caption: 'iQor HUB V1 — the baseline that informed V2\'s redesign priorities',
+      video_caption: 'iQor HUB V2, platform walkthrough',
+      s4_p3: "The dashboard system received a modular redesign. Employees can now pin, reorder, and resize the insight widgets most relevant to their role, giving managers a metrics-first view while keeping frontline agents focused on their task queue. The role-aware access model from V1 was preserved and extended — now covering 14 distinct role profiles across the organization.",
+      s5_title: '05 Results',
+      s5_intro: 'The following metrics reflect performance improvements measured after the V2 rollout across iQor\'s global workforce.',
+      metric_1: 'Platform satisfaction score',
+      metric_2: 'Reduction in navigation steps',
+      metric_3: 'Increase in comms module usage',
+      iqor_work: 'iQor Work',
+      iqor_current: 'Current page',
+      all_projects: 'All projects',
+      footer_copy: '© 2026 Santiago Morales - DavinSane. All rights reserved.',
+      footer_privacy: 'Privacy',
+    },
+    es: {
+      nav_back: 'Atrás',
+      nav_next: 'Siguiente →',
+      hero_desc: "La segunda evolución mayor de la plataforma interna de iQor — una revisión completa de UX basada en datos de uso real, retroalimentación de empleados y un framework de comunicación expandido para una fuerza laboral de más de 44,000 personas.",
+      meta_role: 'Rol',
+      meta_role_val: 'Diseñador Principal',
+      meta_year: 'Año',
+      meta_duration: 'Duración',
+      meta_duration_val: '16 semanas',
+      meta_deliverables: 'Entregables',
+      meta_deliverables_val: 'Sistema de Diseño, Funcionalidades, Investigación',
+      meta_tools: 'Herramientas',
+      meta_tools_val: 'Figma, Replit AI, Claude AI',
+      hero_caption: 'iQor HUB V2, la versión actual en producción de la plataforma de operaciones internas',
+      s1_title: '01 Descripción',
+      s1_p1: "iQor HUB V2 es la versión actual en producción de la plataforma operativa interna de la empresa, atendiendo a más de 44,000 empleados en todo el mundo. Construida sobre la base establecida por V1, esta iteración se enfocó en resolver los puntos de fricción descubiertos a través del uso real y en expandir las capacidades de comunicación de la plataforma.",
+      s1_p2: "El rediseño tocó cada capa del producto — arquitectura de información, patrones de navegación, el sistema de dashboard y el módulo de comunicaciones — mientras se preservaba el modelo de acceso por rol que hizo exitosa a V1. El resultado es una plataforma que se siente igual de coherente para un empleado de primer día que para un usuario experimentado.",
+      s2_title: '02 El Problema',
+      s2_p1: "Seis meses de V1 en producción revelaron un conjunto claro de problemas recurrentes. La profundidad de navegación fue el punto de fricción más citado — los empleados con acceso amplio a herramientas tenían que recorrer múltiples capas de menús para llegar a las aplicaciones de uso frecuente, un problema que se agravó a medida que iQor incorporó más servicios internos al HUB.",
+      s2_p2: "El módulo de comunicaciones, construido como una adición ligera en V1, se convirtió en un cuello de botella. Los líderes de equipo reportaron que la ausencia de mensajería en hilo y agrupación de notificaciones hacía inutilizables los canales de alto volumen. Mientras tanto, el diseño estático del dashboard no dejaba espacio para que los empleados accedieran fácilmente a la información más relevante para su rutina diaria.",
+      s3_title: '03 Proceso',
+      s3_p1: "El proceso de V2 comenzó con datos antes de comenzar con diseño. Extrajimos seis meses de analíticas de V1 — mapas de calor, rutas de navegación, puntos de abandono y tasas de uso de funcionalidades — y cruzamos esas señales con un conjunto estructurado de entrevistas a empleados realizadas en cuatro departamentos y tres oficinas regionales.",
+      s3_p2: "El patrón que emergió de ambas fuentes fue consistente: los empleados no tenían problemas con lo que ofrecía la plataforma, sino con cómo acceder a ello. Ese hallazgo reencuadró V2 por completo: el reto de diseño principal era la arquitectura de navegación, no la adición de funcionalidades.",
+      hub_caption: 'iQor HUB V2, sistema de navegación y dashboard rediseñados',
+      s3_p3: "Con ese ancla establecida, realizamos dos rondas de pruebas de concepto. La primera evaluó tres modelos de navegación con un grupo interfuncional de 18 empleados. La segunda validó la dirección ganadora con una cohorte más amplia de 40 participantes antes de pasar al diseño de alta fidelidad.",
+      s3_p4: "Los prototipos se construyeron en Figma y se probaron de forma iterativa, con cada ronda produciendo una lista priorizada de problemas resueltos antes de iniciar el siguiente ciclo. El módulo de comunicaciones fue diseñado en paralelo por un segundo flujo de trabajo, luego integrado en el sprint final antes de la entrega al equipo de desarrollo.",
+      wireframe_caption: 'Wireframes estructurales para el sistema de navegación y layout del dashboard de V2',
+      s4_title: '04 Solución',
+      s4_p1: "V2 introdujo un carril de accesos directos persistente que pone las ocho aplicaciones más utilizadas a un clic de distancia sin importar dónde esté el empleado en la plataforma. La navegación de aplicaciones se reestructuró de un árbol de menús profundo a un lanzador plano y con búsqueda — reduciendo el tiempo medio de navegación de cuatro interacciones a una.",
+      s4_p2: "El módulo de comunicaciones fue reconstruido desde cero. La mensajería en hilo, el agrupamiento de notificaciones y los acuses de lectura a nivel de canal abordaron directamente el problema de los canales de alto volumen. Las videollamadas se actualizaron de un embed de terceros a una interfaz nativa, eliminando la ruptura de contexto que implicaba abrir una ventana externa.",
+      v1_caption: 'iQor HUB V1 — la línea base que informó las prioridades de rediseño de V2',
+      video_caption: 'iQor HUB V2, recorrido por la plataforma',
+      s4_p3: "El sistema de dashboard recibió un rediseño modular. Los empleados ahora pueden anclar, reordenar y redimensionar los widgets de insights más relevantes para su rol, dando a los gerentes una vista centrada en métricas mientras mantiene a los agentes de primera línea enfocados en su cola de tareas. El modelo de acceso por rol de V1 se preservó y extendió — ahora cubriendo 14 perfiles de rol distintos en la organización.",
+      s5_title: '05 Resultados',
+      s5_intro: 'Las siguientes métricas reflejan las mejoras de rendimiento medidas tras el despliegue de V2 en la fuerza laboral global de iQor.',
+      metric_1: 'Puntuación de satisfacción con la plataforma',
+      metric_2: 'Reducción en pasos de navegación',
+      metric_3: 'Aumento en uso del módulo de comunicaciones',
+      iqor_work: 'Proyectos iQor',
+      iqor_current: 'Página actual',
+      all_projects: 'Todos los proyectos',
+      footer_copy: '© 2026 Santiago Morales - DavinSane. Todos los derechos reservados.',
+      footer_privacy: 'Privacidad',
+    }
+  };
+
+  let currentLang = localStorage.getItem('lang') || 'en';
+
+  function applyLang(lang) {
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.getElementById('lang-label').textContent = lang === 'en' ? 'ES' : 'EN';
+    document.documentElement.lang = lang;
+  }
+
+  function toggleLang() {
+    currentLang = currentLang === 'en' ? 'es' : 'en';
+    localStorage.setItem('lang', currentLang);
+    applyLang(currentLang);
+  }
+
+  applyLang(currentLang);
+</script>
+</body>
+</html>

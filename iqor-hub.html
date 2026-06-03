@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iQor HUB V1 — Santiago Morales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "background": "#131313", "surface-container-low": "#1c1b1b",
+          "surface": "#131313", "primary": "#abc7ff",
+          "on-surface-variant": "#c2c6d4", "surface-bright": "#3a3939",
+          "on-background": "#e5e2e1", "text-muted": "#A3A3A3",
+          "outline-variant": "#424752", "surface-variant": "#353534",
+          "surface-container": "#201f1f", "secondary": "#c6c6c7",
+          "surface-container-highest": "#353534", "surface-dim": "#131313",
+          "surface-elevated": "#1A1A1A", "border-low-contrast": "#262626",
+          "on-surface": "#e5e2e1", "outline": "#8c919e"
+        },
+        borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+        spacing: { "section-gap": "120px", "gutter": "24px", "element-gap": "32px", "margin-desktop": "64px", "margin-mobile": "20px", "container-max": "1200px" },
+        fontFamily: { "label-sm": ["JetBrains Mono"], "headline-lg": ["JetBrains Mono"], "headline-lg-mobile": ["JetBrains Mono"], "body-lg": ["Inter"], "label-md": ["JetBrains Mono"], "headline-md": ["JetBrains Mono"], "headline-sm": ["JetBrains Mono"], "body-md": ["Inter"] },
+        fontSize: {
+          "label-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+          "headline-lg-mobile": ["36px", { "lineHeight": "1.15", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "headline-lg": ["60px", { "lineHeight": "1.05", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+          "headline-sm": ["22px", { "lineHeight": "1.3", "fontWeight": "600" }],
+          "body-lg": ["20px", { "lineHeight": "1.8", "fontWeight": "400" }],
+          "label-md": ["15px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
+          "headline-md": ["30px", { "lineHeight": "1.25", "fontWeight": "500" }],
+          "body-md": ["17px", { "lineHeight": "1.75", "fontWeight": "400" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  #particles-bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; overflow: hidden; }
+  .prose-content p { margin-bottom: 1.5rem; }
+  .prose-content h2 { margin-top: 3rem; margin-bottom: 1rem; }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<div id="particles-bg"></div>
+
+<!-- Nav -->
+<nav class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border-low-contrast">
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-5 flex items-center justify-between">
+    <a href="iqor.html" class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors duration-200 font-label-sm text-label-sm group">
+      <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style="font-size:18px;">arrow_back</span>
+      <span data-i18n="nav_back">Back</span>
+    </a>
+    <span class="font-label-md text-label-md text-on-surface uppercase tracking-widest">SANTIAGO MORALES</span>
+    <div class="flex gap-2">
+      <a href="quantum.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors" data-i18n="nav_next">Next →</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow">
+  <!-- Hero -->
+  <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pt-24 pb-16 fade-in">
+    <div class="flex gap-2 mb-6">
+      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Intranet</span>
+      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">UX Design</span>
+    </div>
+    <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6 tracking-tight">iQor HUB V1</h1>
+    <p class="font-body-lg text-body-lg text-text-muted max-w-3xl" data-i18n="hero_desc">
+      A global intranet that unifies every internal application, task, and communication channel for iQor's workforce worldwide, all in one adaptive, role-aware platform.
+    </p>
+
+    <!-- Meta row -->
+    <div class="mt-14 pt-8 border-t border-border-low-contrast grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div>
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-1" data-i18n="meta_role">Role</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_role_val">Lead Designer</p>
+      </div>
+      <div>
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-1" data-i18n="meta_year">Year</p>
+        <p class="font-label-md text-label-md text-on-surface">2025</p>
+      </div>
+      <div>
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-1" data-i18n="meta_duration">Duration</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_duration_val">12 weeks</p>
+      </div>
+      <div>
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-1" data-i18n="meta_deliverables">Deliverables</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_deliverables_val">Design System, Features, HandOff Specs</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Image -->
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 mb-20 fade-in">
+    <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+      <img src="iQor_HUB/img/HUBV1.jpg"
+           alt="iQor HUB hero" class="w-full h-auto block opacity-90"/>
+    </div>
+    <p class="mt-3 font-label-sm text-label-sm text-outline text-center" data-i18n="hero_caption">iQor HUB, internal operations platform</p>
+  </div>
+
+  <!-- Article Body -->
+  <article class="max-w-[920px] mx-auto px-margin-mobile md:px-16 prose-content">
+
+    <!-- Overview -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s1_title">01 Overview</h2>
+      <p class="font-body-lg text-body-lg text-on-surface" data-i18n="s1_p1">
+        iQor HUB is the internal operating platform for all iQor employees worldwide. It acts as a unified access layer for every internal application in the organization, surfacing tools and content dynamically based on each employee's role, so no two dashboards look identical.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s1_p2">
+        Beyond app access, the HUB integrates task management across connected platforms, aggregates company-wide announcements from a dedicated CMS, and supports team communication through direct messaging, group chats, and video calls, consolidating the entire employee digital experience into a single interface.
+      </p>
+    </section>
+
+    <!-- Problem -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s2_title">02 The Problem</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p1">
+        Before iQor HUB existed, employees navigated a fragmented ecosystem of standalone applications. Accessing different internal services meant switching between disconnected tools and opening multiple browser pop-up windows, a daily friction point repeated thousands of times across a global workforce.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p2">
+        There was no shared digital home. Tasks lived in separate systems, company news required seeking out, and communication happened outside any unified structure. Every workflow started the same way: context-switching across a desktop cluttered with unrelated tabs and windows.
+      </p>
+    </section>
+
+    <!-- Process -->
+    <section class="mb-10 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s3_title">03 Process</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p1">
+        The project followed a Design Thinking methodology, applying each phase deliberately. We opened with a card sorting session with key project stakeholders, gathering a broad range of ideas, aligning priorities, and establishing the direction of the platform. This gave everyone a shared vocabulary before any design decisions were made.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p2">
+        From there, we moved into direct conversations with employees across the organization. They walked us through their daily frustrations with the company's existing tools, the browser pop-ups, the tab overload, the constant context-switching, and described what a better solution would feel like for their specific workflows.
+      </p>
+    </section>
+
+    <!-- Card sorting photo -->
+    <div class="mb-6 fade-in">
+      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+        <img src="iQor_HUB/img/card_sorting.png"
+             alt="Card sorting session with stakeholders" class="w-full h-auto block opacity-90"/>
+      </div>
+      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="card_sort_caption">Card sorting session, aligning stakeholders on platform priorities. Esta imagen es ilustrativa del card sorting.</p>
+    </div>
+
+    <!-- Process pt.2 -->
+    <section class="mb-10 fade-in">
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p3">
+        With a clear picture of user needs, we moved into ideation and information architecture, organizing insights into a coherent structural plan for the application. Multiple wireframe rounds followed, from rough low-fidelity sketches to mid-fidelity flows, which gave shape to the first version of the platform.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p4">
+        The HUB has gone through two major iterations. V1 established the foundation: the role-based app layer, the task system, the announcement feed. V2, the version currently in production, refined the experience based on real usage, expanding the communication module and tightening the overall information hierarchy.
+      </p>
+    </section>
+
+    <!-- Wireframe photo -->
+    <div class="mb-6 fade-in">
+      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+        <img src="iQor_HUB/img/wireframeHUB.jpg"
+             alt="iQor HUB wireframes" class="w-full h-auto block opacity-90"/>
+      </div>
+      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="wireframe_caption">Early wireframes, first structural exploration of the platform</p>
+    </div>
+
+    <!-- Solution -->
+    <section class="mb-12 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s4_title">04 Solution</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p1">
+        iQor HUB consolidates the entire internal ecosystem into one adaptive interface. Applications are surfaced per employee role: each user sees exactly the tools relevant to their position, nothing more. A unified task layer aggregates pending items from every connected platform, giving employees a single place to manage their workload.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p2">
+        The integrated communications module supports direct messaging, group chats, and video calls, reducing reliance on external tools. A live announcement feed powered by the CMS delivers critical company updates to all employees in real time, with content authored and managed entirely outside the HUB.
+      </p>
+    </section>
+
+    <!-- HUB V1 photo -->
+    <div class="mb-6 fade-in">
+      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+        <img src="iQor_HUB/img/HUBV1.jpg"
+             alt="iQor HUB V1" class="w-full h-auto block opacity-90"/>
+      </div>
+      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="v1_caption">iQor HUB V1, first functional version of the platform</p>
+    </div>
+
+    <!-- V1 results paragraph -->
+    <section class="mb-16 fade-in">
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p3">
+        Version 1 already delivered measurable results: it successfully reduced daily friction for employees by consolidating all iQor applications into a single access point. Beyond app unification, V1 introduced a dynamic insights dashboard that surfaces key metrics and graphic data tailored to each employee's role, giving every user a relevant, personalized view of their work environment from day one.
+      </p>
+    </section>
+
+    <!-- Results -->
+    <section class="mb-24 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s5_title">05 Results</h2>
+      <p class="font-body-md text-body-md text-text-muted mb-10" data-i18n="s5_intro">The following metrics reflect platform adoption and user experience improvement measured after the launch of iQor HUB V1 across the global workforce.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-border-low-contrast border border-border-low-contrast">
+        <div class="bg-background p-8">
+          <p class="font-headline-lg text-[64px] leading-none font-bold text-on-surface mb-3">83%</p>
+          <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest" data-i18n="metric_1">Platform adoption rate</p>
+        </div>
+        <div class="bg-background p-8">
+          <p class="font-headline-lg text-[64px] leading-none font-bold text-on-surface mb-3">90%</p>
+          <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest" data-i18n="metric_2">Reduction in access time</p>
+        </div>
+        <div class="bg-background p-8">
+          <p class="font-headline-lg text-[64px] leading-none font-bold text-on-surface mb-3">44K+</p>
+          <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest" data-i18n="metric_3">Active employees worldwide</p>
+        </div>
+      </div>
+    </section>
+
+  </article>
+
+  <!-- iQor Projects -->
+  <div class="border-t border-border-low-contrast">
+    <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-20">
+      <div class="flex items-center justify-between mb-10">
+        <h2 class="font-label-md text-label-md text-text-muted tracking-widest uppercase" data-i18n="iqor_work">iQor Work</h2>
+        <a href="iqor.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span>
+          <span data-i18n="all_projects">All projects</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+
+        <!-- iQor HUB (current) -->
+        <div class="flex flex-col gap-4 opacity-60 cursor-default">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-primary/30 overflow-hidden">
+            <img src="iQor_HUB/img/iQorHUB.jpg"
+                 alt="iQor HUB" class="w-full h-full object-cover opacity-80"/>
+            <div class="absolute inset-0 bg-background/40 flex items-center justify-center">
+              <span class="px-3 py-1 border border-primary/50 font-label-sm text-label-sm text-primary rounded-full" data-i18n="iqor_current">Current page</span>
+            </div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-on-surface">iQor HUB</h3>
+              <div class="flex gap-2 mt-2">
+                <span class="font-label-sm text-label-sm text-text-muted">Intranet</span>
+                <span class="font-label-sm text-label-sm text-outline-variant">·</span>
+                <span class="font-label-sm text-label-sm text-text-muted">UX Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- iQor HUB V2 -->
+        <a href="iqor-academy.html" class="group flex flex-col gap-4">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden transition-colors duration-300 group-hover:border-primary">
+            <img src="iQor_HUB/img/iQorHUB.jpg"
+                 alt="iQor HUB V2" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">iQor HUB V2</h3>
+              <div class="flex gap-2 mt-2">
+                <span class="font-label-sm text-label-sm text-text-muted">Intranet</span>
+                <span class="font-label-sm text-label-sm text-outline-variant">·</span>
+                <span class="font-label-sm text-label-sm text-text-muted">UX Design</span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300 mt-1" style="font-size:18px;">arrow_outward</span>
+          </div>
+        </a>
+
+        <!-- iQor CMS -->
+        <a href="iqor-cms.html" class="group flex flex-col gap-4">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden transition-colors duration-300 group-hover:border-primary">
+            <img src="iQor_HUB/img/CMS.jpg"
+                 alt="iQor CMS" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">iQor CMS</h3>
+              <div class="flex gap-2 mt-2">
+                <span class="font-label-sm text-label-sm text-text-muted">CMS</span>
+                <span class="font-label-sm text-label-sm text-outline-variant">·</span>
+                <span class="font-label-sm text-label-sm text-text-muted">Internal Tool</span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300 mt-1" style="font-size:18px;">arrow_outward</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="w-full py-gutter px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-element-gap border-t border-border-low-contrast bg-background font-label-sm text-label-sm opacity-80 hover:opacity-100 transition-opacity">
+  <div class="font-label-md text-label-md uppercase tracking-widest text-on-surface">SANTIAGO MORALES</div>
+  <div class="text-on-surface" data-i18n="footer_copy">© 2025 SANTIAGO MORALES. ALL RIGHTS RESERVED.</div>
+  <nav class="flex gap-6">
+    <a class="text-text-muted hover:text-primary transition-colors" href="#" data-i18n="footer_privacy">Privacy</a>
+    <a class="text-text-muted hover:text-primary transition-colors" href="#">Github</a>
+  </nav>
+</footer>
+
+<!-- Floating language toggle -->
+<button id="lang-toggle" onclick="toggleLang()" aria-label="Toggle language" class="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-3 py-2 bg-surface-elevated border border-border-low-contrast rounded-full font-label-sm text-label-sm text-on-surface hover:border-primary hover:text-primary transition-colors duration-200 shadow-lg">
+  <span class="material-symbols-outlined" style="font-size:16px;">language</span>
+  <span id="lang-label">ES</span>
+</button>
+
+<script type="module" src="particles-bg.js"></script>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const translations = {
+    en: {
+      nav_back: 'Back',
+      nav_next: 'Next →',
+      hero_desc: "A global intranet that unifies every internal application, task, and communication channel for iQor's workforce worldwide, all in one adaptive, role-aware platform.",
+      meta_role: 'Role',
+      meta_role_val: 'Lead Designer',
+      meta_year: 'Year',
+      meta_duration: 'Duration',
+      meta_duration_val: '12 weeks',
+      meta_deliverables: 'Deliverables',
+      meta_deliverables_val: 'Design System, Features, HandOff Specs',
+      hero_caption: 'iQor HUB, internal operations platform',
+      s1_title: '01 Overview',
+      s1_p1: "iQor HUB is the internal operating platform for all iQor employees worldwide. It acts as a unified access layer for every internal application in the organization, surfacing tools and content dynamically based on each employee's role, so no two dashboards look identical.",
+      s1_p2: 'Beyond app access, the HUB integrates task management across connected platforms, aggregates company-wide announcements from a dedicated CMS, and supports team communication through direct messaging, group chats, and video calls, consolidating the entire employee digital experience into a single interface.',
+      s2_title: '02 The Problem',
+      s2_p1: 'Before iQor HUB existed, employees navigated a fragmented ecosystem of standalone applications. Accessing different internal services meant switching between disconnected tools and opening multiple browser pop-up windows, a daily friction point repeated thousands of times across a global workforce.',
+      s2_p2: "There was no shared digital home. Tasks lived in separate systems, company news required seeking out, and communication happened outside any unified structure. Every workflow started the same way: context-switching across a desktop cluttered with unrelated tabs and windows.",
+      s3_title: '03 Process',
+      s3_p1: 'The project followed a Design Thinking methodology, applying each phase deliberately. We opened with a card sorting session with key project stakeholders, gathering a broad range of ideas, aligning priorities, and establishing the direction of the platform. This gave everyone a shared vocabulary before any design decisions were made.',
+      s3_p2: "From there, we moved into direct conversations with employees across the organization. They walked us through their daily frustrations with the company's existing tools, the browser pop-ups, the tab overload, the constant context-switching, and described what a better solution would feel like for their specific workflows.",
+      card_sort_caption: 'Card sorting session, aligning stakeholders on platform priorities. Esta imagen es ilustrativa del card sorting.',
+      s3_p3: 'With a clear picture of user needs, we moved into ideation and information architecture, organizing insights into a coherent structural plan for the application. Multiple wireframe rounds followed, from rough low-fidelity sketches to mid-fidelity flows, which gave shape to the first version of the platform.',
+      s3_p4: 'The HUB has gone through two major iterations. V1 established the foundation: the role-based app layer, the task system, the announcement feed. V2, the version currently in production, refined the experience based on real usage, expanding the communication module and tightening the overall information hierarchy.',
+      wireframe_caption: 'Early wireframes, first structural exploration of the platform',
+      s4_title: '04 Solution',
+      s4_p1: 'iQor HUB consolidates the entire internal ecosystem into one adaptive interface. Applications are surfaced per employee role: each user sees exactly the tools relevant to their position, nothing more. A unified task layer aggregates pending items from every connected platform, giving employees a single place to manage their workload.',
+      s4_p2: 'The integrated communications module supports direct messaging, group chats, and video calls, reducing reliance on external tools. A live announcement feed powered by the CMS delivers critical company updates to all employees in real time, with content authored and managed entirely outside the HUB.',
+      s4_p3: 'Version 1 already delivered measurable results: it successfully reduced daily friction for employees by consolidating all iQor applications into a single access point. Beyond app unification, V1 introduced a dynamic insights dashboard that surfaces key metrics and graphic data tailored to each employee\'s role, giving every user a relevant, personalized view of their work environment from day one.',
+      v1_caption: 'iQor HUB V1, first functional version of the platform',
+      s5_title: '05 Results',
+      s5_intro: 'The following metrics reflect platform adoption and user experience improvement measured after the launch of iQor HUB V1 across the global workforce.',
+      metric_1: 'Platform adoption rate',
+      metric_2: 'Reduction in access time',
+      metric_3: 'Active employees worldwide',
+      more_work: 'More Work',
+      iqor_work: 'iQor Work',
+      iqor_current: 'Current page',
+      all_projects: 'All projects',
+      footer_copy: '© 2025 SANTIAGO MORALES. ALL RIGHTS RESERVED.',
+      footer_privacy: 'Privacy',
+    },
+    es: {
+      nav_back: 'Atrás',
+      nav_next: 'Siguiente →',
+      hero_desc: "Una intranet global que unifica todas las aplicaciones internas, tareas y canales de comunicación para la fuerza laboral de iQor en todo el mundo, todo en una plataforma adaptable y consciente del rol.",
+      meta_role: 'Rol',
+      meta_role_val: 'Diseñador Principal',
+      meta_year: 'Año',
+      meta_duration: 'Duración',
+      meta_duration_val: '12 semanas',
+      meta_deliverables: 'Entregables',
+      meta_deliverables_val: 'Sistema de Diseño, Funcionalidades, HandOff Specs',
+      hero_caption: 'iQor HUB, plataforma de operaciones internas',
+      s1_title: '01 Descripción',
+      s1_p1: 'iQor HUB es la plataforma operativa interna para todos los empleados de iQor en todo el mundo. Funciona como una capa de acceso unificado para cada aplicación interna de la organización, mostrando herramientas y contenido dinámicamente según el rol de cada empleado, por lo que no hay dos dashboards iguales.',
+      s1_p2: 'Más allá del acceso a aplicaciones, el HUB integra la gestión de tareas en plataformas conectadas, agrega anuncios de toda la empresa desde un CMS dedicado y soporta la comunicación del equipo mediante mensajes directos, chats grupales y videollamadas, consolidando toda la experiencia digital del empleado en una sola interfaz.',
+      s2_title: '02 El Problema',
+      s2_p1: 'Antes de que existiera iQor HUB, los empleados navegaban en un ecosistema fragmentado de aplicaciones independientes. Acceder a diferentes servicios internos significaba cambiar entre herramientas desconectadas y abrir múltiples ventanas emergentes del navegador, un punto de fricción diario repetido miles de veces en toda la fuerza laboral global.',
+      s2_p2: 'No había un hogar digital compartido. Las tareas vivían en sistemas separados, las noticias de la empresa requerían búsqueda activa y la comunicación ocurría fuera de cualquier estructura unificada. Cada flujo de trabajo comenzaba igual: cambiando de contexto en un escritorio lleno de pestañas y ventanas no relacionadas.',
+      s3_title: '03 Proceso',
+      s3_p1: 'El proyecto siguió la metodología de Design Thinking, aplicando cada fase de manera deliberada. Iniciamos con una sesión de card sorting con los stakeholders clave del proyecto, reuniendo una amplia variedad de ideas, alineando prioridades y estableciendo la dirección de la plataforma. Esto dio a todos un vocabulario compartido antes de tomar cualquier decisión de diseño.',
+      s3_p2: 'A partir de ahí, pasamos a conversaciones directas con empleados de toda la organización. Nos contaron sus frustraciones diarias con las herramientas existentes de la empresa: las ventanas emergentes del navegador, la sobrecarga de pestañas, el constante cambio de contexto, y describieron cómo sería una mejor solución para sus flujos de trabajo específicos.',
+      card_sort_caption: 'Sesión de card sorting, alineando a los stakeholders en las prioridades de la plataforma. Esta imagen es ilustrativa del card sorting.',
+      s3_p3: 'Con una imagen clara de las necesidades del usuario, pasamos a la ideación y la arquitectura de información, organizando los insights en un plan estructural coherente para la aplicación. Siguieron múltiples rondas de wireframes, desde bocetos de baja fidelidad hasta flujos de fidelidad media, que dieron forma a la primera versión de la plataforma.',
+      s3_p4: 'El HUB ha pasado por dos iteraciones principales. V1 estableció la base: la capa de apps por rol, el sistema de tareas y el feed de anuncios. V2, la versión actualmente en producción, refinó la experiencia con base en el uso real, expandiendo el módulo de comunicación y ajustando la jerarquía de información general.',
+      wireframe_caption: 'Wireframes iniciales, primera exploración estructural de la plataforma',
+      s4_title: '04 Solución',
+      s4_p1: 'iQor HUB consolida todo el ecosistema interno en una interfaz adaptativa. Las aplicaciones se muestran según el rol del empleado: cada usuario ve exactamente las herramientas relevantes para su puesto, nada más. Una capa de tareas unificada agrega los elementos pendientes de cada plataforma conectada, dando a los empleados un único lugar para gestionar su carga de trabajo.',
+      s4_p2: 'El módulo de comunicaciones integrado soporta mensajería directa, chats grupales y videollamadas, reduciendo la dependencia de herramientas externas. Un feed de anuncios en vivo impulsado por el CMS entrega actualizaciones críticas de la empresa a todos los empleados en tiempo real, con contenido creado y gestionado completamente fuera del HUB.',
+      s4_p3: 'La versión 1 ya entregó resultados concretos: logró reducir las fricciones diarias de los empleados al consolidar todas las aplicaciones de iQor en un único punto de acceso. Más allá de la unificación de apps, V1 introdujo un dashboard de insights dinámico que muestra métricas clave y datos gráficos adaptados al rol de cada empleado, dando a cada usuario una vista personalizada y relevante de su entorno de trabajo desde el primer día.',
+      v1_caption: 'iQor HUB V1, primera versión funcional de la plataforma',
+      s5_title: '05 Resultados',
+      s5_intro: 'Las siguientes métricas reflejan la adopción de la plataforma y la mejora en la experiencia de usuario medida tras el lanzamiento de iQor HUB V1 en toda la fuerza laboral global.',
+      metric_1: 'Tasa de adopción de la plataforma',
+      metric_2: 'Reducción en tiempo de acceso',
+      metric_3: 'Empleados activos en todo el mundo',
+      more_work: 'Más Trabajos',
+      iqor_work: 'Proyectos iQor',
+      iqor_current: 'Página actual',
+      all_projects: 'Todos los proyectos',
+      footer_copy: '© 2025 SANTIAGO MORALES. TODOS LOS DERECHOS RESERVADOS.',
+      footer_privacy: 'Privacidad',
+    }
+  };
+
+  let currentLang = localStorage.getItem('lang') || 'en';
+
+  function applyLang(lang) {
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.getElementById('lang-label').textContent = lang === 'en' ? 'ES' : 'EN';
+    document.documentElement.lang = lang;
+  }
+
+  function toggleLang() {
+    currentLang = currentLang === 'en' ? 'es' : 'en';
+    localStorage.setItem('lang', currentLang);
+    applyLang(currentLang);
+  }
+
+  applyLang(currentLang);
+</script>
+</body>
+</html>

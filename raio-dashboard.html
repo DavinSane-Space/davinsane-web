@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RAIO Dashboard — Santiago Morales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "background": "#131313", "surface-container-low": "#1c1b1b",
+          "surface": "#131313", "primary": "#abc7ff", "on-surface-variant": "#c2c6d4",
+          "text-muted": "#A3A3A3", "outline-variant": "#424752", "surface-variant": "#353534",
+          "surface-container": "#201f1f", "secondary": "#c6c6c7",
+          "surface-elevated": "#1A1A1A", "border-low-contrast": "#262626",
+          "on-surface": "#e5e2e1", "outline": "#8c919e"
+        },
+        borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+        spacing: { "section-gap": "120px", "gutter": "24px", "element-gap": "32px", "margin-desktop": "64px", "margin-mobile": "20px" },
+        fontFamily: { "label-sm": ["JetBrains Mono"], "headline-lg": ["JetBrains Mono"], "headline-lg-mobile": ["JetBrains Mono"], "body-lg": ["Inter"], "label-md": ["JetBrains Mono"], "headline-md": ["JetBrains Mono"], "body-md": ["Inter"] },
+        fontSize: {
+          "label-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+          "headline-lg-mobile": ["36px", { "lineHeight": "1.15", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "headline-lg": ["60px", { "lineHeight": "1.05", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+          "body-lg": ["20px", { "lineHeight": "1.8", "fontWeight": "400" }],
+          "label-md": ["15px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
+          "headline-md": ["30px", { "lineHeight": "1.25", "fontWeight": "500" }],
+          "body-md": ["17px", { "lineHeight": "1.75", "fontWeight": "400" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  #particles-bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; overflow: hidden; }
+  .prose-content p { margin-bottom: 1.5rem; }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<div id="particles-bg"></div>
+
+<nav class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border-low-contrast">
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-5 flex items-center justify-between">
+    <a href="meridian.html" class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors duration-200 font-label-sm text-label-sm group">
+      <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style="font-size:18px;">arrow_back</span>
+      <span data-i18n="nav_back">Back</span>
+    </a>
+    <span class="font-label-md text-label-md text-on-surface uppercase tracking-widest">SANTIAGO MORALES</span>
+    <a href="raio-mobile.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors" data-i18n="nav_next">Next →</a>
+  </div>
+</nav>
+
+<main class="flex-grow">
+  <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pt-24 pb-16 fade-in">
+    <div class="flex gap-2 mb-6">
+      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Analytics</span>
+      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Dashboard</span>
+    </div>
+    <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6 tracking-tight">RAIO Dashboard</h1>
+    <p class="font-body-lg text-body-lg text-text-muted max-w-3xl" data-i18n="hero_desc">
+      The core analytics interface for RAIO's B2B platform — redesigned from a data-heavy grid into a customizable, role-aware command center that surfaces what each user needs to act, without burying them in noise.
+    </p>
+    <div class="mt-14 border-t border-border-low-contrast grid grid-cols-2 md:grid-cols-5">
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_role">Role</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_role_val">Lead Product Designer</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_year">Year</p>
+        <p class="font-label-md text-label-md text-on-surface">2025</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_duration">Duration</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_duration_val">10 weeks</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_deliverables">Deliverables</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_deliverables_val">UI Design, Prototype, Handoff</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_tools">Tools</p>
+        <p class="font-label-md text-label-md text-on-surface">Figma, Claude AI</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 mb-20 fade-in">
+    <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+      <img src="https://picsum.photos/seed/raio-dash-hero/1280/720" alt="RAIO Dashboard" class="w-full h-auto block opacity-90"/>
+    </div>
+    <p class="mt-3 font-label-sm text-label-sm text-outline text-center" data-i18n="hero_caption">RAIO Dashboard — customizable analytics command center</p>
+  </div>
+
+  <article class="max-w-[920px] mx-auto px-margin-mobile md:px-16 prose-content">
+
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s1_title">01 Overview</h2>
+      <p class="font-body-lg text-body-lg text-on-surface" data-i18n="s1_p1">
+        RAIO is a B2B SaaS platform that helps operations teams track performance across distributed field networks. Their core dashboard had been built iteratively over three years by different engineering teams, and by the time of this project it had accumulated 47 widgets, 12 filter dimensions, and no clear hierarchy of what mattered most.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s1_p2">
+        Monthly churn was running at 8% — high for B2B SaaS — and exit interviews consistently cited "the platform is too complicated to learn" as the primary reason. The brief was to redesign the dashboard without losing any existing functionality, while dramatically reducing the cognitive overhead of first use and daily use.
+      </p>
+    </section>
+
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s2_title">02 The Problem</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p1">
+        Session recordings showed the same pattern across hundreds of users: they loaded the dashboard, scanned for 15–20 seconds, and then navigated directly to one of three specific views — ignoring 80% of the interface entirely. The dashboard was built to show everything; users needed it to show their thing.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p2">
+        A Jobs-to-be-Done study with 18 RAIO customers across five industries surfaced three distinct user profiles — the Executive Reviewer, the Operational Manager, and the Field Analyst — each with fundamentally different definitions of what a good morning dashboard looked like. There was no single "right" layout. The system needed to be configurable without being complicated.
+      </p>
+    </section>
+
+    <div class="mb-16 fade-in">
+      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+        <img src="https://picsum.photos/seed/raio-dash-research/920/560" alt="JTBD research" class="w-full h-auto block opacity-80 grayscale"/>
+      </div>
+      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="img_research">Jobs-to-be-Done analysis — three user profiles, three fundamentally different dashboard needs</p>
+    </div>
+
+    <section class="mb-10 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s3_title">03 Process</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p1">
+        The design process began by classifying the existing 47 widgets into three tiers: tier-1 (used by more than 60% of sessions), tier-2 (used by 20–60%), and tier-3 (used by less than 20%). Tier-1 widgets became the default dashboard for new accounts. Tier-2 widgets became the customization palette. Tier-3 widgets were moved to a dedicated reporting section accessed from the nav.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p2">
+        The customization model went through four iterations. The final approach — drag-and-drop layout editing with a live preview, activated by a single "Edit layout" toggle — was validated in user testing to take users from "I don't know what I'm looking at" to "I have what I need" in under 4 minutes, on average.
+      </p>
+    </section>
+
+    <section class="mb-12 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s4_title">04 Solution</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p1">
+        The redesigned RAIO Dashboard ships three default layout presets — Executive, Operations, and Field — that users select during onboarding. Each preset shows a curated set of tier-1 widgets optimized for that role's primary workflow. Users can then edit their layout by dragging widgets in and out from a side panel, with changes saved automatically per user account.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p2">
+        A persistent alert rail runs along the top of the dashboard, surfacing any metrics that have crossed a user-defined threshold. This means the dashboard isn't just informational — it's actively monitoring. Users come to trust the silence: if there's no alert, everything is within normal parameters.
+      </p>
+    </section>
+
+    <div class="grid grid-cols-2 gap-4 mb-16 fade-in">
+      <div>
+        <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+          <img src="https://picsum.photos/seed/raio-dash-presets/460/560" alt="Layout presets" class="w-full h-auto block opacity-85"/>
+        </div>
+        <p class="mt-2 font-label-sm text-label-sm text-outline" data-i18n="img_presets">Onboarding preset selection — Executive, Operations, and Field layouts</p>
+      </div>
+      <div>
+        <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+          <img src="https://picsum.photos/seed/raio-dash-edit/460/560" alt="Edit mode" class="w-full h-auto block opacity-85 grayscale"/>
+        </div>
+        <p class="mt-2 font-label-sm text-label-sm text-outline" data-i18n="img_edit">Edit layout mode — drag-and-drop customization with live preview</p>
+      </div>
+    </div>
+
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-8" data-i18n="s5_title">05 Results</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-border-low-contrast border border-border-low-contrast">
+        <div class="bg-background p-8">
+          <p class="font-headline-lg text-[64px] leading-none font-bold text-on-surface mb-3">−58%</p>
+          <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest" data-i18n="metric1_label">Monthly churn rate</p>
+        </div>
+        <div class="bg-background p-8">
+          <p class="font-headline-lg text-[64px] leading-none font-bold text-on-surface mb-3">4min</p>
+          <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest" data-i18n="metric2_label">Time to personalized layout</p>
+        </div>
+        <div class="bg-background p-8">
+          <p class="font-headline-lg text-[64px] leading-none font-bold text-on-surface mb-3">91%</p>
+          <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest" data-i18n="metric3_label">Dashboard customization rate</p>
+        </div>
+      </div>
+    </section>
+
+  </article>
+
+  <div class="border-t border-border-low-contrast">
+    <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-20">
+      <div class="flex items-center justify-between mb-10">
+        <h2 class="font-label-md text-label-md text-text-muted tracking-widest uppercase" data-i18n="raio_work">RAIO Work</h2>
+        <a href="meridian.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span>
+          <span data-i18n="all_projects">All projects</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        <div class="flex flex-col gap-4 opacity-60 cursor-default">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-primary/30 overflow-hidden">
+            <img src="https://picsum.photos/seed/raio-dashboard/800/600" alt="RAIO Dashboard" class="w-full h-full object-cover opacity-80"/>
+            <div class="absolute inset-0 bg-background/40 flex items-center justify-center">
+              <span class="px-3 py-1 border border-primary/50 font-label-sm text-label-sm text-primary rounded-full" data-i18n="current_page">Current page</span>
+            </div>
+          </div>
+          <div><h3 class="font-headline-md text-headline-md text-on-surface">RAIO Dashboard</h3>
+          <div class="flex gap-2 mt-2"><span class="font-label-sm text-label-sm text-text-muted">Analytics</span><span class="font-label-sm text-label-sm text-outline-variant">·</span><span class="font-label-sm text-label-sm text-text-muted">Dashboard</span></div></div>
+        </div>
+        <a href="raio-mobile.html" class="group flex flex-col gap-4">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden transition-colors duration-300 group-hover:border-primary">
+            <img src="https://picsum.photos/seed/raio-mobile/800/600" alt="RAIO Mobile" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div><h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">RAIO Mobile</h3>
+            <div class="flex gap-2 mt-2"><span class="font-label-sm text-label-sm text-text-muted">App</span><span class="font-label-sm text-label-sm text-outline-variant">·</span><span class="font-label-sm text-label-sm text-text-muted">Field Ops</span></div></div>
+            <span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300 mt-1" style="font-size:18px;">arrow_outward</span>
+          </div>
+        </a>
+        <a href="raio-brand.html" class="group flex flex-col gap-4">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden transition-colors duration-300 group-hover:border-primary">
+            <img src="https://picsum.photos/seed/raio-brand/800/600" alt="RAIO Brand System" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div><h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">RAIO Brand System</h3>
+            <div class="flex gap-2 mt-2"><span class="font-label-sm text-label-sm text-text-muted">Identity</span><span class="font-label-sm text-label-sm text-outline-variant">·</span><span class="font-label-sm text-label-sm text-text-muted">Motion</span></div></div>
+            <span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300 mt-1" style="font-size:18px;">arrow_outward</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="w-full py-gutter px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-element-gap border-t border-border-low-contrast bg-background font-label-sm text-label-sm opacity-80 hover:opacity-100 transition-opacity">
+  <div class="font-label-md text-label-md uppercase tracking-widest text-on-surface">SANTIAGO MORALES</div>
+  <div class="text-on-surface" data-i18n="footer_copy">© 2026 Santiago Morales - DavinSane. All rights reserved.</div>
+  <nav class="flex gap-6">
+    <a class="text-text-muted hover:text-primary transition-colors" href="#" data-i18n="footer_privacy">Privacy</a>
+    <a class="text-text-muted hover:text-primary transition-colors" href="#">Github</a>
+  </nav>
+</footer>
+
+<button id="lang-toggle" onclick="toggleLang()" aria-label="Toggle language" class="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-3 py-2 bg-surface-elevated border border-border-low-contrast rounded-full font-label-sm text-label-sm text-on-surface hover:border-primary hover:text-primary transition-colors duration-200 shadow-lg">
+  <span class="material-symbols-outlined" style="font-size:16px;">language</span>
+  <span id="lang-label">ES</span>
+</button>
+
+<script type="module" src="particles-bg.js"></script>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const translations = {
+    en: {
+      nav_back: 'Back', nav_next: 'Next →',
+      hero_desc: "The core analytics interface for RAIO's B2B platform — redesigned from a data-heavy grid into a customizable, role-aware command center that surfaces what each user needs to act.",
+      meta_role: 'Role', meta_role_val: 'Lead Product Designer', meta_year: 'Year', meta_duration: 'Duration', meta_duration_val: '10 weeks',
+      meta_deliverables: 'Deliverables', meta_deliverables_val: 'UI Design, Prototype, Handoff', meta_tools: 'Tools',
+      hero_caption: 'RAIO Dashboard — customizable analytics command center',
+      s1_title: '01 Overview', s1_p1: "RAIO is a B2B SaaS platform that helps operations teams track performance across distributed field networks. Their core dashboard had accumulated 47 widgets, 12 filter dimensions, and no clear hierarchy of what mattered most.", s1_p2: "Monthly churn was running at 8% — high for B2B SaaS — and exit interviews consistently cited 'the platform is too complicated to learn' as the primary reason.",
+      s2_title: '02 The Problem', s2_p1: "Session recordings showed the same pattern: users loaded the dashboard, scanned for 15–20 seconds, then navigated to one of three specific views — ignoring 80% of the interface entirely.", s2_p2: "A Jobs-to-be-Done study with 18 customers across five industries surfaced three distinct user profiles — the Executive Reviewer, the Operational Manager, and the Field Analyst — each with fundamentally different dashboard needs.",
+      img_research: 'Jobs-to-be-Done analysis — three user profiles, three fundamentally different dashboard needs',
+      s3_title: '03 Process', s3_p1: 'The design process classified the existing 47 widgets into three tiers: used by 60%+ of sessions, 20–60%, and less than 20%. Tier-1 became the default dashboard; tier-2 became the customization palette; tier-3 moved to a dedicated reporting section.', s3_p2: 'The customization model went through four iterations. The final approach — drag-and-drop layout editing with a live preview — was validated to take users from "I don\'t know what I\'m looking at" to "I have what I need" in under 4 minutes.',
+      s4_title: '04 Solution', s4_p1: 'The redesigned RAIO Dashboard ships three default layout presets — Executive, Operations, and Field — selected during onboarding. Each preset shows a curated set of tier-1 widgets optimized for that role\'s primary workflow.', s4_p2: 'A persistent alert rail runs along the top, surfacing any metrics that have crossed a user-defined threshold. Users come to trust the silence: if there\'s no alert, everything is within normal parameters.',
+      img_presets: 'Onboarding preset selection — Executive, Operations, and Field layouts',
+      img_edit: 'Edit layout mode — drag-and-drop customization with live preview',
+      s5_title: '05 Results', metric1_label: 'Monthly churn rate', metric2_label: 'Time to personalized layout', metric3_label: 'Dashboard customization rate',
+      raio_work: 'RAIO Work', all_projects: 'All projects', current_page: 'Current page',
+      footer_copy: '© 2026 Santiago Morales - DavinSane. All rights reserved.', footer_privacy: 'Privacy'
+    },
+    es: {
+      nav_back: 'Atrás', nav_next: 'Siguiente →',
+      hero_desc: 'La interfaz de analytics principal de la plataforma B2B de RAIO — rediseñada desde una cuadrícula densa en datos hasta un centro de comando personalizable y consciente del rol.',
+      meta_role: 'Rol', meta_role_val: 'Diseñador Principal', meta_year: 'Año', meta_duration: 'Duración', meta_duration_val: '10 semanas',
+      meta_deliverables: 'Entregables', meta_deliverables_val: 'Diseño UI, Prototipo, Handoff', meta_tools: 'Herramientas',
+      hero_caption: 'RAIO Dashboard — centro de comando de analytics personalizable',
+      s1_title: '01 Descripción', s1_p1: 'RAIO es una plataforma SaaS B2B que ayuda a equipos de operaciones a rastrear el rendimiento en redes de campo distribuidas. Su dashboard principal había acumulado 47 widgets, 12 dimensiones de filtros y ninguna jerarquía clara de lo que importaba más.', s1_p2: "La tasa de churn mensual era del 8% — alta para SaaS B2B — y las entrevistas de salida citaban consistentemente 'la plataforma es demasiado complicada de aprender' como razón principal.",
+      s2_title: '02 El Problema', s2_p1: 'Las grabaciones de sesiones mostraron el mismo patrón: los usuarios cargaban el dashboard, escaneaban durante 15–20 segundos, luego navegaban directamente a una de tres vistas específicas — ignorando el 80% de la interfaz.', s2_p2: 'Un estudio de Jobs-to-be-Done con 18 clientes en cinco industrias reveló tres perfiles de usuario distintos — el Revisor Ejecutivo, el Gerente Operacional y el Analista de Campo — cada uno con necesidades de dashboard fundamentalmente diferentes.',
+      img_research: 'Análisis Jobs-to-be-Done — tres perfiles de usuario, tres necesidades de dashboard fundamentalmente diferentes',
+      s3_title: '03 Proceso', s3_p1: 'El proceso de diseño clasificó los 47 widgets existentes en tres niveles: usados por más del 60% de las sesiones, 20–60% y menos del 20%. El nivel 1 se convirtió en el dashboard predeterminado; el nivel 2 en la paleta de personalización.', s3_p2: 'El modelo de personalización pasó por cuatro iteraciones. El enfoque final — edición de diseño con arrastrar y soltar con previsualización en vivo — fue validado para llevar a los usuarios de "no sé qué estoy viendo" a "tengo lo que necesito" en menos de 4 minutos.',
+      s4_title: '04 Solución', s4_p1: 'El RAIO Dashboard rediseñado incluye tres presets de diseño predeterminados — Ejecutivo, Operaciones y Campo — seleccionados durante el onboarding.', s4_p2: 'Un carril de alertas persistente corre en la parte superior, mostrando cualquier métrica que haya cruzado un umbral definido por el usuario.',
+      img_presets: 'Selección de preset en onboarding — diseños Ejecutivo, Operaciones y Campo',
+      img_edit: 'Modo de edición de diseño — personalización con arrastrar y soltar y previsualización en vivo',
+      s5_title: '05 Resultados', metric1_label: 'Tasa de churn mensual', metric2_label: 'Tiempo hasta diseño personalizado', metric3_label: 'Tasa de personalización del dashboard',
+      raio_work: 'Proyectos RAIO', all_projects: 'Todos los proyectos', current_page: 'Página actual',
+      footer_copy: '© 2026 Santiago Morales - DavinSane. Todos los derechos reservados.', footer_privacy: 'Privacidad'
+    }
+  };
+
+  let currentLang = localStorage.getItem('lang') || 'en';
+  function applyLang(lang) {
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.dataset.i18n; if (t[k] !== undefined) el.textContent = t[k]; });
+    document.getElementById('lang-label').textContent = lang === 'en' ? 'ES' : 'EN';
+    document.documentElement.lang = lang;
+  }
+  function toggleLang() { currentLang = currentLang === 'en' ? 'es' : 'en'; localStorage.setItem('lang', currentLang); applyLang(currentLang); }
+  applyLang(currentLang);
+</script>
+</body>
+</html>

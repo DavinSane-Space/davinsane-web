@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iQor CMS — Santiago Morales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "background": "#131313", "surface-container-low": "#1c1b1b",
+          "surface": "#131313", "primary": "#abc7ff",
+          "on-surface-variant": "#c2c6d4", "surface-bright": "#3a3939",
+          "on-background": "#e5e2e1", "text-muted": "#A3A3A3",
+          "outline-variant": "#424752", "surface-variant": "#353534",
+          "surface-container": "#201f1f", "secondary": "#c6c6c7",
+          "surface-container-highest": "#353534", "surface-dim": "#131313",
+          "surface-elevated": "#1A1A1A", "border-low-contrast": "#262626",
+          "on-surface": "#e5e2e1", "outline": "#8c919e"
+        },
+        borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+        spacing: { "section-gap": "120px", "gutter": "24px", "element-gap": "32px", "margin-desktop": "64px", "margin-mobile": "20px", "container-max": "1200px" },
+        fontFamily: { "label-sm": ["JetBrains Mono"], "headline-lg": ["JetBrains Mono"], "headline-lg-mobile": ["JetBrains Mono"], "body-lg": ["Inter"], "label-md": ["JetBrains Mono"], "headline-md": ["JetBrains Mono"], "headline-sm": ["JetBrains Mono"], "body-md": ["Inter"] },
+        fontSize: {
+          "label-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+          "headline-lg-mobile": ["36px", { "lineHeight": "1.15", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "headline-lg": ["60px", { "lineHeight": "1.05", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+          "headline-sm": ["22px", { "lineHeight": "1.3", "fontWeight": "600" }],
+          "body-lg": ["20px", { "lineHeight": "1.8", "fontWeight": "400" }],
+          "label-md": ["15px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
+          "headline-md": ["30px", { "lineHeight": "1.25", "fontWeight": "500" }],
+          "body-md": ["17px", { "lineHeight": "1.75", "fontWeight": "400" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  #particles-bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; overflow: hidden; }
+  .prose-content p { margin-bottom: 1.5rem; }
+  .prose-content h2 { margin-top: 3rem; margin-bottom: 1rem; }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<div id="particles-bg"></div>
+
+<!-- Nav -->
+<nav class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border-low-contrast">
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-5 flex items-center justify-between">
+    <a href="iqor.html" class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors duration-200 font-label-sm text-label-sm group">
+      <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style="font-size:18px;">arrow_back</span>
+      <span data-i18n="nav_back">Back</span>
+    </a>
+    <span class="font-label-md text-label-md text-on-surface uppercase tracking-widest">SANTIAGO MORALES</span>
+    <div class="flex gap-2">
+      <a href="iqor-hub.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors" data-i18n="nav_next">Next →</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow">
+  <!-- Hero -->
+  <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pt-24 pb-16 fade-in">
+    <div class="flex gap-2 mb-6">
+      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">CMS</span>
+      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Internal Tool</span>
+    </div>
+    <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6 tracking-tight">iQor CMS</h1>
+    <p class="font-body-lg text-body-lg text-text-muted max-w-3xl" data-i18n="hero_desc">
+      A dedicated content management system built to power every announcement, update, and editorial piece published across iQor's internal digital ecosystem. Built for speed, structure, and scale.
+    </p>
+
+    <!-- Meta row -->
+    <div class="mt-14 border-t border-border-low-contrast grid grid-cols-2 md:grid-cols-5">
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_role">Role</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_role_val">Lead Designer</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_year">Year</p>
+        <p class="font-label-md text-label-md text-on-surface">2026</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_duration">Duration</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_duration_val">8 weeks</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_deliverables">Deliverables</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_deliverables_val">UI Design, Components, HandOff Specs</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_tools">Tools</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_tools_val">Replit AI, Claude AI</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Image -->
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 mb-20 fade-in">
+    <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+      <img src="iQor_HUB/img/CMS.jpg"
+           alt="iQor CMS hero" class="w-full h-auto block opacity-90"/>
+    </div>
+    <p class="mt-3 font-label-sm text-label-sm text-outline text-center" data-i18n="hero_caption">iQor CMS, internal content management platform</p>
+  </div>
+
+  <!-- Article Body -->
+  <article class="max-w-[920px] mx-auto px-margin-mobile md:px-16 prose-content">
+
+    <!-- Overview -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s1_title">01 Overview</h2>
+      <p class="font-body-lg text-body-lg text-on-surface" data-i18n="s1_p1">
+        iQor CMS is the internal content management system built to feed every editorial channel within iQor's digital infrastructure. It serves as the single authoring environment for the announcement feeds, news posts, alerts, and rich-media content that employees encounter daily across the iQor HUB.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s1_p2">
+        The platform gives content editors and communications managers a structured, role-aware environment to draft, schedule, and publish content without requiring engineering support. Every piece published through the CMS reaches the HUB's announcement feed in real time, giving iQor a direct, reliable channel to communicate with its global workforce of 44,000+ employees.
+      </p>
+    </section>
+
+    <!-- Problem -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s2_title">02 The Problem</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p1">
+        Before the CMS existed, internal communications at iQor relied on manual, fragmented processes. Content editors had no dedicated tooling. Announcements were routed through email chains to engineering teams, formatted in ad hoc documents, and pushed to internal channels through a patchwork of manual steps with no audit trail and no scheduling capability.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p2">
+        This created a bottleneck at every publication cycle. Critical updates were delayed hours waiting for engineering availability. Corrections required reopening the same manual pipeline. And because there was no structured taxonomy, content quickly became unsearchable and impossible to manage at scale. This became a growing problem as iQor's internal communications volume increased alongside its workforce.
+      </p>
+    </section>
+
+    <!-- Process -->
+    <section class="mb-10 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s3_title">03 Process</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p1">
+        The design process started with the people closest to the problem: the content editors and communications managers who lived inside the existing broken workflow. We conducted structured interviews with eight editorial team members across two regional offices, mapping their end-to-end publishing process and identifying where delays, errors, and workarounds were most concentrated.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p2">
+        The interviews surfaced a consistent pattern: the most critical failures weren't about missing features, they were about missing structure. Editors didn't know where their content was in the approval chain, couldn't see when something had been published, and had no way to preview how a post would render in the HUB before it went live. The design challenge became clear: build a system centered on visibility, control, and confidence.
+      </p>
+    </section>
+
+    <!-- Process pt.2 -->
+    <section class="mb-10 fade-in">
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p3">
+        With the research synthesized, we moved into information architecture. The system needed to support multiple content types such as short announcements, long-form articles, rich media posts, and time-sensitive alerts, while keeping the authoring interface unified and simple. We mapped out the content model first, then designed the UI around it.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p4">
+        Wireframe rounds were validated directly with the editorial team in two testing cycles. The first round exposed a critical assumption we had gotten wrong: editors needed the scheduling and preview workflow accessible from the same screen, not separated into different steps. That insight reshaped the composition of the editor view before a single high-fidelity frame was produced.
+      </p>
+    </section>
+
+    <!-- Solution -->
+    <section class="mb-12 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s4_title">04 Solution</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p1">
+        The iQor CMS delivers a single-screen composition environment where editors can write, format, attach media, set audience targeting by role or region, and schedule publication, all without leaving the editor view. A live preview panel renders the content exactly as it will appear in the HUB feed, eliminating the uncertainty that drove the previous manual approval loop.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p2">
+        A structured content calendar gives communications managers a timeline view of all scheduled and published posts, with drag-and-drop rescheduling and inline status indicators. The role-based permissions model ensures that junior editors can draft and preview content freely, while final publication requires approval from a designated manager, creating a lightweight governance layer without adding friction to the authoring flow.
+      </p>
+    </section>
+
+    <!-- CMS image as solution artifact -->
+    <div class="mb-6 fade-in">
+      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+        <img src="iQor_HUB/img/CMS.jpg"
+             alt="iQor CMS content calendar and publishing tools" class="w-full h-auto block opacity-90"/>
+      </div>
+      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="cms_solution_caption">Content calendar view and role-based publishing workflow</p>
+    </div>
+
+    <!-- Solution pt.2 -->
+    <section class="mb-16 fade-in">
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p3">
+        Content taxonomy and tagging were built into the model from day one, enabling the HUB's announcement feed to filter and surface posts based on employee role, department, and location. This meant that a facilities update for the Phoenix office wouldn't reach agents in Manila. That level of precision was something the previous email-based system made structurally impossible.
+      </p>
+    </section>
+
+    <!-- Feature screenshots: Announcement + Content Editor -->
+    <div class="mb-6 fade-in">
+      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+        <img src="iQor_HUB/img/announcement.jpg"
+             alt="Announcement creation interface" class="w-full h-auto block opacity-90"/>
+      </div>
+      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="img_announcement">Announcement module, used to create and broadcast internal alerts and updates to the entire workforce or specific audience segments.</p>
+    </div>
+
+    <div class="mb-16 fade-in">
+      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+        <img src="iQor_HUB/img/content-editor.jpg"
+             alt="Content editor interface" class="w-full h-auto block opacity-90"/>
+      </div>
+      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="img_content_editor">Content editor, the main authoring interface for creating structured content including articles, surveys, assessments, and forms, with AI-assisted drafting built in.</p>
+    </div>
+
+    <!-- Video Ilustrativo -->
+    <section class="mb-10 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s5_title">05 Video Ilustrativo</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s5_intro">The following video shows the iQor CMS running in production. The platform integrates AI assistance directly into the authoring flow, helping editors generate and refine content faster without leaving the interface. The overall design reflects a modern, focused approach to internal tooling, where every interaction is intentional and the interface stays out of the way of the work.</p>
+    </section>
+
+    <div class="mb-24 fade-in">
+      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+        <video src="iQor_HUB/img/CMSvideo.mkv" controls class="w-full h-auto block opacity-90" preload="metadata"></video>
+      </div>
+      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="video_caption">iQor CMS in production, AI-assisted content creation platform</p>
+    </div>
+
+  </article>
+
+  <!-- iQor Projects -->
+  <div class="border-t border-border-low-contrast">
+    <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-20">
+      <div class="flex items-center justify-between mb-10">
+        <h2 class="font-label-md text-label-md text-text-muted tracking-widest uppercase" data-i18n="iqor_work">iQor Work</h2>
+        <a href="iqor.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span>
+          <span data-i18n="all_projects">All projects</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+
+        <!-- iQor HUB V1 -->
+        <a href="iqor-hub.html" class="group flex flex-col gap-4">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden transition-colors duration-300 group-hover:border-primary">
+            <img src="iQor_HUB/img/HUBV1.jpg"
+                 alt="iQor HUB V1" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">iQor HUB V1</h3>
+              <div class="flex gap-2 mt-2">
+                <span class="font-label-sm text-label-sm text-text-muted">Intranet</span>
+                <span class="font-label-sm text-label-sm text-outline-variant">·</span>
+                <span class="font-label-sm text-label-sm text-text-muted">UX Design</span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300 mt-1" style="font-size:18px;">arrow_outward</span>
+          </div>
+        </a>
+
+        <!-- iQor HUB V2 -->
+        <a href="iqor-academy.html" class="group flex flex-col gap-4">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden transition-colors duration-300 group-hover:border-primary">
+            <img src="iQor_HUB/img/iQorHUB.jpg"
+                 alt="iQor HUB V2" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">iQor HUB V2</h3>
+              <div class="flex gap-2 mt-2">
+                <span class="font-label-sm text-label-sm text-text-muted">Intranet</span>
+                <span class="font-label-sm text-label-sm text-outline-variant">·</span>
+                <span class="font-label-sm text-label-sm text-text-muted">UX Design</span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300 mt-1" style="font-size:18px;">arrow_outward</span>
+          </div>
+        </a>
+
+        <!-- iQor CMS (current) -->
+        <div class="flex flex-col gap-4 opacity-60 cursor-default">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-primary/30 overflow-hidden">
+            <img src="iQor_HUB/img/CMS.jpg"
+                 alt="iQor CMS" class="w-full h-full object-cover opacity-80"/>
+            <div class="absolute inset-0 bg-background/40 flex items-center justify-center">
+              <span class="px-3 py-1 border border-primary/50 font-label-sm text-label-sm text-primary rounded-full" data-i18n="iqor_current">Current page</span>
+            </div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-on-surface">iQor CMS</h3>
+              <div class="flex gap-2 mt-2">
+                <span class="font-label-sm text-label-sm text-text-muted">CMS</span>
+                <span class="font-label-sm text-label-sm text-outline-variant">·</span>
+                <span class="font-label-sm text-label-sm text-text-muted">Internal Tool</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="w-full py-gutter px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-element-gap border-t border-border-low-contrast bg-background font-label-sm text-label-sm opacity-80 hover:opacity-100 transition-opacity">
+  <div class="font-label-md text-label-md uppercase tracking-widest text-on-surface">SANTIAGO MORALES</div>
+  <div class="text-on-surface" data-i18n="footer_copy">© 2026 Santiago Morales - DavinSane. All rights reserved.</div>
+  <nav class="flex gap-6">
+    <a class="text-text-muted hover:text-primary transition-colors" href="#" data-i18n="footer_privacy">Privacy</a>
+    <a class="text-text-muted hover:text-primary transition-colors" href="#">Github</a>
+  </nav>
+</footer>
+
+<!-- Floating language toggle -->
+<button id="lang-toggle" onclick="toggleLang()" aria-label="Toggle language" class="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-3 py-2 bg-surface-elevated border border-border-low-contrast rounded-full font-label-sm text-label-sm text-on-surface hover:border-primary hover:text-primary transition-colors duration-200 shadow-lg">
+  <span class="material-symbols-outlined" style="font-size:16px;">language</span>
+  <span id="lang-label">ES</span>
+</button>
+
+<script type="module" src="particles-bg.js"></script>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const translations = {
+    en: {
+      nav_back: 'Back',
+      nav_next: 'Next →',
+      hero_desc: "A dedicated content management system built to power every announcement, update, and editorial piece published across iQor's internal digital ecosystem. Built for speed, structure, and scale.",
+      meta_role: 'Role',
+      meta_role_val: 'Lead Designer',
+      meta_year: 'Year',
+      meta_duration: 'Duration',
+      meta_duration_val: '8 weeks',
+      meta_deliverables: 'Deliverables',
+      meta_deliverables_val: 'UI Design, Components, HandOff Specs',
+      meta_tools: 'Tools',
+      meta_tools_val: 'Replit AI, Claude AI',
+      hero_caption: 'iQor CMS, internal content management platform',
+      s1_title: '01 Overview',
+      s1_p1: "iQor CMS is the internal content management system built to feed every editorial channel within iQor's digital infrastructure. It serves as the single authoring environment for the announcement feeds, news posts, alerts, and rich-media content that employees encounter daily across the iQor HUB.",
+      s1_p2: "The platform gives content editors and communications managers a structured, role-aware environment to draft, schedule, and publish content without requiring engineering support. Every piece published through the CMS reaches the HUB's announcement feed in real time, giving iQor a direct, reliable channel to communicate with its global workforce of 44,000+ employees.",
+      s2_title: '02 The Problem',
+      s2_p1: "Before the CMS existed, internal communications at iQor relied on manual, fragmented processes. Content editors had no dedicated tooling. Announcements were routed through email chains to engineering teams, formatted in ad hoc documents, and pushed to internal channels through a patchwork of manual steps with no audit trail and no scheduling capability.",
+      s2_p2: "This created a bottleneck at every publication cycle. Critical updates were delayed hours waiting for engineering availability. Corrections required reopening the same manual pipeline. And because there was no structured taxonomy, content quickly became unsearchable and impossible to manage at scale. This became a growing problem as iQor's internal communications volume increased alongside its workforce.",
+      s3_title: '03 Process',
+      s3_p1: "The design process started with the people closest to the problem: the content editors and communications managers who lived inside the existing broken workflow. We conducted structured interviews with eight editorial team members across two regional offices, mapping their end-to-end publishing process and identifying where delays, errors, and workarounds were most concentrated.",
+      s3_p2: "The interviews surfaced a consistent pattern: the most critical failures weren't about missing features, they were about missing structure. Editors didn't know where their content was in the approval chain, couldn't see when something had been published, and had no way to preview how a post would render in the HUB before it went live. The design challenge became clear: build a system centered on visibility, control, and confidence.",
+      cms_caption: 'iQor CMS, content editor interface and publishing dashboard',
+      s3_p3: "With the research synthesized, we moved into information architecture. The system needed to support multiple content types such as short announcements, long-form articles, rich media posts, and time-sensitive alerts, while keeping the authoring interface unified and simple. We mapped out the content model first, then designed the UI around it.",
+      s3_p4: "Wireframe rounds were validated directly with the editorial team in two testing cycles. The first round exposed a critical assumption we had gotten wrong: editors needed the scheduling and preview workflow accessible from the same screen, not separated into different steps. That insight reshaped the composition of the editor view before a single high-fidelity frame was produced.",
+      s4_title: '04 Solution',
+      s4_p1: "The iQor CMS delivers a single-screen composition environment where editors can write, format, attach media, set audience targeting by role or region, and schedule publication, all without leaving the editor view. A live preview panel renders the content exactly as it will appear in the HUB feed, eliminating the uncertainty that drove the previous manual approval loop.",
+      s4_p2: "A structured content calendar gives communications managers a timeline view of all scheduled and published posts, with drag-and-drop rescheduling and inline status indicators. The role-based permissions model ensures that junior editors can draft and preview content freely, while final publication requires approval from a designated manager, creating a lightweight governance layer without adding friction to the authoring flow.",
+      cms_solution_caption: 'Content calendar view and role-based publishing workflow',
+      s4_p3: "Content taxonomy and tagging were built into the model from day one, enabling the HUB's announcement feed to filter and surface posts based on employee role, department, and location. This meant that a facilities update for the Phoenix office wouldn't reach agents in Manila. That level of precision was something the previous email-based system made structurally impossible.",
+      s5_title: '05 Illustrative Video',
+      s5_intro: 'The following video shows the iQor CMS running in production. The platform integrates AI assistance directly into the authoring flow, helping editors generate and refine content faster without leaving the interface. The overall design reflects a modern, focused approach to internal tooling, where every interaction is intentional and the interface stays out of the way of the work.',
+      video_caption: 'iQor CMS in production, AI-assisted content creation platform',
+      img_announcement: 'Announcement module, used to create and broadcast internal alerts and updates to the entire workforce or specific audience segments.',
+      img_content_editor: 'Content editor, the main authoring interface for creating structured content including articles, surveys, assessments, and forms, with AI-assisted drafting built in.',
+      iqor_work: 'iQor Work',
+      iqor_current: 'Current page',
+      all_projects: 'All projects',
+      footer_copy: '© 2026 Santiago Morales - DavinSane. All rights reserved.',
+      footer_privacy: 'Privacy',
+    },
+    es: {
+      nav_back: 'Atrás',
+      nav_next: 'Siguiente →',
+      hero_desc: "Un sistema de gestión de contenido dedicado a alimentar cada anuncio, actualización y pieza editorial publicada en el ecosistema digital interno de iQor. Construido para velocidad, estructura y escala.",
+      meta_role: 'Rol',
+      meta_role_val: 'Diseñador Principal',
+      meta_year: 'Año',
+      meta_duration: 'Duración',
+      meta_duration_val: '8 semanas',
+      meta_deliverables: 'Entregables',
+      meta_deliverables_val: 'Diseño UI, Componentes, HandOff Specs',
+      meta_tools: 'Herramientas',
+      meta_tools_val: 'Replit AI, Claude AI',
+      hero_caption: 'iQor CMS, plataforma interna de gestión de contenido',
+      s1_title: '01 Descripción',
+      s1_p1: "iQor CMS es el sistema de gestión de contenido interno construido para alimentar cada canal editorial dentro de la infraestructura digital de iQor. Funciona como el entorno de autoría único para los feeds de anuncios, publicaciones de noticias, alertas y contenido multimedia que los empleados encuentran diariamente en el iQor HUB.",
+      s1_p2: "La plataforma brinda a los editores de contenido y gerentes de comunicaciones un entorno estructurado y consciente del rol para redactar, programar y publicar contenido sin requerir soporte de ingeniería. Cada pieza publicada a través del CMS llega al feed de anuncios del HUB en tiempo real, dando a iQor un canal directo y confiable para comunicarse con su fuerza laboral global de más de 44,000 empleados.",
+      s2_title: '02 El Problema',
+      s2_p1: "Antes de que existiera el CMS, las comunicaciones internas de iQor dependían de procesos manuales y fragmentados. Los editores de contenido no tenían herramientas dedicadas. Los anuncios se enrutaban por cadenas de correo electrónico a equipos de ingeniería, se formateaban en documentos ad hoc y se publicaban en canales internos a través de una red de pasos manuales sin rastro de auditoría ni capacidad de programación.",
+      s2_p2: "Esto creó un cuello de botella en cada ciclo de publicación. Las actualizaciones críticas se retrasaban horas esperando disponibilidad de ingeniería. Las correcciones requerían reabrir el mismo proceso manual. Y como no había una taxonomía estructurada, el contenido rápidamente se volvió imposible de buscar y gestionar a escala. Esto se convirtió en un problema creciente a medida que el volumen de comunicaciones internas de iQor aumentaba junto con su fuerza laboral.",
+      s3_title: '03 Proceso',
+      s3_p1: "El proceso de diseño comenzó con las personas más cercanas al problema: los editores de contenido y gerentes de comunicaciones que vivían dentro del flujo de trabajo manual roto existente. Realizamos entrevistas estructuradas con ocho miembros del equipo editorial en dos oficinas regionales, mapeando su proceso de publicación de extremo a extremo e identificando dónde se concentraban los retrasos, errores y soluciones improvisadas.",
+      s3_p2: "Las entrevistas revelaron un patrón consistente: los fallos más críticos no eran sobre funcionalidades faltantes, sino sobre estructura faltante. Los editores no sabían dónde estaba su contenido en la cadena de aprobación, no podían ver cuándo se había publicado algo y no tenían forma de previsualizar cómo se vería una publicación en el HUB antes de publicarla. El reto de diseño quedó claro: construir un sistema centrado en visibilidad, control y confianza.",
+      cms_caption: 'iQor CMS, interfaz del editor de contenido y dashboard de publicación',
+      s3_p3: "Con la investigación sintetizada, pasamos a la arquitectura de información. El sistema necesitaba soportar múltiples tipos de contenido como anuncios cortos, artículos de forma larga, publicaciones con medios enriquecidos y alertas urgentes, mientras mantenía la interfaz de autoría unificada y simple. Primero mapeamos el modelo de contenido y luego diseñamos la UI en torno a él.",
+      s3_p4: "Las rondas de wireframes fueron validadas directamente con el equipo editorial en dos ciclos de prueba. La primera ronda expuso una suposición crítica que habíamos planteado incorrectamente: los editores necesitaban el flujo de programación y previsualización accesible desde la misma pantalla, no separado en diferentes pasos. Ese hallazgo reformuló la composición de la vista del editor antes de que se produjera un solo frame de alta fidelidad.",
+      s4_title: '04 Solución',
+      s4_p1: "El iQor CMS ofrece un entorno de composición en una sola pantalla donde los editores pueden escribir, formatear, adjuntar medios, establecer la segmentación de audiencia por rol o región y programar la publicación, todo sin salir de la vista del editor. Un panel de previsualización en vivo renderiza el contenido exactamente como aparecerá en el feed del HUB, eliminando la incertidumbre que impulsaba el ciclo de aprobación manual anterior.",
+      s4_p2: "Un calendario de contenido estructurado proporciona a los gerentes de comunicaciones una vista cronológica de todas las publicaciones programadas y publicadas, con reprogramación mediante arrastrar y soltar e indicadores de estado en línea. El modelo de permisos basado en roles garantiza que los editores junior puedan redactar y previsualizar contenido libremente, mientras que la publicación final requiere aprobación de un gerente designado, creando una capa de gobernanza liviana sin añadir fricción al flujo de autoría.",
+      cms_solution_caption: 'Vista del calendario de contenido y flujo de publicación basado en roles',
+      s4_p3: "La taxonomía y el etiquetado de contenido se incorporaron al modelo desde el primer día, permitiendo que el feed de anuncios del HUB filtre y muestre publicaciones según el rol, departamento y ubicación del empleado. Esto significa que una actualización de instalaciones para la oficina de Phoenix no llegará a los agentes en Manila. Ese nivel de precisión era algo que el sistema de correo electrónico anterior hacía estructuralmente imposible.",
+      s5_title: '05 Video Ilustrativo',
+      s5_intro: 'El siguiente video muestra el iQor CMS funcionando en producción. La plataforma integra asistencia de IA directamente en el flujo de autoría, ayudando a los editores a generar y refinar contenido más rápido sin salir de la interfaz. El diseño general refleja un enfoque moderno y enfocado para herramientas internas, donde cada interacción es intencional y la interfaz no interfiere con el trabajo.',
+      video_caption: 'iQor CMS en producción, plataforma de creación de contenido asistida por IA',
+      img_announcement: 'Módulo de Announcement, usado para crear y difundir alertas y actualizaciones internas a toda la fuerza laboral o a segmentos de audiencia específicos.',
+      img_content_editor: 'Editor de contenido, la interfaz principal de autoría para crear contenido estructurado incluyendo artículos, encuestas, evaluaciones y formularios, con redacción asistida por IA integrada.',
+      iqor_work: 'Proyectos iQor',
+      iqor_current: 'Página actual',
+      all_projects: 'Todos los proyectos',
+      footer_copy: '© 2026 Santiago Morales - DavinSane. Todos los derechos reservados.',
+      footer_privacy: 'Privacidad',
+    }
+  };
+
+  let currentLang = localStorage.getItem('lang') || 'en';
+
+  function applyLang(lang) {
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.getElementById('lang-label').textContent = lang === 'en' ? 'ES' : 'EN';
+    document.documentElement.lang = lang;
+  }
+
+  function toggleLang() {
+    currentLang = currentLang === 'en' ? 'es' : 'en';
+    localStorage.setItem('lang', currentLang);
+    applyLang(currentLang);
+  }
+
+  applyLang(currentLang);
+</script>
+</body>
+</html>
