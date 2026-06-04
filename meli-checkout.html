@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="dark" lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>ML Checkout Flow — Santiago Morales</title>
+<title>ML Checkout Flow Santiago Morales</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -51,7 +51,7 @@
 
 <nav class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border-low-contrast">
   <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-5 flex items-center justify-between">
-    <a href="void.html" class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors duration-200 font-label-sm text-label-sm group">
+    <a href="mercadolibre.html" class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors duration-200 font-label-sm text-label-sm group">
       <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style="font-size:18px;">arrow_back</span>
       <span data-i18n="nav_back">Back</span>
     </a>
@@ -68,7 +68,7 @@
     </div>
     <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6 tracking-tight">ML Checkout Flow</h1>
     <p class="font-body-lg text-body-lg text-text-muted max-w-3xl" data-i18n="hero_desc">
-      A full redesign of Mercado Libre's purchase flow — reducing a 7-step checkout to 3 intelligent steps, with smart defaults that cut the time from cart to confirmation by more than half.
+      A full redesign of Mercado Libre's purchase flow reducing a 7-step checkout to 3 intelligent steps, with smart defaults that cut the time from cart to confirmation by more than half.
     </p>
     <div class="mt-14 border-t border-border-low-contrast grid grid-cols-2 md:grid-cols-5">
       <div class="border-l border-border-low-contrast pl-6 py-6">
@@ -98,7 +98,7 @@
     <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
       <img src="https://picsum.photos/seed/meli-checkout-hero/1280/720" alt="ML Checkout Flow" class="w-full h-auto block opacity-90"/>
     </div>
-    <p class="mt-3 font-label-sm text-label-sm text-outline text-center" data-i18n="hero_caption">ML Checkout — 3-step purchase flow with smart address and payment defaults</p>
+    <p class="mt-3 font-label-sm text-label-sm text-outline text-center" data-i18n="hero_caption">ML Checkout 3-step purchase flow with smart address and payment defaults</p>
   </div>
 
   <article class="max-w-[920px] mx-auto px-margin-mobile md:px-16 prose-content">
@@ -116,10 +116,10 @@
     <section class="mb-16 fade-in">
       <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s2_title">02 The Problem</h2>
       <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p1">
-        Session recording analysis of 10,000 checkout sessions identified the specific points where drop-off spiked. The largest single drop-off — 34% — happened on the payment method selection screen, specifically when users were presented with installment options. The existing design showed 12 installment configurations as a flat list, each with a different monthly amount and interest rate. Users were expected to mentally compare them and select the right one. Most gave up.
+        Session recording analysis of 10,000 checkout sessions identified the specific points where drop-off spiked. The largest single drop-off 34% happened on the payment method selection screen, specifically when users were presented with installment options. The existing design showed 12 installment configurations as a flat list, each with a different monthly amount and interest rate. Users were expected to mentally compare them and select the right one. Most gave up.
       </p>
       <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p2">
-        A secondary problem was that returning users — who represent over 60% of Mercado Libre purchases — were being asked to re-select their default address and payment method on every purchase despite having set preferences in their account. The system wasn't using the information it already had.
+        A secondary problem was that returning users who represent over 60% of Mercado Libre purchases were being asked to re-select their default address and payment method on every purchase despite having set preferences in their account. The system wasn't using the information it already had.
       </p>
     </section>
 
@@ -127,7 +127,7 @@
       <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
         <img src="https://picsum.photos/seed/meli-checkout-funnel/920/560" alt="Funnel analysis" class="w-full h-auto block opacity-80 grayscale"/>
       </div>
-      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="img_funnel">Funnel analysis — 68% abandonment rate with drop-off spikes mapped by step</p>
+      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="img_funnel">Funnel analysis 68% abandonment rate with drop-off spikes mapped by step</p>
     </div>
 
     <section class="mb-10 fade-in">
@@ -136,7 +136,7 @@
         The redesign process began with a checkout teardown: mapping every input field, decision point, and screen in the existing flow and labeling each as "necessary," "redundant," or "can be pre-filled." Of the 23 distinct user inputs in the existing flow, 14 could be pre-filled from account data or smart defaults without any loss of user control.
       </p>
       <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p2">
-        The installment problem required a different approach: instead of showing all options, the redesigned flow shows the single best option for the user's account — calculated from their Mercado Pago credit limit, the item price, and their past installment preferences — with a secondary "See all options" path for users who want to compare.
+        The installment problem required a different approach: instead of showing all options, the redesigned flow shows the single best option for the user's account calculated from their Mercado Pago credit limit, the item price, and their past installment preferences with a secondary "See all options" path for users who want to compare.
       </p>
     </section>
 
@@ -146,7 +146,7 @@
         The new ML Checkout is a 3-step flow: Review (items, seller, estimated delivery), Delivery (pre-filled address, editable with one tap), and Payment (best installment option pre-selected, full order summary visible). Returning users can complete checkout in under 90 seconds without changing any defaults.
       </p>
       <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p2">
-        The installment display was rebuilt as a single recommendation card that shows the monthly amount, the total amount with interest, and a plain-language explanation of the plan — "6 payments with no interest" — rather than a table of numbers. The "See more options" link is present but de-emphasized, because most users choosing the recommended option was the desired behavior.
+        The installment display was rebuilt as a single recommendation card that shows the monthly amount, the total amount with interest, and a plain-language explanation of the plan "6 payments with no interest" rather than a table of numbers. The "See more options" link is present but de-emphasized, because most users choosing the recommended option was the desired behavior.
       </p>
     </section>
 
@@ -155,13 +155,13 @@
         <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
           <img src="https://picsum.photos/seed/meli-checkout-flow/460/560" alt="3-step flow" class="w-full h-auto block opacity-85"/>
         </div>
-        <p class="mt-2 font-label-sm text-label-sm text-outline" data-i18n="img_flow">3-step flow — Review, Delivery, Payment with pre-filled smart defaults</p>
+        <p class="mt-2 font-label-sm text-label-sm text-outline" data-i18n="img_flow">3-step flow Review, Delivery, Payment with pre-filled smart defaults</p>
       </div>
       <div>
         <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
           <img src="https://picsum.photos/seed/meli-checkout-payment/460/560" alt="Payment recommendation" class="w-full h-auto block opacity-85 grayscale"/>
         </div>
-        <p class="mt-2 font-label-sm text-label-sm text-outline" data-i18n="img_payment">Payment step — single recommended installment card with plain-language explanation</p>
+        <p class="mt-2 font-label-sm text-label-sm text-outline" data-i18n="img_payment">Payment step single recommended installment card with plain-language explanation</p>
       </div>
     </div>
 
@@ -189,7 +189,7 @@
     <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-20">
       <div class="flex items-center justify-between mb-10">
         <h2 class="font-label-md text-label-md text-text-muted tracking-widest uppercase" data-i18n="meli_work">Mercado Libre Work</h2>
-        <a href="void.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors flex items-center gap-1">
+        <a href="mercadolibre.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors flex items-center gap-1">
           <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span>
           <span data-i18n="all_projects">All projects</span>
         </a>
@@ -256,34 +256,34 @@
   const translations = {
     en: {
       nav_back: 'Back', nav_next: 'Next →',
-      hero_desc: "A full redesign of Mercado Libre's purchase flow — reducing a 7-step checkout to 3 intelligent steps, with smart defaults that cut the time from cart to confirmation by more than half.",
+      hero_desc: "A full redesign of Mercado Libre's purchase flow reducing a 7-step checkout to 3 intelligent steps, with smart defaults that cut the time from cart to confirmation by more than half.",
       meta_role: 'Role', meta_role_val: 'Senior UX Designer', meta_year: 'Year', meta_duration: 'Duration', meta_duration_val: '14 weeks',
       meta_deliverables: 'Deliverables', meta_deliverables_val: 'UX Design, A/B Framework, Handoff', meta_tools: 'Tools',
-      hero_caption: 'ML Checkout — 3-step purchase flow with smart address and payment defaults',
+      hero_caption: 'ML Checkout 3-step purchase flow with smart address and payment defaults',
       s1_title: '01 Overview', s1_p1: "Mercado Libre processes over 12 million transactions per day across 18 Latin American countries. The existing checkout flow had been layered incrementally over seven years and had grown to 7 steps, with users required to re-confirm address, shipping method, payment method, and installment plan on separate screens.", s1_p2: "Funnel analysis showed 68% of users who entered the checkout abandoned before completing the purchase. Exit surveys pointed to three repeated friction points: 'too many steps,' 'I had to enter my address again,' and 'I didn't understand the installment options.'",
-      s2_title: '02 The Problem', s2_p1: "Session recording analysis of 10,000 checkout sessions identified the largest single drop-off — 34% — on the payment method selection screen. The existing design showed 12 installment configurations as a flat list. Users were expected to mentally compare them and select the right one. Most gave up.", s2_p2: "A secondary problem: returning users — over 60% of purchases — were being asked to re-select their default address and payment method on every purchase despite having set preferences. The system wasn't using the information it already had.",
-      img_funnel: 'Funnel analysis — 68% abandonment rate with drop-off spikes mapped by step',
+      s2_title: '02 The Problem', s2_p1: "Session recording analysis of 10,000 checkout sessions identified the largest single drop-off 34% on the payment method selection screen. The existing design showed 12 installment configurations as a flat list. Users were expected to mentally compare them and select the right one. Most gave up.", s2_p2: "A secondary problem: returning users over 60% of purchases were being asked to re-select their default address and payment method on every purchase despite having set preferences. The system wasn't using the information it already had.",
+      img_funnel: 'Funnel analysis 68% abandonment rate with drop-off spikes mapped by step',
       s3_title: '03 Process', s3_p1: "The redesign began with a checkout teardown: mapping every input field and labeling each as 'necessary,' 'redundant,' or 'can be pre-filled.' Of 23 distinct user inputs, 14 could be pre-filled from account data without any loss of user control.", s3_p2: "The installment problem required a different approach: instead of showing all options, the redesigned flow shows the single best option calculated from the user's Mercado Pago credit limit, item price, and past preferences.",
-      s4_title: '04 Solution', s4_p1: "The new ML Checkout is a 3-step flow: Review (items, seller, estimated delivery), Delivery (pre-filled address, editable with one tap), and Payment (best installment option pre-selected, full order summary visible). Returning users can complete checkout in under 90 seconds.", s4_p2: "The installment display was rebuilt as a single recommendation card showing the monthly amount, total with interest, and a plain-language explanation — '6 payments with no interest' — rather than a table of numbers.",
-      img_flow: '3-step flow — Review, Delivery, Payment with pre-filled smart defaults',
-      img_payment: 'Payment step — single recommended installment card with plain-language explanation',
+      s4_title: '04 Solution', s4_p1: "The new ML Checkout is a 3-step flow: Review (items, seller, estimated delivery), Delivery (pre-filled address, editable with one tap), and Payment (best installment option pre-selected, full order summary visible). Returning users can complete checkout in under 90 seconds.", s4_p2: "The installment display was rebuilt as a single recommendation card showing the monthly amount, total with interest, and a plain-language explanation '6 payments with no interest' rather than a table of numbers.",
+      img_flow: '3-step flow Review, Delivery, Payment with pre-filled smart defaults',
+      img_payment: 'Payment step single recommended installment card with plain-language explanation',
       s5_title: '05 Results', metric1_label: 'Checkout abandonment rate', metric2_label: 'Time to purchase completion', metric3_label: 'Installment adoption rate',
       meli_work: 'Mercado Libre Work', all_projects: 'All projects', current_page: 'Current page',
       footer_copy: '© 2026 Santiago Morales - DavinSane. All rights reserved.', footer_privacy: 'Privacy'
     },
     es: {
       nav_back: 'Atrás', nav_next: 'Siguiente →',
-      hero_desc: 'Un rediseño completo del flujo de compra de Mercado Libre — reduciendo un checkout de 7 pasos a 3 pasos inteligentes, con valores predeterminados inteligentes que reducen el tiempo del carrito a la confirmación en más de la mitad.',
+      hero_desc: 'Un rediseño completo del flujo de compra de Mercado Libre reduciendo un checkout de 7 pasos a 3 pasos inteligentes, con valores predeterminados inteligentes que reducen el tiempo del carrito a la confirmación en más de la mitad.',
       meta_role: 'Rol', meta_role_val: 'Diseñador UX Senior', meta_year: 'Año', meta_duration: 'Duración', meta_duration_val: '14 semanas',
       meta_deliverables: 'Entregables', meta_deliverables_val: 'Diseño UX, Framework A/B, Handoff', meta_tools: 'Herramientas',
-      hero_caption: 'ML Checkout — flujo de compra de 3 pasos con valores predeterminados inteligentes de dirección y pago',
+      hero_caption: 'ML Checkout flujo de compra de 3 pasos con valores predeterminados inteligentes de dirección y pago',
       s1_title: '01 Descripción', s1_p1: 'Mercado Libre procesa más de 12 millones de transacciones por día en 18 países latinoamericanos. El flujo de checkout existente había crecido a 7 pasos, con usuarios obligados a reconfirmar dirección, método de envío, método de pago y plan de cuotas en pantallas separadas.', s1_p2: "El análisis de embudo mostró que el 68% de los usuarios que ingresaban al checkout lo abandonaban antes de completar la compra. Las encuestas de salida apuntaban a tres puntos de fricción repetidos: 'demasiados pasos', 'tuve que ingresar mi dirección de nuevo' y 'no entendí las opciones de cuotas'.",
-      s2_title: '02 El Problema', s2_p1: 'El análisis de grabaciones de sesiones de 10,000 sesiones identificó la mayor caída — 34% — en la pantalla de selección de método de pago. El diseño existente mostraba 12 configuraciones de cuotas como lista plana.', s2_p2: 'Un problema secundario: los usuarios recurrentes — más del 60% de las compras — tenían que reseleccionar su dirección y método de pago predeterminados en cada compra a pesar de tener preferencias configuradas.',
-      img_funnel: 'Análisis de embudo — tasa de abandono del 68% con picos de caída mapeados por paso',
+      s2_title: '02 El Problema', s2_p1: 'El análisis de grabaciones de sesiones de 10,000 sesiones identificó la mayor caída 34% en la pantalla de selección de método de pago. El diseño existente mostraba 12 configuraciones de cuotas como lista plana.', s2_p2: 'Un problema secundario: los usuarios recurrentes más del 60% de las compras tenían que reseleccionar su dirección y método de pago predeterminados en cada compra a pesar de tener preferencias configuradas.',
+      img_funnel: 'Análisis de embudo tasa de abandono del 68% con picos de caída mapeados por paso',
       s3_title: '03 Proceso', s3_p1: "El rediseño comenzó con un desglose del checkout: mapear cada campo de entrada y etiquetar cada uno como 'necesario', 'redundante' o 'puede rellenarse previamente'. De 23 entradas distintas del usuario, 14 podían rellenarse previamente.", s3_p2: 'El problema de cuotas requirió un enfoque diferente: en lugar de mostrar todas las opciones, el flujo rediseñado muestra la única mejor opción calculada desde el límite de crédito de Mercado Pago del usuario, precio del artículo y preferencias pasadas.',
-      s4_title: '04 Solución', s4_p1: 'El nuevo ML Checkout es un flujo de 3 pasos: Revisión (artículos, vendedor, entrega estimada), Entrega (dirección rellenada previamente, editable con un toque) y Pago (mejor opción de cuotas preseleccionada, resumen completo visible).', s4_p2: "La pantalla de cuotas fue reconstruida como una tarjeta de recomendación única que muestra el monto mensual, el total con intereses y una explicación en lenguaje simple — '6 pagos sin interés'.",
-      img_flow: 'Flujo de 3 pasos — Revisión, Entrega, Pago con valores predeterminados inteligentes',
-      img_payment: 'Paso de pago — tarjeta de cuota recomendada única con explicación en lenguaje simple',
+      s4_title: '04 Solución', s4_p1: 'El nuevo ML Checkout es un flujo de 3 pasos: Revisión (artículos, vendedor, entrega estimada), Entrega (dirección rellenada previamente, editable con un toque) y Pago (mejor opción de cuotas preseleccionada, resumen completo visible).', s4_p2: "La pantalla de cuotas fue reconstruida como una tarjeta de recomendación única que muestra el monto mensual, el total con intereses y una explicación en lenguaje simple '6 pagos sin interés'.",
+      img_flow: 'Flujo de 3 pasos Revisión, Entrega, Pago con valores predeterminados inteligentes',
+      img_payment: 'Paso de pago tarjeta de cuota recomendada única con explicación en lenguaje simple',
       s5_title: '05 Resultados', metric1_label: 'Tasa de abandono del checkout', metric2_label: 'Tiempo para completar la compra', metric3_label: 'Tasa de adopción de cuotas',
       meli_work: 'Proyectos Mercado Libre', all_projects: 'Todos los proyectos', current_page: 'Página actual',
       footer_copy: '© 2026 Santiago Morales - DavinSane. Todos los derechos reservados.', footer_privacy: 'Privacidad'

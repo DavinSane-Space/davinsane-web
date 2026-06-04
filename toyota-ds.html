@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="dark" lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Toyota Design System — Santiago Morales</title>
+<title>Toyota Design System Santiago Morales</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -51,7 +51,7 @@
 
 <nav class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border-low-contrast">
   <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-5 flex items-center justify-between">
-    <a href="quantum.html" class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors duration-200 font-label-sm text-label-sm group">
+    <a href="maindstar.html" class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors duration-200 font-label-sm text-label-sm group">
       <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style="font-size:18px;">arrow_back</span>
       <span data-i18n="nav_back">Back</span>
     </a>
@@ -68,7 +68,7 @@
     </div>
     <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6 tracking-tight">Toyota Design System</h1>
     <p class="font-body-lg text-body-lg text-text-muted max-w-3xl" data-i18n="hero_desc">
-      A unified design token system and component library built to standardize every Toyota digital touchpoint — from the consumer app and dealer platform to internal tools — across multiple teams and regions.
+      A unified design token system and component library built to standardize every Toyota digital touchpoint from the consumer app and dealer platform to internal tools across multiple teams and regions.
     </p>
     <div class="mt-14 border-t border-border-low-contrast grid grid-cols-2 md:grid-cols-5">
       <div class="border-l border-border-low-contrast pl-6 py-6">
@@ -98,7 +98,7 @@
     <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
       <img src="https://picsum.photos/seed/toyota-ds-hero/1280/720" alt="Toyota Design System" class="w-full h-auto block opacity-90"/>
     </div>
-    <p class="mt-3 font-label-sm text-label-sm text-outline text-center" data-i18n="hero_caption">Toyota Design System — token architecture and component library overview</p>
+    <p class="mt-3 font-label-sm text-label-sm text-outline text-center" data-i18n="hero_caption">Toyota Design System token architecture and component library overview</p>
   </div>
 
   <article class="max-w-[920px] mx-auto px-margin-mobile md:px-16 prose-content">
@@ -106,7 +106,7 @@
     <section class="mb-16 fade-in">
       <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s1_title">01 Overview</h2>
       <p class="font-body-lg text-body-lg text-on-surface" data-i18n="s1_p1">
-        Before this project, Toyota's Latin American digital products were designed by four separate agency teams across three countries, each with their own Figma libraries, color palettes, and component conventions. The result was a portfolio of products that felt like they came from four different companies — same logo, completely different experience.
+        Before this project, Toyota's Latin American digital products were designed by four separate agency teams across three countries, each with their own Figma libraries, color palettes, and component conventions. The result was a portfolio of products that felt like they came from four different companies same logo, completely different experience.
       </p>
       <p class="font-body-md text-body-md text-text-muted" data-i18n="s1_p2">
         The Toyota Design System is the foundation built to fix that. It establishes a shared token layer, a component library with 200+ production-ready components, and a documentation site that serves as the single source of truth for every team shipping Toyota digital products.
@@ -116,7 +116,7 @@
     <section class="mb-16 fade-in">
       <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s2_title">02 The Problem</h2>
       <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p1">
-        An audit of the existing product suite found 23 different shades of red being used across Toyota digital products — Toyota Red is a single brand color. Button components came in 14 different configurations with no documented rationale for any of them. Typography scales had no systematic relationship to each other. Every inconsistency was a decision someone made in isolation that no one else could find or reference.
+        An audit of the existing product suite found 23 different shades of red being used across Toyota digital products Toyota Red is a single brand color. Button components came in 14 different configurations with no documented rationale for any of them. Typography scales had no systematic relationship to each other. Every inconsistency was a decision someone made in isolation that no one else could find or reference.
       </p>
       <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p2">
         The business cost was concrete: a feature that should take one designer two days to design was taking four days because the designer had to make foundational decisions from scratch every time. Design reviews were spending the majority of their time on consistency issues rather than UX quality. Engineering was implementing the same UI patterns multiple times in different codebases.
@@ -127,13 +127,13 @@
       <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
         <img src="https://picsum.photos/seed/toyota-ds-audit/920/560" alt="Design audit" class="w-full h-auto block opacity-80 grayscale"/>
       </div>
-      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="img_audit">Design audit — 23 red variants found across Toyota digital products, all from the same brand color</p>
+      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="img_audit">Design audit 23 red variants found across Toyota digital products, all from the same brand color</p>
     </div>
 
     <section class="mb-10 fade-in">
       <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s3_title">03 Process</h2>
       <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p1">
-        The system was built in three phases. Phase one was the token architecture: establishing the semantic token layer that sits between raw values and component usage. Instead of a designer reaching for "Red 600" directly, they use "color.feedback.error" — a token that resolves to Red 600 in light mode and to a different red in dark mode. This abstraction makes theme changes and accessibility adjustments possible without touching individual components.
+        The system was built in three phases. Phase one was the token architecture: establishing the semantic token layer that sits between raw values and component usage. Instead of a designer reaching for "Red 600" directly, they use "color.feedback.error" a token that resolves to Red 600 in light mode and to a different red in dark mode. This abstraction makes theme changes and accessibility adjustments possible without touching individual components.
       </p>
       <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p2">
         Phase two was component design: building from the most primitive elements (color, typography, spacing, shadow) up through atoms (button, input, badge) to molecules (form field, card, navigation item) and organisms (header, modal, data table). Each component was built in Figma using auto-layout and variables, then spec'd for Storybook implementation by the engineering team.
@@ -155,13 +155,13 @@
         <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
           <img src="https://picsum.photos/seed/toyota-ds-tokens/460/560" alt="Token architecture" class="w-full h-auto block opacity-85"/>
         </div>
-        <p class="mt-2 font-label-sm text-label-sm text-outline" data-i18n="img_tokens">Token architecture — semantic layer mapping brand values to component usage</p>
+        <p class="mt-2 font-label-sm text-label-sm text-outline" data-i18n="img_tokens">Token architecture semantic layer mapping brand values to component usage</p>
       </div>
       <div>
         <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
           <img src="https://picsum.photos/seed/toyota-ds-components/460/560" alt="Component library" class="w-full h-auto block opacity-85 grayscale"/>
         </div>
-        <p class="mt-2 font-label-sm text-label-sm text-outline" data-i18n="img_components">Component library — 200+ production-ready components across 8 categories</p>
+        <p class="mt-2 font-label-sm text-label-sm text-outline" data-i18n="img_components">Component library 200+ production-ready components across 8 categories</p>
       </div>
     </div>
 
@@ -189,7 +189,7 @@
     <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-20">
       <div class="flex items-center justify-between mb-10">
         <h2 class="font-label-md text-label-md text-text-muted tracking-widest uppercase" data-i18n="toyota_work">Toyota Work</h2>
-        <a href="quantum.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors flex items-center gap-1">
+        <a href="maindstar.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors flex items-center gap-1">
           <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span>
           <span data-i18n="all_projects">All projects</span>
         </a>
@@ -256,34 +256,34 @@
   const translations = {
     en: {
       nav_back: 'Back',
-      hero_desc: 'A unified design token system and component library built to standardize every Toyota digital touchpoint — from the consumer app and dealer platform to internal tools — across multiple teams and regions.',
+      hero_desc: 'A unified design token system and component library built to standardize every Toyota digital touchpoint from the consumer app and dealer platform to internal tools across multiple teams and regions.',
       meta_role: 'Role', meta_role_val: 'Design Systems Lead', meta_year: 'Year', meta_duration: 'Duration', meta_duration_val: '24 weeks',
       meta_deliverables: 'Deliverables', meta_deliverables_val: 'Tokens, Library, Docs', meta_tools: 'Tools',
-      hero_caption: 'Toyota Design System — token architecture and component library overview',
+      hero_caption: 'Toyota Design System token architecture and component library overview',
       s1_title: '01 Overview', s1_p1: "Before this project, Toyota's Latin American digital products were designed by four separate agency teams across three countries, each with their own Figma libraries, color palettes, and component conventions.", s1_p2: 'The Toyota Design System establishes a shared token layer, a component library with 200+ production-ready components, and a documentation site that serves as the single source of truth for every team shipping Toyota digital products.',
-      s2_title: '02 The Problem', s2_p1: 'An audit found 23 different shades of red being used across Toyota digital products — Toyota Red is a single brand color. Button components came in 14 different configurations with no documented rationale.', s2_p2: 'The business cost was concrete: a feature that should take one designer two days was taking four days because the designer had to make foundational decisions from scratch every time.',
-      img_audit: 'Design audit — 23 red variants found across Toyota digital products, all from the same brand color',
+      s2_title: '02 The Problem', s2_p1: 'An audit found 23 different shades of red being used across Toyota digital products Toyota Red is a single brand color. Button components came in 14 different configurations with no documented rationale.', s2_p2: 'The business cost was concrete: a feature that should take one designer two days was taking four days because the designer had to make foundational decisions from scratch every time.',
+      img_audit: 'Design audit 23 red variants found across Toyota digital products, all from the same brand color',
       s3_title: '03 Process', s3_p1: 'The system was built in three phases. Phase one was the token architecture: establishing the semantic token layer that sits between raw values and component usage.', s3_p2: 'Phase two was component design: building from primitive elements up through atoms, molecules, and organisms. Each component was built in Figma using auto-layout and variables, then spec\'d for Storybook implementation.',
       s4_title: '04 Solution', s4_p1: 'The Toyota Design System ships as a Figma library, a Storybook component library, and a documentation site that bridges both. The documentation site gives context on not just how to use a component, but why it exists.', s4_p2: 'A governance model was established: a design systems chapter meets biweekly to review contribution proposals, and a structured RFC process allows any team to propose new components.',
-      img_tokens: 'Token architecture — semantic layer mapping brand values to component usage',
-      img_components: 'Component library — 200+ production-ready components across 8 categories',
+      img_tokens: 'Token architecture semantic layer mapping brand values to component usage',
+      img_components: 'Component library 200+ production-ready components across 8 categories',
       s5_title: '05 Results', metric1_label: 'Components shipped', metric2_label: 'Design review inconsistency flags', metric3_label: 'Teams adopting the system',
       toyota_work: 'Toyota Work', all_projects: 'All projects', current_page: 'Current page',
       footer_copy: '© 2026 Santiago Morales - DavinSane. All rights reserved.', footer_privacy: 'Privacy'
     },
     es: {
       nav_back: 'Atrás',
-      hero_desc: 'Un sistema de tokens de diseño y librería de componentes unificada construida para estandarizar cada punto de contacto digital de Toyota — desde la app de consumidor y la plataforma de concesionarios hasta herramientas internas.',
+      hero_desc: 'Un sistema de tokens de diseño y librería de componentes unificada construida para estandarizar cada punto de contacto digital de Toyota desde la app de consumidor y la plataforma de concesionarios hasta herramientas internas.',
       meta_role: 'Rol', meta_role_val: 'Líder de Sistemas de Diseño', meta_year: 'Año', meta_duration: 'Duración', meta_duration_val: '24 semanas',
       meta_deliverables: 'Entregables', meta_deliverables_val: 'Tokens, Librería, Docs', meta_tools: 'Herramientas',
-      hero_caption: 'Toyota Design System — arquitectura de tokens y visión general de la librería de componentes',
+      hero_caption: 'Toyota Design System arquitectura de tokens y visión general de la librería de componentes',
       s1_title: '01 Descripción', s1_p1: 'Antes de este proyecto, los productos digitales de Toyota en América Latina eran diseñados por cuatro equipos de agencias separadas en tres países, cada uno con sus propias librerías de Figma, paletas de colores y convenciones de componentes.', s1_p2: 'El Toyota Design System establece una capa de tokens compartida, una librería de componentes con más de 200 componentes listos para producción y un sitio de documentación que sirve como fuente única de verdad.',
-      s2_title: '02 El Problema', s2_p1: 'Una auditoría encontró 23 tonos diferentes de rojo siendo usados en los productos digitales de Toyota — el rojo Toyota es un solo color de marca. Los componentes de botones venían en 14 configuraciones diferentes sin justificación documentada.', s2_p2: 'El costo de negocio era concreto: una función que debería tomar un diseñador dos días tardaba cuatro días porque el diseñador tenía que tomar decisiones fundamentales desde cero cada vez.',
-      img_audit: 'Auditoría de diseño — 23 variantes de rojo encontradas en productos digitales Toyota, todas del mismo color de marca',
+      s2_title: '02 El Problema', s2_p1: 'Una auditoría encontró 23 tonos diferentes de rojo siendo usados en los productos digitales de Toyota el rojo Toyota es un solo color de marca. Los componentes de botones venían en 14 configuraciones diferentes sin justificación documentada.', s2_p2: 'El costo de negocio era concreto: una función que debería tomar un diseñador dos días tardaba cuatro días porque el diseñador tenía que tomar decisiones fundamentales desde cero cada vez.',
+      img_audit: 'Auditoría de diseño 23 variantes de rojo encontradas en productos digitales Toyota, todas del mismo color de marca',
       s3_title: '03 Proceso', s3_p1: 'El sistema se construyó en tres fases. La fase uno fue la arquitectura de tokens: establecer la capa de tokens semánticos entre los valores brutos y el uso de componentes.', s3_p2: 'La fase dos fue el diseño de componentes: construyendo desde elementos primitivos hasta átomos, moléculas y organismos.',
       s4_title: '04 Solución', s4_p1: 'El Toyota Design System se entrega como librería de Figma, librería de componentes en Storybook y sitio de documentación que conecta ambos.', s4_p2: 'Se estableció un modelo de gobernanza: un capítulo de sistemas de diseño se reúne cada dos semanas para revisar propuestas de contribución.',
-      img_tokens: 'Arquitectura de tokens — capa semántica que mapea valores de marca al uso de componentes',
-      img_components: 'Librería de componentes — más de 200 componentes listos para producción en 8 categorías',
+      img_tokens: 'Arquitectura de tokens capa semántica que mapea valores de marca al uso de componentes',
+      img_components: 'Librería de componentes más de 200 componentes listos para producción en 8 categorías',
       s5_title: '05 Resultados', metric1_label: 'Componentes entregados', metric2_label: 'Banderas de inconsistencia en revisiones', metric3_label: 'Equipos adoptando el sistema',
       toyota_work: 'Proyectos Toyota', all_projects: 'Todos los proyectos', current_page: 'Página actual',
       footer_copy: '© 2026 Santiago Morales - DavinSane. Todos los derechos reservados.', footer_privacy: 'Privacidad'
