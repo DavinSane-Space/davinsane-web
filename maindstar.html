@@ -1,0 +1,590 @@
+﻿<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Maindstar · Santiago Morales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "background": "#131313", "surface-container-low": "#1c1b1b",
+          "surface": "#131313", "primary": "#abc7ff",
+          "on-surface-variant": "#c2c6d4", "surface-bright": "#3a3939",
+          "on-background": "#e5e2e1", "text-muted": "#A3A3A3",
+          "outline-variant": "#424752", "surface-variant": "#353534",
+          "surface-container": "#201f1f", "secondary": "#c6c6c7",
+          "surface-container-highest": "#353534", "surface-dim": "#131313",
+          "surface-elevated": "#1A1A1A", "border-low-contrast": "#262626",
+          "on-surface": "#e5e2e1", "outline": "#8c919e"
+        },
+        borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+        spacing: { "section-gap": "120px", "gutter": "24px", "element-gap": "32px", "margin-desktop": "64px", "margin-mobile": "20px", "container-max": "1200px" },
+        fontFamily: {
+          "label-sm": ["JetBrains Mono"], "headline-lg": ["JetBrains Mono"],
+          "headline-lg-mobile": ["JetBrains Mono"], "body-lg": ["Inter"],
+          "label-md": ["JetBrains Mono"], "headline-md": ["JetBrains Mono"],
+          "headline-sm": ["JetBrains Mono"], "body-md": ["Inter"]
+        },
+        fontSize: {
+          "label-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+          "headline-lg-mobile": ["36px", { "lineHeight": "1.15", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "headline-lg": ["60px", { "lineHeight": "1.05", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+          "headline-sm": ["22px", { "lineHeight": "1.3", "fontWeight": "600" }],
+          "body-lg": ["20px", { "lineHeight": "1.8", "fontWeight": "400" }],
+          "label-md": ["15px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
+          "headline-md": ["30px", { "lineHeight": "1.25", "fontWeight": "500" }],
+          "body-md": ["17px", { "lineHeight": "1.75", "fontWeight": "400" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  #particles-bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; overflow: hidden; }
+
+  .card-enter { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .card-enter.visible { opacity: 1; transform: translateY(0); }
+
+  .stat-counter { font-variant-numeric: tabular-nums; }
+
+  .service-card {
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(171,199,255,0.04) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .service-card:hover { border-color: rgba(171,199,255,0.4); transform: translateY(-2px); }
+  .service-card:hover::before { opacity: 1; }
+
+  .tag-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 12px; border-radius: 999px;
+    border: 1px solid #262626;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; line-height: 1.4;
+    color: #A3A3A3;
+  }
+
+  .divider-line { border-color: #262626; }
+
+  .process-step { counter-increment: step; }
+  .process-steps { counter-reset: step; }
+
+  /* ── Visit site bar ── */
+  .visit-site-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #1A1A1A;
+    border: 1px solid #262626;
+    border-radius: 2px;
+    padding: 10px 16px;
+    text-decoration: none;
+    transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .visit-site-bar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(171,199,255,0.04) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .visit-site-bar:hover {
+    border-color: rgba(171,199,255,0.5);
+    box-shadow: 0 0 24px rgba(171,199,255,0.06);
+  }
+  .visit-site-bar:hover::before { opacity: 1; }
+  .visit-site-bar:hover .vsb-dot-green { background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.6); }
+  .visit-site-bar:hover .vsb-url { color: #abc7ff; }
+  .visit-site-bar:hover .vsb-arrow { color: #abc7ff; transform: translate(2px, -2px); }
+  .vsb-dot { width: 10px; height: 10px; border-radius: 50%; background: #353534; transition: background 0.3s ease; flex-shrink: 0; }
+  .vsb-dot-green { transition: background 0.3s ease, box-shadow 0.3s ease; }
+  .vsb-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; line-height: 1.4;
+    color: #A3A3A3;
+    transition: color 0.25s ease;
+    letter-spacing: 0.01em;
+    flex: 1;
+  }
+  .vsb-url-link {
+    color: #abc7ff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(171,199,255,0.4);
+  }
+  .visit-site-bar:hover .vsb-url-link {
+    text-decoration-color: rgba(171,199,255,0.9);
+  }
+  .vsb-arrow {
+    font-size: 16px !important;
+    color: #424752;
+    transition: color 0.25s ease, transform 0.25s ease;
+    flex-shrink: 0;
+  }
+  .vsb-divider { width: 1px; height: 16px; background: #262626; flex-shrink: 0; }
+
+  .hero-img-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .hero-img-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 40%;
+    background: linear-gradient(to top, #131313 0%, transparent 100%);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<div id="particles-bg"></div>
+
+<!-- Nav -->
+<nav class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border-low-contrast">
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-5 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors duration-200 font-label-sm text-label-sm group">
+      <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style="font-size:18px;">arrow_back</span>
+      <span data-i18n="nav_back">All projects</span>
+    </a>
+    <span class="font-label-md text-label-md text-on-surface uppercase tracking-widest">SANTIAGO MORALES</span>
+    <div class="w-20"></div>
+  </div>
+</nav>
+
+<main class="flex-grow">
+
+  <!-- ── HEADER ── -->
+  <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pt-20 pb-16 card-enter">
+    <p class="font-label-md text-label-md text-primary tracking-widest uppercase mb-5" data-i18n="header_label">Mobile Apps · Web Platforms · UI/UX</p>
+    <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface tracking-tight mb-6">Maindstar</h1>
+    <p class="font-body-lg text-body-lg text-text-muted max-w-2xl mb-10" data-i18n="header_desc">
+      Brand identity, product design, and digital ecosystem for a Medellín-based tech studio building the next generation of mobile and web experiences.
+    </p>
+    <!-- Tags -->
+    <div class="flex flex-wrap gap-2">
+      <span class="tag-pill" data-i18n="tag_year">2024 2025</span>
+      <span class="tag-pill" data-i18n="tag_type">Brand + Product</span>
+      <span class="tag-pill" data-i18n="tag_location">Medellín, Colombia</span>
+      <span class="tag-pill" data-i18n="tag_role">Lead Designer</span>
+    </div>
+
+    <!-- Visit site bar -->
+    <div class="mt-8 flex flex-col gap-2">
+      <p class="font-label-sm text-label-sm text-text-muted tracking-widest uppercase" data-i18n="visit_label">Puede ir a visualizar la página funcional</p>
+      <a href="https://www.maindstar.co" target="_blank" rel="noopener noreferrer" class="visit-site-bar w-full md:max-w-sm">
+        <!-- Browser dots -->
+        <div class="flex items-center gap-1.5 flex-shrink-0">
+          <span class="vsb-dot"></span>
+          <span class="vsb-dot"></span>
+          <span class="vsb-dot vsb-dot-green"></span>
+        </div>
+        <!-- Divider -->
+        <span class="vsb-divider"></span>
+        <!-- URL -->
+        <span class="vsb-url vsb-url-link">maindstar.co</span>
+        <!-- Arrow -->
+        <span class="material-symbols-outlined vsb-arrow">arrow_outward</span>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- ── HERO IMAGE ── -->
+  <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pb-section-gap card-enter" style="transition-delay: 0.1s;">
+    <div class="hero-img-wrapper border border-border-low-contrast">
+      <img
+        alt="Maindstar Digital Product Studio"
+        class="w-full object-cover object-center"
+        src="maindstar/img/maindhero.jpg"
+        style="aspect-ratio: 16/7;"
+      />
+    </div>
+  </section>
+
+  <!-- ── OVERVIEW ── -->
+  <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pb-section-gap card-enter" style="transition-delay: 0.15s;">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+      <!-- Left: brief -->
+      <div class="md:col-span-7">
+        <h2 class="font-label-md text-label-md text-text-muted tracking-widest uppercase mb-8" data-i18n="overview_label">Overview</h2>
+        <p class="font-body-lg text-body-lg text-text-muted mb-6" data-i18n="overview_p1">
+          Maindstar is a digital product studio from Medellín with a clear mission: turn bold ideas into polished products. They design and develop mobile applications, web platforms, and digital experiences for companies across Latin America combining engineering precision with a design-first mindset.
+        </p>
+        <p class="font-body-lg text-body-lg text-text-muted" data-i18n="overview_p2">
+          The challenge was building a brand and digital presence that felt as capable as the team behind it technical enough to earn trust with enterprise clients, yet modern and approachable enough to resonate with startup founders and growth-stage companies.
+        </p>
+      </div>
+      <!-- Right: metadata -->
+      <div class="md:col-span-4 md:col-start-9 flex flex-col gap-8 pt-1">
+        <div>
+          <p class="font-label-md text-label-md text-text-muted tracking-widest uppercase mb-3" data-i18n="meta_services_label">Services</p>
+          <ul class="flex flex-col gap-2">
+            <li class="font-body-md text-body-md text-on-surface flex items-center gap-2">
+              <span class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></span>
+              <span data-i18n="meta_s1">Brand Identity</span>
+            </li>
+            <li class="font-body-md text-body-md text-on-surface flex items-center gap-2">
+              <span class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></span>
+              <span data-i18n="meta_s2">Web Design</span>
+            </li>
+            <li class="font-body-md text-body-md text-on-surface flex items-center gap-2">
+              <span class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></span>
+              <span data-i18n="meta_s3">UI/UX for Mobile Apps</span>
+            </li>
+            <li class="font-body-md text-body-md text-on-surface flex items-center gap-2">
+              <span class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></span>
+              <span data-i18n="meta_s4">Design System</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-label-md text-label-md text-text-muted tracking-widest uppercase mb-3" data-i18n="meta_industry_label">Industry</p>
+          <p class="font-body-md text-body-md text-on-surface" data-i18n="meta_industry">Tech / Digital Products</p>
+        </div>
+        <div>
+          <p class="font-label-md text-label-md text-text-muted tracking-widest uppercase mb-3" data-i18n="meta_client_label">Client</p>
+          <p class="font-body-md text-body-md text-on-surface">Maindstar Studio</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT MAINDSTAR DOES ── -->
+  <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pb-section-gap card-enter">
+    <div class="flex items-center justify-between mb-12 border-b border-border-low-contrast pb-4">
+      <h2 class="font-label-md text-label-md text-text-muted tracking-widest uppercase" data-i18n="services_label">What They Build</h2>
+      <span class="font-label-sm text-label-sm text-outline-variant">04</span>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+
+      <!-- Mobile Apps -->
+      <div class="service-card bg-surface-elevated border border-border-low-contrast p-8 flex flex-col gap-5">
+        <div class="w-10 h-10 flex items-center justify-center border border-border-low-contrast rounded-sm">
+          <span class="material-symbols-outlined text-primary" style="font-size:20px;">smartphone</span>
+        </div>
+        <div>
+          <h3 class="font-headline-sm text-headline-sm text-on-surface mb-3" data-i18n="svc1_title">Mobile Applications</h3>
+          <p class="font-body-md text-body-md text-text-muted" data-i18n="svc1_desc">
+            Native and cross-platform apps built for iOS and Android. From ideation to App Store Maindstar handles architecture, UI, and deployment with a product-centric approach that prioritizes performance and retention.
+          </p>
+        </div>
+      </div>
+
+      <!-- Web Platforms -->
+      <div class="service-card bg-surface-elevated border border-border-low-contrast p-8 flex flex-col gap-5">
+        <div class="w-10 h-10 flex items-center justify-center border border-border-low-contrast rounded-sm">
+          <span class="material-symbols-outlined text-primary" style="font-size:20px;">web</span>
+        </div>
+        <div>
+          <h3 class="font-headline-sm text-headline-sm text-on-surface mb-3" data-i18n="svc2_title">Web Platforms</h3>
+          <p class="font-body-md text-body-md text-text-muted" data-i18n="svc2_desc">
+            Scalable web applications and SaaS platforms that handle real-world complexity. Admin dashboards, client portals, e-commerce systems engineered with modern stacks and designed for the people who use them every day.
+          </p>
+        </div>
+      </div>
+
+      <!-- Websites -->
+      <div class="service-card bg-surface-elevated border border-border-low-contrast p-8 flex flex-col gap-5">
+        <div class="w-10 h-10 flex items-center justify-center border border-border-low-contrast rounded-sm">
+          <span class="material-symbols-outlined text-primary" style="font-size:20px;">language</span>
+        </div>
+        <div>
+          <h3 class="font-headline-sm text-headline-sm text-on-surface mb-3" data-i18n="svc3_title">Websites</h3>
+          <p class="font-body-md text-body-md text-text-muted" data-i18n="svc3_desc">
+            High-impact marketing sites and corporate presences that convert. Fast, accessible, and built to rank every page is a precision artifact, not a template. The digital front door of a brand done right.
+          </p>
+        </div>
+      </div>
+
+      <!-- UX Research -->
+      <div class="service-card bg-surface-elevated border border-border-low-contrast p-8 flex flex-col gap-5">
+        <div class="w-10 h-10 flex items-center justify-center border border-border-low-contrast rounded-sm">
+          <span class="material-symbols-outlined text-primary" style="font-size:20px;">search_insights</span>
+        </div>
+        <div>
+          <h3 class="font-headline-sm text-headline-sm text-on-surface mb-3" data-i18n="svc4_title">UX &amp; Interface Studies</h3>
+          <p class="font-body-md text-body-md text-text-muted" data-i18n="svc4_desc">
+            User research, usability testing, heuristic audits, and interaction design. Maindstar delivers experience insights that turn friction points into conversion opportunities backed by data, refined by craft.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── DESIGN APPROACH ── -->
+  <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pb-section-gap card-enter">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+
+      <div class="md:col-span-5">
+        <h2 class="font-label-md text-label-md text-text-muted tracking-widest uppercase mb-8" data-i18n="approach_label">Design Approach</h2>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-6" data-i18n="approach_title">
+          Tech-first.<br/>Human-centered.
+        </h3>
+        <p class="font-body-lg text-body-lg text-text-muted" data-i18n="approach_desc">
+          Maindstar's aesthetic lives at the intersection of precision engineering and bold visual identity. Dark interfaces with high-contrast hierarchy, motion that communicates system state, and a brand voice that speaks directly to builders and founders.
+        </p>
+      </div>
+
+      <div class="md:col-span-6 md:col-start-7 process-steps flex flex-col gap-0">
+
+        <div class="process-step border-b border-border-low-contrast py-8 flex items-start gap-6">
+          <span class="font-label-sm text-label-sm text-primary tracking-widest flex-shrink-0 mt-1">01</span>
+          <div>
+            <h4 class="font-label-md text-label-md text-on-surface mb-2" data-i18n="step1_title">Discovery &amp; Strategy</h4>
+            <p class="font-body-md text-body-md text-text-muted" data-i18n="step1_desc">Deep-dive into the client's domain, competitors, and users. We define the product vision before touching a single pixel.</p>
+          </div>
+        </div>
+
+        <div class="process-step border-b border-border-low-contrast py-8 flex items-start gap-6">
+          <span class="font-label-sm text-label-sm text-primary tracking-widest flex-shrink-0 mt-1">02</span>
+          <div>
+            <h4 class="font-label-md text-label-md text-on-surface mb-2" data-i18n="step2_title">Architecture &amp; Wireframes</h4>
+            <p class="font-body-md text-body-md text-text-muted" data-i18n="step2_desc">Information architecture, user flows, and low-fidelity wireframes that validate structure before visual execution.</p>
+          </div>
+        </div>
+
+        <div class="process-step border-b border-border-low-contrast py-8 flex items-start gap-6">
+          <span class="font-label-sm text-label-sm text-primary tracking-widest flex-shrink-0 mt-1">03</span>
+          <div>
+            <h4 class="font-label-md text-label-md text-on-surface mb-2" data-i18n="step3_title">Visual Design &amp; Prototyping</h4>
+            <p class="font-body-md text-body-md text-text-muted" data-i18n="step3_desc">High-fidelity UI with a full design system tokens, components, motion specs, and interactive prototypes for stakeholder validation.</p>
+          </div>
+        </div>
+
+        <div class="process-step py-8 flex items-start gap-6">
+          <span class="font-label-sm text-label-sm text-primary tracking-widest flex-shrink-0 mt-1">04</span>
+          <div>
+            <h4 class="font-label-md text-label-md text-on-surface mb-2" data-i18n="step4_title">Handoff &amp; Iteration</h4>
+            <p class="font-body-md text-body-md text-text-muted" data-i18n="step4_desc">Developer-ready specs, asset exports, and continuous design support through build. Shipped products, not Figma files.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATS / IMPACT ── -->
+  <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pb-section-gap card-enter">
+    <div class="border border-border-low-contrast bg-surface-elevated rounded-sm p-10 md:p-14">
+      <p class="font-label-md text-label-md text-text-muted tracking-widest uppercase mb-10" data-i18n="impact_label">Impact</p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-10">
+
+        <div class="flex flex-col gap-2">
+          <span class="stat-counter font-headline-lg-mobile text-headline-lg-mobile text-primary">+15</span>
+          <span class="font-body-md text-body-md text-text-muted" data-i18n="stat1_label">Digital products launched</span>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <span class="stat-counter font-headline-lg-mobile text-headline-lg-mobile text-primary">98%</span>
+          <span class="font-body-md text-body-md text-text-muted" data-i18n="stat3_label">Client satisfaction rate</span>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <span class="stat-counter font-headline-lg-mobile text-headline-lg-mobile text-primary">3×</span>
+          <span class="font-body-md text-body-md text-text-muted" data-i18n="stat4_label">Faster time to market vs. industry avg</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BRAND HIGHLIGHT ── -->
+  <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pb-section-gap card-enter">
+    <div class="flex items-center justify-between mb-12 border-b border-border-low-contrast pb-4">
+      <h2 class="font-label-md text-label-md text-text-muted tracking-widest uppercase" data-i18n="brand_label">Brand Identity</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+      <div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-6" data-i18n="brand_title">A mark built for the digital frontier</h3>
+        <p class="font-body-lg text-body-lg text-text-muted mb-6" data-i18n="brand_p1">
+          The Maindstar identity reflects the duality of the studio: structured and systematic on the inside, expressive and memorable on the outside. The wordmark was designed to hold weight at any size from app icon to billboard.
+        </p>
+        <p class="font-body-lg text-body-lg text-text-muted" data-i18n="brand_p2">
+          Typography: geometric, mono-influenced. Color: deep blacks with electric accents. Motion: purposeful, never gratuitous. Every decision traces back to a single north star clarity that commands attention.
+        </p>
+      </div>
+      <div class="overflow-hidden border border-border-low-contrast rounded-sm aspect-square md:aspect-auto md:h-72">
+        <img alt="Maindstar Producto" class="w-full h-full object-cover opacity-90" src="maindstar/img/producto.jpg"/>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="w-full py-gutter px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-element-gap border-t border-border-low-contrast bg-background font-label-sm text-label-sm opacity-80 hover:opacity-100 transition-opacity">
+  <div class="font-label-md text-label-md uppercase tracking-widest text-on-surface">DavinSane</div>
+  <div class="text-on-surface" data-i18n="footer_copy">© 2026 Santiago Morales - DavinSane. All rights reserved.</div>
+  <nav class="flex gap-6">
+    <a class="text-text-muted hover:text-primary transition-colors" href="#" data-i18n="footer_privacy">Privacy</a>
+    <a class="text-text-muted hover:text-primary transition-colors" href="#">Github</a>
+  </nav>
+</footer>
+
+<!-- Floating language toggle -->
+<button id="lang-toggle" onclick="toggleLang()" aria-label="Toggle language" class="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-3 py-2 bg-surface-elevated border border-border-low-contrast rounded-full font-label-sm text-label-sm text-on-surface hover:border-primary hover:text-primary transition-colors duration-200 shadow-lg">
+  <span class="material-symbols-outlined" style="font-size:16px;">language</span>
+  <span id="lang-label">ES</span>
+</button>
+
+<script type="module" src="particles-bg.js"></script>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.card-enter').forEach(el => observer.observe(el));
+
+  const translations = {
+    en: {
+      nav_back:          'All projects',
+      header_label:      'Mobile Apps · Web Platforms · UI/UX',
+      header_desc:       'Brand identity, product design, and digital ecosystem for a Medellín-based tech studio building the next generation of mobile and web experiences.',
+      tag_year:          '2024 2025',
+      tag_type:          'Brand + Product',
+      tag_location:      'Medellín, Colombia',
+      tag_role:          'Lead Designer',
+      visit_label:       'You can visit the live site',
+      overview_label:    'Overview',
+      overview_p1:       'Maindstar is a digital product studio from Medellín with a clear mission: turn bold ideas into polished products. They design and develop mobile applications, web platforms, and digital experiences for companies across Latin America combining engineering precision with a design-first mindset.',
+      overview_p2:       'The challenge was building a brand and digital presence that felt as capable as the team behind it technical enough to earn trust with enterprise clients, yet modern and approachable enough to resonate with startup founders and growth-stage companies.',
+      meta_services_label: 'Services',
+      meta_s1:           'Brand Identity',
+      meta_s2:           'Web Design',
+      meta_s3:           'UI/UX for Mobile Apps',
+      meta_s4:           'Design System',
+      meta_industry_label: 'Industry',
+      meta_industry:     'Tech / Digital Products',
+      meta_client_label: 'Client',
+      services_label:    'What They Build',
+      svc1_title:        'Mobile Applications',
+      svc1_desc:         'Native and cross-platform apps built for iOS and Android. From ideation to App Store Maindstar handles architecture, UI, and deployment with a product-centric approach that prioritizes performance and retention.',
+      svc2_title:        'Web Platforms',
+      svc2_desc:         'Scalable web applications and SaaS platforms that handle real-world complexity. Admin dashboards, client portals, e-commerce systems engineered with modern stacks and designed for the people who use them every day.',
+      svc3_title:        'Websites',
+      svc3_desc:         'High-impact marketing sites and corporate presences that convert. Fast, accessible, and built to rank every page is a precision artifact, not a template. The digital front door of a brand done right.',
+      svc4_title:        'UX & Interface Studies',
+      svc4_desc:         'User research, usability testing, heuristic audits, and interaction design. Maindstar delivers experience insights that turn friction points into conversion opportunities backed by data, refined by craft.',
+      approach_label:    'Design Approach',
+      approach_title:    'Tech-first.\nHuman-centered.',
+      approach_desc:     "Maindstar's aesthetic lives at the intersection of precision engineering and bold visual identity. Dark interfaces with high-contrast hierarchy, motion that communicates system state, and a brand voice that speaks directly to builders and founders.",
+      step1_title:       'Discovery & Strategy',
+      step1_desc:        "Deep-dive into the client's domain, competitors, and users. We define the product vision before touching a single pixel.",
+      step2_title:       'Architecture & Wireframes',
+      step2_desc:        'Information architecture, user flows, and low-fidelity wireframes that validate structure before visual execution.',
+      step3_title:       'Visual Design & Prototyping',
+      step3_desc:        'High-fidelity UI with a full design system tokens, components, motion specs, and interactive prototypes for stakeholder validation.',
+      step4_title:       'Handoff & Iteration',
+      step4_desc:        'Developer-ready specs, asset exports, and continuous design support through build. Shipped products, not Figma files.',
+      impact_label:      'Impact',
+      stat1_label:       'Digital products launched',
+      stat2_label:       'Countries served across LatAm',
+      stat3_label:       'Client satisfaction rate',
+      stat4_label:       'Faster time to market vs. industry avg',
+      brand_label:       'Brand Identity',
+      brand_title:       'A mark built for the digital frontier',
+      brand_p1:          "The Maindstar identity reflects the duality of the studio: structured and systematic on the inside, expressive and memorable on the outside. The wordmark was designed to hold weight at any size from app icon to billboard.",
+      brand_p2:          "Typography: geometric, mono-influenced. Color: deep blacks with electric accents. Motion: purposeful, never gratuitous. Every decision traces back to a single north star clarity that commands attention.",
+      footer_copy:       '© 2026 Santiago Morales - DavinSane. All rights reserved.',
+      footer_privacy:    'Privacy',
+    },
+    es: {
+      nav_back:          'Todos los proyectos',
+      header_label:      'Apps Móviles · Plataformas Web · UI/UX',
+      header_desc:       'Identidad de marca, diseño de producto y ecosistema digital para un estudio tech de Medellín que construye la próxima generación de experiencias móviles y web.',
+      tag_year:          '2024 2025',
+      tag_type:          'Marca + Producto',
+      tag_location:      'Medellín, Colombia',
+      tag_role:          'Lead Designer',
+      visit_label:       'Puede ir a visualizar la página funcional',
+      overview_label:    'Overview',
+      overview_p1:       'Maindstar es un estudio de productos digitales de Medellín con una misión clara: convertir ideas ambiciosas en productos pulidos. Diseñan y desarrollan aplicaciones móviles, plataformas web y experiencias digitales para empresas de toda Latinoamérica combinando precisión de ingeniería con una mentalidad design-first.',
+      overview_p2:       'El reto era construir una marca y presencia digital que se sintiera tan capaz como el equipo detrás lo suficientemente técnica para ganar la confianza de clientes enterprise, y lo suficientemente moderna para resonar con fundadores de startups y empresas en crecimiento.',
+      meta_services_label: 'Servicios',
+      meta_s1:           'Identidad de Marca',
+      meta_s2:           'Diseño Web',
+      meta_s3:           'UI/UX para Apps Móviles',
+      meta_s4:           'Design System',
+      meta_industry_label: 'Industria',
+      meta_industry:     'Tech / Productos Digitales',
+      meta_client_label: 'Cliente',
+      services_label:    'Qué Construyen',
+      svc1_title:        'Aplicaciones Móviles',
+      svc1_desc:         'Apps nativas y multiplataforma para iOS y Android. De la idea al App Store Maindstar maneja arquitectura, UI y despliegue con un enfoque centrado en el producto que prioriza rendimiento y retención.',
+      svc2_title:        'Plataformas Web',
+      svc2_desc:         'Aplicaciones web escalables y plataformas SaaS que manejan la complejidad del mundo real. Dashboards administrativos, portales de clientes, sistemas de e-commerce construidos con stacks modernos y diseñados para las personas que los usan todos los días.',
+      svc3_title:        'Páginas Web',
+      svc3_desc:         'Sitios de marketing y presencias corporativas de alto impacto que convierten. Rápidos, accesibles y optimizados para posicionarse cada página es un artefacto de precisión, no una plantilla. La puerta digital de una marca hecha bien.',
+      svc4_title:        'Estudios UX e Interfaz',
+      svc4_desc:         'Investigación de usuarios, pruebas de usabilidad, auditorías heurísticas y diseño de interacción. Maindstar entrega insights de experiencia que convierten puntos de fricción en oportunidades de conversión respaldados por datos, refinados por el oficio.',
+      approach_label:    'Enfoque de Diseño',
+      approach_title:    'Tech primero.\nCentrado en las personas.',
+      approach_desc:     "La estética de Maindstar vive en la intersección de la ingeniería de precisión y la identidad visual audaz. Interfaces oscuras con jerarquía de alto contraste, movimiento que comunica el estado del sistema, y una voz de marca que habla directamente a constructores y fundadores.",
+      step1_title:       'Descubrimiento y Estrategia',
+      step1_desc:        'Inmersión profunda en el dominio del cliente, competidores y usuarios. Definimos la visión del producto antes de tocar un solo píxel.',
+      step2_title:       'Arquitectura y Wireframes',
+      step2_desc:        'Arquitectura de información, flujos de usuario y wireframes de baja fidelidad que validan la estructura antes de la ejecución visual.',
+      step3_title:       'Diseño Visual y Prototipado',
+      step3_desc:        'UI de alta fidelidad con un sistema de diseño completo tokens, componentes, especificaciones de movimiento y prototipos interactivos para validación con stakeholders.',
+      step4_title:       'Entrega e Iteración',
+      step4_desc:        'Especificaciones listas para desarrollo, exportación de assets y soporte continuo de diseño durante el build. Productos desplegados, no archivos de Figma.',
+      impact_label:      'Impacto',
+      stat1_label:       'Productos digitales lanzados',
+      stat2_label:       'Países en LatAm',
+      stat3_label:       'Tasa de satisfacción de clientes',
+      stat4_label:       'Más rápido al mercado vs. promedio de la industria',
+      brand_label:       'Identidad de Marca',
+      brand_title:       'Una marca construida para la frontera digital',
+      brand_p1:          'La identidad de Maindstar refleja la dualidad del estudio: estructurada y sistemática por dentro, expresiva y memorable por fuera. El wordmark fue diseñado para tener peso a cualquier tamaño desde ícono de app hasta valla publicitaria.',
+      brand_p2:          'Tipografía: geométrica, de influencia mono. Color: negros profundos con acentos eléctricos. Movimiento: con propósito, nunca gratuito. Cada decisión traza de vuelta a una sola estrella norte claridad que manda atención.',
+      footer_copy:       '© 2026 Santiago Morales - DavinSane. Todos los derechos reservados.',
+      footer_privacy:    'Privacidad',
+    }
+  };
+
+  let currentLang = localStorage.getItem('lang') || 'en';
+
+  function applyLang(lang) {
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.getElementById('lang-label').textContent = lang === 'en' ? 'ES' : 'EN';
+    document.documentElement.lang = lang;
+  }
+
+  function toggleLang() {
+    currentLang = currentLang === 'en' ? 'es' : 'en';
+    localStorage.setItem('lang', currentLang);
+    applyLang(currentLang);
+  }
+
+  applyLang(currentLang);
+</script>
+</body>
+</html>

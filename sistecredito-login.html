@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rediseño de Login Santiago Morales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "background": "#131313", "surface-container-low": "#1c1b1b",
+          "surface": "#131313", "primary": "#abc7ff", "on-surface-variant": "#c2c6d4",
+          "text-muted": "#A3A3A3", "outline-variant": "#424752", "surface-variant": "#353534",
+          "surface-container": "#201f1f", "secondary": "#c6c6c7",
+          "surface-elevated": "#1A1A1A", "border-low-contrast": "#262626",
+          "on-surface": "#e5e2e1", "outline": "#8c919e"
+        },
+        borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+        spacing: { "section-gap": "120px", "gutter": "24px", "element-gap": "32px", "margin-desktop": "64px", "margin-mobile": "20px" },
+        fontFamily: { "label-sm": ["JetBrains Mono"], "headline-lg": ["JetBrains Mono"], "headline-lg-mobile": ["JetBrains Mono"], "body-lg": ["Inter"], "label-md": ["JetBrains Mono"], "headline-md": ["JetBrains Mono"], "body-md": ["Inter"] },
+        fontSize: {
+          "label-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+          "headline-lg-mobile": ["36px", { "lineHeight": "1.15", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "headline-lg": ["60px", { "lineHeight": "1.05", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+          "body-lg": ["20px", { "lineHeight": "1.8", "fontWeight": "400" }],
+          "label-md": ["15px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
+          "headline-md": ["30px", { "lineHeight": "1.25", "fontWeight": "500" }],
+          "body-md": ["17px", { "lineHeight": "1.75", "fontWeight": "400" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  #particles-bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; overflow: hidden; }
+  .prose-content p { margin-bottom: 1.5rem; }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<div id="particles-bg"></div>
+
+<nav class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border-low-contrast">
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-5 flex items-center justify-between">
+    <a href="sistecredito.html" class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors duration-200 font-label-sm text-label-sm group">
+      <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style="font-size:18px;">arrow_back</span>
+      <span data-i18n="nav_back">Back</span>
+    </a>
+    <span class="font-label-md text-label-md text-on-surface uppercase tracking-widest">SANTIAGO MORALES</span>
+    <a href="mercadolibre.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors" data-i18n="nav_next">Next →</a>
+  </div>
+</nav>
+
+<main class="flex-grow">
+  <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pt-24 pb-16 fade-in">
+    <div class="flex gap-2 mb-6">
+      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">UI Design</span>
+      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Figma</span>
+    </div>
+    <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6 tracking-tight">Rediseño de Login</h1>
+    <p class="font-body-lg text-body-lg text-text-muted max-w-3xl" data-i18n="hero_desc">
+      A full redesign of the Sistecrédito customer portal login screen, transforming an unanchored white layout into a bold split screen experience that puts the brand front and center on the first screen every user sees.
+    </p>
+    <div class="mt-14 border-t border-border-low-contrast grid grid-cols-2 md:grid-cols-5">
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_role">Role</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_role_val">UI Designer</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_year">Year</p>
+        <p class="font-label-md text-label-md text-on-surface">2021</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_duration">Duration</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_duration_val">2 weeks</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_deliverables">Deliverables</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_deliverables_val">UI Design, Prototype</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_tools">Tools</p>
+        <p class="font-label-md text-label-md text-on-surface">Figma, VS Code</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 mb-20 fade-in">
+    <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+      <img src="sistecredito/img/loginnuevosiste.jpg" alt="Rediseño de Login Sistecrédito" class="w-full h-auto block opacity-90"/>
+    </div>
+    <p class="mt-3 font-label-sm text-label-sm text-outline text-center" data-i18n="hero_caption">Sistecrédito Login Redesign customer portal</p>
+  </div>
+
+  <article class="max-w-[920px] mx-auto px-margin-mobile md:px-16 prose-content">
+
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s1_title">01 Overview</h2>
+      <p class="font-body-lg text-body-lg text-on-surface" data-i18n="s1_p1">
+        Sistecrédito is a Colombian fintech that offers consumer credit and installment payment solutions to millions of users. The customer portal is the primary access point for all their services, and the login screen is the first touchpoint every single user encounters.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s1_p2">
+        In 2021 the existing version did not reflect the maturity or warmth of the brand. A redesign was needed to align the authentication experience with the visual identity Sistecrédito had been building in their campaigns and communications.
+      </p>
+    </section>
+
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s2_title">02 The Problem</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p1">
+        The original login page was built as a functional shell. A white background, a logo, a photo on the left, and a form on the right. Each element existed independently without a compositional relationship. The brand photography was placed without a defined focal point or crop logic, and the form panel floated on a plain white surface with no color anchoring.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p2">
+        For a financial product where trust is built in seconds, the login screen was an opportunity being left on the table. The interface communicated nothing about the brand beyond its name in the corner.
+      </p>
+    </section>
+
+    <div class="mb-16 fade-in">
+      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+        <img src="sistecredito/img/loginviejosiste.jpg" alt="Login original Sistecrédito" class="w-full h-auto block opacity-90"/>
+      </div>
+      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="img_before">Original login before the redesign</p>
+    </div>
+
+    <section class="mb-10 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s3_title">03 Process</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p1">
+        I started by extracting the core brand colors from Sistecrédito's visual identity: the primary blue and the accent green. In Figma I sketched several layout directions focused on one question: how do you make a login screen feel like it truly belongs to this brand? The answer was a committed split layout.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p2">
+        The left half becomes a brand canvas anchored by a bold circular crop of their campaign photography over a solid brand blue. The right half strips back to just the form: two fields, a clear call to action, and a defined path for both external customers and internal collaborators. Once the layout was validated in Figma I moved to VS Code to build the final version directly in the browser.
+      </p>
+    </section>
+
+    <section class="mb-12 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s4_title">04 Solution</h2>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p1">
+        The redesigned screen locks the brand into the authentication experience from the first pixel. The dark blue header inside the form card carries the primary brand color into the form itself, creating a visual thread from the left panel all the way through the right. The two user paths are now unambiguous: external customers fill in their credentials or sign in with Google, while internal collaborators have their own clearly separated access point.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p2">
+        The result is a login screen that communicates security and brand identity before the user types a single character. Something as routine as a login page became an expression of what the product stands for.
+      </p>
+    </section>
+
+  </article>
+
+  <div class="border-t border-border-low-contrast">
+    <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-20">
+      <div class="flex items-center justify-between mb-10">
+        <h2 class="font-label-md text-label-md text-text-muted tracking-widest uppercase" data-i18n="siste_work">Sistecrédito Work</h2>
+        <a href="index.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span>
+          <span data-i18n="all_projects">All projects</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        <div class="flex flex-col gap-4 opacity-60 cursor-default">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-primary/30 overflow-hidden">
+            <img src="sistecredito/img/loginnuevosiste.jpg" alt="Rediseño de Login" class="w-full h-full object-cover opacity-80"/>
+            <div class="absolute inset-0 bg-background/40 flex items-center justify-center">
+              <span class="px-3 py-1 border border-primary/50 font-label-sm text-label-sm text-primary rounded-full" data-i18n="current_page">Current page</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-headline-md text-headline-md text-on-surface">Rediseño de Login</h3>
+            <div class="flex gap-2 mt-2"><span class="font-label-sm text-label-sm text-text-muted">UI Design</span><span class="font-label-sm text-label-sm text-outline-variant">·</span><span class="font-label-sm text-label-sm text-text-muted">Figma</span></div>
+          </div>
+        </div>
+        <a href="iqor.html" class="group flex flex-col gap-4">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden transition-colors duration-300 group-hover:border-primary">
+            <img src="iQor_HUB/img/iqorlogo.jpg" alt="iQor HUB" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">iQor HUB</h3>
+              <div class="flex gap-2 mt-2"><span class="font-label-sm text-label-sm text-text-muted">Design System</span><span class="font-label-sm text-label-sm text-outline-variant">·</span><span class="font-label-sm text-label-sm text-text-muted">SaaS</span></div>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300 mt-1" style="font-size:18px;">arrow_outward</span>
+          </div>
+        </a>
+        <a href="meli-checkout.html" class="group flex flex-col gap-4">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden transition-colors duration-300 group-hover:border-primary">
+            <img src="mercadolibre/img/logomercadolibre.svg" alt="Mercado Libre" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Mercado Libre Checkout</h3>
+              <div class="flex gap-2 mt-2"><span class="font-label-sm text-label-sm text-text-muted">E-commerce</span><span class="font-label-sm text-label-sm text-outline-variant">·</span><span class="font-label-sm text-label-sm text-text-muted">UX</span></div>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300 mt-1" style="font-size:18px;">arrow_outward</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="w-full py-gutter px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-element-gap border-t border-border-low-contrast bg-background font-label-sm text-label-sm opacity-80 hover:opacity-100 transition-opacity">
+  <div class="font-label-md text-label-md uppercase tracking-widest text-on-surface">SANTIAGO MORALES</div>
+  <div class="text-on-surface" data-i18n="footer_copy">© 2026 Santiago Morales - DavinSane. All rights reserved.</div>
+  <nav class="flex gap-6">
+    <a class="text-text-muted hover:text-primary transition-colors" href="#" data-i18n="footer_privacy">Privacy</a>
+    <a class="text-text-muted hover:text-primary transition-colors" href="#">Github</a>
+  </nav>
+</footer>
+
+<button id="lang-toggle" onclick="toggleLang()" aria-label="Toggle language" class="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-3 py-2 bg-surface-elevated border border-border-low-contrast rounded-full font-label-sm text-label-sm text-on-surface hover:border-primary hover:text-primary transition-colors duration-200 shadow-lg">
+  <span class="material-symbols-outlined" style="font-size:16px;">language</span>
+  <span id="lang-label">ES</span>
+</button>
+
+<script type="module" src="particles-bg.js"></script>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const translations = {
+    en: {
+      nav_back: 'Back', nav_next: 'Next →',
+      hero_desc: 'A full redesign of the Sistecrédito customer portal login screen, transforming an unanchored white layout into a bold split screen experience that puts the brand front and center on the first screen every user sees.',
+      meta_role: 'Role', meta_role_val: 'UI Designer', meta_year: 'Year', meta_duration: 'Duration', meta_duration_val: '2 weeks',
+      meta_deliverables: 'Deliverables', meta_deliverables_val: 'UI Design, Prototype', meta_tools: 'Tools',
+      hero_caption: 'Sistecrédito Login Redesign customer portal',
+      s1_title: '01 Overview',
+      s1_p1: 'Sistecrédito is a Colombian fintech that offers consumer credit and installment payment solutions to millions of users. The customer portal is the primary access point for all their services, and the login screen is the first touchpoint every single user encounters.',
+      s1_p2: 'In 2021 the existing version did not reflect the maturity or warmth of the brand. A redesign was needed to align the authentication experience with the visual identity Sistecrédito had been building in their campaigns and communications.',
+      s2_title: '02 The Problem',
+      s2_p1: 'The original login page was built as a functional shell. A white background, a logo, a photo on the left, and a form on the right. Each element existed independently without a compositional relationship. The brand photography was placed without a defined focal point or crop logic, and the form panel floated on a plain white surface with no color anchoring.',
+      s2_p2: 'For a financial product where trust is built in seconds, the login screen was an opportunity being left on the table. The interface communicated nothing about the brand beyond its name in the corner.',
+      img_before: 'Original login before the redesign',
+      s3_title: '03 Process',
+      s3_p1: "I started by extracting the core brand colors from Sistecrédito's visual identity: the primary blue and the accent green. In Figma I sketched several layout directions focused on one question: how do you make a login screen feel like it truly belongs to this brand? The answer was a committed split layout.",
+      s3_p2: 'The left half becomes a brand canvas anchored by a bold circular crop of their campaign photography over a solid brand blue. The right half strips back to just the form: two fields, a clear call to action, and a defined path for both external customers and internal collaborators. Once the layout was validated in Figma I moved to VS Code to build the final version directly in the browser.',
+      s4_title: '04 Solution',
+      s4_p1: 'The redesigned screen locks the brand into the authentication experience from the first pixel. The dark blue header inside the form card carries the primary brand color into the form itself, creating a visual thread from the left panel all the way through the right. The two user paths are now unambiguous: external customers fill in their credentials or sign in with Google, while internal collaborators have their own clearly separated access point.',
+      s4_p2: 'The result is a login screen that communicates security and brand identity before the user types a single character. Something as routine as a login page became an expression of what the product stands for.',
+      siste_work: 'Sistecrédito Work', all_projects: 'All projects', current_page: 'Current page',
+      footer_copy: '© 2026 Santiago Morales - DavinSane. All rights reserved.', footer_privacy: 'Privacy'
+    },
+    es: {
+      nav_back: 'Atrás', nav_next: 'Siguiente →',
+      hero_desc: 'Un rediseño completo de la pantalla de inicio de sesión del portal de clientes de Sistecrédito, transformando un layout blanco sin anclaje en una experiencia de pantalla dividida que pone la marca al frente en la primera pantalla que ve cada usuario.',
+      meta_role: 'Rol', meta_role_val: 'Diseñador UI', meta_year: 'Año', meta_duration: 'Duración', meta_duration_val: '2 semanas',
+      meta_deliverables: 'Entregables', meta_deliverables_val: 'Diseño UI, Prototipo', meta_tools: 'Herramientas',
+      hero_caption: 'Rediseño de Login Sistecrédito portal del cliente',
+      s1_title: '01 Descripción',
+      s1_p1: 'Sistecrédito es una fintech colombiana que ofrece crédito de consumo y soluciones de pago en cuotas a millones de usuarios. El portal del cliente es el punto de acceso principal a todos sus servicios, y la pantalla de login es el primer punto de contacto que enfrenta cada usuario.',
+      s1_p2: 'En 2021 la versión existente no reflejaba la madurez ni la calidez de la marca. Era necesario un rediseño para alinear la experiencia de autenticación con la identidad visual que Sistecrédito había construido en sus campañas y comunicaciones.',
+      s2_title: '02 El Problema',
+      s2_p1: 'La pantalla de login original fue construida como una carcasa funcional. Fondo blanco, un logo, una foto a la izquierda y un formulario a la derecha. Cada elemento existía de forma independiente sin ninguna relación compositiva. La fotografía de campaña fue colocada sin un punto focal definido, y el panel del formulario flotaba sobre una superficie blanca sin ningún anclaje de color.',
+      s2_p2: 'Para un producto financiero donde la confianza se construye en segundos, la pantalla de login era una oportunidad que se estaba dejando sobre la mesa. La interfaz no comunicaba nada sobre la marca más allá de su nombre en la esquina.',
+      img_before: 'Login original antes del rediseño',
+      s3_title: '03 Proceso',
+      s3_p1: 'Comencé extrayendo los colores principales de la identidad visual de Sistecrédito: el azul primario y el verde de acento. En Figma esbocé varias direcciones de layout enfocadas en una pregunta: ¿cómo hacer que una pantalla de login se sienta como si perteneciera verdaderamente a esta marca? La respuesta fue un layout dividido sin concesiones.',
+      s3_p2: 'La mitad izquierda se convierte en un lienzo de marca anclado por un recorte circular de la fotografía de campaña sobre un azul sólido de la marca. La mitad derecha se reduce al formulario esencial: dos campos, una llamada a la acción clara y una ruta definida para clientes externos y colaboradores internos. Una vez validado en Figma pasé a VS Code para construir la versión final directamente en el navegador.',
+      s4_title: '04 Solución',
+      s4_p1: 'La pantalla rediseñada incorpora la marca en la experiencia de autenticación desde el primer píxel. El encabezado azul oscuro dentro de la tarjeta del formulario lleva el color primario de la marca al formulario mismo, creando un hilo visual desde el panel izquierdo hasta el derecho. Las dos rutas de usuario son ahora inequívocas: los clientes externos ingresan sus credenciales o se conectan con Google, mientras que los colaboradores internos tienen su propio punto de acceso claramente separado.',
+      s4_p2: 'El resultado es una pantalla de login que comunica seguridad e identidad de marca antes de que el usuario escriba un solo carácter. Algo tan rutinario como una página de inicio de sesión se convirtió en una expresión de lo que el producto representa.',
+      siste_work: 'Proyectos Sistecrédito', all_projects: 'Todos los proyectos', current_page: 'Página actual',
+      footer_copy: '© 2026 Santiago Morales - DavinSane. Todos los derechos reservados.', footer_privacy: 'Privacidad'
+    }
+  };
+
+  let currentLang = localStorage.getItem('lang') || 'en';
+  function applyLang(lang) {
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.dataset.i18n; if (t[k] !== undefined) el.textContent = t[k]; });
+    document.getElementById('lang-label').textContent = lang === 'en' ? 'ES' : 'EN';
+    document.documentElement.lang = lang;
+  }
+  function toggleLang() { currentLang = currentLang === 'en' ? 'es' : 'en'; localStorage.setItem('lang', currentLang); applyLang(currentLang); }
+  applyLang(currentLang);
+</script>
+</body>
+</html>

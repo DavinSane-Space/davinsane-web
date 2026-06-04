@@ -1,0 +1,760 @@
+﻿<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portal de Pagos Santiago Morales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "background": "#131313", "surface-container-low": "#1c1b1b",
+          "surface": "#131313", "primary": "#abc7ff", "on-surface-variant": "#c2c6d4",
+          "text-muted": "#A3A3A3", "outline-variant": "#424752", "surface-variant": "#353534",
+          "surface-container": "#201f1f", "secondary": "#c6c6c7",
+          "surface-elevated": "#1A1A1A", "border-low-contrast": "#262626",
+          "on-surface": "#e5e2e1", "outline": "#8c919e"
+        },
+        borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+        spacing: { "section-gap": "120px", "gutter": "24px", "element-gap": "32px", "margin-desktop": "64px", "margin-mobile": "20px" },
+        fontFamily: { "label-sm": ["JetBrains Mono"], "headline-lg": ["JetBrains Mono"], "headline-lg-mobile": ["JetBrains Mono"], "body-lg": ["Inter"], "label-md": ["JetBrains Mono"], "headline-md": ["JetBrains Mono"], "body-md": ["Inter"] },
+        fontSize: {
+          "label-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+          "headline-lg-mobile": ["36px", { "lineHeight": "1.15", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "headline-lg": ["60px", { "lineHeight": "1.05", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+          "body-lg": ["20px", { "lineHeight": "1.8", "fontWeight": "400" }],
+          "label-md": ["15px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
+          "headline-md": ["30px", { "lineHeight": "1.25", "fontWeight": "500" }],
+          "body-md": ["17px", { "lineHeight": "1.75", "fontWeight": "400" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  #particles-bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; overflow: hidden; }
+  .prose-content p { margin-bottom: 1.5rem; }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<div id="particles-bg"></div>
+
+<nav class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border-low-contrast">
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-5 flex items-center justify-between">
+    <a href="sistecredito.html" class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors duration-200 font-label-sm text-label-sm group">
+      <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style="font-size:18px;">arrow_back</span>
+      <span data-i18n="nav_back">Back</span>
+    </a>
+    <span class="font-label-md text-label-md text-on-surface uppercase tracking-widest">SANTIAGO MORALES</span>
+    <a href="raio-brand.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors" data-i18n="nav_next">Next →</a>
+  </div>
+</nav>
+
+<main class="flex-grow">
+
+  <!-- Hero -->
+  <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pt-24 pb-16 fade-in">
+    <div class="flex gap-2 mb-6">
+      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">UX Research</span>
+      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">UI Design</span>
+      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Figma</span>
+    </div>
+    <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6 tracking-tight" data-i18n="hero_title">Portal de Pagos</h1>
+    <p class="font-body-lg text-body-lg text-text-muted max-w-3xl" data-i18n="hero_desc">
+      A complete redesign of Sistecrédito's internal debt collection interface structuring data into clear, hierarchical tables so that 43 collection agents can manage their daily caseload faster, with fewer clicks and less friction.
+    </p>
+    <div class="mt-14 border-t border-border-low-contrast grid grid-cols-2 md:grid-cols-5">
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_role">Role</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_role_val">Product Designer</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_year">Year</p>
+        <p class="font-label-md text-label-md text-on-surface">2022</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_team">Team</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_team_val">2 Designers</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_deliverables">Deliverables</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_deliverables_val">Research, UX, UI, Components</p>
+      </div>
+      <div class="border-l border-border-low-contrast pl-6 py-6">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_tools">Tools</p>
+        <p class="font-label-md text-label-md text-on-surface">Figma</p>
+      </div>
+    </div>
+
+    <!-- Figma prototype card -->
+    <a href="https://www.figma.com/proto/G13Z16t41GU7l7ZqeXKFGy/Portafolio-Santiago-Morales?type=design&node-id=370-6342&viewport=1048%2C662%2C0.2&t=cyIGcXaljpkncnm8-1&scaling=contain&page-id=101%3A362" target="_blank" rel="noopener noreferrer" class="group mt-6 flex items-center justify-between border border-border-low-contrast bg-surface-elevated hover:border-primary transition-colors duration-300 px-8 py-5">
+      <div class="flex items-center gap-4">
+        <span class="material-symbols-outlined text-primary" style="font-size:22px;">open_in_new</span>
+        <div>
+          <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest mb-1" data-i18n="proto_label">Figma prototype</p>
+          <p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors" data-i18n="proto_cta">Ver prototipo</p>
+        </div>
+      </div>
+      <span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" style="font-size:20px;">arrow_outward</span>
+    </a>
+  </section>
+
+  <!-- Hero image -->
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 mb-20 fade-in">
+    <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+      <img src="sistecredito/img/portalcobro.jpg" alt="Portal de Pagos Sistecrédito" class="w-full h-auto block opacity-90"/>
+    </div>
+    <p class="mt-3 font-label-sm text-label-sm text-outline text-center" data-i18n="hero_caption">Portal de Pagos interfaz de cobros rediseñada para los agentes de Sistecrédito</p>
+  </div>
+
+  <article class="max-w-[920px] mx-auto px-margin-mobile md:px-16 prose-content">
+
+    <!-- 01 Overview -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s1_title">01 Overview</h2>
+      <p class="font-body-lg text-body-lg text-on-surface" data-i18n="s1_p1">
+        Sistecrédito's collection agents now have a more accessible and understandable interface for managing the company's debt recovery operations.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted" data-i18n="s1_p2">
+        The main objective was to design a collections interface with well-organized, clearly structured tables easy to read, easy to act on. The redesign targets 43 collection agents who spend their entire workday inside this system, managing hundreds of accounts across dozens of data points simultaneously.
+      </p>
+    </section>
+
+    <!-- 02 Users -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-8" data-i18n="s2_title">02 Users</h2>
+      <p class="font-body-md text-body-md text-text-muted mb-8" data-i18n="s2_intro">Who is this product designed for?</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-border-low-contrast border border-border-low-contrast">
+        <div class="bg-background p-8">
+          <h3 class="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-4" data-i18n="s2_who_title">Collection agents</h3>
+          <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_who_desc">
+            Internal Sistecrédito employees responsible for managing debt recovery from users who are behind on their payments. All of their daily work happens through this interface.
+          </p>
+        </div>
+        <div class="bg-background p-8">
+          <h3 class="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-4" data-i18n="s2_char_title">Agent profile</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start gap-2 font-body-md text-body-md text-text-muted">
+              <span class="text-primary mt-1"> </span>
+              <span data-i18n="s2_char1">High technology affinity interacting with complex applications is not a barrier</span>
+            </li>
+            <li class="flex items-start gap-2 font-body-md text-body-md text-text-muted">
+              <span class="text-primary mt-1"> </span>
+              <span data-i18n="s2_char2">Young professionals between 17 and 35 years old</span>
+            </li>
+            <li class="flex items-start gap-2 font-body-md text-body-md text-text-muted">
+              <span class="text-primary mt-1"> </span>
+              <span data-i18n="s2_char3">Work entirely at a computer desktop is the primary and only device</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Research / Interviews -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s3_title">03 Research</h2>
+      <p class="font-body-md text-body-md text-text-muted mb-10" data-i18n="s3_intro">
+        We conducted structured interviews with three agents representing different seniority levels. The goal was to surface what the current system failed to provide and understand how agents mentally model their daily work.
+      </p>
+
+      <!-- Interview 1 -->
+      <div class="border border-border-low-contrast bg-surface-elevated mb-6 p-8 fade-in">
+        <div class="flex items-start gap-6 mb-6">
+          <div>
+            <p class="font-label-md text-label-md text-on-surface" data-i18n="i1_name">Arnaldo Pérez G.</p>
+            <p class="font-label-sm text-label-sm text-text-muted mt-1">29 años · <span data-i18n="i1_role">Agente Senior</span></p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-3" data-i18n="i_q1">What would improve your work?</p>
+            <p class="font-body-md text-body-md text-text-muted" data-i18n="i1_a1">
+              "An application that lets me view user data more simply and quickly. Something that shows all user records on a single screen whether they're behind on payments or up to date."
+            </p>
+          </div>
+          <div>
+            <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-3" data-i18n="i_q2">What's wrong with the current app?</p>
+            <p class="font-body-md text-body-md text-text-muted" data-i18n="i1_a2">
+              "It's very complex, slow to load data, and in many situations it's very confusing."
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interview 2 -->
+      <div class="border border-border-low-contrast bg-surface-elevated mb-6 p-8 fade-in">
+        <div class="flex items-start gap-6 mb-6">
+          <div>
+            <p class="font-label-md text-label-md text-on-surface" data-i18n="i2_name">Marlon Parra B.</p>
+            <p class="font-label-sm text-label-sm text-text-muted mt-1">25 años · <span data-i18n="i2_role">Agente Jr</span></p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-3" data-i18n="i_q1">What would improve your work?</p>
+            <p class="font-body-md text-body-md text-text-muted" data-i18n="i2_a1">
+              "See all data in one place. Our day-to-day involves visualizing a lot of data, and it would be great if it were all on a single screen no need to open and close so many windows."
+            </p>
+          </div>
+          <div>
+            <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-3" data-i18n="i_q2">What's wrong with the current app?</p>
+            <p class="font-body-md text-body-md text-text-muted" data-i18n="i2_a2">
+              "It doesn't let us optimize or speed up our work. Speed and efficiency are essential when we're dealing with clients and data all day long."
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interview 3 -->
+      <div class="border border-border-low-contrast bg-surface-elevated mb-6 p-8 fade-in">
+        <div class="flex items-start gap-6 mb-6">
+          <div>
+            <p class="font-label-md text-label-md text-on-surface" data-i18n="i3_name">Luis Londoño</p>
+            <p class="font-label-sm text-label-sm text-text-muted mt-1">32 años · <span data-i18n="i3_role">Agente Senior</span></p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-3" data-i18n="i_q1">What would improve your work?</p>
+            <p class="font-body-md text-body-md text-text-muted" data-i18n="i3_a1">
+              "A design that includes all the records we work with daily, in an interface that's actually understandable."
+            </p>
+          </div>
+          <div>
+            <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-3" data-i18n="i_q2">What's wrong with the current app?</p>
+            <p class="font-body-md text-body-md text-text-muted" data-i18n="i3_a2">
+              "I've been a collection agent for 3 years and I still struggle to find certain records and navigate the system."
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key insight callout -->
+      <div class="border-l-2 border-primary pl-6 py-2 mt-8 fade-in">
+        <p class="font-body-lg text-body-lg text-on-surface" data-i18n="s3_insight">
+          Every agent, regardless of seniority, pointed to the same root problem: too many screens, too many clicks, too much time lost just finding information.
+        </p>
+      </div>
+    </section>
+
+    <!-- 04 The Problem -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s4_title">04 The Problem</h2>
+      <p class="font-body-md text-body-md text-text-muted mb-4" data-i18n="s4_p1">
+        To interact with the current system, agents go through a fragmented sequence: desktop access → login → application where the application itself branches into Excel exports, pop-up windows, and data scattered across multiple disconnected screens.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted mb-10" data-i18n="s4_p2">
+        This forced agents to take unnecessary actions at every turn, slowing down their debt management workflows and increasing the cognitive load of an already demanding job.
+      </p>
+
+      <div class="flex flex-col gap-4 mb-4">
+        <div>
+          <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+            <img src="sistecredito/img/tablaactual.jpg" alt="Tabla actual del sistema" class="w-full h-auto block opacity-90"/>
+          </div>
+          <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="img_tablaactual">Current interface dense, unstructured table layout that agents must navigate daily</p>
+        </div>
+        <div>
+          <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+            <img src="sistecredito/img/excelviejo.jpg" alt="Excel usado como solución alternativa" class="w-full h-auto block opacity-90"/>
+          </div>
+          <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="img_excelviejo">Excel workaround agents exported data to spreadsheets just to make it readable</p>
+        </div>
+      </div>
+
+      <div class="border border-border-low-contrast bg-surface-elevated p-6 mt-6 fade-in">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-6" data-i18n="problem_label">Agent's current flow</p>
+
+        <!-- Flow steps -->
+        <div class="flex flex-wrap items-start gap-3 mb-8">
+          <div class="flex flex-col items-center gap-1">
+            <span class="px-4 py-2 border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="flow_step1">Desktop access</span>
+          </div>
+          <span class="text-outline mt-2">→</span>
+          <div class="flex flex-col items-center gap-1">
+            <span class="px-4 py-2 border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="flow_step2">Login</span>
+          </div>
+          <span class="text-outline mt-2">→</span>
+          <div class="flex flex-col items-center gap-1">
+            <span class="px-4 py-2 border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="flow_step3">Application</span>
+          </div>
+          <span class="text-outline mt-2">→</span>
+          <div class="flex flex-col gap-2">
+            <span class="px-3 py-1 border border-red-900/40 bg-red-900/10 font-label-sm text-label-sm text-red-400" data-i18n="flow_excel">Excel exports</span>
+            <span class="px-3 py-1 border border-red-900/40 bg-red-900/10 font-label-sm text-label-sm text-red-400" data-i18n="flow_popups">Pop-up windows</span>
+            <span class="px-3 py-1 border border-red-900/40 bg-red-900/10 font-label-sm text-label-sm text-red-400" data-i18n="flow_tables">Data across multiple screens</span>
+          </div>
+        </div>
+
+        <!-- Friction points grid -->
+        <div class="border-t border-border-low-contrast pt-6">
+          <p class="font-label-sm text-label-sm text-red-400/70 uppercase tracking-widest mb-4" data-i18n="friction_label">Friction points identified</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div class="flex items-start gap-3 border border-red-900/30 bg-red-900/5 px-4 py-3">
+              <span class="material-symbols-outlined text-red-400 flex-shrink-0" style="font-size:16px;">close</span>
+              <div>
+                <p class="font-label-sm text-label-sm text-red-400 mb-1" data-i18n="fr1_title">Slow data loading</p>
+                <p class="font-label-sm text-label-sm text-text-muted" style="font-family: inherit; font-size: 11px;" data-i18n="fr1_desc">The system took too long to display records, forcing agents to wait between every action</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 border border-red-900/30 bg-red-900/5 px-4 py-3">
+              <span class="material-symbols-outlined text-red-400 flex-shrink-0" style="font-size:16px;">close</span>
+              <div>
+                <p class="font-label-sm text-label-sm text-red-400 mb-1" data-i18n="fr2_title">No visual hierarchy</p>
+                <p class="font-label-sm text-label-sm text-text-muted" style="font-family: inherit; font-size: 11px;" data-i18n="fr2_desc">All data looked the same no way to quickly distinguish what was urgent from what was not</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 border border-red-900/30 bg-red-900/5 px-4 py-3">
+              <span class="material-symbols-outlined text-red-400 flex-shrink-0" style="font-size:16px;">close</span>
+              <div>
+                <p class="font-label-sm text-label-sm text-red-400 mb-1" data-i18n="fr3_title">Constant window switching</p>
+                <p class="font-label-sm text-label-sm text-text-muted" style="font-family: inherit; font-size: 11px;" data-i18n="fr3_desc">Agents had to open and close multiple windows to view a single client's full information</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 border border-red-900/30 bg-red-900/5 px-4 py-3">
+              <span class="material-symbols-outlined text-red-400 flex-shrink-0" style="font-size:16px;">close</span>
+              <div>
+                <p class="font-label-sm text-label-sm text-red-400 mb-1" data-i18n="fr4_title">Confusing navigation</p>
+                <p class="font-label-sm text-label-sm text-text-muted" style="font-family: inherit; font-size: 11px;" data-i18n="fr4_desc">Even senior agents with years of experience still struggled to find specific records</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 border border-red-900/30 bg-red-900/5 px-4 py-3">
+              <span class="material-symbols-outlined text-red-400 flex-shrink-0" style="font-size:16px;">close</span>
+              <div>
+                <p class="font-label-sm text-label-sm text-red-400 mb-1" data-i18n="fr5_title">Excel as a workaround</p>
+                <p class="font-label-sm text-label-sm text-text-muted" style="font-family: inherit; font-size: 11px;" data-i18n="fr5_desc">Agents exported data to spreadsheets just to be able to read and analyze it properly</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 border border-red-900/30 bg-red-900/5 px-4 py-3">
+              <span class="material-symbols-outlined text-red-400 flex-shrink-0" style="font-size:16px;">close</span>
+              <div>
+                <p class="font-label-sm text-label-sm text-red-400 mb-1" data-i18n="fr6_title">No remote access</p>
+                <p class="font-label-sm text-label-sm text-text-muted" style="font-family: inherit; font-size: 11px;" data-i18n="fr6_desc">The system was tied to office equipment agents could not work from home or on a laptop</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 border border-red-900/30 bg-red-900/5 px-4 py-3">
+              <span class="material-symbols-outlined text-red-400 flex-shrink-0" style="font-size:16px;">close</span>
+              <div>
+                <p class="font-label-sm text-label-sm text-red-400 mb-1" data-i18n="fr7_title">Fragmented client data</p>
+                <p class="font-label-sm text-label-sm text-text-muted" style="font-family: inherit; font-size: 11px;" data-i18n="fr7_desc">Payment history, contact info and debt status were spread across different sections with no unified view</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 border border-red-900/30 bg-red-900/5 px-4 py-3">
+              <span class="material-symbols-outlined text-red-400 flex-shrink-0" style="font-size:16px;">close</span>
+              <div>
+                <p class="font-label-sm text-label-sm text-red-400 mb-1" data-i18n="fr8_title">High onboarding cost</p>
+                <p class="font-label-sm text-label-sm text-text-muted" style="font-family: inherit; font-size: 11px;" data-i18n="fr8_desc">New agents needed weeks to become productive the interface offered no intuitive entry point</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Design Proposal -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s5_title">05 Design Proposal</h2>
+      <p class="font-body-md text-body-md text-text-muted mb-10" data-i18n="s5_intro">
+        The proposal was built around six product objectives each one directly addressing a pain point uncovered in research and aligned with the new Sistecrédito brand identity.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-border-low-contrast border border-border-low-contrast mb-6">
+        <div class="bg-background p-6">
+          <p class="font-label-md text-label-md text-on-surface mb-3" data-i18n="obj1_title">Structure</p>
+          <p class="font-body-md text-body-md text-text-muted" data-i18n="obj1_desc">Design a new architecture grounded in accessibility and visual design fundamentals a quality, consistent, and inclusive interface.</p>
+        </div>
+        <div class="bg-background p-6">
+          <p class="font-label-md text-label-md text-on-surface mb-3" data-i18n="obj2_title">Hierarchy</p>
+          <p class="font-body-md text-body-md text-text-muted" data-i18n="obj2_desc">Every component and element has a purpose. Visual hierarchy guides agents to the most important information without them having to hunt for it.</p>
+        </div>
+        <div class="bg-background p-6">
+          <p class="font-label-md text-label-md text-on-surface mb-3" data-i18n="obj3_title">Modernize</p>
+          <p class="font-body-md text-body-md text-text-muted" data-i18n="obj3_desc">The interface aligns with Sistecrédito's new brand manual product and marketing working in sync, not in isolation.</p>
+        </div>
+        <div class="bg-background p-6">
+          <p class="font-label-md text-label-md text-on-surface mb-3" data-i18n="obj4_title">Accessibility</p>
+          <p class="font-body-md text-body-md text-text-muted" data-i18n="obj4_desc">Designed for all 43 collection agents regardless of their individual conditions a system everyone can use without barriers.</p>
+        </div>
+        <div class="bg-background p-6">
+          <p class="font-label-md text-label-md text-on-surface mb-3" data-i18n="obj5_title">Visual design</p>
+          <p class="font-body-md text-body-md text-text-muted" data-i18n="obj5_desc">Quality and consistency through visual design fundamentals color, contrast, typography scale, and Gestalt principles applied throughout.</p>
+        </div>
+        <div class="bg-background p-6">
+          <p class="font-label-md text-label-md text-on-surface mb-3" data-i18n="obj6_title">Better experience</p>
+          <p class="font-body-md text-body-md text-text-muted" data-i18n="obj6_desc">The digital product will give every collection agent back time optimizing workflows so they can focus on what matters: the client interaction.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 What the product offers -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s6_title">06 What the product delivers</h2>
+      <p class="font-body-md text-body-md text-text-muted mb-10" data-i18n="s6_intro">
+        Six core capabilities defined around the agent's real context desktop-first, always connected, working with clients from anywhere.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="border border-border-low-contrast p-6 flex gap-4">
+          <span class="material-symbols-outlined text-primary mt-1" style="font-size:20px;">mail</span>
+          <div>
+            <p class="font-label-md text-label-md text-on-surface mb-2" data-i18n="feat1_title">Mail communication</p>
+            <p class="font-body-md text-body-md text-text-muted" data-i18n="feat1_desc">Built-in email templates allow agents to communicate with clients directly from the platform no switching between tools.</p>
+          </div>
+        </div>
+        <div class="border border-border-low-contrast p-6 flex gap-4">
+          <span class="material-symbols-outlined text-primary mt-1" style="font-size:20px;">devices</span>
+          <div>
+            <p class="font-label-md text-label-md text-on-surface mb-2" data-i18n="feat2_title">Adaptive design</p>
+            <p class="font-body-md text-body-md text-text-muted" data-i18n="feat2_desc">The interface adapts to different screen sizes from large desktop monitors to laptops without sacrificing data density.</p>
+          </div>
+        </div>
+        <div class="border border-border-low-contrast p-6 flex gap-4">
+          <span class="material-symbols-outlined text-primary mt-1" style="font-size:20px;">public</span>
+          <div>
+            <p class="font-label-md text-label-md text-on-surface mb-2" data-i18n="feat3_title">Works anywhere</p>
+            <p class="font-body-md text-body-md text-text-muted" data-i18n="feat3_desc">The application functions anywhere in the world, at any hour enabling agents on rotated shifts and different time zones.</p>
+          </div>
+        </div>
+        <div class="border border-border-low-contrast p-6 flex gap-4">
+          <span class="material-symbols-outlined text-primary mt-1" style="font-size:20px;">layers</span>
+          <div>
+            <p class="font-label-md text-label-md text-on-surface mb-2" data-i18n="feat4_title">Everything on one screen</p>
+            <p class="font-body-md text-body-md text-text-muted" data-i18n="feat4_desc">All relevant client data payment history, debt status, contact info consolidated on a single view. No more window-switching.</p>
+          </div>
+        </div>
+        <div class="border border-border-low-contrast p-6 flex gap-4">
+          <span class="material-symbols-outlined text-primary mt-1" style="font-size:20px;">home_work</span>
+          <div>
+            <p class="font-label-md text-label-md text-on-surface mb-2" data-i18n="feat5_title">Remote-ready</p>
+            <p class="font-body-md text-body-md text-text-muted" data-i18n="feat5_desc">Agents can do their full job from home without needing access to an office workstation or VPN-locked legacy tools.</p>
+          </div>
+        </div>
+        <div class="border border-border-low-contrast p-6 flex gap-4">
+          <span class="material-symbols-outlined text-primary mt-1" style="font-size:20px;">person_add</span>
+          <div>
+            <p class="font-label-md text-label-md text-on-surface mb-2" data-i18n="feat6_title">New agent onboarding</p>
+            <p class="font-body-md text-body-md text-text-muted" data-i18n="feat6_desc">The simplified interface drastically reduces the learning curve new agents reach productivity faster without weeks of training.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Result image -->
+    <div class="mb-16 fade-in">
+      <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-4" data-i18n="result_label">The result</p>
+      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
+        <img src="sistecredito/img/portalcobro.jpg" alt="Nueva interfaz Portal de Pagos resultado final" class="w-full h-auto block opacity-95"/>
+      </div>
+      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="result_caption">Portal de Pagos the new collections interface consolidates all client data, negotiation controls and management records on a single screen</p>
+      <a href="https://www.figma.com/proto/G13Z16t41GU7l7ZqeXKFGy/Portafolio-Santiago-Morales?type=design&node-id=370-6342&viewport=1048%2C662%2C0.2&t=cyIGcXaljpkncnm8-1&scaling=contain&page-id=101%3A362" target="_blank" rel="noopener noreferrer" class="group mt-4 flex items-center justify-between border border-border-low-contrast bg-surface-elevated hover:border-primary transition-colors duration-300 px-8 py-5">
+        <div class="flex items-center gap-4">
+          <span class="material-symbols-outlined text-primary" style="font-size:22px;">open_in_new</span>
+          <div>
+            <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest mb-1" data-i18n="proto_label2">Puede visualizar el prototipo en Figma</p>
+            <p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors" data-i18n="proto_cta2">Ver prototipo</p>
+          </div>
+        </div>
+        <span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" style="font-size:20px;">arrow_outward</span>
+      </a>
+    </div>
+
+    <!-- 07 Design characteristics -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s7_title">07 Design system</h2>
+      <p class="font-body-md text-body-md text-text-muted mb-4" data-i18n="s7_p1">
+        The proposal is structured around giving agents fast, reliable access to client credit records all on a single screen, with accessible table architecture and clear data hierarchy.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted mb-10" data-i18n="s7_p2">
+        Every decision reduces the number of clicks required. The goal: a single, cohesive experience where data is dense but never hard to parse.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-border-low-contrast border border-border-low-contrast">
+        <div class="bg-background p-6">
+          <p class="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-4" data-i18n="ds1_title">Components</p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2 font-body-md text-body-md text-text-muted">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span> Pop-ups
+            </li>
+            <li class="flex items-center gap-2 font-body-md text-body-md text-text-muted">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span> Modals
+            </li>
+            <li class="flex items-center gap-2 font-body-md text-body-md text-text-muted">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span> <span data-i18n="ds1_item3">Color dots</span>
+            </li>
+            <li class="flex items-center gap-2 font-body-md text-body-md text-text-muted">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span> Pills
+            </li>
+          </ul>
+        </div>
+        <div class="bg-background p-6">
+          <p class="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-4" data-i18n="ds2_title">Design fundamentals</p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2 font-body-md text-body-md text-text-muted">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span> <span data-i18n="ds2_item1">Color & contrast</span>
+            </li>
+            <li class="flex items-center gap-2 font-body-md text-body-md text-text-muted">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span> <span data-i18n="ds2_item2">Type size & hierarchy</span>
+            </li>
+            <li class="flex items-center gap-2 font-body-md text-body-md text-text-muted">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span> <span data-i18n="ds2_item3">Table structure</span>
+            </li>
+            <li class="flex items-center gap-2 font-body-md text-body-md text-text-muted">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span> <span data-i18n="ds2_item4">Gestalt & Fitts' Law</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-background p-6">
+          <p class="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-4" data-i18n="ds3_title">Agent-centered design</p>
+          <p class="font-body-md text-body-md text-text-muted" data-i18n="ds3_desc">
+            The experience is built to be inclusive for all 43 collection agents regardless of their individual needs or conditions. Everyone can understand the interface and deliver quality, efficient service to Sistecrédito clients.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </article>
+
+  <!-- Related Sistecrédito work -->
+  <div class="border-t border-border-low-contrast">
+    <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-20">
+      <div class="flex items-center justify-between mb-10">
+        <h2 class="font-label-md text-label-md text-text-muted tracking-widest uppercase" data-i18n="related_label">Sistecrédito</h2>
+        <a href="sistecredito.html" class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span>
+          <span data-i18n="all_projects">All projects</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        <a href="sistecredito-login.html" class="group flex flex-col gap-4">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden transition-colors duration-300 group-hover:border-primary">
+            <img src="sistecredito/img/loginnuevosiste.jpg" alt="Rediseño de Login" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors" data-i18n="rel1_title">Rediseño de Login</h3>
+              <div class="flex gap-2 mt-2">
+                <span class="font-label-sm text-label-sm text-text-muted">UI Design</span>
+                <span class="font-label-sm text-label-sm text-outline-variant">·</span>
+                <span class="font-label-sm text-label-sm text-text-muted">Figma</span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300 mt-1" style="font-size:18px;">arrow_outward</span>
+          </div>
+        </a>
+        <div class="flex flex-col gap-4 opacity-60 cursor-default">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-primary/30 overflow-hidden">
+            <img src="sistecredito/img/portalcobro.jpg" alt="Portal de Pagos" class="w-full h-full object-cover opacity-80"/>
+            <div class="absolute inset-0 bg-background/40 flex items-center justify-center">
+              <span class="px-3 py-1 border border-primary/50 font-label-sm text-label-sm text-primary rounded-full" data-i18n="current_page">Current page</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-headline-md text-headline-md text-on-surface" data-i18n="rel2_title">Portal de Pagos</h3>
+            <div class="flex gap-2 mt-2">
+              <span class="font-label-sm text-label-sm text-text-muted">UX Research</span>
+              <span class="font-label-sm text-label-sm text-outline-variant">·</span>
+              <span class="font-label-sm text-label-sm text-text-muted">UI Design</span>
+            </div>
+          </div>
+        </div>
+        <a href="raio-brand.html" class="group flex flex-col gap-4 hidden">
+          <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden transition-colors duration-300 group-hover:border-primary">
+            <img src="https://picsum.photos/seed/raio-brand/800/600" alt="Brand Identity" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors" data-i18n="rel3_title">Brand Identity</h3>
+              <div class="flex gap-2 mt-2">
+                <span class="font-label-sm text-label-sm text-text-muted">Identity</span>
+                <span class="font-label-sm text-label-sm text-outline-variant">·</span>
+                <span class="font-label-sm text-label-sm text-text-muted">Brand</span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300 mt-1" style="font-size:18px;">arrow_outward</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="w-full py-gutter px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-element-gap border-t border-border-low-contrast bg-background font-label-sm text-label-sm opacity-80 hover:opacity-100 transition-opacity">
+  <div class="font-label-md text-label-md uppercase tracking-widest text-on-surface">DavinSane</div>
+  <div class="text-on-surface" data-i18n="footer_copy">© 2026 Santiago Morales - DavinSane. All rights reserved.</div>
+  <nav class="flex gap-6">
+    <a class="text-text-muted hover:text-primary transition-colors" href="#" data-i18n="footer_privacy">Privacy</a>
+    <a class="text-text-muted hover:text-primary transition-colors" href="#">Github</a>
+  </nav>
+</footer>
+
+<button id="lang-toggle" onclick="toggleLang()" aria-label="Toggle language" class="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-3 py-2 bg-surface-elevated border border-border-low-contrast rounded-full font-label-sm text-label-sm text-on-surface hover:border-primary hover:text-primary transition-colors duration-200 shadow-lg">
+  <span class="material-symbols-outlined" style="font-size:16px;">language</span>
+  <span id="lang-label">ES</span>
+</button>
+
+<script type="module" src="particles-bg.js"></script>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const translations = {
+    en: {
+      nav_back: 'Back', nav_next: 'Next →',
+      hero_title: 'Portal de Pagos',
+      hero_desc: "A complete redesign of Sistecrédito's internal debt collection interface structuring data into clear, hierarchical tables so that 43 collection agents can manage their daily caseload faster, with fewer clicks and less friction.",
+      hero_caption: 'Portal de Pagos collections interface redesigned for Sistecrédito agents',
+      meta_role: 'Role', meta_role_val: 'Product Designer', meta_year: 'Year', meta_team: 'Team', meta_team_val: '2 Designers',
+      meta_deliverables: 'Deliverables', meta_deliverables_val: 'Research, UX, UI, Components', meta_tools: 'Tools',
+      s1_title: '01 Overview',
+      s1_p1: "Sistecrédito's collection agents now have a more accessible and understandable interface for managing the company's debt recovery operations.",
+      s1_p2: "The main objective was to design a collections interface with well-organized, clearly structured tables easy to read, easy to act on. The redesign targets 43 collection agents who spend their entire workday inside this system, managing hundreds of accounts across dozens of data points simultaneously.",
+      s2_title: '02 Users', s2_intro: 'Who is this product designed for?',
+      s2_who_title: 'Collection agents', s2_who_desc: "Internal Sistecrédito employees responsible for managing debt recovery from users who are behind on their payments. All of their daily work happens through this interface.",
+      s2_char_title: 'Agent profile', s2_char1: 'High technology affinity interacting with complex applications is not a barrier', s2_char2: 'Young professionals between 17 and 35 years old', s2_char3: 'Work entirely at a computer desktop is the primary and only device',
+      s3_title: '03 Research', s3_intro: "We conducted structured interviews with three agents representing different seniority levels. The goal was to surface what the current system failed to provide and understand how agents mentally model their daily work.",
+      i1_name: 'Arnaldo Pérez G.', i1_role: 'Senior Agent', i2_name: 'Marlon Parra B.', i2_role: 'Jr Agent', i3_name: 'Luis Londoño', i3_role: 'Senior Agent',
+      i_q1: 'What would improve your work?', i_q2: "What's wrong with the current app?",
+      i1_a1: '"An application that lets me view user data more simply and quickly. Something that shows all user records on a single screen whether they\'re behind on payments or up to date."',
+      i1_a2: '"It\'s very complex, slow to load data, and in many situations it\'s very confusing."',
+      i2_a1: '"See all data in one place. Our day-to-day involves visualizing a lot of data, and it would be great if it were all on a single screen no need to open and close so many windows."',
+      i2_a2: '"It doesn\'t let us optimize or speed up our work. Speed and efficiency are essential when we\'re dealing with clients and data all day long."',
+      i3_a1: '"A design that includes all the records we work with daily, in an interface that\'s actually understandable."',
+      i3_a2: '"I\'ve been a collection agent for 3 years and I still struggle to find certain records and navigate the system."',
+      s3_insight: 'Every agent, regardless of seniority, pointed to the same root problem: too many screens, too many clicks, too much time lost just finding information.',
+      s4_title: '04 The Problem',
+      s4_p1: "To interact with the current system, agents go through a fragmented sequence: desktop access → login → application where the application itself branches into Excel exports, pop-up windows, and data scattered across multiple disconnected screens.",
+      s4_p2: "This forced agents to take unnecessary actions at every turn, slowing down their debt management workflows and increasing the cognitive load of an already demanding job.",
+      img_tablaactual: 'Current interface dense, unstructured table layout that agents must navigate daily',
+      img_excelviejo: 'Excel workaround agents exported data to spreadsheets just to make it readable',
+      problem_label: "Agent's current flow", flow_step1: 'Desktop access', flow_step2: 'Login', flow_step3: 'Application',
+      flow_excel: 'Excel exports', flow_popups: 'Pop-up windows', flow_tables: 'Data across multiple screens',
+      friction_label: 'Friction points identified',
+      fr1_title: 'Slow data loading', fr1_desc: "The system took too long to display records, forcing agents to wait between every action",
+      fr2_title: 'No visual hierarchy', fr2_desc: "All data looked the same no way to quickly distinguish what was urgent from what was not",
+      fr3_title: 'Constant window switching', fr3_desc: "Agents had to open and close multiple windows to view a single client's full information",
+      fr4_title: 'Confusing navigation', fr4_desc: "Even senior agents with years of experience still struggled to find specific records",
+      fr5_title: 'Excel as a workaround', fr5_desc: "Agents exported data to spreadsheets just to be able to read and analyze it properly",
+      fr6_title: 'No remote access', fr6_desc: "The system was tied to office equipment agents could not work from home or on a laptop",
+      fr7_title: 'Fragmented client data', fr7_desc: "Payment history, contact info and debt status were spread across different sections with no unified view",
+      fr8_title: 'High onboarding cost', fr8_desc: "New agents needed weeks to become productive the interface offered no intuitive entry point",
+      s5_title: '05 Design Proposal', s5_intro: 'The proposal was built around six product objectives each one directly addressing a pain point uncovered in research and aligned with the new Sistecrédito brand identity.',
+      obj1_title: 'Structure', obj1_desc: 'Design a new architecture grounded in accessibility and visual design fundamentals a quality, consistent, and inclusive interface.',
+      obj2_title: 'Hierarchy', obj2_desc: 'Every component and element has a purpose. Visual hierarchy guides agents to the most important information without them having to hunt for it.',
+      obj3_title: 'Modernize', obj3_desc: "The interface aligns with Sistecrédito's new brand manual product and marketing working in sync, not in isolation.",
+      obj4_title: 'Accessibility', obj4_desc: 'Designed for all 43 collection agents regardless of their individual conditions a system everyone can use without barriers.',
+      obj5_title: 'Visual design', obj5_desc: 'Quality and consistency through visual design fundamentals color, contrast, typography scale, and Gestalt principles applied throughout.',
+      obj6_title: 'Better experience', obj6_desc: 'The digital product will give every collection agent back time optimizing workflows so they can focus on what matters: the client interaction.',
+      s6_title: '06 What the product delivers', s6_intro: "Six core capabilities defined around the agent's real context desktop-first, always connected, working with clients from anywhere.",
+      feat1_title: 'Mail communication', feat1_desc: 'Built-in email templates allow agents to communicate with clients directly from the platform no switching between tools.',
+      feat2_title: 'Adaptive design', feat2_desc: 'The interface adapts to different screen sizes from large desktop monitors to laptops without sacrificing data density.',
+      feat3_title: 'Works anywhere', feat3_desc: 'The application functions anywhere in the world, at any hour enabling agents on rotated shifts and different time zones.',
+      feat4_title: 'Everything on one screen', feat4_desc: 'All relevant client data payment history, debt status, contact info consolidated on a single view. No more window-switching.',
+      feat5_title: 'Remote-ready', feat5_desc: "Agents can do their full job from home without needing access to an office workstation or VPN-locked legacy tools.",
+      feat6_title: 'New agent onboarding', feat6_desc: 'The simplified interface drastically reduces the learning curve new agents reach productivity faster without weeks of training.',
+      result_label: 'The result', result_caption: 'Portal de Pagos the new collections interface consolidates all client data, negotiation controls and management records on a single screen',
+      proto_label2: 'You can view the prototype in Figma', proto_cta2: 'View prototype',
+      s7_title: '07 Design system',
+      s7_p1: 'The proposal is structured around giving agents fast, reliable access to client credit records all on a single screen, with accessible table architecture and clear data hierarchy.',
+      s7_p2: 'Every decision reduces the number of clicks required. The goal: a single, cohesive experience where data is dense but never hard to parse.',
+      ds1_title: 'Components', ds1_item3: 'Color dots', ds2_title: 'Design fundamentals', ds2_item1: 'Color & contrast', ds2_item2: 'Type size & hierarchy', ds2_item3: 'Table structure', ds2_item4: "Gestalt & Fitts' Law",
+      ds3_title: 'Agent-centered design', ds3_desc: 'The experience is built to be inclusive for all 43 collection agents regardless of their individual needs or conditions. Everyone can understand the interface and deliver quality, efficient service to Sistecrédito clients.',
+      related_label: 'Sistecrédito', all_projects: 'All projects', current_page: 'Current page',
+      rel1_title: 'Rediseño de Login', rel2_title: 'Portal de Pagos', rel3_title: 'Brand Identity',
+      proto_label: 'You can view the prototype in Figma', proto_cta: 'View prototype',
+      footer_copy: '© 2026 Santiago Morales - DavinSane. All rights reserved.', footer_privacy: 'Privacy'
+    },
+    es: {
+      nav_back: 'Atrás', nav_next: 'Siguiente →',
+      hero_title: 'Portal de Pagos',
+      hero_desc: 'Rediseño completo de la interfaz interna de cobranzas de Sistecrédito estructurando los datos en tablas claras y jerarquizadas para que los 43 agentes de cobro gestionen su cartera diaria con mayor rapidez y menos fricción.',
+      hero_caption: 'Portal de Pagos interfaz de cobros rediseñada para los agentes de Sistecrédito',
+      meta_role: 'Rol', meta_role_val: 'Diseñador de Producto', meta_year: 'Año', meta_team: 'Equipo', meta_team_val: '2 Diseñadores',
+      meta_deliverables: 'Entregables', meta_deliverables_val: 'Research, UX, UI, Componentes', meta_tools: 'Herramientas',
+      s1_title: '01 Descripción',
+      s1_p1: 'Los agentes de cobranza de Sistecrédito ahora tendrán una interfaz más accesible y entendible para su gestión de cobranzas a los usuarios.',
+      s1_p2: 'El objetivo principal fue diseñar una interfaz de cobros con tablas organizadas y bien estructuradas, fáciles de leer y entender. El rediseño está dirigido a los 43 agentes de cobro que pasan toda su jornada laboral dentro del sistema, gestionando cientos de cuentas simultáneamente.',
+      s2_title: '02 Usuarios', s2_intro: '¿A quién va dirigido este producto?',
+      s2_who_title: 'Agentes de cobranza', s2_who_desc: 'Personas que trabajan para Sistecrédito y se encargan de realizar la gestión de cobros a usuarios que estén presentando deudas en sus pagos. Todo su trabajo diario ocurre dentro de esta interfaz.',
+      s2_char_title: 'Perfil del agente', s2_char1: 'Gran afinidad por la tecnología interactuar con aplicaciones complejas no es una barrera', s2_char2: 'Jóvenes profesionales entre 17 y 35 años', s2_char3: 'Trabajan exclusivamente desde computador el escritorio es su único dispositivo',
+      s3_title: '03 Research', s3_intro: 'Realizamos entrevistas estructuradas con tres agentes de distintos niveles de senioridad. El objetivo fue identificar lo que el sistema actual falla en brindar y entender cómo los agentes modelan mentalmente su trabajo diario.',
+      i1_name: 'Arnaldo Pérez G.', i1_role: 'Agente Senior', i2_name: 'Marlon Parra B.', i2_role: 'Agente Jr', i3_name: 'Luis Londoño', i3_role: 'Agente Senior',
+      i_q1: '¿Qué desea para mejorar su trabajo?', i_q2: '¿Qué pasa con la aplicación actual?',
+      i1_a1: '"Una aplicación que me permita ver los datos de los usuarios de una forma más sencilla y rápida. Algo que en una sola pantalla permita ver todos los registros del usuario sin importar si es deudor o está al día con sus pagos."',
+      i1_a2: '"Es muy compleja, muy demorada para mostrar los datos y en muchas ocasiones es muy confusa."',
+      i2_a1: '"Ver los datos en un solo lugar. Nuestro día a día trata de visualizar muchos datos y sería bueno que todos estos datos estén en una sola pantalla y no tener la necesidad de abrir y cerrar tantas ventanas."',
+      i2_a2: '"Es una aplicación que no nos permite optimizar y agilizar nuestro trabajo. Es muy importante para nosotros trabajar con rapidez y eficacia ya que todo el día trabajamos con clientes y datos."',
+      i3_a1: '"Un diseño que incluya todos los registros con los que trabajamos día a día y una interfaz más entendible."',
+      i3_a2: '"Llevo 3 años trabajando como agente de cobranzas y todavía se me dificulta encontrar ciertos registros y navegar en ella."',
+      s3_insight: 'Cada agente, sin importar su nivel de senioridad, señaló el mismo problema de raíz: demasiadas pantallas, demasiados clics, demasiado tiempo perdido solo buscando información.',
+      s4_title: '04 El Problema',
+      s4_p1: 'Para interactuar con el sistema actual, los agentes deben pasar por una secuencia fragmentada: acceso al escritorio → login → aplicación donde la aplicación misma se ramifica en exportaciones a Excel, ventanas emergentes y datos dispersos en múltiples pantallas desconectadas.',
+      s4_p2: 'Esto obliga a los agentes a realizar acciones innecesarias en cada paso, ralentizando sus flujos de gestión de cobros y aumentando la carga cognitiva de un trabajo ya exigente.',
+      img_tablaactual: 'Interfaz actual tabla densa y sin estructura que los agentes deben navegar a diario',
+      img_excelviejo: 'Solución alternativa en Excel los agentes exportaban datos a hojas de cálculo solo para poder leerlos',
+      problem_label: 'Flujo actual del agente', flow_step1: 'Acceso al escritorio', flow_step2: 'Login', flow_step3: 'Aplicación',
+      flow_excel: 'Exportaciones a Excel', flow_popups: 'Ventanas emergentes', flow_tables: 'Datos en múltiples pantallas',
+      friction_label: 'Fricciones identificadas',
+      fr1_title: 'Carga de datos lenta', fr1_desc: 'El sistema tardaba demasiado en mostrar los registros, obligando a los agentes a esperar entre cada acción',
+      fr2_title: 'Sin jerarquía visual', fr2_desc: 'Todos los datos se veían igual imposible distinguir rápidamente qué era urgente y qué no',
+      fr3_title: 'Cambio constante de ventanas', fr3_desc: 'Los agentes debían abrir y cerrar múltiples ventanas solo para ver la información completa de un cliente',
+      fr4_title: 'Navegación confusa', fr4_desc: 'Incluso agentes senior con años de experiencia seguían teniendo dificultades para encontrar registros específicos',
+      fr5_title: 'Excel como solución alternativa', fr5_desc: 'Los agentes exportaban datos a hojas de cálculo solo para poder leerlos y analizarlos correctamente',
+      fr6_title: 'Sin acceso remoto', fr6_desc: 'El sistema estaba atado al equipo de oficina los agentes no podían trabajar desde casa ni desde un portátil',
+      fr7_title: 'Datos del cliente fragmentados', fr7_desc: 'El historial de pagos, la información de contacto y el estado de la deuda estaban en secciones distintas sin vista unificada',
+      fr8_title: 'Alto costo de onboarding', fr8_desc: 'Los agentes nuevos necesitaban semanas para ser productivos la interfaz no ofrecía ningún punto de entrada intuitivo',
+      s5_title: '05 Propuesta de diseño', s5_intro: 'La propuesta se construyó alrededor de seis objetivos de producto cada uno respondiendo directamente a un pain point identificado en la investigación y alineado con la nueva identidad de marca de Sistecrédito.',
+      obj1_title: 'Estructurar', obj1_desc: 'Diseñar una nueva arquitectura basada en fundamentos de accesibilidad y diseño visual una interfaz de calidad, consistente e inclusiva.',
+      obj2_title: 'Jerarquizar', obj2_desc: 'Cada componente y elemento tiene un propósito. La jerarquía visual guía a los agentes hacia la información más importante sin que tengan que buscarla.',
+      obj3_title: 'Modernizar', obj3_desc: 'La interfaz se alinea con el nuevo manual de marca de Sistecrédito producto y mercadeo trabajando en conjunto, no de forma aislada.',
+      obj4_title: 'Accesibilidad', obj4_desc: 'Diseñado para los 43 agentes de cobro independientemente de sus condiciones individuales un sistema que todos pueden usar sin barreras.',
+      obj5_title: 'Diseño visual', obj5_desc: 'Calidad y consistencia a través de los fundamentos del diseño visual color, contraste, escala tipográfica y principios de Gestalt aplicados en toda la interfaz.',
+      obj6_title: 'Excelente experiencia', obj6_desc: 'El producto digital le devolverá tiempo a cada agente de cobro optimizando flujos de trabajo para que puedan enfocarse en lo que importa: la interacción con el cliente.',
+      s6_title: '06 ¿Qué le ofrecerá el producto al agente?', s6_intro: 'Seis capacidades centrales definidas alrededor del contexto real del agente desktop primero, siempre conectado, trabajando con clientes desde cualquier lugar.',
+      feat1_title: 'Comunicación por mails', feat1_desc: 'Las plantillas de correo electrónico integradas permiten a los agentes comunicarse con los clientes directamente desde la plataforma sin cambiar de herramienta.',
+      feat2_title: 'Diseño adaptativo', feat2_desc: 'La interfaz se adapta a diferentes tamaños de pantalla desde monitores de escritorio grandes hasta laptops sin sacrificar densidad de datos.',
+      feat3_title: 'Funcional en cualquier lugar', feat3_desc: 'La aplicación funciona en cualquier parte del mundo, a cualquier hora habilitando a los agentes en turnos rotativos y diferentes zonas horarias.',
+      feat4_title: 'Todo en una pantalla', feat4_desc: 'Todos los datos relevantes del cliente historial de pagos, estado de deuda, información de contacto consolidados en una sola vista. Sin cambiar ventanas.',
+      feat5_title: 'Home office', feat5_desc: 'Los agentes pueden realizar su trabajo completo desde casa sin necesitar acceso a un equipo de oficina ni a herramientas heredadas bloqueadas por VPN.',
+      feat6_title: 'Acceso a agentes nuevos', feat6_desc: 'La interfaz simplificada reduce drásticamente la curva de aprendizaje los nuevos agentes alcanzan productividad más rápido sin semanas de capacitación.',
+      result_label: 'El resultado', result_caption: 'Portal de Pagos la nueva interfaz de cobros consolida todos los datos del cliente, los controles de negociación y el registro de gestión en una sola pantalla',
+      proto_label2: 'Puede visualizar el prototipo en Figma', proto_cta2: 'Ver prototipo',
+      s7_title: '07 Sistema de diseño',
+      s7_p1: 'La propuesta está estructurada para dar a los agentes acceso rápido y confiable a los registros crediticios de sus clientes todo en una sola pantalla, con arquitectura de tablas accesible y jerarquía de datos clara.',
+      s7_p2: 'Cada decisión reduce el número de clics requeridos. El objetivo: una experiencia única y coherente donde los datos son densos pero nunca difíciles de interpretar.',
+      ds1_title: 'Componentes', ds1_item3: 'Dots de colores', ds2_title: 'Fundamentos de diseño', ds2_item1: 'Color y contraste', ds2_item2: 'Tamaño y jerarquía de texto', ds2_item3: 'Estructura de la tabla', ds2_item4: 'Ley de gestalt y fitts',
+      ds3_title: 'Diseño centrado en el agente', ds3_desc: 'La experiencia está diseñada para ser inclusiva para los 43 agentes de cobro sin importar sus condiciones individuales. Todos pueden entender la interfaz y brindar un servicio de calidad y eficiencia a los clientes de Sistecrédito.',
+      related_label: 'Sistecrédito', all_projects: 'Todos los proyectos', current_page: 'Página actual',
+      rel1_title: 'Rediseño de Login', rel2_title: 'Portal de Pagos', rel3_title: 'Identidad de Marca',
+      proto_label: 'Puede visualizar el prototipo en Figma', proto_cta: 'Ver prototipo',
+      footer_copy: '© 2026 Santiago Morales - DavinSane. Todos los derechos reservados.', footer_privacy: 'Privacidad'
+    }
+  };
+
+  let currentLang = localStorage.getItem('lang') || 'en';
+  function applyLang(lang) {
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.dataset.i18n; if (t[k] !== undefined) el.textContent = t[k]; });
+    document.getElementById('lang-label').textContent = lang === 'en' ? 'ES' : 'EN';
+    document.documentElement.lang = lang;
+  }
+  function toggleLang() { currentLang = currentLang === 'en' ? 'es' : 'en'; localStorage.setItem('lang', currentLang); applyLang(currentLang); }
+  applyLang(currentLang);
+</script>
+</body>
+</html>
