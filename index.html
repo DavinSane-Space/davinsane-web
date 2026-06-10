@@ -266,25 +266,21 @@
                         </span>
 </div>
 </article>
-<!-- Project: Mercado Libre Coming soon -->
-<article class="flex flex-col gap-6 md:mt-24 opacity-60 cursor-default select-none">
-<div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-sm">
-<img alt="Mercado Libre Project" class="w-full h-full object-cover opacity-70 grayscale-[30%]" src="mercadolibre/img/logomercadolibre.svg"/>
-<div class="absolute inset-0 bg-background/30"></div>
-<!-- Badge -->
-<div class="absolute inset-0 flex items-center justify-center">
-<span class="px-4 py-1.5 rounded-full font-label-md text-label-md tracking-widest uppercase" style="background:rgba(0,18,50,0.85);border:1px solid rgba(171,199,255,0.6);color:#abc7ff;backdrop-filter:blur(8px);" data-i18n="coming_soon">Próximamente</span>
-</div>
+<!-- Project: Mercado Libre -->
+<article class="group flex flex-col gap-6 md:mt-24 cursor-pointer card-enter" onclick="window.location.href='mercadolibre.html'" style="transition-delay: 0.3s">
+<div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-sm transition-colors duration-300 group-hover:border-primary">
+<img alt="Mercado Libre Project" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" src="mercadolibre/img/meli1.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 </div>
 <div class="flex justify-between items-start">
 <div>
 <h3 class="font-headline-md text-headline-md text-on-surface">Mercado Libre</h3>
 <div class="flex gap-3 mt-3">
-<span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Motion</span>
-<span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Brand</span>
+<span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="ml_tag1">UX Research</span>
+<span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="ml_tag2">Product Design</span>
 </div>
 </div>
-<span class="material-symbols-outlined text-outline-variant" style="opacity:0.4;">schedule</span>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">arrow_outward</span>
 </div>
 </article>
 </div>
@@ -420,6 +416,7 @@
       cv_btn:         'Download my CV',
       selected_works: 'SELECTED WORKS',
       coming_soon:    'Coming Soon',
+      ml_tag1: 'UX Research', ml_tag2: 'Product Design',
       about_label:    'Visual Designer / Product Designer',
       about_title:    'About Me',
       about_desc:     'Senior designer specialized in leading Design Systems, component governance, internal workflows, design standards, and documentation. Expert in Figma and AI-powered workflows that take products from prototype to production faster without sacrificing quality.',
@@ -441,6 +438,7 @@
       cv_btn:         'Descarga mi CV',
       selected_works: 'TRABAJOS SELECCIONADOS',
       coming_soon:    'Próximamente',
+      ml_tag1: 'UX Research', ml_tag2: 'Diseño de Producto',
       about_label:    'Visual Designer / Product Designer',
       about_title:    'About Me',
       about_desc:     'Diseñador senior especializado en liderar Design Systems, gobernanza de componentes, flujos de trabajo internos, estándares de diseño y documentación. Experto en Figma y flujos de trabajo potenciados con IA que llevan los productos del prototipo a producción más rápido sin sacrificar calidad.',
