@@ -49,6 +49,16 @@
   .prose-content h2 { margin-top: 3rem; margin-bottom: 1rem; }
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── UX Artifacts ── */
+  .dt-dot { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .dt-dot.on  { background: #abc7ff; color: #131313; }
+  .dt-dot.off { background: #1A1A1A; border: 1px solid #262626; color: #424752; }
+  .flow-node  { padding: 9px 14px; border: 1px solid #262626; background: #1A1A1A; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #e5e2e1; text-align: center; }
+  .flow-node.accent { border-color: rgba(171,199,255,0.35); background: rgba(171,199,255,0.06); color: #abc7ff; }
+  .flow-node.warn  { border-color: rgba(255,183,121,0.25); background: rgba(255,183,121,0.05); color: #ffb779; }
+  .flow-arr   { text-align: center; color: #424752; font-size: 16px; line-height: 1; padding: 2px 0; }
+  .flow-arr.on { color: #abc7ff; }
 </style>
 </head>
 <body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
@@ -139,6 +149,92 @@
       </p>
     </section>
 
+    <!-- ── DESIGN THINKING ── -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-8" data-i18n="dt_title">Design Thinking Process</h2>
+      <div class="border border-border-low-contrast bg-surface-elevated p-6 md:p-8">
+        <div class="relative mb-8">
+          <div class="absolute left-[17px] right-[17px] top-[17px] h-px bg-border-low-contrast hidden md:block"></div>
+          <div class="grid grid-cols-2 md:grid-cols-5 gap-4 relative z-10">
+            <div class="flex flex-col items-center gap-2">
+              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">record_voice_over</span></div>
+              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_1">Empathize</span>
+              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_1_sub">8 editorial interviews</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">manage_search</span></div>
+              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_2">Define</span>
+              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_2_sub">Visibility & control gaps</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">lightbulb</span></div>
+              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_3">Ideate</span>
+              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_3_sub">Content model + IA</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">deployed_code</span></div>
+              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_4">Prototype</span>
+              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_4_sub">2 wireframe test cycles</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">verified</span></div>
+              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_5">Test</span>
+              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_5_sub">Editor team validation</span>
+            </div>
+          </div>
+        </div>
+        <div class="pt-6 border-t border-border-low-contrast">
+          <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-3" data-i18n="hmw_label">How Might We</p>
+          <p class="font-body-lg text-body-lg text-on-surface" data-i18n="hmw_text">"How might we give content editors full visibility and control over their publishing workflow — without requiring a single engineering ticket?"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── USER PERSONA ── -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-8" data-i18n="persona_title">User Persona</h2>
+      <div class="border border-border-low-contrast bg-surface-elevated p-6 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div class="md:col-span-4 flex flex-col gap-4">
+            <div class="w-14 h-14 rounded-full bg-surface-variant border border-border-low-contrast flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary" style="font-size:28px;">edit_note</span>
+            </div>
+            <div>
+              <h3 class="font-headline-sm text-headline-sm text-on-surface" data-i18n="p_name">Sofia R.</h3>
+              <p class="font-label-md text-label-md text-primary mt-1" data-i18n="p_role">Communications Manager</p>
+              <p class="font-body-md text-body-md text-text-muted mt-1" data-i18n="p_context">3 years at iQor · Corporate Comms</p>
+            </div>
+            <div class="flex flex-col gap-2 pt-4 border-t border-border-low-contrast">
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-outline" style="font-size:15px;">devices</span><span class="font-label-sm text-label-sm text-text-muted" data-i18n="p_device">Desktop · publishes 5–10 items/week</span></div>
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-outline" style="font-size:15px;">groups</span><span class="font-label-sm text-label-sm text-text-muted" data-i18n="p_team">Manages a team of 3 editors</span></div>
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-outline" style="font-size:15px;">public</span><span class="font-label-sm text-label-sm text-text-muted" data-i18n="p_reach">Audience: 44,000+ employees global</span></div>
+            </div>
+          </div>
+          <div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-3" data-i18n="p_goals_label">Goals</p>
+              <ul class="flex flex-col gap-2">
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_g1">Publish critical updates immediately</span></li>
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_g2">Know exactly where each piece is in the pipeline</span></li>
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_g3">Target content to specific regions / roles</span></li>
+              </ul>
+            </div>
+            <div>
+              <p class="font-label-sm text-label-sm text-[#ffb779] uppercase tracking-widest mb-3" data-i18n="p_pain_label">Pain Points</p>
+              <ul class="flex flex-col gap-2">
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#ffb779] flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_p1">Waits hours for engineering to publish urgent news</span></li>
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#ffb779] flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_p2">No audit trail — can't tell what's published or when</span></li>
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#ffb779] flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_p3">Content sent to wrong audiences without targeting</span></li>
+              </ul>
+            </div>
+            <div class="sm:col-span-2 border-l-2 border-primary pl-4 py-1">
+              <p class="font-body-lg text-body-lg text-on-surface italic" data-i18n="p_quote">"I shouldn't need to file a ticket every time I want to tell 44,000 people something important."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Process -->
     <section class="mb-10 fade-in">
       <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s3_title">03 Process</h2>
@@ -158,6 +254,81 @@
       <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p4">
         Wireframe rounds were validated directly with the editorial team in two testing cycles. The first round exposed a critical assumption we had gotten wrong: editors needed the scheduling and preview workflow accessible from the same screen, not separated into different steps. That insight reshaped the composition of the editor view before a single high-fidelity frame was produced.
       </p>
+    </section>
+
+    <!-- ── PUBLISHING USER FLOW ── -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-8" data-i18n="flow_title">Publishing User Flow</h2>
+      <div class="border border-border-low-contrast bg-surface-elevated p-6 md:p-8">
+        <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest mb-6" data-i18n="flow_subtitle">Content editor publishes an announcement</p>
+
+        <!-- Horizontal flow (desktop) -->
+        <div class="hidden md:flex items-start gap-0 mb-8">
+          <div class="flex flex-col items-center gap-2 flex-1">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-background" style="font-size:18px;">add_circle</span></div>
+            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fp_1">Create</span>
+            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fp_1_sub">Select content type</span>
+          </div>
+          <div class="flex-1 h-px bg-border-low-contrast mt-5"></div>
+          <div class="flex flex-col items-center gap-2 flex-1">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-background" style="font-size:18px;">edit</span></div>
+            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fp_2">Author</span>
+            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fp_2_sub">Write + media + AI assist</span>
+          </div>
+          <div class="flex-1 h-px bg-border-low-contrast mt-5"></div>
+          <div class="flex flex-col items-center gap-2 flex-1">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-background" style="font-size:18px;">target</span></div>
+            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fp_3">Target</span>
+            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fp_3_sub">Role / region / dept.</span>
+          </div>
+          <div class="flex-1 h-px bg-border-low-contrast mt-5"></div>
+          <div class="flex flex-col items-center gap-2 flex-1">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-background" style="font-size:18px;">schedule</span></div>
+            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fp_4">Schedule</span>
+            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fp_4_sub">Or publish now</span>
+          </div>
+          <div class="flex-1 h-px bg-border-low-contrast mt-5"></div>
+          <div class="flex flex-col items-center gap-2 flex-1">
+            <div class="w-10 h-10 rounded-full bg-surface-variant border border-border-low-contrast flex items-center justify-center"><span class="material-symbols-outlined text-primary" style="font-size:18px;">approval</span></div>
+            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fp_5">Approve</span>
+            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fp_5_sub">Manager sign-off</span>
+          </div>
+          <div class="flex-1 h-px bg-border-low-contrast mt-5"></div>
+          <div class="flex flex-col items-center gap-2 flex-1">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-background" style="font-size:18px;">cell_tower</span></div>
+            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fp_6">Live in HUB</span>
+            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fp_6_sub">Real-time broadcast</span>
+          </div>
+        </div>
+
+        <!-- Mobile vertical fallback -->
+        <div class="flex md:hidden flex-col gap-1 mb-6">
+          <div class="flow-node accent" data-i18n="fp_1">Create — Select content type</div>
+          <div class="flow-arr on">↓</div>
+          <div class="flow-node accent" data-i18n="fp_2">Author — Write + media + AI assist</div>
+          <div class="flow-arr on">↓</div>
+          <div class="flow-node accent" data-i18n="fp_3">Target — Role / region / dept.</div>
+          <div class="flow-arr on">↓</div>
+          <div class="flow-node accent" data-i18n="fp_4">Schedule — Or publish now</div>
+          <div class="flow-arr on">↓</div>
+          <div class="flow-node" data-i18n="fp_5">Approve — Manager sign-off</div>
+          <div class="flow-arr on">↓</div>
+          <div class="flow-node accent" data-i18n="fp_6">Live in HUB — Real-time broadcast</div>
+        </div>
+
+        <!-- Content types -->
+        <div class="pt-5 border-t border-border-low-contrast">
+          <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-3" data-i18n="ct_label">Supported Content Types</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="ct_1">Announcement</span>
+            <span class="px-3 py-1 border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="ct_2">Article</span>
+            <span class="px-3 py-1 border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="ct_3">Survey</span>
+            <span class="px-3 py-1 border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="ct_4">Assessment</span>
+            <span class="px-3 py-1 border border-primary/40 font-label-sm text-label-sm text-primary" data-i18n="ct_5">Rich Media Post</span>
+            <span class="px-3 py-1 border border-primary/40 font-label-sm text-label-sm text-primary" data-i18n="ct_6">Urgent Alert</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Solution -->
@@ -351,6 +522,36 @@
       s4_p2: "A structured content calendar gives communications managers a timeline view of all scheduled and published posts, with drag-and-drop rescheduling and inline status indicators. The role-based permissions model ensures that junior editors can draft and preview content freely, while final publication requires approval from a designated manager, creating a lightweight governance layer without adding friction to the authoring flow.",
       cms_solution_caption: 'Content calendar view and role-based publishing workflow',
       s4_p3: "Content taxonomy and tagging were built into the model from day one, enabling the HUB's announcement feed to filter and surface posts based on employee role, department, and location. This meant that a facilities update for the Phoenix office wouldn't reach agents in Manila. That level of precision was something the previous email-based system made structurally impossible.",
+      dt_title: 'Design Thinking Process',
+      dt_1: 'Empathize', dt_1_sub: '8 editorial interviews',
+      dt_2: 'Define',   dt_2_sub: 'Visibility & control gaps',
+      dt_3: 'Ideate',   dt_3_sub: 'Content model + IA',
+      dt_4: 'Prototype',dt_4_sub: '2 wireframe test cycles',
+      dt_5: 'Test',     dt_5_sub: 'Editor team validation',
+      hmw_label: 'How Might We',
+      hmw_text: '"How might we give content editors full visibility and control over their publishing workflow — without requiring a single engineering ticket?"',
+      persona_title: 'User Persona',
+      p_name: 'Sofia R.', p_role: 'Communications Manager', p_context: '3 years at iQor · Corporate Comms',
+      p_device: 'Desktop · publishes 5–10 items/week', p_team: 'Manages a team of 3 editors', p_reach: 'Audience: 44,000+ employees global',
+      p_goals_label: 'Goals', p_pain_label: 'Pain Points',
+      p_g1: 'Publish critical updates immediately',
+      p_g2: 'Know exactly where each piece is in the pipeline',
+      p_g3: 'Target content to specific regions / roles',
+      p_p1: 'Waits hours for engineering to publish urgent news',
+      p_p2: 'No audit trail — can\'t tell what\'s published or when',
+      p_p3: 'Content sent to wrong audiences without targeting',
+      p_quote: '"I shouldn\'t need to file a ticket every time I want to tell 44,000 people something important."',
+      flow_title: 'Publishing User Flow',
+      flow_subtitle: 'Content editor publishes an announcement',
+      fp_1: 'Create', fp_1_sub: 'Select content type',
+      fp_2: 'Author', fp_2_sub: 'Write + media + AI assist',
+      fp_3: 'Target', fp_3_sub: 'Role / region / dept.',
+      fp_4: 'Schedule', fp_4_sub: 'Or publish now',
+      fp_5: 'Approve', fp_5_sub: 'Manager sign-off',
+      fp_6: 'Live in HUB', fp_6_sub: 'Real-time broadcast',
+      ct_label: 'Supported Content Types',
+      ct_1: 'Announcement', ct_2: 'Article', ct_3: 'Survey',
+      ct_4: 'Assessment', ct_5: 'Rich Media Post', ct_6: 'Urgent Alert',
       s5_title: '05 Illustrative Video',
       s5_intro: 'The following video shows the iQor CMS running in production. The platform integrates AI assistance directly into the authoring flow, helping editors generate and refine content faster without leaving the interface. The overall design reflects a modern, focused approach to internal tooling, where every interaction is intentional and the interface stays out of the way of the work.',
       video_caption: 'iQor CMS in production, AI-assisted content creation platform',
@@ -393,6 +594,36 @@
       s4_p2: "Un calendario de contenido estructurado proporciona a los gerentes de comunicaciones una vista cronológica de todas las publicaciones programadas y publicadas, con reprogramación mediante arrastrar y soltar e indicadores de estado en línea. El modelo de permisos basado en roles garantiza que los editores junior puedan redactar y previsualizar contenido libremente, mientras que la publicación final requiere aprobación de un gerente designado, creando una capa de gobernanza liviana sin añadir fricción al flujo de autoría.",
       cms_solution_caption: 'Vista del calendario de contenido y flujo de publicación basado en roles',
       s4_p3: "La taxonomía y el etiquetado de contenido se incorporaron al modelo desde el primer día, permitiendo que el feed de anuncios del HUB filtre y muestre publicaciones según el rol, departamento y ubicación del empleado. Esto significa que una actualización de instalaciones para la oficina de Phoenix no llegará a los agentes en Manila. Ese nivel de precisión era algo que el sistema de correo electrónico anterior hacía estructuralmente imposible.",
+      dt_title: 'Proceso de Design Thinking',
+      dt_1: 'Empatizar', dt_1_sub: '8 entrevistas editoriales',
+      dt_2: 'Definir',   dt_2_sub: 'Brechas de visibilidad y control',
+      dt_3: 'Idear',     dt_3_sub: 'Modelo de contenido + IA',
+      dt_4: 'Prototipar',dt_4_sub: '2 ciclos de wireframes probados',
+      dt_5: 'Testear',   dt_5_sub: 'Validación con equipo editorial',
+      hmw_label: 'How Might We',
+      hmw_text: '"¿Cómo podríamos darle a los editores visibilidad y control total sobre su flujo de publicación — sin necesitar un solo ticket de ingeniería?"',
+      persona_title: 'Perfil de Usuario',
+      p_name: 'Sofia R.', p_role: 'Gerente de Comunicaciones', p_context: '3 años en iQor · Comms Corporativas',
+      p_device: 'Desktop · publica 5–10 piezas/semana', p_team: 'Gestiona un equipo de 3 editores', p_reach: 'Audiencia: 44,000+ empleados globales',
+      p_goals_label: 'Objetivos', p_pain_label: 'Puntos de Dolor',
+      p_g1: 'Publicar actualizaciones críticas de inmediato',
+      p_g2: 'Saber exactamente dónde está cada pieza en el flujo',
+      p_g3: 'Segmentar contenido por región y rol',
+      p_p1: 'Espera horas a que ingeniería publique noticias urgentes',
+      p_p2: 'Sin rastro de auditoría — no sabe qué está publicado ni cuándo',
+      p_p3: 'Contenido llega a audiencias incorrectas sin segmentación',
+      p_quote: '"No debería tener que abrir un ticket cada vez que quiero decirle algo importante a 44,000 personas."',
+      flow_title: 'Flujo de Usuario · Publicación de Contenido',
+      flow_subtitle: 'Editor de contenido publica un anuncio',
+      fp_1: 'Crear', fp_1_sub: 'Seleccionar tipo de contenido',
+      fp_2: 'Redactar', fp_2_sub: 'Texto + medios + asistencia IA',
+      fp_3: 'Segmentar', fp_3_sub: 'Rol / región / área',
+      fp_4: 'Programar', fp_4_sub: 'O publicar ahora',
+      fp_5: 'Aprobar', fp_5_sub: 'Visto bueno del manager',
+      fp_6: 'En vivo en HUB', fp_6_sub: 'Difusión en tiempo real',
+      ct_label: 'Tipos de Contenido Soportados',
+      ct_1: 'Anuncio', ct_2: 'Artículo', ct_3: 'Encuesta',
+      ct_4: 'Evaluación', ct_5: 'Post con medios', ct_6: 'Alerta urgente',
       s5_title: '05 Video Ilustrativo',
       s5_intro: 'El siguiente video muestra el iQor CMS funcionando en producción. La plataforma integra asistencia de IA directamente en el flujo de autoría, ayudando a los editores a generar y refinar contenido más rápido sin salir de la interfaz. El diseño general refleja un enfoque moderno y enfocado para herramientas internas, donde cada interacción es intencional y la interfaz no interfiere con el trabajo.',
       video_caption: 'iQor CMS en producción, plataforma de creación de contenido asistida por IA',

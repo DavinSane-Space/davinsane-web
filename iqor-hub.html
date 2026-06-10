@@ -49,6 +49,16 @@
   .prose-content h2 { margin-top: 3rem; margin-bottom: 1rem; }
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── UX Artifacts ── */
+  .dt-dot { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .dt-dot.on  { background: #abc7ff; color: #131313; }
+  .dt-dot.off { background: #1A1A1A; border: 1px solid #262626; color: #424752; }
+  .flow-node  { padding: 9px 14px; border: 1px solid #262626; background: #1A1A1A; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #e5e2e1; text-align: center; }
+  .flow-node.accent { border-color: rgba(171,199,255,0.35); background: rgba(171,199,255,0.06); color: #abc7ff; }
+  .flow-node.warn  { border-color: rgba(255,183,121,0.25); background: rgba(255,183,121,0.05); color: #ffb779; }
+  .flow-arr   { text-align: center; color: #424752; font-size: 16px; line-height: 1; padding: 2px 0; }
+  .flow-arr.on { color: #abc7ff; }
 </style>
 </head>
 <body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
@@ -135,6 +145,96 @@
       </p>
     </section>
 
+    <!-- ── DESIGN THINKING ── -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-8" data-i18n="dt_title">Design Thinking Process</h2>
+      <div class="border border-border-low-contrast bg-surface-elevated p-6 md:p-8">
+        <!-- Phases bar -->
+        <div class="relative mb-8">
+          <div class="absolute left-[17px] right-[17px] top-[17px] h-px bg-border-low-contrast hidden md:block"></div>
+          <div class="grid grid-cols-2 md:grid-cols-5 gap-4 relative z-10">
+            <div class="flex flex-col items-center gap-2">
+              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">groups</span></div>
+              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_1">Empathize</span>
+              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_1_sub">Interviews & card sorting</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">manage_search</span></div>
+              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_2">Define</span>
+              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_2_sub">HMW statements</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">lightbulb</span></div>
+              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_3">Ideate</span>
+              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_3_sub">Wireframes & IA</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">deployed_code</span></div>
+              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_4">Prototype</span>
+              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_4_sub">Figma hi-fi</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">verified</span></div>
+              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_5">Test</span>
+              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_5_sub">Usability testing</span>
+            </div>
+          </div>
+        </div>
+        <!-- HMW -->
+        <div class="pt-6 border-t border-border-low-contrast">
+          <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-3" data-i18n="hmw_label">How Might We</p>
+          <p class="font-body-lg text-body-lg text-on-surface" data-i18n="hmw_text">"How might we give 44,000+ employees instant, role-appropriate access to every internal tool — from a single, always-available starting point?"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── USER PERSONA ── -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-8" data-i18n="persona_title">User Persona</h2>
+      <div class="border border-border-low-contrast bg-surface-elevated p-6 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <!-- Profile -->
+          <div class="md:col-span-4 flex flex-col gap-4">
+            <div class="w-14 h-14 rounded-full bg-surface-variant border border-border-low-contrast flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary" style="font-size:28px;">support_agent</span>
+            </div>
+            <div>
+              <h3 class="font-headline-sm text-headline-sm text-on-surface" data-i18n="p_name">Marcus T.</h3>
+              <p class="font-label-md text-label-md text-primary mt-1" data-i18n="p_role">Customer Service Agent</p>
+              <p class="font-body-md text-body-md text-text-muted mt-1" data-i18n="p_context">5 years at iQor · Phoenix, AZ</p>
+            </div>
+            <div class="flex flex-col gap-2 pt-4 border-t border-border-low-contrast">
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-outline" style="font-size:15px;">devices</span><span class="font-label-sm text-label-sm text-text-muted" data-i18n="p_device">Desktop · 8 hrs / day</span></div>
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-outline" style="font-size:15px;">apps</span><span class="font-label-sm text-label-sm text-text-muted" data-i18n="p_apps">6+ internal tools daily</span></div>
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-outline" style="font-size:15px;">school</span><span class="font-label-sm text-label-sm text-text-muted" data-i18n="p_tech">Moderate tech comfort</span></div>
+            </div>
+          </div>
+          <!-- Goals & Pain Points -->
+          <div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-3" data-i18n="p_goals_label">Goals</p>
+              <ul class="flex flex-col gap-2">
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_g1">All tools from a single dashboard</span></li>
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_g2">Company news without hunting for it</span></li>
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_g3">Communicate without leaving workflow</span></li>
+              </ul>
+            </div>
+            <div>
+              <p class="font-label-sm text-label-sm text-[#ffb779] uppercase tracking-widest mb-3" data-i18n="p_pain_label">Pain Points</p>
+              <ul class="flex flex-col gap-2">
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#ffb779] flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_p1">Opens 8+ browser tabs every shift</span></li>
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#ffb779] flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_p2">Misses announcements buried in emails</span></li>
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#ffb779] flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_p3">Constant context-switching to coordinate</span></li>
+              </ul>
+            </div>
+            <div class="sm:col-span-2 border-l-2 border-primary pl-4 py-1">
+              <p class="font-body-lg text-body-lg text-on-surface italic" data-i18n="p_quote">"I just want everything in one place. I shouldn't need 8 bookmarks to start my shift."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Process -->
     <section class="mb-10 fade-in">
       <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s3_title">03 Process</h2>
@@ -155,6 +255,57 @@
       <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="card_sort_caption">Card sorting session, aligning stakeholders on platform priorities. Esta imagen es ilustrativa del card sorting.</p>
     </div>
 
+    <!-- ── USER FLOW ── -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-8" data-i18n="flow_title">User Flow · Before & After</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+
+        <!-- BEFORE -->
+        <div class="border border-[#ffb779]/20 bg-surface-elevated p-6">
+          <p class="font-label-sm text-label-sm text-[#ffb779] uppercase tracking-widest mb-6" data-i18n="flow_before_label">Before — Fragmented Access</p>
+          <div class="flex flex-col gap-1">
+            <div class="flow-node" data-i18n="fb_1">Log in to PC</div>
+            <div class="flow-arr">↓</div>
+            <div class="flow-node" data-i18n="fb_2">Open Browser</div>
+            <div class="flow-arr">↓</div>
+            <div class="grid grid-cols-3 gap-1">
+              <div class="flow-node" data-i18n="fb_3a">HR Portal<br/>pop-up</div>
+              <div class="flow-node" data-i18n="fb_3b">CRM<br/>new tab</div>
+              <div class="flow-node" data-i18n="fb_3c">Training<br/>tab</div>
+            </div>
+            <div class="flow-arr">↓</div>
+            <div class="grid grid-cols-2 gap-1">
+              <div class="flow-node" data-i18n="fb_4a">Email<br/>for news</div>
+              <div class="flow-node" data-i18n="fb_4b">Teams /<br/>ext. chat</div>
+            </div>
+            <div class="flow-arr">↓</div>
+            <div class="flow-node warn" data-i18n="flow_before_result">Start work — 4+ min · 8+ steps</div>
+          </div>
+        </div>
+
+        <!-- AFTER -->
+        <div class="border border-primary/30 bg-surface-elevated p-6">
+          <p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-6" data-i18n="flow_after_label">After — iQor HUB V1</p>
+          <div class="flex flex-col gap-1">
+            <div class="flow-node accent" data-i18n="fa_1">Log in to PC</div>
+            <div class="flow-arr on">↓</div>
+            <div class="flow-node accent" data-i18n="fa_2">iQor HUB loads automatically</div>
+            <div class="flow-arr on">↓</div>
+            <div class="flow-node accent" data-i18n="fa_3">Role-Based Dashboard</div>
+            <div class="flow-arr on">↓</div>
+            <div class="grid grid-cols-3 gap-1">
+              <div class="flow-node accent" data-i18n="fa_4a">App<br/>Launcher</div>
+              <div class="flow-node accent" data-i18n="fa_4b">Announce-<br/>ments</div>
+              <div class="flow-node accent" data-i18n="fa_4c">Messaging</div>
+            </div>
+            <div class="flow-arr on">↓</div>
+            <div class="flow-node accent" data-i18n="flow_after_result">Start work — &lt;1 min · 1 entry point</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- Process pt.2 -->
     <section class="mb-10 fade-in">
       <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p3">
@@ -173,6 +324,69 @@
       </div>
       <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="wireframe_caption">Early wireframes, first structural exploration of the platform</p>
     </div>
+
+    <!-- ── INFORMATION ARCHITECTURE ── -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-8" data-i18n="ia_title">Information Architecture</h2>
+      <div class="border border-border-low-contrast bg-surface-elevated p-6 md:p-8">
+        <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest mb-6" data-i18n="ia_subtitle">iQor HUB · Site Map</p>
+        <!-- Root node -->
+        <div class="flex justify-center mb-0">
+          <div class="flow-node accent px-8 py-3 font-bold" data-i18n="ia_root">iQor HUB</div>
+        </div>
+        <div class="flex justify-center"><div class="w-px h-5 bg-border-low-contrast"></div></div>
+        <!-- Connector bar -->
+        <div class="relative mx-[12.5%]"><div class="absolute top-0 left-0 right-0 h-px bg-border-low-contrast"></div></div>
+        <!-- L1 columns -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-border-low-contrast border border-border-low-contrast mt-0">
+          <div class="bg-background p-4 flex flex-col gap-2">
+            <div class="flex items-center gap-2 pb-3 mb-1 border-b border-border-low-contrast">
+              <span class="material-symbols-outlined text-primary" style="font-size:16px;">dashboard</span>
+              <span class="font-label-md text-label-md text-on-surface" data-i18n="ia_col1">Dashboard</span>
+            </div>
+            <span class="font-label-sm text-label-sm text-text-muted pl-2 border-l border-border-low-contrast" data-i18n="ia_c1_1">Role metrics</span>
+            <span class="font-label-sm text-label-sm text-text-muted pl-2 border-l border-border-low-contrast" data-i18n="ia_c1_2">Task queue</span>
+            <span class="font-label-sm text-label-sm text-text-muted pl-2 border-l border-border-low-contrast" data-i18n="ia_c1_3">Quick actions</span>
+          </div>
+          <div class="bg-background p-4 flex flex-col gap-2">
+            <div class="flex items-center gap-2 pb-3 mb-1 border-b border-border-low-contrast">
+              <span class="material-symbols-outlined text-primary" style="font-size:16px;">apps</span>
+              <span class="font-label-md text-label-md text-on-surface" data-i18n="ia_col2">Applications</span>
+            </div>
+            <span class="font-label-sm text-label-sm text-text-muted pl-2 border-l border-border-low-contrast" data-i18n="ia_c2_1">HR Portal</span>
+            <span class="font-label-sm text-label-sm text-text-muted pl-2 border-l border-border-low-contrast" data-i18n="ia_c2_2">CRM System</span>
+            <span class="font-label-sm text-label-sm text-text-muted pl-2 border-l border-border-low-contrast" data-i18n="ia_c2_3">Training LMS</span>
+            <span class="font-label-sm text-label-sm text-primary pl-2 border-l border-primary/30" data-i18n="ia_c2_4">+ Role-based apps</span>
+          </div>
+          <div class="bg-background p-4 flex flex-col gap-2">
+            <div class="flex items-center gap-2 pb-3 mb-1 border-b border-border-low-contrast">
+              <span class="material-symbols-outlined text-primary" style="font-size:16px;">campaign</span>
+              <span class="font-label-md text-label-md text-on-surface" data-i18n="ia_col3">Announcements</span>
+            </div>
+            <span class="font-label-sm text-label-sm text-text-muted pl-2 border-l border-border-low-contrast" data-i18n="ia_c3_1">Global feed</span>
+            <span class="font-label-sm text-label-sm text-text-muted pl-2 border-l border-border-low-contrast" data-i18n="ia_c3_2">Dept. filters</span>
+            <span class="font-label-sm text-label-sm text-text-muted pl-2 border-l border-border-low-contrast" data-i18n="ia_c3_3">Alerts</span>
+          </div>
+          <div class="bg-background p-4 flex flex-col gap-2">
+            <div class="flex items-center gap-2 pb-3 mb-1 border-b border-border-low-contrast">
+              <span class="material-symbols-outlined text-primary" style="font-size:16px;">forum</span>
+              <span class="font-label-md text-label-md text-on-surface" data-i18n="ia_col4">Comms</span>
+            </div>
+            <span class="font-label-sm text-label-sm text-text-muted pl-2 border-l border-border-low-contrast" data-i18n="ia_c4_1">Direct messages</span>
+            <span class="font-label-sm text-label-sm text-text-muted pl-2 border-l border-border-low-contrast" data-i18n="ia_c4_2">Group chats</span>
+            <span class="font-label-sm text-label-sm text-text-muted pl-2 border-l border-border-low-contrast" data-i18n="ia_c4_3">Video calls</span>
+          </div>
+        </div>
+        <!-- Role badges -->
+        <div class="mt-5 flex flex-wrap gap-2 items-center">
+          <span class="font-label-sm text-label-sm text-outline uppercase tracking-widest" data-i18n="ia_roles_label">Access by role:</span>
+          <span class="px-2 py-1 border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="ia_r1">Agent</span>
+          <span class="px-2 py-1 border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="ia_r2">Team Lead</span>
+          <span class="px-2 py-1 border border-primary/40 font-label-sm text-label-sm text-primary" data-i18n="ia_r3">Manager</span>
+          <span class="px-2 py-1 border border-primary/40 font-label-sm text-label-sm text-primary" data-i18n="ia_r4">Admin</span>
+        </div>
+      </div>
+    </section>
 
     <!-- Solution -->
     <section class="mb-12 fade-in">
@@ -359,6 +573,36 @@
       metric_1: 'Platform adoption rate',
       metric_2: 'Reduction in access time',
       metric_3: 'Active employees worldwide',
+      dt_title: 'Design Thinking Process',
+      dt_1: 'Empathize', dt_1_sub: 'Interviews & card sorting',
+      dt_2: 'Define',   dt_2_sub: 'HMW statements',
+      dt_3: 'Ideate',   dt_3_sub: 'Wireframes & IA',
+      dt_4: 'Prototype',dt_4_sub: 'Figma hi-fi',
+      dt_5: 'Test',     dt_5_sub: 'Usability testing',
+      hmw_label: 'How Might We',
+      hmw_text: '"How might we give 44,000+ employees instant, role-appropriate access to every internal tool — from a single, always-available starting point?"',
+      persona_title: 'User Persona',
+      p_name: 'Marcus T.', p_role: 'Customer Service Agent', p_context: '5 years at iQor · Phoenix, AZ',
+      p_device: 'Desktop · 8 hrs / day', p_apps: '6+ internal tools daily', p_tech: 'Moderate tech comfort',
+      p_goals_label: 'Goals', p_pain_label: 'Pain Points',
+      p_g1: 'All tools from a single dashboard', p_g2: 'Company news without hunting for it', p_g3: 'Communicate without leaving workflow',
+      p_p1: 'Opens 8+ browser tabs every shift', p_p2: 'Misses announcements buried in emails', p_p3: 'Constant context-switching to coordinate',
+      p_quote: '"I just want everything in one place. I shouldn\'t need 8 bookmarks to start my shift."',
+      flow_title: 'User Flow · Before & After',
+      flow_before_label: 'Before — Fragmented Access', flow_after_label: 'After — iQor HUB V1',
+      fb_1: 'Log in to PC', fb_2: 'Open Browser',
+      fb_3a: 'HR Portal\npop-up', fb_3b: 'CRM\nnew tab', fb_3c: 'Training\ntab',
+      fb_4a: 'Email\nfor news', fb_4b: 'Teams /\next. chat',
+      flow_before_result: 'Start work — 4+ min · 8+ steps',
+      fa_1: 'Log in to PC', fa_2: 'iQor HUB loads automatically', fa_3: 'Role-Based Dashboard',
+      fa_4a: 'App\nLauncher', fa_4b: 'Announce-\nments', fa_4c: 'Messaging',
+      flow_after_result: 'Start work — <1 min · 1 entry point',
+      ia_title: 'Information Architecture', ia_subtitle: 'iQor HUB · Site Map', ia_root: 'iQor HUB',
+      ia_col1: 'Dashboard', ia_c1_1: 'Role metrics', ia_c1_2: 'Task queue', ia_c1_3: 'Quick actions',
+      ia_col2: 'Applications', ia_c2_1: 'HR Portal', ia_c2_2: 'CRM System', ia_c2_3: 'Training LMS', ia_c2_4: '+ Role-based apps',
+      ia_col3: 'Announcements', ia_c3_1: 'Global feed', ia_c3_2: 'Dept. filters', ia_c3_3: 'Alerts',
+      ia_col4: 'Comms', ia_c4_1: 'Direct messages', ia_c4_2: 'Group chats', ia_c4_3: 'Video calls',
+      ia_roles_label: 'Access by role:', ia_r1: 'Agent', ia_r2: 'Team Lead', ia_r3: 'Manager', ia_r4: 'Admin',
       more_work: 'More Work',
       iqor_work: 'iQor Work',
       iqor_current: 'Current page',
@@ -401,6 +645,36 @@
       metric_1: 'Tasa de adopción de la plataforma',
       metric_2: 'Reducción en tiempo de acceso',
       metric_3: 'Empleados activos en todo el mundo',
+      dt_title: 'Proceso de Design Thinking',
+      dt_1: 'Empatizar', dt_1_sub: 'Entrevistas y card sorting',
+      dt_2: 'Definir',   dt_2_sub: 'Enunciados HMW',
+      dt_3: 'Idear',     dt_3_sub: 'Wireframes e IA',
+      dt_4: 'Prototipar',dt_4_sub: 'Figma alta fidelidad',
+      dt_5: 'Testear',   dt_5_sub: 'Pruebas de usabilidad',
+      hmw_label: 'How Might We',
+      hmw_text: '"¿Cómo podríamos darle a 44,000+ empleados acceso instantáneo y apropiado según su rol a cada herramienta interna — desde un único punto de partida siempre disponible?"',
+      persona_title: 'Perfil de Usuario',
+      p_name: 'Marcus T.', p_role: 'Agente de Servicio al Cliente', p_context: '5 años en iQor · Phoenix, AZ',
+      p_device: 'Desktop · 8 hrs / día', p_apps: '6+ herramientas internas al día', p_tech: 'Comodidad tech moderada',
+      p_goals_label: 'Objetivos', p_pain_label: 'Puntos de Dolor',
+      p_g1: 'Acceder a todas las herramientas desde un solo dashboard', p_g2: 'Enterarse de noticias sin buscarlas', p_g3: 'Comunicarse sin salir del flujo de trabajo',
+      p_p1: 'Abre 8+ pestañas del navegador cada turno', p_p2: 'Se pierde anuncios enterrados en emails', p_p3: 'Cambio de contexto constante para coordinarse',
+      p_quote: '"Solo quiero todo en un lugar. No debería necesitar 8 marcadores para empezar mi turno."',
+      flow_title: 'Flujo de Usuario · Antes y Después',
+      flow_before_label: 'Antes — Acceso Fragmentado', flow_after_label: 'Después — iQor HUB V1',
+      fb_1: 'Iniciar sesión en PC', fb_2: 'Abrir Navegador',
+      fb_3a: 'HR Portal\nventana emergente', fb_3b: 'CRM\nnueva pestaña', fb_3c: 'Training\npestaña',
+      fb_4a: 'Email\npara noticias', fb_4b: 'Teams /\nchat externo',
+      flow_before_result: 'Inicio trabajo — 4+ min · 8+ pasos',
+      fa_1: 'Iniciar sesión en PC', fa_2: 'iQor HUB carga automáticamente', fa_3: 'Dashboard por Rol',
+      fa_4a: 'Lanzador\nde Apps', fa_4b: 'Anuncios', fa_4c: 'Mensajería',
+      flow_after_result: 'Inicio trabajo — <1 min · 1 punto de entrada',
+      ia_title: 'Arquitectura de Información', ia_subtitle: 'iQor HUB · Mapa del Sitio', ia_root: 'iQor HUB',
+      ia_col1: 'Dashboard', ia_c1_1: 'Métricas por rol', ia_c1_2: 'Cola de tareas', ia_c1_3: 'Acciones rápidas',
+      ia_col2: 'Aplicaciones', ia_c2_1: 'Portal RR.HH.', ia_c2_2: 'Sistema CRM', ia_c2_3: 'Training LMS', ia_c2_4: '+ Apps por rol',
+      ia_col3: 'Anuncios', ia_c3_1: 'Feed global', ia_c3_2: 'Filtros por área', ia_c3_3: 'Alertas',
+      ia_col4: 'Comms', ia_c4_1: 'Mensajes directos', ia_c4_2: 'Chats grupales', ia_c4_3: 'Videollamadas',
+      ia_roles_label: 'Acceso por rol:', ia_r1: 'Agente', ia_r2: 'Team Lead', ia_r3: 'Manager', ia_r4: 'Admin',
       more_work: 'Más Trabajos',
       iqor_work: 'Proyectos iQor',
       iqor_current: 'Página actual',

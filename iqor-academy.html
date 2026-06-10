@@ -49,6 +49,16 @@
   .prose-content h2 { margin-top: 3rem; margin-bottom: 1rem; }
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── UX Artifacts ── */
+  .dt-dot { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .dt-dot.on  { background: #abc7ff; color: #131313; }
+  .dt-dot.off { background: #1A1A1A; border: 1px solid #262626; color: #424752; }
+  .flow-node  { padding: 9px 14px; border: 1px solid #262626; background: #1A1A1A; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #e5e2e1; text-align: center; }
+  .flow-node.accent { border-color: rgba(171,199,255,0.35); background: rgba(171,199,255,0.06); color: #abc7ff; }
+  .flow-node.warn  { border-color: rgba(255,183,121,0.25); background: rgba(255,183,121,0.05); color: #ffb779; }
+  .flow-arr   { text-align: center; color: #424752; font-size: 16px; line-height: 1; padding: 2px 0; }
+  .flow-arr.on { color: #abc7ff; }
 </style>
 </head>
 <body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
@@ -139,6 +149,90 @@
       </p>
     </section>
 
+    <!-- ── DESIGN THINKING ── -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-8" data-i18n="dt_title">Design Thinking Process</h2>
+      <div class="border border-border-low-contrast bg-surface-elevated p-6 md:p-8">
+        <div class="relative mb-8">
+          <div class="absolute left-[17px] right-[17px] top-[17px] h-px bg-border-low-contrast hidden md:block"></div>
+          <div class="grid grid-cols-2 md:grid-cols-5 gap-4 relative z-10">
+            <div class="flex flex-col items-center gap-2">
+              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">analytics</span></div>
+              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_1">Empathize</span>
+              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_1_sub">6 months V1 analytics</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">manage_search</span></div>
+              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_2">Define</span>
+              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_2_sub">Nav depth as core problem</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">lightbulb</span></div>
+              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_3">Ideate</span>
+              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_3_sub">3 nav models tested</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">deployed_code</span></div>
+              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_4">Prototype</span>
+              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_4_sub">Iterative Figma cycles</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">verified</span></div>
+              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_5">Test</span>
+              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_5_sub">40 participants validated</span>
+            </div>
+          </div>
+        </div>
+        <div class="pt-6 border-t border-border-low-contrast">
+          <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-3" data-i18n="hmw_label">How Might We</p>
+          <p class="font-body-lg text-body-lg text-on-surface" data-i18n="hmw_text">"How might we reduce the cognitive overhead of navigating iQor HUB so that any employee reaches any tool in one interaction — regardless of their role or experience level?"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── NAVIGATION ARCHITECTURE: V1 vs V2 ── -->
+    <section class="mb-16 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-8" data-i18n="nav_title">Navigation Architecture · V1 vs V2</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+
+        <!-- V1 nav -->
+        <div class="border border-[#ffb779]/20 bg-surface-elevated p-6">
+          <p class="font-label-sm text-label-sm text-[#ffb779] uppercase tracking-widest mb-5" data-i18n="nav_v1_label">V1 — Deep Menu Tree</p>
+          <div class="flex flex-col gap-1">
+            <div class="flow-node" data-i18n="nv1_1">Global Nav Bar</div>
+            <div class="flow-arr">↓</div>
+            <div class="flow-node pl-4" data-i18n="nv1_2">▸ Section Dropdown (L1)</div>
+            <div class="flow-arr">↓</div>
+            <div class="flow-node pl-8" data-i18n="nv1_3">▸▸ Sub-section (L2)</div>
+            <div class="flow-arr">↓</div>
+            <div class="flow-node pl-12" data-i18n="nv1_4">▸▸▸ Application / Feature (L3)</div>
+            <div class="flow-arr">↓</div>
+            <div class="flow-node warn" data-i18n="nav_v1_result">Median: 4 interactions to reach a tool</div>
+          </div>
+        </div>
+
+        <!-- V2 nav -->
+        <div class="border border-primary/30 bg-surface-elevated p-6">
+          <p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-5" data-i18n="nav_v2_label">V2 — Flat Shortcut Rail</p>
+          <div class="flex flex-col gap-1">
+            <div class="flow-node accent" data-i18n="nv2_1">Persistent Shortcut Rail (always visible)</div>
+            <div class="flow-arr on">↓</div>
+            <div class="grid grid-cols-4 gap-1">
+              <div class="flow-node accent text-[10px]" data-i18n="nv2_2a">App 1</div>
+              <div class="flow-node accent text-[10px]" data-i18n="nv2_2b">App 2</div>
+              <div class="flow-node accent text-[10px]" data-i18n="nv2_2c">App 3</div>
+              <div class="flow-node accent text-[10px]" data-i18n="nv2_2d">Search</div>
+            </div>
+            <div class="flow-arr on">↓</div>
+            <div class="flow-node accent" data-i18n="nv2_3">Flat Searchable App Launcher</div>
+            <div class="flow-arr on">↓</div>
+            <div class="flow-node accent" data-i18n="nav_v2_result">Median: 1 interaction to reach any tool</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- Process -->
     <section class="mb-10 fade-in">
       <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s3_title">03 Process</h2>
@@ -158,6 +252,73 @@
       </div>
       <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="hub_caption">iQor HUB V2, redesigned navigation and dashboard system</p>
     </div>
+
+    <!-- ── USER FLOW V2 ── -->
+    <section class="mb-10 fade-in">
+      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-8" data-i18n="flow_title">Key User Flow · V2 Navigation</h2>
+      <div class="border border-border-low-contrast bg-surface-elevated p-6 md:p-8">
+        <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest mb-6" data-i18n="flow_subtitle">Employee reaches a tool — V2 optimized path</p>
+        <!-- Horizontal flow for desktop, vertical for mobile -->
+        <div class="hidden md:flex items-start gap-0">
+          <div class="flex flex-col items-center gap-2 flex-1">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-background" style="font-size:18px;">login</span></div>
+            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fh_1">Log In</span>
+            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fh_1_sub">SSO auto-login</span>
+          </div>
+          <div class="flex-1 h-px bg-border-low-contrast mt-5"></div>
+          <div class="flex flex-col items-center gap-2 flex-1">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-background" style="font-size:18px;">dashboard</span></div>
+            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fh_2">Dashboard</span>
+            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fh_2_sub">Role view loads</span>
+          </div>
+          <div class="flex-1 h-px bg-border-low-contrast mt-5"></div>
+          <div class="flex flex-col items-center gap-2 flex-1">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-background" style="font-size:18px;">keyboard_tab</span></div>
+            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fh_3">Shortcut Rail</span>
+            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fh_3_sub">Top 8 pinned apps</span>
+          </div>
+          <div class="flex-1 h-px bg-border-low-contrast mt-5"></div>
+          <div class="flex flex-col items-center gap-2 flex-1">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-background" style="font-size:18px;">touch_app</span></div>
+            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fh_4">1-Click Access</span>
+            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fh_4_sub">Or search launcher</span>
+          </div>
+          <div class="flex-1 h-px bg-border-low-contrast mt-5"></div>
+          <div class="flex flex-col items-center gap-2 flex-1">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-background" style="font-size:18px;">check_circle</span></div>
+            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fh_5">In the App</span>
+            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fh_5_sub">&lt;15 seconds total</span>
+          </div>
+        </div>
+        <!-- Mobile vertical fallback -->
+        <div class="flex md:hidden flex-col gap-1">
+          <div class="flow-node accent" data-i18n="fh_1">Log In (SSO)</div>
+          <div class="flow-arr on">↓</div>
+          <div class="flow-node accent" data-i18n="fh_2">Dashboard loads by role</div>
+          <div class="flow-arr on">↓</div>
+          <div class="flow-node accent" data-i18n="fh_3">Shortcut Rail — top 8 pinned apps</div>
+          <div class="flow-arr on">↓</div>
+          <div class="flow-node accent" data-i18n="fh_4">1-Click access or search launcher</div>
+          <div class="flow-arr on">↓</div>
+          <div class="flow-node accent" data-i18n="fh_5">In the App — &lt;15 seconds total</div>
+        </div>
+        <!-- Improvement callout -->
+        <div class="mt-6 pt-5 border-t border-border-low-contrast grid grid-cols-1 sm:grid-cols-3 gap-px bg-border-low-contrast border border-border-low-contrast">
+          <div class="bg-background px-5 py-4 flex flex-col gap-1">
+            <span class="font-headline-md text-headline-md text-primary">4 → 1</span>
+            <span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest" data-i18n="kpi_1">Navigation steps reduced</span>
+          </div>
+          <div class="bg-background px-5 py-4 flex flex-col gap-1">
+            <span class="font-headline-md text-headline-md text-primary">74%</span>
+            <span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest" data-i18n="kpi_2">Drop in navigation friction</span>
+          </div>
+          <div class="bg-background px-5 py-4 flex flex-col gap-1">
+            <span class="font-headline-md text-headline-md text-primary">18 → 40</span>
+            <span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest" data-i18n="kpi_3">Participants across test rounds</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Process pt.2 -->
     <section class="mb-10 fade-in">
@@ -365,6 +526,33 @@
       metric_1: 'Platform satisfaction score',
       metric_2: 'Reduction in navigation steps',
       metric_3: 'Increase in comms module usage',
+      dt_title: 'Design Thinking Process',
+      dt_1: 'Empathize', dt_1_sub: '6 months V1 analytics',
+      dt_2: 'Define',   dt_2_sub: 'Nav depth as core problem',
+      dt_3: 'Ideate',   dt_3_sub: '3 nav models tested',
+      dt_4: 'Prototype',dt_4_sub: 'Iterative Figma cycles',
+      dt_5: 'Test',     dt_5_sub: '40 participants validated',
+      hmw_label: 'How Might We',
+      hmw_text: '"How might we reduce the cognitive overhead of navigating iQor HUB so that any employee reaches any tool in one interaction — regardless of their role or experience level?"',
+      nav_title: 'Navigation Architecture · V1 vs V2',
+      nav_v1_label: 'V1 — Deep Menu Tree', nav_v2_label: 'V2 — Flat Shortcut Rail',
+      nv1_1: 'Global Nav Bar', nv1_2: '▸ Section Dropdown (L1)',
+      nv1_3: '▸▸ Sub-section (L2)', nv1_4: '▸▸▸ Application / Feature (L3)',
+      nav_v1_result: 'Median: 4 interactions to reach a tool',
+      nv2_1: 'Persistent Shortcut Rail (always visible)',
+      nv2_2a: 'App 1', nv2_2b: 'App 2', nv2_2c: 'App 3', nv2_2d: 'Search',
+      nv2_3: 'Flat Searchable App Launcher',
+      nav_v2_result: 'Median: 1 interaction to reach any tool',
+      flow_title: 'Key User Flow · V2 Navigation',
+      flow_subtitle: 'Employee reaches a tool — V2 optimized path',
+      fh_1: 'Log In', fh_1_sub: 'SSO auto-login',
+      fh_2: 'Dashboard', fh_2_sub: 'Role view loads',
+      fh_3: 'Shortcut Rail', fh_3_sub: 'Top 8 pinned apps',
+      fh_4: '1-Click Access', fh_4_sub: 'Or search launcher',
+      fh_5: 'In the App', fh_5_sub: '<15 seconds total',
+      kpi_1: 'Navigation steps reduced',
+      kpi_2: 'Drop in navigation friction',
+      kpi_3: 'Participants across test rounds',
       iqor_work: 'iQor Work',
       iqor_current: 'Current page',
       all_projects: 'All projects',
@@ -409,6 +597,33 @@
       metric_1: 'Puntuación de satisfacción con la plataforma',
       metric_2: 'Reducción en pasos de navegación',
       metric_3: 'Aumento en uso del módulo de comunicaciones',
+      dt_title: 'Proceso de Design Thinking',
+      dt_1: 'Empatizar', dt_1_sub: '6 meses de analíticas V1',
+      dt_2: 'Definir',   dt_2_sub: 'Navegación como problema raíz',
+      dt_3: 'Idear',     dt_3_sub: '3 modelos de nav evaluados',
+      dt_4: 'Prototipar',dt_4_sub: 'Ciclos iterativos en Figma',
+      dt_5: 'Testear',   dt_5_sub: '40 participantes validaron',
+      hmw_label: 'How Might We',
+      hmw_text: '"¿Cómo podríamos reducir la carga cognitiva de navegar el iQor HUB para que cualquier empleado llegue a cualquier herramienta en una sola interacción — sin importar su rol o nivel de experiencia?"',
+      nav_title: 'Arquitectura de Navegación · V1 vs V2',
+      nav_v1_label: 'V1 — Árbol de Menú Profundo', nav_v2_label: 'V2 — Carril de Accesos Rápidos',
+      nv1_1: 'Barra de Nav Global', nv1_2: '▸ Desplegable de Sección (N1)',
+      nv1_3: '▸▸ Sub-sección (N2)', nv1_4: '▸▸▸ Aplicación / Función (N3)',
+      nav_v1_result: 'Mediana: 4 interacciones para llegar a una herramienta',
+      nv2_1: 'Carril de Accesos (siempre visible)',
+      nv2_2a: 'App 1', nv2_2b: 'App 2', nv2_2c: 'App 3', nv2_2d: 'Buscar',
+      nv2_3: 'Lanzador de Apps plano con búsqueda',
+      nav_v2_result: 'Mediana: 1 interacción para llegar a cualquier herramienta',
+      flow_title: 'Flujo de Usuario Clave · Navegación V2',
+      flow_subtitle: 'Empleado llega a una herramienta — ruta optimizada V2',
+      fh_1: 'Iniciar Sesión', fh_1_sub: 'Auto-login SSO',
+      fh_2: 'Dashboard', fh_2_sub: 'Vista por rol carga',
+      fh_3: 'Carril de Accesos', fh_3_sub: 'Top 8 apps ancladas',
+      fh_4: 'Acceso 1 clic', fh_4_sub: 'O lanzador de búsqueda',
+      fh_5: 'En la App', fh_5_sub: '<15 segundos en total',
+      kpi_1: 'Pasos de navegación reducidos',
+      kpi_2: 'Caída en fricción de navegación',
+      kpi_3: 'Participantes entre rondas de test',
       iqor_work: 'Proyectos iQor',
       iqor_current: 'Página actual',
       all_projects: 'Todos los proyectos',
