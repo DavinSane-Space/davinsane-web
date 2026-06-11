@@ -301,13 +301,13 @@
 <div class="md:col-span-6 md:col-start-7 flex flex-col gap-8">
 <div>
 <h2 class="font-label-md text-label-md text-primary tracking-widest mb-4 uppercase" data-i18n="about_label">Visual Designer / Product Designer</h2>
-<h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6" data-i18n-html="about_title">
+<h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2" data-i18n-html="about_title">
                             About Me
                         </h3>
-</div>
 <p class="font-body-lg text-body-lg text-text-muted" data-i18n="about_desc">
                         Senior designer specialized in leading Design Systems, component governance, internal workflows, design standards, and documentation. Expert in Figma and AI-powered workflows that take products from prototype to production faster without sacrificing quality.
                     </p>
+</div>
 <div class="pt-8 border-t border-border-low-contrast skills-scroll-container">
 <div class="skills-top-gradient" id="skills-top-grad"></div>
 <div class="skills-scroll-list" id="skills-list">
@@ -347,6 +347,32 @@
     <div class="skill-body">
       <p class="font-body-md text-body-md text-text-muted py-4 pr-2" data-i18n="skill2_body">
         Micro-interactions and motion systems that communicate state, hierarchy, and feedback without visual noise. Every animation earns its place by conveying structural meaning, not decoration.
+      </p>
+    </div>
+  </div>
+
+  <!-- Human-Centred AI Products -->
+  <div class="skill-item" id="skill-3">
+    <button onclick="toggleSkill('skill-3')" class="w-full flex justify-between items-center py-4 border-b border-border-low-contrast text-left group">
+      <span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors skill-header-title" data-i18n-html="skill3_title">Human-Centred AI Products</span>
+      <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors skill-toggle-icon">add</span>
+    </button>
+    <div class="skill-body">
+      <p class="font-body-md text-body-md text-text-muted py-4 pr-2" data-i18n="skill3_body">
+        Applying human-centred design methodologies to AI-powered products and services. Bridging the gap between machine intelligence and user needs through responsible AI design, explainability, and inclusive product strategies.
+      </p>
+    </div>
+  </div>
+
+  <!-- Team Leadership -->
+  <div class="skill-item" id="skill-4">
+    <button onclick="toggleSkill('skill-4')" class="w-full flex justify-between items-center py-4 border-b border-border-low-contrast text-left group">
+      <span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors skill-header-title" data-i18n="skill4_title">Team Leadership</span>
+      <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors skill-toggle-icon">add</span>
+    </button>
+    <div class="skill-body">
+      <p class="font-body-md text-body-md text-text-muted py-4 pr-2" data-i18n="skill4_body">
+        Building and guiding high-performing design teams through clear vision, structured feedback, and collaborative culture. Mentoring designers at all levels while aligning team output with business goals and product strategy.
       </p>
     </div>
   </div>
@@ -393,11 +419,9 @@
   const skillObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Stagger delay based on item index
         const idx = parseInt(entry.target.dataset.skillIdx || 0);
         setTimeout(() => entry.target.classList.add('animate-in'), idx * 80);
-      } else {
-        entry.target.classList.remove('animate-in');
+        skillObserver.unobserve(entry.target);
       }
     });
   }, { threshold: 0.4 });
@@ -426,6 +450,10 @@
       skill1_body:    'High-performance React and Next.js applications engineered around code splitting, performance budgets, and long-term maintainability. Structure that survives team growth and shifting requirements.',
       skill2_title:   'Interaction Design',
       skill2_body:    'Micro-interactions and motion systems that communicate state, hierarchy, and feedback without visual noise. Every animation earns its place by conveying structural meaning, not decoration.',
+      skill3_title:   'Designing Human-Centred AI<br>Products & Services',
+      skill3_body:    'I integrate artificial intelligence into the digital product design process without losing focus on the user. I create experiences where AI enhances product functionality in a clear, accessible, and responsible way.',
+      skill4_title:   'Team Leadership',
+      skill4_body:    'Building and guiding high-performing design teams through clear vision, structured feedback, and collaborative culture. Mentoring designers at all levels while aligning team output with business goals and product strategy.',
       cv_card_title:  'Download my CV',
       footer_copy:    '© 2026 Santiago Morales - DavinSane. All rights reserved.',
       footer_privacy: 'Privacy',
@@ -448,6 +476,10 @@
       skill1_body:    'Aplicaciones React y Next.js de alto rendimiento diseñadas con code splitting, presupuestos de rendimiento y mantenibilidad a largo plazo. Estructura que sobrevive al crecimiento del equipo y a los requisitos cambiantes.',
       skill2_title:   'Diseño de Interacción',
       skill2_body:    'Micro-interacciones y sistemas de movimiento que comunican estado, jerarquía y retroalimentación sin ruido visual. Cada animación gana su lugar transmitiendo significado estructural, no decoración.',
+      skill3_title:   'Diseño de productos y servicios de IA<br>Centrado en las personas',
+      skill3_body:    'Integro inteligencia artificial en el proceso de diseño de productos digitales sin perder el foco en el usuario. Creo experiencias donde la IA potencia la funcionalidad del producto de forma clara, accesible y responsable.',
+      skill4_title:   'Liderazgo de Equipos',
+      skill4_body:    'Construcción y guía de equipos de diseño de alto rendimiento mediante visión clara, feedback estructurado y cultura colaborativa. Mentoria de diseñadores en todos los niveles mientras se alinea el trabajo del equipo con los objetivos de negocio y la estrategia de producto.',
       cv_card_title:  'Descarga mi CV',
       footer_copy:    '© 2026 Santiago Morales - DavinSane. Todos los derechos reservados.',
       footer_privacy: 'Privacidad',
