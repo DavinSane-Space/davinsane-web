@@ -412,7 +412,7 @@
           </div>
         </div>
         <div class="flow-img mb-4">
-          <img src="mercadolibre/img/variaciones card.jpg" alt="Selección de variaciones del producto"/>
+          <img src="mercadolibre/img/variaciones%20card.jpg" alt="Selección de variaciones del producto"/>
         </div>
         <p class="font-body-md text-body-md text-text-muted" data-i18n="s7_desc">
           For products with variants — size, color, material — the seller specifies which variation their listing represents. This granularity is essential for accurate catalog matching: a black helmet and a white helmet are the same product but different SKUs. Correct variant selection ensures the seller competes on the right catalog page with the right competitors.
@@ -593,12 +593,22 @@
 </button>
 
 <script type="module" src="particles-bg.js"></script>
-<script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+<!-- Observer in its own block so a translation error can never break it -->
+<script>
+  (function() {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0 });
+    document.querySelectorAll('.fade-in').forEach(function(el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight) { el.classList.add('visible'); }
+      obs.observe(el);
+    });
+  })();
+</script>
+
+<script>
   const translations = {
     en: {
       nav_back: 'Back',
