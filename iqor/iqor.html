@@ -56,7 +56,7 @@
   <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-5 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors duration-200 font-label-sm text-label-sm group">
       <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style="font-size:18px;">arrow_back</span>
-      <span>All projects</span>
+      <span data-i18n="nav_back">All projects</span>
     </a>
     <span class="font-label-md text-label-md text-on-surface uppercase tracking-widest">SANTIAGO MORALES</span>
     <div class="w-20"></div>
@@ -67,9 +67,9 @@
 
   <!-- Header -->
   <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pt-20 pb-12 card-enter">
-    <p class="font-label-md text-label-md text-text-muted tracking-widest uppercase mb-4">BPO · Enterprise</p>
+    <p class="font-label-md text-label-md text-text-muted tracking-widest uppercase mb-4" data-i18n="header_label">BPO · Enterprise</p>
     <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface tracking-tight mb-6">iQor</h1>
-    <p class="font-body-lg text-body-lg text-text-muted max-w-2xl">
+    <p class="font-body-lg text-body-lg text-text-muted max-w-2xl" data-i18n="header_desc">
       A collection of internal product design work for iQor, a global BPO company. Each project tackles a different layer of the employee digital experience.
     </p>
   </section>
@@ -77,7 +77,7 @@
   <!-- Projects grid -->
   <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pb-section-gap">
     <div class="border-b border-border-low-contrast pb-4 mb-16 flex items-center justify-between">
-      <span class="font-label-md text-label-md text-text-muted tracking-widest">PROJECTS</span>
+      <span class="font-label-md text-label-md text-text-muted tracking-widest" data-i18n="projects">PROJECTS</span>
       <span class="font-label-sm text-label-sm text-outline-variant">01 / 03</span>
     </div>
 
@@ -91,10 +91,10 @@
         </div>
         <div class="flex justify-between items-start">
           <div>
-            <h3 class="font-headline-md text-headline-md text-on-surface">iQor HUB V1</h3>
+            <h3 class="font-headline-md text-headline-md text-on-surface" data-i18n="card1_title">iQor HUB V1</h3>
             <div class="flex gap-3 mt-3">
-              <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Intranet</span>
-              <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">UX Design</span>
+              <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="tag_intranet">Intranet</span>
+              <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="tag_ux">UX Design</span>
             </div>
           </div>
           <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">arrow_outward</span>
@@ -109,10 +109,10 @@
         </div>
         <div class="flex justify-between items-start">
           <div>
-            <h3 class="font-headline-md text-headline-md text-on-surface">iQor HUB V2</h3>
+            <h3 class="font-headline-md text-headline-md text-on-surface" data-i18n="card2_title">iQor HUB V2</h3>
             <div class="flex gap-3 mt-3">
-              <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Intranet</span>
-              <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">UX Design</span>
+              <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="tag_intranet">Intranet</span>
+              <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="tag_ux">UX Design</span>
             </div>
           </div>
           <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">arrow_outward</span>
@@ -127,10 +127,10 @@
         </div>
         <div class="flex justify-between items-start">
           <div>
-            <h3 class="font-headline-md text-headline-md text-on-surface">iQor CMS</h3>
+            <h3 class="font-headline-md text-headline-md text-on-surface" data-i18n="card3_title">iQor CMS</h3>
             <div class="flex gap-3 mt-3">
-              <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">CMS</span>
-              <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Internal Tool</span>
+              <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="tag_cms">CMS</span>
+              <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="tag_tool">Internal Tool</span>
             </div>
           </div>
           <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">arrow_outward</span>
@@ -165,13 +165,42 @@
   document.querySelectorAll('.card-enter').forEach(el => observer.observe(el));
 
   const translations = {
-    en: { header_label: 'BPO · Enterprise', header_desc: "A collection of internal product design work for iQor, a global BPO company. Each project tackles a different layer of the employee digital experience.", projects: 'PROJECTS', nav_back: 'All projects' },
-    es: { header_label: 'BPO · Enterprise', header_desc: 'Una colección de trabajo de diseño de producto interno para iQor, una empresa global de BPO. Cada proyecto aborda una capa diferente de la experiencia digital del empleado.', projects: 'PROYECTOS', nav_back: 'Todos los proyectos' }
+    en: {
+      header_label: 'BPO · Enterprise',
+      header_desc: "A collection of internal product design work for iQor, a global BPO company. Each project tackles a different layer of the employee digital experience.",
+      projects: 'PROJECTS',
+      nav_back: 'All projects',
+      card1_title: 'iQor HUB V1',
+      card2_title: 'iQor HUB V2',
+      card3_title: 'iQor CMS',
+      tag_intranet: 'Intranet',
+      tag_ux: 'UX Design',
+      tag_cms: 'CMS',
+      tag_tool: 'Internal Tool'
+    },
+    es: {
+      header_label: 'BPO · Enterprise',
+      header_desc: 'Una colección de trabajo de diseño de producto interno para iQor, una empresa global de BPO. Cada proyecto aborda una capa diferente de la experiencia digital del empleado.',
+      projects: 'PROYECTOS',
+      nav_back: 'Todos los proyectos',
+      card1_title: 'iQor HUB V1',
+      card2_title: 'iQor HUB V2',
+      card3_title: 'iQor CMS',
+      tag_intranet: 'Intranet',
+      tag_ux: 'Diseño UX',
+      tag_cms: 'CMS',
+      tag_tool: 'Herramienta Interna'
+    }
   };
 
   let currentLang = localStorage.getItem('lang') || 'en';
 
   function applyLang(lang) {
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
     document.getElementById('lang-label').textContent = lang === 'en' ? 'ES' : 'EN';
     document.documentElement.lang = lang;
   }
