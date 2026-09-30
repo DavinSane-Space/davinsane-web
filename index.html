@@ -137,6 +137,20 @@
         .skill-item.expanded .skill-body {
             max-height: 160px;
         }
+        .skill-item#skill-0.expanded .skill-body,
+        .skill-item#skill-1.expanded .skill-body {
+            max-height: 280px;
+        }
+        .tool-logo {
+            height: 22px;
+            width: auto;
+            filter: invert(1);
+            opacity: 0.55;
+            transition: opacity 0.2s ease;
+        }
+        .tool-logo:hover {
+            opacity: 1;
+        }
         .skill-toggle-icon {
             transition: transform 0.3s ease;
             flex-shrink: 0;
@@ -151,30 +165,6 @@
             color: #abc7ff;
         }
 
-        /* Scroll container with gradient overlays */
-        .skills-scroll-container {
-            position: relative;
-        }
-        .skills-scroll-list {
-            max-height: 340px;
-            overflow-y: auto;
-            padding-right: 6px;
-        }
-        .skills-scroll-list::-webkit-scrollbar { width: 4px; }
-        .skills-scroll-list::-webkit-scrollbar-track { background: #131313; }
-        .skills-scroll-list::-webkit-scrollbar-thumb { background: #353534; border-radius: 4px; }
-        .skills-top-gradient {
-            position: absolute; top: 0; left: 0; right: 0; height: 48px;
-            background: linear-gradient(to bottom, #131313, transparent);
-            pointer-events: none; z-index: 1; opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .skills-bottom-gradient {
-            position: absolute; bottom: 0; left: 0; right: 0; height: 64px;
-            background: linear-gradient(to top, #131313, transparent);
-            pointer-events: none; z-index: 1; opacity: 1;
-            transition: opacity 0.3s ease;
-        }
     </style>
 </head>
 <body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col selection:bg-primary selection:text-on-primary">
@@ -193,7 +183,7 @@
                 Senior Visual Designer specialized in Product Design &amp; UX/UI Engineering
             </h1>
 <p class="mt-4 font-body-lg text-body-lg text-on-surface font-medium max-w-4xl" data-i18n="hero_lead">
-                I don't just design interfaces; I understand how they live in production.
+                Understanding business needs and their users is what leads to successful products.
             </p>
 <p class="mt-2 font-body-lg text-body-lg text-text-muted max-w-4xl" data-i18n="hero_desc">
                 I have over 6.5 years designing user-centered digital solutions for Fintech, Ecommerce, and BPO companies, both nationally and internationally, with the technical grounding to know what actually ships.
@@ -307,7 +297,7 @@
 </section>
 <!-- About Section -->
 <section class="px-margin-mobile md:px-margin-desktop pb-section-gap max-w-container-max mx-auto w-full relative">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start mb-16 md:mb-24">
 <div class="md:col-span-5 md:col-start-1 mb-12 md:mb-0 flex flex-col gap-4">
 <div class="relative w-full aspect-[3/4] bg-surface-elevated border border-border-low-contrast p-2">
 <img alt="Professional Portrait" class="w-full h-full object-cover object-top opacity-90" src="img/SantiagoMorales.png"/>
@@ -318,43 +308,61 @@
 <div class="absolute bottom-0 right-0 w-px h-4 bg-on-surface"></div>
 </div>
 </div>
-<div class="md:col-span-6 md:col-start-7 flex flex-col gap-8">
-<div>
-<h2 class="font-label-md text-label-md text-primary tracking-widest mb-4 uppercase" data-i18n="about_label">Visual Designer / Product Designer</h2>
+<div class="md:col-span-6 md:col-start-7 flex flex-col gap-4">
 <h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2" data-i18n-html="about_title">
                             About Me
                         </h3>
 <p class="font-body-lg text-body-lg text-text-muted" data-i18n="about_desc">
-                        I work at the point where design, code, and AI stop being separate disciplines. I've spent six years designing products people actually use. I plan every design thinking about how a product scales over time, how a user interacts with it intuitively, and I hand it off clearly and technically so the development team has no ambiguity. I also use an AI-driven workflow that speeds up the whole process, from idea to production. I don't just imagine what a product could be. I ship it.
+                        I'm David Santiago Morales, or as I'm known online, "DavinSane," a combination of my first names. I'm a visual designer from Fundación Universitaria Bellas Artes de Medellín, and for the past 7 years I've dedicated myself to designing digital products for companies nationally and internationally. I'm very passionate about designing digital products, sharing knowledge, and learning every day about new technologies and tools that let me speed up and optimize my workflow. On a personal note, I really love art, I'm very devoted to visual design and 3D design in Blender and ZBrush. In fact, I have a 3D printer that I use to print useful objects for my home and to sell. I also really love music, singing, and playing guitar. I do a lot of offroading and motocross. I love my pets: at home I have 2 beautiful dogs and 2 cats. I dedicate my life to everything I'm passionate about, and I do it with a lot of love and dedication.
                     </p>
 </div>
-<div class="pt-8 border-t border-border-low-contrast skills-scroll-container">
-<div class="skills-top-gradient" id="skills-top-grad"></div>
-<div class="skills-scroll-list" id="skills-list">
+</div>
+<div class="pt-8 border-t border-border-low-contrast">
+<h4 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2" data-i18n="skills_title">About My Experience</h4>
+<h2 class="font-label-md text-label-md text-primary tracking-widest mb-10 uppercase" data-i18n="about_label">Visual Designer / Product Designer</h2>
+<div id="skills-list">
 
   <!-- Design Backed by Real Code -->
   <div class="skill-item" id="skill-0">
     <button onclick="toggleSkill('skill-0')" class="w-full flex justify-between items-center py-4 border-b border-border-low-contrast text-left group">
-      <span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors skill-header-title" data-i18n="skill0_title">Design Backed by Real Code</span>
+      <span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors skill-header-title" data-i18n="skill0_title">I Understand and Execute with Strategy Based on Business Needs</span>
       <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors skill-toggle-icon">add</span>
     </button>
     <div class="skill-body">
       <p class="font-body-md text-body-md text-text-muted py-4 pr-2" data-i18n="skill0_body">
-        I don't stop at Figma. I also work with HTML, CSS, JavaScript, Tailwind, and Supabase. That means I know what's technically feasible from day one, and I hand off designs the dev team can build without having to guess anything.
+        I stand out for understanding and analyzing business needs and how their users work. Through interviews and usability testing, I identify opportunities, prioritize solutions, and design experiences that address real problems the business and its different digital products face. In how I work, I use different tools like Notion, Miro, Hotjar, Typeform, SurveyMonkey, Dovetail, Claude AI, and ChatGPT, which help me speed up my research work.
       </p>
+      <div class="flex flex-wrap items-center gap-6 pb-4 pr-2 tool-logos">
+        <img src="https://cdn.simpleicons.org/notion" alt="Notion" title="Notion" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/miro" alt="Miro" title="Miro" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/hotjar" alt="Hotjar" title="Hotjar" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/typeform" alt="Typeform" title="Typeform" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/surveymonkey" alt="SurveyMonkey" title="SurveyMonkey" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/dovetail" alt="Dovetail" title="Dovetail" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/anthropic" alt="Claude AI" title="Claude AI" class="tool-logo" loading="lazy"/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_%28symbol%29.svg" alt="ChatGPT" title="ChatGPT" class="tool-logo" loading="lazy"/>
+      </div>
     </div>
   </div>
 
   <!-- AI Is Part of How I Work -->
   <div class="skill-item" id="skill-1">
     <button onclick="toggleSkill('skill-1')" class="w-full flex justify-between items-center py-4 border-b border-border-low-contrast text-left group">
-      <span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors skill-header-title" data-i18n="skill1_title">AI Is Part of How I Work</span>
+      <span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors skill-header-title" data-i18n="skill1_title">AI With Design Judgment</span>
       <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors skill-toggle-icon">add</span>
     </button>
     <div class="skill-body">
       <p class="font-body-md text-body-md text-text-muted py-4 pr-2" data-i18n="skill1_body">
-        I use AI tools throughout my whole process, from early research to final implementation. It's not an extra step, it's just part of how I design today. It helps me move faster without cutting corners on quality.
+        I bring AI into organizing findings, exploring hypotheses, and building prototypes faster. I evaluate its suggestions against what I learned in research, the product's context, and people's needs before turning them into design decisions. Some of the tools I use are: Codex, Claude, Claude Code, ChatGPT, V0, and Replit.
       </p>
+      <div class="flex flex-wrap items-center gap-6 pb-4 pr-2 tool-logos">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_%28symbol%29.svg" alt="Codex" title="Codex" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/claude" alt="Claude" title="Claude" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/claude" alt="Claude Code" title="Claude Code" class="tool-logo" loading="lazy"/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_%28symbol%29.svg" alt="ChatGPT" title="ChatGPT" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/v0" alt="V0" title="V0" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/replit" alt="Replit" title="Replit" class="tool-logo" loading="lazy"/>
+      </div>
     </div>
   </div>
 
@@ -384,9 +392,6 @@
     </div>
   </div>
 
-</div>
-<div class="skills-bottom-gradient" id="skills-bottom-grad"></div>
-</div>
 </div>
 </div>
 </section>
@@ -442,8 +447,8 @@
   const translations = {
     en: {
       hero_title:     'Senior Visual Designer specialized in Product Design & UX/UI Engineering',
-      hero_lead:      'I don\'t just design interfaces; I understand how they live in production.',
-      hero_desc:      'I have over 6 and a half years designing digital products centered on the user for Fintech, Ecommerce, and BPO companies, both nationally and internationally, following different visual and product design methodologies to reach a product that\'s viable, usable, and accessible.',
+      hero_lead:      'Understanding business needs and their users is what leads to successful products.',
+      hero_desc:      'I have 7 years designing digital products centered on the user for Fintech, Ecommerce, and BPO companies, both nationally and internationally, following different visual and product design methodologies to reach a product that\'s viable, usable, and accessible.',
       available:      'AVAILABLE FOR HIRE',
       cv_btn:         'Download my CV',
       selected_works: 'SELECTED WORKS',
@@ -452,11 +457,12 @@
       csf_tag1: 'Holding', csf_tag2: 'Brand System',
       about_label:    'Visual Designer / Product Designer',
       about_title:    'About Me',
-      about_desc:     "I work at the point where design, code, and AI stop being separate disciplines. I've spent six years designing products people actually use. I plan every design thinking about how a product scales over time, how a user interacts with it intuitively, and I hand it off clearly and technically so the development team has no ambiguity. I also use an AI-driven workflow that speeds up the whole process, from idea to production. I don't just imagine what a product could be. I ship it.",
-      skill0_title:   'Design Backed by Real Code',
-      skill0_body:    "I don't stop at Figma. I also work with HTML, CSS, JavaScript, Tailwind, and Supabase. That means I know what's technically feasible from day one, and I hand off designs the dev team can build without having to guess anything.",
-      skill1_title:   'AI Is Part of How I Work',
-      skill1_body:    "I use AI tools throughout my whole process, from early research to final implementation. It's not an extra step, it's just part of how I design today. It helps me move faster without cutting corners on quality.",
+      about_desc:     'I\'m David Santiago Morales, or as I\'m known online, "DavinSane," a combination of my first names. I\'m a visual designer from Fundación Universitaria Bellas Artes de Medellín, and for the past 7 years I\'ve dedicated myself to designing digital products for companies nationally and internationally. I\'m very passionate about designing digital products, sharing knowledge, and learning every day about new technologies and tools that let me speed up and optimize my workflow. On a personal note, I really love art, I\'m very devoted to visual design and 3D design in Blender and ZBrush. In fact, I have a 3D printer that I use to print useful objects for my home and to sell. I also really love music, singing, and playing guitar. I do a lot of offroading and motocross. I love my pets: at home I have 2 beautiful dogs and 2 cats. I dedicate my life to everything I\'m passionate about, and I do it with a lot of love and dedication.',
+      skills_title:   'About My Experience',
+      skill0_title:   'I Understand and Execute with Strategy Based on Business Needs',
+      skill0_body:    "I stand out for understanding and analyzing business needs and how their users work. Through interviews and usability testing, I identify opportunities, prioritize solutions, and design experiences that address real problems the business and its different digital products face. In how I work, I use different tools like Notion, Miro, Hotjar, Typeform, SurveyMonkey, Dovetail, Claude AI, and ChatGPT, which help me speed up my research work.",
+      skill1_title:   'AI With Design Judgment',
+      skill1_body:    "I bring AI into organizing findings, exploring hypotheses, and building prototypes faster. I evaluate its suggestions against what I learned in research, the product's context, and people's needs before turning them into design decisions. Some of the tools I use are: Codex, Claude, Claude Code, ChatGPT, V0, and Replit.",
       skill2_title:   'Research That Starts With the User',
       skill2_body:    'Before I design a single screen, I make sure I understand what the person using the product actually needs. Every design decision I make considers the real impact it has, both for the user and for the business.',
       skill3_title:   'Mentoring Designers',
@@ -468,8 +474,8 @@
     },
     es: {
       hero_title:     'Senior Visual Designer especializado en Product Design & UX/UI Engineering',
-      hero_lead:      'No solo diseño interfaces; entiendo cómo viven en producción.',
-      hero_desc:      'Tengo más de 6 años y medio diseñando productos digitales centrados en el usuario para empresas Fintech, Ecommerce y BPO, a nivel nacional e internacional, siguiendo diferentes metodologías de diseño visual y de producto con el fin de llegar a un producto viable, usable y accesible.',
+      hero_lead:      'Entender las necesidades del negocio y a sus usuarios llevan a crear productos exitosos.',
+      hero_desc:      'Tengo 7 años diseñando productos digitales centrados en el usuario para empresas Fintech, Ecommerce y BPO, a nivel nacional e internacional, siguiendo diferentes metodologías de diseño visual y de producto con el fin de llegar a un producto viable, usable y accesible.',
       available:      'DISPONIBLE PARA CONTRATAR',
       cv_btn:         'Descarga mi CV',
       selected_works: 'TRABAJOS SELECCIONADOS',
@@ -478,11 +484,12 @@
       csf_tag1: 'Holding', csf_tag2: 'Sistema de Marca',
       about_label:    'Visual Designer / Product Designer',
       about_title:    'About Me',
-      about_desc:     'Trabajo en el punto donde diseño, código e IA dejan de ser disciplinas separadas. Llevo seis años diseñando productos que la gente realmente usa. Planeo cada diseño pensando en cómo un producto escala a futuro, cómo un usuario interactúa con él de forma intuitiva, y lo entrego de forma clara y técnica para que el equipo de desarrollo lo entienda sin ambigüedades. También uso un flujo de trabajo con IA que acelera todo el proceso, desde la idea hasta producción. No solo imagino lo que un producto podría ser. Lo llevo a producción.',
-      skill0_title:   'Diseño con base en código real',
-      skill0_body:    'No me quedo solo en Figma. También trabajo con HTML, CSS, JavaScript, Tailwind y Supabase. Eso me permite saber desde el principio qué es viable técnicamente, y entregar diseños que el equipo de desarrollo puede implementar sin adivinar nada.',
-      skill1_title:   'La IA es parte de cómo trabajo',
-      skill1_body:    'Uso herramientas de inteligencia artificial en todo mi proceso, desde la investigación inicial hasta la implementación final. No es un extra, es parte de cómo diseño hoy. Me ayuda a moverme más rápido sin bajar la calidad de lo que entrego.',
+      about_desc:     'Soy David Santiago Morales, o como me llamo digitalmente, "DavinSane", por la combinación de mis primeros nombres. Soy diseñador visual de la Fundación Universitaria Bellas Artes de Medellín y me he dedicado durante 7 años a diseñar productos digitales para empresas a nivel nacional e internacional. Me apasiona mucho diseñar productos digitales, aportar conocimiento y aprender todos los días de las nuevas tecnologías y herramientas que me permiten agilizar y optimizar mi flujo de trabajo. A modo personal, me gusta mucho el arte, soy muy entregado al diseño visual y al diseño 3D en Blender y ZBrush. De hecho, tengo una impresora 3D en la que imprimo muchos objetos útiles para mi hogar y para venderlos. También me gusta mucho la música, cantar y tocar guitarra. Practico mucho offroad y motocross. Amo mis mascotas: en casa tengo 2 hermosos perros y 2 gatos. Dedico mi vida a todo lo que me apasiona y lo hago con mucho amor y dedicación.',
+      skills_title:   'Sobre mi experiencia',
+      skill0_title:   'Entiendo y ejecuto con estrategia en base a las necesidades del negocio',
+      skill0_body:    'Me destaco por entender y analizar las necesidades del negocio y cómo trabajan sus usuarios. A partir de entrevistas y pruebas de usabilidad, identifico oportunidades, priorizo soluciones y diseño experiencias que responden a problemas reales que tiene el negocio y sus diferentes productos digitales. En mi forma de trabajar uso diferentes herramientas como Notion, Miro, Hotjar, Typeform, SurveyMonkey, Dovetail, Claude AI y ChatGPT, las cuales me sirven para agilizar mi trabajo investigativo.',
+      skill1_title:   'AI con criterio de diseño',
+      skill1_body:    'Integro la IA para organizar hallazgos, explorar hipótesis y crear prototipos con mayor agilidad. Evalúo sus propuestas según lo aprendido en la investigación, el contexto del producto y las necesidades de las personas antes de convertirlas en decisiones de diseño. Entre las herramientas de trabajo que uso están: Codex, Claude, Claude Code, ChatGPT, V0 y Replit.',
       skill2_title:   'Investigación que empieza con el usuario',
       skill2_body:    'Antes de diseñar cualquier pantalla, entiendo qué necesita realmente la persona que va a usar el producto. Cada decisión de diseño la tomo pensando en el impacto real que tiene, tanto para el usuario como para el negocio.',
       skill3_title:   'Mentor de diseñadores',
@@ -518,20 +525,6 @@
 
   // ── Init language ──
   applyLang(currentLang);
-
-  // ── Scroll gradients ──
-  const skillsList = document.getElementById('skills-list');
-  const topGrad    = document.getElementById('skills-top-grad');
-  const bottomGrad = document.getElementById('skills-bottom-grad');
-
-  if (skillsList) {
-    skillsList.addEventListener('scroll', function () {
-      const { scrollTop, scrollHeight, clientHeight } = this;
-      topGrad.style.opacity = Math.min(scrollTop / 50, 1);
-      const remaining = scrollHeight - (scrollTop + clientHeight);
-      bottomGrad.style.opacity = scrollHeight <= clientHeight ? 0 : Math.min(remaining / 50, 1);
-    });
-  }
 </script>
 
 </body></html>
