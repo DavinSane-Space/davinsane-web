@@ -51,17 +51,53 @@
 <body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
 <div id="particles-bg"></div>
 
-<!-- Nav -->
-<nav class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border-low-contrast">
-  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-5 flex items-center justify-between">
+<!-- Global site nav -->
+<header id="site-nav" class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border-low-contrast">
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 h-16 flex items-center justify-between">
+    <a href="../index.html" class="font-label-md text-label-md text-on-surface uppercase tracking-widest hover:text-primary transition-colors duration-200">SANTIAGO MORALES</a>
+    <nav aria-label="Main" class="hidden md:flex items-center gap-8">
+      <a href="../index.html" class="font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-200 hover:text-primary text-text-muted" data-i18n="nav_home">Home</a>
+      <a href="../index.html#projects" class="font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-200 hover:text-primary text-on-surface" aria-current="page" data-i18n="nav_projects">Projects</a>
+      <a href="../blog.html" class="font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-200 hover:text-primary text-text-muted" data-i18n="nav_blog">Blog</a>
+    </nav>
+    <button id="site-nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav-menu" class="md:hidden -mr-2 w-10 h-10 flex items-center justify-center text-on-surface hover:text-primary transition-colors duration-200">
+      <span class="material-symbols-outlined" style="font-size:24px;">menu</span>
+    </button>
+  </div>
+  <nav id="site-nav-menu" aria-label="Main" class="hidden md:hidden border-t border-border-low-contrast">
+    <div class="px-margin-mobile py-2 flex flex-col">
+      <a href="../index.html" class="block py-3 font-label-md text-label-md uppercase tracking-widest border-b border-border-low-contrast last:border-b-0 transition-colors duration-200 hover:text-primary text-text-muted" data-i18n="nav_home">Home</a>
+      <a href="../index.html#projects" class="block py-3 font-label-md text-label-md uppercase tracking-widest border-b border-border-low-contrast last:border-b-0 transition-colors duration-200 hover:text-primary text-on-surface" aria-current="page" data-i18n="nav_projects">Projects</a>
+      <a href="../blog.html" class="block py-3 font-label-md text-label-md uppercase tracking-widest border-b border-border-low-contrast last:border-b-0 transition-colors duration-200 hover:text-primary text-text-muted" data-i18n="nav_blog">Blog</a>
+    </div>
+  </nav>
+</header>
+<script>
+  (function () {
+    var btn = document.getElementById('site-nav-toggle');
+    var menu = document.getElementById('site-nav-menu');
+    var icon = btn.querySelector('.material-symbols-outlined');
+    function setOpen(open) {
+      menu.classList.toggle('hidden', !open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      icon.textContent = open ? 'close' : 'menu';
+    }
+    btn.addEventListener('click', function () { setOpen(menu.classList.contains('hidden')); });
+    menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth >= 768) setOpen(false); });
+  })();
+</script>
+<!-- Page context: back / next -->
+<div class="border-b border-border-low-contrast">
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 py-3 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors duration-200 font-label-sm text-label-sm group">
       <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style="font-size:18px;">arrow_back</span>
       <span data-i18n="nav_back">All projects</span>
     </a>
-    <span class="font-label-md text-label-md text-on-surface uppercase tracking-widest">SANTIAGO MORALES</span>
     <div class="w-20"></div>
   </div>
-</nav>
+</div>
 
 <main class="flex-grow">
 
@@ -197,6 +233,7 @@
 
   const translations = {
     en: {
+      nav_home: 'Home', nav_projects: 'Projects', nav_blog: 'Blog',
       header_label: 'HOLDING · MULTI-BUSINESS',
       header_desc: "Product and brand design work for Grupo CSF, a Colombian holding company with 4 business units. I lead the design system and digital development for each unit, keeping brand coherence across businesses with very different paces and needs.",
       meta_role: 'Role',
@@ -220,6 +257,7 @@
       footer_privacy: 'Privacy'
     },
     es: {
+      nav_home: 'Inicio', nav_projects: 'Proyectos', nav_blog: 'Blog',
       header_label: 'HOLDING · MULTI-NEGOCIO',
       header_desc: 'Trabajo de diseño de producto y marca para Grupo CSF, un holding colombiano con 4 unidades de negocio. Lidero el sistema de diseño y el desarrollo digital de cada unidad, manteniendo coherencia de marca entre negocios con ritmos y necesidades muy distintas.',
       meta_role: 'Rol',

@@ -1,6 +1,6 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
+<html class="dark scroll-smooth" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Santiago Morales</title>
@@ -138,18 +138,22 @@
             max-height: 160px;
         }
         .skill-item#skill-0.expanded .skill-body,
-        .skill-item#skill-1.expanded .skill-body {
+        .skill-item#skill-1.expanded .skill-body,
+        .skill-item#skill-2.expanded .skill-body {
             max-height: 280px;
         }
         .tool-logo {
-            height: 22px;
+            height: 24px;
             width: auto;
-            filter: invert(1);
-            opacity: 0.55;
-            transition: opacity 0.2s ease;
+            opacity: 0.85;
+            transition: opacity 0.2s ease, transform 0.2s ease;
         }
         .tool-logo:hover {
             opacity: 1;
+            transform: translateY(-2px);
+        }
+        .tool-logo--mono-white {
+            filter: brightness(0) invert(1);
         }
         .skill-toggle-icon {
             transition: transform 0.3s ease;
@@ -169,6 +173,43 @@
 </head>
 <body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col selection:bg-primary selection:text-on-primary">
 <div id="particles-bg"></div>
+<!-- Global site nav -->
+<header id="site-nav" class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border-low-contrast">
+  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 h-16 flex items-center justify-between">
+    <a href="index.html" class="font-label-md text-label-md text-on-surface uppercase tracking-widest hover:text-primary transition-colors duration-200">SANTIAGO MORALES</a>
+    <nav aria-label="Main" class="hidden md:flex items-center gap-8">
+      <a href="index.html" class="font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-200 hover:text-primary text-on-surface" aria-current="page" data-i18n="nav_home">Home</a>
+      <a href="#projects" class="font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-200 hover:text-primary text-text-muted" data-i18n="nav_projects">Projects</a>
+      <a href="blog.html" class="font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-200 hover:text-primary text-text-muted" data-i18n="nav_blog">Blog</a>
+    </nav>
+    <button id="site-nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav-menu" class="md:hidden -mr-2 w-10 h-10 flex items-center justify-center text-on-surface hover:text-primary transition-colors duration-200">
+      <span class="material-symbols-outlined" style="font-size:24px;">menu</span>
+    </button>
+  </div>
+  <nav id="site-nav-menu" aria-label="Main" class="hidden md:hidden border-t border-border-low-contrast">
+    <div class="px-margin-mobile py-2 flex flex-col">
+      <a href="index.html" class="block py-3 font-label-md text-label-md uppercase tracking-widest border-b border-border-low-contrast last:border-b-0 transition-colors duration-200 hover:text-primary text-on-surface" aria-current="page" data-i18n="nav_home">Home</a>
+      <a href="#projects" class="block py-3 font-label-md text-label-md uppercase tracking-widest border-b border-border-low-contrast last:border-b-0 transition-colors duration-200 hover:text-primary text-text-muted" data-i18n="nav_projects">Projects</a>
+      <a href="blog.html" class="block py-3 font-label-md text-label-md uppercase tracking-widest border-b border-border-low-contrast last:border-b-0 transition-colors duration-200 hover:text-primary text-text-muted" data-i18n="nav_blog">Blog</a>
+    </div>
+  </nav>
+</header>
+<script>
+  (function () {
+    var btn = document.getElementById('site-nav-toggle');
+    var menu = document.getElementById('site-nav-menu');
+    var icon = btn.querySelector('.material-symbols-outlined');
+    function setOpen(open) {
+      menu.classList.toggle('hidden', !open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      icon.textContent = open ? 'close' : 'menu';
+    }
+    btn.addEventListener('click', function () { setOpen(menu.classList.contains('hidden')); });
+    menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth >= 768) setOpen(false); });
+  })();
+</script>
 <main class="flex-grow">
 <!-- Hero Section -->
 <section class="px-margin-mobile md:px-margin-desktop pt-16 pb-16 flex flex-col max-w-container-max mx-auto w-full relative">
@@ -196,9 +237,12 @@
 </div>
 </section>
 <!-- Case Studies Section -->
-<section class="px-margin-mobile md:px-margin-desktop pb-section-gap max-w-container-max mx-auto w-full">
-<div class="flex items-center justify-between mb-16 border-b border-border-low-contrast pb-4">
-<h2 class="font-label-md text-label-md text-text-muted tracking-widest" data-i18n="selected_works">SELECTED WORKS</h2>
+<section id="projects" class="scroll-mt-24 px-margin-mobile md:px-margin-desktop pb-section-gap max-w-container-max mx-auto w-full">
+<div class="flex items-start justify-between mb-16 border-b border-border-low-contrast pb-4">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-[18px] md:text-headline-lg-mobile text-on-surface mb-1" data-i18n="works_title">About My Experience</h2>
+<p class="font-label-md text-label-md text-text-muted tracking-widest" data-i18n="selected_works">SELECTED WORKS</p>
+</div>
 <span class="font-label-sm text-label-sm text-outline-variant">01 / 05</span>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
@@ -318,7 +362,7 @@
 </div>
 </div>
 <div class="pt-8 border-t border-border-low-contrast">
-<h4 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2" data-i18n="skills_title">About My Experience</h4>
+<h4 class="font-headline-lg-mobile md:font-headline-lg text-[18px] md:text-headline-lg-mobile text-on-surface mb-2" data-i18n="skills_title">About My Experience</h4>
 <h2 class="font-label-md text-label-md text-primary tracking-widest mb-10 uppercase" data-i18n="about_label">Visual Designer / Product Designer</h2>
 <div id="skills-list">
 
@@ -333,14 +377,14 @@
         I stand out for understanding and analyzing business needs and how their users work. Through interviews and usability testing, I identify opportunities, prioritize solutions, and design experiences that address real problems the business and its different digital products face. In how I work, I use different tools like Notion, Miro, Hotjar, Typeform, SurveyMonkey, Dovetail, Claude AI, and ChatGPT, which help me speed up my research work.
       </p>
       <div class="flex flex-wrap items-center gap-6 pb-4 pr-2 tool-logos">
-        <img src="https://cdn.simpleicons.org/notion" alt="Notion" title="Notion" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/miro" alt="Miro" title="Miro" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/hotjar" alt="Hotjar" title="Hotjar" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/typeform" alt="Typeform" title="Typeform" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/surveymonkey" alt="SurveyMonkey" title="SurveyMonkey" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/dovetail" alt="Dovetail" title="Dovetail" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/anthropic" alt="Claude AI" title="Claude AI" class="tool-logo" loading="lazy"/>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_%28symbol%29.svg" alt="ChatGPT" title="ChatGPT" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/notion/ffffff" alt="Notion" title="Notion" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/miro/ffffff" alt="Miro" title="Miro" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/hotjar/FF3C00" alt="Hotjar" title="Hotjar" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/typeform/ffffff" alt="Typeform" title="Typeform" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/surveymonkey/00BF6F" alt="SurveyMonkey" title="SurveyMonkey" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/dovetail/ffffff" alt="Dovetail" title="Dovetail" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude AI" title="Claude AI" class="tool-logo" loading="lazy"/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_%28symbol%29.svg" alt="ChatGPT" title="ChatGPT" class="tool-logo tool-logo--mono-white" loading="lazy"/>
       </div>
     </div>
   </div>
@@ -356,12 +400,12 @@
         I bring AI into organizing findings, exploring hypotheses, and building prototypes faster. I evaluate its suggestions against what I learned in research, the product's context, and people's needs before turning them into design decisions. Some of the tools I use are: Codex, Claude, Claude Code, ChatGPT, V0, and Replit.
       </p>
       <div class="flex flex-wrap items-center gap-6 pb-4 pr-2 tool-logos">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_%28symbol%29.svg" alt="Codex" title="Codex" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/claude" alt="Claude" title="Claude" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/claude" alt="Claude Code" title="Claude Code" class="tool-logo" loading="lazy"/>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_%28symbol%29.svg" alt="ChatGPT" title="ChatGPT" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/v0" alt="V0" title="V0" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/replit" alt="Replit" title="Replit" class="tool-logo" loading="lazy"/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_%28symbol%29.svg" alt="Codex" title="Codex" class="tool-logo tool-logo--mono-white" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude" title="Claude" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude Code" title="Claude Code" class="tool-logo" loading="lazy"/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_%28symbol%29.svg" alt="ChatGPT" title="ChatGPT" class="tool-logo tool-logo--mono-white" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/v0/ffffff" alt="V0" title="V0" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/replit/F26207" alt="Replit" title="Replit" class="tool-logo" loading="lazy"/>
       </div>
     </div>
   </div>
@@ -369,13 +413,19 @@
   <!-- Research That Starts With the User -->
   <div class="skill-item" id="skill-2">
     <button onclick="toggleSkill('skill-2')" class="w-full flex justify-between items-center py-4 border-b border-border-low-contrast text-left group">
-      <span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors skill-header-title" data-i18n="skill2_title">Research That Starts With the User</span>
+      <span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors skill-header-title" data-i18n="skill2_title">I Build Effective, Scalable Design Systems</span>
       <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors skill-toggle-icon">add</span>
     </button>
     <div class="skill-body">
       <p class="font-body-md text-body-md text-text-muted py-4 pr-2" data-i18n="skill2_body">
-        Before I design a single screen, I make sure I understand what the person using the product actually needs. Every design decision I make considers the real impact it has, both for the user and for the business.
+        My specialty is building design systems that work across any platform and device. I build them either in Figma or tokenized as CSS styles so they can be used by any AI, which speeds up building complex products from day one. Some of the tools I use for this are: Figma, Claude, Claude Code, and Visual Studio Code.
       </p>
+      <div class="flex flex-wrap items-center gap-6 pb-4 pr-2 tool-logos">
+        <img src="https://cdn.simpleicons.org/figma/F24E1E" alt="Figma" title="Figma" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude" title="Claude" class="tool-logo" loading="lazy"/>
+        <img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude Code" title="Claude Code" class="tool-logo" loading="lazy"/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="Visual Studio Code" title="Visual Studio Code" class="tool-logo" loading="lazy"/>
+      </div>
     </div>
   </div>
 
@@ -387,7 +437,20 @@
     </button>
     <div class="skill-body">
       <p class="font-body-md text-body-md text-text-muted py-4 pr-2" data-i18n="skill3_body">
-        Besides designing, I spend time developing other designers. I've spent 3 years mentoring interns and junior designers, helping them build better judgment and grow in their process, not just get the day's task done.
+        Besides designing, I spend time developing other designers. I've spent 3 years mentoring interns and junior, mid-level, and senior visual and product designers, helping them build better judgment and grow in their professional and personal process; it's not just about getting the day's tasks done.
+      </p>
+    </div>
+  </div>
+
+  <!-- Design Ops & Growth Strategy -->
+  <div class="skill-item" id="skill-4">
+    <button onclick="toggleSkill('skill-4')" class="w-full flex justify-between items-center py-4 border-b border-border-low-contrast text-left group">
+      <span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors skill-header-title" data-i18n="skill4_title">Design Ops & Growth Strategy for the Product Design and Technology Team</span>
+      <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors skill-toggle-icon">add</span>
+    </button>
+    <div class="skill-body">
+      <p class="font-body-md text-body-md text-text-muted py-4 pr-2" data-i18n="skill4_body">
+        I focus on building the design team's processes through Design Ops: documentation, handoffs, ways of working with other teams, and design strategies that help the team and designers do their work better.
       </p>
     </div>
   </div>
@@ -446,11 +509,13 @@
   // ── i18n translations ──
   const translations = {
     en: {
+      nav_home: 'Home', nav_projects: 'Projects', nav_blog: 'Blog',
       hero_title:     'Senior Visual Designer specialized in Product Design & UX/UI Engineering',
       hero_lead:      'Understanding business needs and their users is what leads to successful products.',
       hero_desc:      'I have 7 years designing digital products centered on the user for Fintech, Ecommerce, and BPO companies, both nationally and internationally, following different visual and product design methodologies to reach a product that\'s viable, usable, and accessible.',
       available:      'AVAILABLE FOR HIRE',
       cv_btn:         'Download my CV',
+      works_title:    'About My Experience',
       selected_works: 'SELECTED WORKS',
       coming_soon:    'Coming Soon',
       ml_tag1: 'UX Research', ml_tag2: 'Product Design',
@@ -458,26 +523,30 @@
       about_label:    'Visual Designer / Product Designer',
       about_title:    'About Me',
       about_desc:     'I\'m David Santiago Morales, or as I\'m known online, "DavinSane," a combination of my first names. I\'m a visual designer from Fundación Universitaria Bellas Artes de Medellín, and for the past 7 years I\'ve dedicated myself to designing digital products for companies nationally and internationally. I\'m very passionate about designing digital products, sharing knowledge, and learning every day about new technologies and tools that let me speed up and optimize my workflow. On a personal note, I really love art, I\'m very devoted to visual design and 3D design in Blender and ZBrush. In fact, I have a 3D printer that I use to print useful objects for my home and to sell. I also really love music, singing, and playing guitar. I do a lot of offroading and motocross. I love my pets: at home I have 2 beautiful dogs and 2 cats. I dedicate my life to everything I\'m passionate about, and I do it with a lot of love and dedication.',
-      skills_title:   'About My Experience',
+      skills_title:   'About My Skills',
       skill0_title:   'I Understand and Execute with Strategy Based on Business Needs',
       skill0_body:    "I stand out for understanding and analyzing business needs and how their users work. Through interviews and usability testing, I identify opportunities, prioritize solutions, and design experiences that address real problems the business and its different digital products face. In how I work, I use different tools like Notion, Miro, Hotjar, Typeform, SurveyMonkey, Dovetail, Claude AI, and ChatGPT, which help me speed up my research work.",
       skill1_title:   'AI With Design Judgment',
       skill1_body:    "I bring AI into organizing findings, exploring hypotheses, and building prototypes faster. I evaluate its suggestions against what I learned in research, the product's context, and people's needs before turning them into design decisions. Some of the tools I use are: Codex, Claude, Claude Code, ChatGPT, V0, and Replit.",
-      skill2_title:   'Research That Starts With the User',
-      skill2_body:    'Before I design a single screen, I make sure I understand what the person using the product actually needs. Every design decision I make considers the real impact it has, both for the user and for the business.',
+      skill2_title:   'I Build Effective, Scalable Design Systems',
+      skill2_body:    'My specialty is building design systems that work across any platform and device. I build them either in Figma or tokenized as CSS styles so they can be used by any AI, which speeds up building complex products from day one. Some of the tools I use for this are: Figma, Claude, Claude Code, and Visual Studio Code.',
       skill3_title:   'Mentoring Designers',
-      skill3_body:    "Besides designing, I spend time developing other designers. I've spent 3 years mentoring interns and junior designers, helping them build better judgment and grow in their process, not just get the day's task done.",
+      skill3_body:    "Besides designing, I spend time developing other designers. I've spent 3 years mentoring interns and junior, mid-level, and senior visual and product designers, helping them build better judgment and grow in their professional and personal process; it's not just about getting the day's tasks done.",
+      skill4_title:   'Design Ops & Growth Strategy for the Product Design and Technology Team',
+      skill4_body:    "I focus on building the design team's processes through Design Ops: documentation, handoffs, ways of working with other teams, and design strategies that help the team and designers do their work better.",
       cv_card_title:  'Download my CV',
       footer_copy:    '© 2026 Santiago Morales - DavinSane. All rights reserved.',
       footer_privacy: 'Privacy',
       footer_terms:   'Terms',
     },
     es: {
+      nav_home: 'Inicio', nav_projects: 'Proyectos', nav_blog: 'Blog',
       hero_title:     'Senior Visual Designer especializado en Product Design & UX/UI Engineering',
       hero_lead:      'Entender las necesidades del negocio y a sus usuarios llevan a crear productos exitosos.',
       hero_desc:      'Tengo 7 años diseñando productos digitales centrados en el usuario para empresas Fintech, Ecommerce y BPO, a nivel nacional e internacional, siguiendo diferentes metodologías de diseño visual y de producto con el fin de llegar a un producto viable, usable y accesible.',
       available:      'DISPONIBLE PARA CONTRATAR',
       cv_btn:         'Descarga mi CV',
+      works_title:    'Sobre mi Experiencia',
       selected_works: 'TRABAJOS SELECCIONADOS',
       coming_soon:    'Próximamente',
       ml_tag1: 'UX Research', ml_tag2: 'Diseño de Producto',
@@ -485,15 +554,17 @@
       about_label:    'Visual Designer / Product Designer',
       about_title:    'About Me',
       about_desc:     'Soy David Santiago Morales, o como me llamo digitalmente, "DavinSane", por la combinación de mis primeros nombres. Soy diseñador visual de la Fundación Universitaria Bellas Artes de Medellín y me he dedicado durante 7 años a diseñar productos digitales para empresas a nivel nacional e internacional. Me apasiona mucho diseñar productos digitales, aportar conocimiento y aprender todos los días de las nuevas tecnologías y herramientas que me permiten agilizar y optimizar mi flujo de trabajo. A modo personal, me gusta mucho el arte, soy muy entregado al diseño visual y al diseño 3D en Blender y ZBrush. De hecho, tengo una impresora 3D en la que imprimo muchos objetos útiles para mi hogar y para venderlos. También me gusta mucho la música, cantar y tocar guitarra. Practico mucho offroad y motocross. Amo mis mascotas: en casa tengo 2 hermosos perros y 2 gatos. Dedico mi vida a todo lo que me apasiona y lo hago con mucho amor y dedicación.',
-      skills_title:   'Sobre mi experiencia',
+      skills_title:   'Sobre mis Habilidades',
       skill0_title:   'Entiendo y ejecuto con estrategia en base a las necesidades del negocio',
       skill0_body:    'Me destaco por entender y analizar las necesidades del negocio y cómo trabajan sus usuarios. A partir de entrevistas y pruebas de usabilidad, identifico oportunidades, priorizo soluciones y diseño experiencias que responden a problemas reales que tiene el negocio y sus diferentes productos digitales. En mi forma de trabajar uso diferentes herramientas como Notion, Miro, Hotjar, Typeform, SurveyMonkey, Dovetail, Claude AI y ChatGPT, las cuales me sirven para agilizar mi trabajo investigativo.',
       skill1_title:   'AI con criterio de diseño',
       skill1_body:    'Integro la IA para organizar hallazgos, explorar hipótesis y crear prototipos con mayor agilidad. Evalúo sus propuestas según lo aprendido en la investigación, el contexto del producto y las necesidades de las personas antes de convertirlas en decisiones de diseño. Entre las herramientas de trabajo que uso están: Codex, Claude, Claude Code, ChatGPT, V0 y Replit.',
-      skill2_title:   'Investigación que empieza con el usuario',
-      skill2_body:    'Antes de diseñar cualquier pantalla, entiendo qué necesita realmente la persona que va a usar el producto. Cada decisión de diseño la tomo pensando en el impacto real que tiene, tanto para el usuario como para el negocio.',
+      skill2_title:   'Construyo Sistemas de Diseño efectivos y escalables',
+      skill2_body:    'Tengo como especialidad construir sistemas de diseño usables en cualquier tipo de plataforma y dispositivo. Los hago ya sea en Figma o tokenizados como estilos CSS para que puedan ser usados por cualquier inteligencia artificial, lo que permite agilizar la construcción de productos complejos desde el inicio. Entre las herramientas que uso para esto están: Figma, Claude, Claude Code y Visual Studio Code.',
       skill3_title:   'Mentor de diseñadores',
-      skill3_body:    'Además de diseñar, dedico tiempo a formar a otros diseñadores. Llevo 3 años acompañando a practicantes y diseñadores junior, ayudándoles a mejorar su criterio y a crecer en su proceso, no solo a resolver la tarea del día.',
+      skill3_body:    'Además de diseñar, dedico tiempo a formar a otros diseñadores. Llevo 3 años acompañando a practicantes, diseñadores visuales y de producto junior, semi senior y senior, ayudándoles a mejorar su criterio y a crecer en su proceso profesional y humano; no solo resolvemos las tareas del día a día.',
+      skill4_title:   'Design Ops y Estrategia de crecimiento del área de Diseño de producto y tecnología',
+      skill4_body:    'Me enfoco en construir los procesos del área de diseño por medio de Design Ops: documentación, handoffs, formas de trabajar con otras áreas, y estrategias de diseño que permiten al área y a los diseñadores hacer mejor su trabajo.',
       cv_card_title:  'Descarga mi CV',
       footer_copy:    '© 2026 Santiago Morales - DavinSane. Todos los derechos reservados.',
       footer_privacy: 'Privacidad',
