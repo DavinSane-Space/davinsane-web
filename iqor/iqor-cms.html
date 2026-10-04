@@ -45,20 +45,8 @@
 <style>
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
   #particles-bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; overflow: hidden; }
-  .prose-content p { margin-bottom: 1.5rem; }
-  .prose-content h2 { margin-top: 3rem; margin-bottom: 1rem; }
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-  /* ── UX Artifacts ── */
-  .dt-dot { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .dt-dot.on  { background: #abc7ff; color: #131313; }
-  .dt-dot.off { background: #1A1A1A; border: 1px solid #262626; color: #424752; }
-  .flow-node  { padding: 9px 14px; border: 1px solid #262626; background: #1A1A1A; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #e5e2e1; text-align: center; }
-  .flow-node.accent { border-color: rgba(171,199,255,0.35); background: rgba(171,199,255,0.06); color: #abc7ff; }
-  .flow-node.warn  { border-color: rgba(255,183,121,0.25); background: rgba(255,183,121,0.05); color: #ffb779; }
-  .flow-arr   { text-align: center; color: #424752; font-size: 16px; line-height: 1; padding: 2px 0; }
-  .flow-arr.on { color: #abc7ff; }
 </style>
 </head>
 <body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
@@ -122,7 +110,7 @@
       <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Internal Tool</span>
     </div>
     <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6 tracking-tight">iQor CMS</h1>
-    <p class="font-body-lg text-body-lg text-text-muted max-w-3xl" data-i18n="hero_desc">
+    <p class="font-body-lg text-body-lg text-text-muted" data-i18n="hero_desc">
       A dedicated content management system built to power every announcement, update, and editorial piece published across iQor's internal digital ecosystem. Built for speed, structure, and scale.
     </p>
 
@@ -151,280 +139,19 @@
     </div>
   </section>
 
-  <!-- Hero Image -->
-  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 mb-20 fade-in">
-    <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
-      <img src="img/CMS.jpg"
-           alt="iQor CMS hero" class="w-full h-auto block opacity-90"/>
+  <!-- Coming soon: case study being updated with v2 -->
+  <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 mb-24 fade-in">
+    <div class="border border-border-low-contrast bg-surface-elevated px-6 py-16 md:px-16 md:py-24 flex flex-col items-center text-center gap-6">
+      <span class="px-3 py-1 rounded-full border border-primary/40 font-label-sm text-label-sm text-primary uppercase tracking-widest" data-i18n="cs_label">Coming soon</span>
+      <span class="material-symbols-outlined text-primary" style="font-size:40px;">update</span>
+      <h2 class="font-headline-md text-headline-md text-on-surface" data-i18n="cs_title">A new version is on the way</h2>
+      <p class="font-body-lg text-body-lg text-text-muted max-w-2xl" data-i18n="cs_text">This case study is being updated with a new version of the project. Check back soon.</p>
+      <a href="iqor.html" class="mt-2 flex items-center gap-2 font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors duration-200 group">
+        <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style="font-size:16px;">arrow_back</span>
+        <span data-i18n="cs_back">See other iQor projects</span>
+      </a>
     </div>
-    <p class="mt-3 font-label-sm text-label-sm text-outline text-center" data-i18n="hero_caption">iQor CMS, internal content management platform</p>
-  </div>
-
-  <!-- Article Body -->
-  <article class="max-w-[920px] mx-auto px-margin-mobile md:px-16 prose-content">
-
-    <!-- Overview -->
-    <section class="mb-16 fade-in">
-      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s1_title">01 Overview</h2>
-      <p class="font-body-lg text-body-lg text-on-surface" data-i18n="s1_p1">
-        iQor CMS is the internal content management system built to feed every editorial channel within iQor's digital infrastructure. It works as the single authoring environment for the announcement feeds, news posts, alerts, and rich-media content that employees run into daily across the iQor HUB. Alongside this project, I also mentor design interns at iQor, helping them build their process and judgment.
-      </p>
-      <p class="font-body-md text-body-md text-text-muted" data-i18n="s1_p2">
-        The platform gives content editors and communications managers a structured, role-aware environment to draft, schedule, and publish content without needing engineering support. Every piece published through the CMS reaches the HUB's announcement feed in real time, giving iQor a direct, reliable channel to reach its global workforce of 44,000+ employees.
-      </p>
-    </section>
-
-    <!-- Problem -->
-    <section class="mb-16 fade-in">
-      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s2_title">02 The Problem</h2>
-      <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p1">
-        Before the CMS existed, internal communications at iQor relied on manual, fragmented processes. Content editors had no dedicated tooling. Announcements were routed through email chains to engineering teams, formatted in ad hoc documents, and pushed to internal channels through a patchwork of manual steps, with no audit trail and no scheduling capability.
-      </p>
-      <p class="font-body-md text-body-md text-text-muted" data-i18n="s2_p2">
-        This created a bottleneck at every publication cycle. Critical updates were delayed hours while waiting for engineering availability. Corrections meant reopening the same manual pipeline. And since there was no structured taxonomy, content quickly became unsearchable and impossible to manage at scale. It kept getting worse as iQor's internal communications volume grew alongside its workforce.
-      </p>
-    </section>
-
-    <!-- ── DESIGN THINKING ── -->
-    <section class="mb-16 fade-in">
-      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-8" data-i18n="dt_title">Design Thinking Process</h2>
-      <div class="border border-border-low-contrast bg-surface-elevated p-6 md:p-8">
-        <div class="relative mb-8">
-          <div class="absolute left-[17px] right-[17px] top-[17px] h-px bg-border-low-contrast hidden md:block"></div>
-          <div class="grid grid-cols-2 md:grid-cols-5 gap-4 relative z-10">
-            <div class="flex flex-col items-center gap-2">
-              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">record_voice_over</span></div>
-              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_1">Empathize</span>
-              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_1_sub">8 editorial interviews</span>
-            </div>
-            <div class="flex flex-col items-center gap-2">
-              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">manage_search</span></div>
-              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_2">Define</span>
-              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_2_sub">Visibility & control gaps</span>
-            </div>
-            <div class="flex flex-col items-center gap-2">
-              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">lightbulb</span></div>
-              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_3">Ideate</span>
-              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_3_sub">Content model + IA</span>
-            </div>
-            <div class="flex flex-col items-center gap-2">
-              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">deployed_code</span></div>
-              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_4">Prototype</span>
-              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_4_sub">2 wireframe test cycles</span>
-            </div>
-            <div class="flex flex-col items-center gap-2">
-              <div class="dt-dot on"><span class="material-symbols-outlined" style="font-size:16px;">verified</span></div>
-              <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="dt_5">Test</span>
-              <span class="font-label-sm text-label-sm text-text-muted text-center hidden md:block" style="font-size:11px;" data-i18n="dt_5_sub">Editor team validation</span>
-            </div>
-          </div>
-        </div>
-        <div class="pt-6 border-t border-border-low-contrast">
-          <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-3" data-i18n="hmw_label">How Might We</p>
-          <p class="font-body-lg text-body-lg text-on-surface" data-i18n="hmw_text">"How might we give content editors full visibility and control over their publishing workflow, without requiring a single engineering ticket?"</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── USER PERSONA ── -->
-    <section class="mb-16 fade-in">
-      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-8" data-i18n="persona_title">User Persona</h2>
-      <div class="border border-border-low-contrast bg-surface-elevated p-6 md:p-8">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-          <div class="md:col-span-4 flex flex-col gap-4">
-            <div class="w-14 h-14 rounded-full bg-surface-variant border border-border-low-contrast flex items-center justify-center">
-              <span class="material-symbols-outlined text-primary" style="font-size:28px;">edit_note</span>
-            </div>
-            <div>
-              <h3 class="font-headline-sm text-headline-sm text-on-surface" data-i18n="p_name">Sofia R.</h3>
-              <p class="font-label-md text-label-md text-primary mt-1" data-i18n="p_role">Communications Manager</p>
-              <p class="font-body-md text-body-md text-text-muted mt-1" data-i18n="p_context">3 years at iQor · Corporate Comms</p>
-            </div>
-            <div class="flex flex-col gap-2 pt-4 border-t border-border-low-contrast">
-              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-outline" style="font-size:15px;">devices</span><span class="font-label-sm text-label-sm text-text-muted" data-i18n="p_device">Desktop · publishes 5–10 items/week</span></div>
-              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-outline" style="font-size:15px;">groups</span><span class="font-label-sm text-label-sm text-text-muted" data-i18n="p_team">Manages a team of 3 editors</span></div>
-              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-outline" style="font-size:15px;">public</span><span class="font-label-sm text-label-sm text-text-muted" data-i18n="p_reach">Audience: 44,000+ employees global</span></div>
-            </div>
-          </div>
-          <div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-3" data-i18n="p_goals_label">Goals</p>
-              <ul class="flex flex-col gap-2">
-                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_g1">Publish critical updates immediately</span></li>
-                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_g2">Know exactly where each piece is in the pipeline</span></li>
-                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_g3">Target content to specific regions / roles</span></li>
-              </ul>
-            </div>
-            <div>
-              <p class="font-label-sm text-label-sm text-[#ffb779] uppercase tracking-widest mb-3" data-i18n="p_pain_label">Pain Points</p>
-              <ul class="flex flex-col gap-2">
-                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#ffb779] flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_p1">Waits hours for engineering to publish urgent news</span></li>
-                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#ffb779] flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_p2">No audit trail, can't tell what's published or when</span></li>
-                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#ffb779] flex-shrink-0 mt-[7px]"></span><span class="font-body-md text-body-md text-text-muted" data-i18n="p_p3">Content sent to wrong audiences without targeting</span></li>
-              </ul>
-            </div>
-            <div class="sm:col-span-2 border-l-2 border-primary pl-4 py-1">
-              <p class="font-body-lg text-body-lg text-on-surface italic" data-i18n="p_quote">"I shouldn't need to file a ticket every time I want to tell 44,000 people something important."</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Process -->
-    <section class="mb-10 fade-in">
-      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s3_title">03 Process</h2>
-      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p1">
-        The design process started with the people closest to the problem: the content editors and communications managers living inside the existing broken workflow. We ran structured interviews with eight editorial team members across two regional offices, mapping their end-to-end publishing process and pinpointing where delays, errors, and workarounds piled up the most.
-      </p>
-      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p2">
-        The interviews surfaced a consistent pattern. The most critical failures weren't about missing features, they were about missing structure. Editors didn't know where their content was in the approval chain, couldn't see when something had been published, and had no way to preview how a post would render in the HUB before it went live. The design challenge became clear: build a system centered on visibility, control, and confidence.
-      </p>
-    </section>
-
-    <!-- Process pt.2 -->
-    <section class="mb-10 fade-in">
-      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p3">
-        With the research synthesized, we moved into information architecture. The system needed to support multiple content types, such as short announcements, long-form articles, rich media posts, and time-sensitive alerts, while keeping the authoring interface unified and simple. We mapped out the content model first, then designed the UI around it.
-      </p>
-      <p class="font-body-md text-body-md text-text-muted" data-i18n="s3_p4">
-        Wireframe rounds were validated directly with the editorial team in two testing cycles. The first round exposed a critical assumption we had gotten wrong: editors needed the scheduling and preview workflow accessible from the same screen, not split into different steps. That insight reshaped the composition of the editor view before we produced a single high-fidelity frame.
-      </p>
-    </section>
-
-    <!-- ── PUBLISHING USER FLOW ── -->
-    <section class="mb-16 fade-in">
-      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-8" data-i18n="flow_title">Publishing User Flow</h2>
-      <div class="border border-border-low-contrast bg-surface-elevated p-6 md:p-8">
-        <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest mb-6" data-i18n="flow_subtitle">Content editor publishes an announcement</p>
-
-        <!-- Horizontal flow (desktop) -->
-        <div class="hidden md:flex items-start gap-0 mb-8">
-          <div class="flex flex-col items-center gap-2 flex-1">
-            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-background" style="font-size:18px;">add_circle</span></div>
-            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fp_1">Create</span>
-            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fp_1_sub">Select content type</span>
-          </div>
-          <div class="flex-1 h-px bg-border-low-contrast mt-5"></div>
-          <div class="flex flex-col items-center gap-2 flex-1">
-            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-background" style="font-size:18px;">edit</span></div>
-            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fp_2">Author</span>
-            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fp_2_sub">Write + media + AI assist</span>
-          </div>
-          <div class="flex-1 h-px bg-border-low-contrast mt-5"></div>
-          <div class="flex flex-col items-center gap-2 flex-1">
-            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-background" style="font-size:18px;">target</span></div>
-            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fp_3">Target</span>
-            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fp_3_sub">Role / region / dept.</span>
-          </div>
-          <div class="flex-1 h-px bg-border-low-contrast mt-5"></div>
-          <div class="flex flex-col items-center gap-2 flex-1">
-            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-background" style="font-size:18px;">schedule</span></div>
-            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fp_4">Schedule</span>
-            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fp_4_sub">Or publish now</span>
-          </div>
-          <div class="flex-1 h-px bg-border-low-contrast mt-5"></div>
-          <div class="flex flex-col items-center gap-2 flex-1">
-            <div class="w-10 h-10 rounded-full bg-surface-variant border border-border-low-contrast flex items-center justify-center"><span class="material-symbols-outlined text-primary" style="font-size:18px;">approval</span></div>
-            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fp_5">Approve</span>
-            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fp_5_sub">Manager sign-off</span>
-          </div>
-          <div class="flex-1 h-px bg-border-low-contrast mt-5"></div>
-          <div class="flex flex-col items-center gap-2 flex-1">
-            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-background" style="font-size:18px;">cell_tower</span></div>
-            <span class="font-label-sm text-label-sm text-primary text-center" data-i18n="fp_6">Live in HUB</span>
-            <span class="font-label-sm text-label-sm text-text-muted text-center" style="font-size:11px;" data-i18n="fp_6_sub">Real-time broadcast</span>
-          </div>
-        </div>
-
-        <!-- Mobile vertical fallback -->
-        <div class="flex md:hidden flex-col gap-1 mb-6">
-          <div class="flow-node accent" data-i18n="fp_1">Create: Select content type</div>
-          <div class="flow-arr on">↓</div>
-          <div class="flow-node accent" data-i18n="fp_2">Author: Write + media + AI assist</div>
-          <div class="flow-arr on">↓</div>
-          <div class="flow-node accent" data-i18n="fp_3">Target: Role / region / dept.</div>
-          <div class="flow-arr on">↓</div>
-          <div class="flow-node accent" data-i18n="fp_4">Schedule: Or publish now</div>
-          <div class="flow-arr on">↓</div>
-          <div class="flow-node" data-i18n="fp_5">Approve: Manager sign-off</div>
-          <div class="flow-arr on">↓</div>
-          <div class="flow-node accent" data-i18n="fp_6">Live in HUB: Real-time broadcast</div>
-        </div>
-
-        <!-- Content types -->
-        <div class="pt-5 border-t border-border-low-contrast">
-          <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-3" data-i18n="ct_label">Supported Content Types</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="ct_1">Announcement</span>
-            <span class="px-3 py-1 border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="ct_2">Article</span>
-            <span class="px-3 py-1 border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="ct_3">Survey</span>
-            <span class="px-3 py-1 border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="ct_4">Assessment</span>
-            <span class="px-3 py-1 border border-primary/40 font-label-sm text-label-sm text-primary" data-i18n="ct_5">Rich Media Post</span>
-            <span class="px-3 py-1 border border-primary/40 font-label-sm text-label-sm text-primary" data-i18n="ct_6">Urgent Alert</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Solution -->
-    <section class="mb-12 fade-in">
-      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s4_title">04 Solution</h2>
-      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p1">
-        The iQor CMS delivers a single-screen composition environment where editors can write, format, attach media, set audience targeting by role or region, and schedule publication, all without leaving the editor view. A live preview panel renders the content exactly as it will appear in the HUB feed, removing the guesswork that drove the previous manual approval loop.
-      </p>
-      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p2">
-        A structured content calendar gives communications managers a timeline view of all scheduled and published posts, with drag-and-drop rescheduling and inline status indicators. The role-based permissions model lets junior editors draft and preview content freely, while final publication needs approval from a designated manager. That creates a lightweight governance layer without adding friction to the authoring flow.
-      </p>
-    </section>
-
-    <!-- CMS image as solution artifact -->
-    <div class="mb-6 fade-in">
-      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
-        <img src="img/CMS.jpg"
-             alt="iQor CMS content calendar and publishing tools" class="w-full h-auto block opacity-90"/>
-      </div>
-      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="cms_solution_caption">Content calendar view and role-based publishing workflow</p>
-    </div>
-
-    <!-- Solution pt.2 -->
-    <section class="mb-16 fade-in">
-      <p class="font-body-md text-body-md text-text-muted" data-i18n="s4_p3">
-        Content taxonomy and tagging were built into the model from day one, letting the HUB's announcement feed filter and surface posts based on employee role, department, and location. So a facilities update for the Phoenix office wouldn't reach agents in Manila, a level of precision the previous email-based system simply couldn't offer.
-      </p>
-    </section>
-
-    <!-- Feature screenshots: Announcement + Content Editor -->
-    <div class="mb-6 fade-in">
-      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
-        <img src="img/announcement.jpg"
-             alt="Announcement creation interface" class="w-full h-auto block opacity-90"/>
-      </div>
-      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="img_announcement">Announcement module, used to create and broadcast internal alerts and updates to the entire workforce or specific audience segments.</p>
-    </div>
-
-    <div class="mb-16 fade-in">
-      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
-        <img src="img/content-editor.jpg"
-             alt="Content editor interface" class="w-full h-auto block opacity-90"/>
-      </div>
-      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="img_content_editor">Content editor, the main authoring interface for creating structured content including articles, surveys, assessments, and forms, with AI-assisted drafting built in.</p>
-    </div>
-
-    <!-- Video Ilustrativo -->
-    <section class="mb-10 fade-in">
-      <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest mb-4" data-i18n="s5_title">05 Video Ilustrativo</h2>
-      <p class="font-body-md text-body-md text-text-muted" data-i18n="s5_intro">The following video shows the iQor CMS running in production. The platform integrates AI assistance directly into the authoring flow, helping editors generate and refine content faster without leaving the interface. The overall design reflects a modern, focused approach to internal tooling, where every interaction is intentional and the interface stays out of the way.</p>
-    </section>
-
-    <div class="mb-24 fade-in">
-      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
-        <video src="img/CMSvideo.mkv" controls class="w-full h-auto block opacity-90" preload="metadata"></video>
-      </div>
-      <p class="mt-3 font-label-sm text-label-sm text-outline" data-i18n="video_caption">iQor CMS in production, AI-assisted content creation platform</p>
-    </div>
-
-  </article>
+  </section>
 
   <!-- iQor Projects -->
   <div class="border-t border-border-low-contrast">
@@ -541,59 +268,10 @@
       meta_deliverables_val: 'UI Design, Components, HandOff Specs',
       meta_tools: 'Tools',
       meta_tools_val: 'Replit AI, Claude AI',
-      hero_caption: 'iQor CMS, internal content management platform',
-      s1_title: '01 Overview',
-      s1_p1: "iQor CMS is the internal content management system built to feed every editorial channel within iQor's digital infrastructure. It works as the single authoring environment for the announcement feeds, news posts, alerts, and rich-media content that employees run into daily across the iQor HUB. Alongside this project, I also mentor design interns at iQor, helping them build their process and judgment.",
-      s1_p2: "The platform gives content editors and communications managers a structured, role-aware environment to draft, schedule, and publish content without needing engineering support. Every piece published through the CMS reaches the HUB's announcement feed in real time, giving iQor a direct, reliable channel to reach its global workforce of 44,000+ employees.",
-      s2_title: '02 The Problem',
-      s2_p1: "Before the CMS existed, internal communications at iQor relied on manual, fragmented processes. Content editors had no dedicated tooling. Announcements were routed through email chains to engineering teams, formatted in ad hoc documents, and pushed to internal channels through a patchwork of manual steps, with no audit trail and no scheduling capability.",
-      s2_p2: "This created a bottleneck at every publication cycle. Critical updates were delayed hours while waiting for engineering availability. Corrections meant reopening the same manual pipeline. And since there was no structured taxonomy, content quickly became unsearchable and impossible to manage at scale. It kept getting worse as iQor's internal communications volume grew alongside its workforce.",
-      s3_title: '03 Process',
-      s3_p1: "The design process started with the people closest to the problem: the content editors and communications managers living inside the existing broken workflow. We ran structured interviews with eight editorial team members across two regional offices, mapping their end-to-end publishing process and pinpointing where delays, errors, and workarounds piled up the most.",
-      s3_p2: "The interviews surfaced a consistent pattern. The most critical failures weren't about missing features, they were about missing structure. Editors didn't know where their content was in the approval chain, couldn't see when something had been published, and had no way to preview how a post would render in the HUB before it went live. The design challenge became clear: build a system centered on visibility, control, and confidence.",
-      cms_caption: 'iQor CMS, content editor interface and publishing dashboard',
-      s3_p3: "With the research synthesized, we moved into information architecture. The system needed to support multiple content types, such as short announcements, long-form articles, rich media posts, and time-sensitive alerts, while keeping the authoring interface unified and simple. We mapped out the content model first, then designed the UI around it.",
-      s3_p4: "Wireframe rounds were validated directly with the editorial team in two testing cycles. The first round exposed a critical assumption we had gotten wrong: editors needed the scheduling and preview workflow accessible from the same screen, not split into different steps. That insight reshaped the composition of the editor view before we produced a single high-fidelity frame.",
-      s4_title: '04 Solution',
-      s4_p1: "The iQor CMS delivers a single-screen composition environment where editors can write, format, attach media, set audience targeting by role or region, and schedule publication, all without leaving the editor view. A live preview panel renders the content exactly as it will appear in the HUB feed, removing the guesswork that drove the previous manual approval loop.",
-      s4_p2: "A structured content calendar gives communications managers a timeline view of all scheduled and published posts, with drag-and-drop rescheduling and inline status indicators. The role-based permissions model lets junior editors draft and preview content freely, while final publication needs approval from a designated manager. That creates a lightweight governance layer without adding friction to the authoring flow.",
-      cms_solution_caption: 'Content calendar view and role-based publishing workflow',
-      s4_p3: "Content taxonomy and tagging were built into the model from day one, letting the HUB's announcement feed filter and surface posts based on employee role, department, and location. So a facilities update for the Phoenix office wouldn't reach agents in Manila, a level of precision the previous email-based system simply couldn't offer.",
-      dt_title: 'Design Thinking Process',
-      dt_1: 'Empathize', dt_1_sub: '8 editorial interviews',
-      dt_2: 'Define',   dt_2_sub: 'Visibility & control gaps',
-      dt_3: 'Ideate',   dt_3_sub: 'Content model + IA',
-      dt_4: 'Prototype',dt_4_sub: '2 wireframe test cycles',
-      dt_5: 'Test',     dt_5_sub: 'Editor team validation',
-      hmw_label: 'How Might We',
-      hmw_text: '"How might we give content editors full visibility and control over their publishing workflow, without requiring a single engineering ticket?"',
-      persona_title: 'User Persona',
-      p_name: 'Sofia R.', p_role: 'Communications Manager', p_context: '3 years at iQor · Corporate Comms',
-      p_device: 'Desktop · publishes 5–10 items/week', p_team: 'Manages a team of 3 editors', p_reach: 'Audience: 44,000+ employees global',
-      p_goals_label: 'Goals', p_pain_label: 'Pain Points',
-      p_g1: 'Publish critical updates immediately',
-      p_g2: 'Know exactly where each piece is in the pipeline',
-      p_g3: 'Target content to specific regions / roles',
-      p_p1: 'Waits hours for engineering to publish urgent news',
-      p_p2: 'No audit trail, can\'t tell what\'s published or when',
-      p_p3: 'Content sent to wrong audiences without targeting',
-      p_quote: '"I shouldn\'t need to file a ticket every time I want to tell 44,000 people something important."',
-      flow_title: 'Publishing User Flow',
-      flow_subtitle: 'Content editor publishes an announcement',
-      fp_1: 'Create', fp_1_sub: 'Select content type',
-      fp_2: 'Author', fp_2_sub: 'Write + media + AI assist',
-      fp_3: 'Target', fp_3_sub: 'Role / region / dept.',
-      fp_4: 'Schedule', fp_4_sub: 'Or publish now',
-      fp_5: 'Approve', fp_5_sub: 'Manager sign-off',
-      fp_6: 'Live in HUB', fp_6_sub: 'Real-time broadcast',
-      ct_label: 'Supported Content Types',
-      ct_1: 'Announcement', ct_2: 'Article', ct_3: 'Survey',
-      ct_4: 'Assessment', ct_5: 'Rich Media Post', ct_6: 'Urgent Alert',
-      s5_title: '05 Illustrative Video',
-      s5_intro: 'The following video shows the iQor CMS running in production. The platform integrates AI assistance directly into the authoring flow, helping editors generate and refine content faster without leaving the interface. The overall design reflects a modern, focused approach to internal tooling, where every interaction is intentional and the interface stays out of the way.',
-      video_caption: 'iQor CMS in production, AI-assisted content creation platform',
-      img_announcement: 'Announcement module, used to create and broadcast internal alerts and updates to the entire workforce or specific audience segments.',
-      img_content_editor: 'Content editor, the main authoring interface for creating structured content including articles, surveys, assessments, and forms, with AI-assisted drafting built in.',
+      cs_label: 'Coming soon',
+      cs_title: 'A new version is on the way',
+      cs_text: 'This case study is being updated with a new version of the project. Check back soon.',
+      cs_back: 'See other iQor projects',
       iqor_work: 'iQor Work',
       iqor_current: 'Current page',
       all_projects: 'All projects',
@@ -614,59 +292,10 @@
       meta_deliverables_val: 'Diseño UI, Componentes, HandOff Specs',
       meta_tools: 'Herramientas',
       meta_tools_val: 'Replit AI, Claude AI',
-      hero_caption: 'iQor CMS, plataforma interna de gestión de contenido',
-      s1_title: '01 Descripción',
-      s1_p1: "iQor CMS es el sistema de gestión de contenido interno construido para alimentar cada canal editorial dentro de la infraestructura digital de iQor. Funciona como el entorno de autoría único para los feeds de anuncios, publicaciones de noticias, alertas y contenido multimedia que los empleados encuentran a diario en el iQor HUB. Junto con este proyecto, también soy mentor de practicantes de diseño en iQor, ayudándoles a desarrollar su proceso y criterio.",
-      s1_p2: "La plataforma brinda a los editores de contenido y gerentes de comunicaciones un entorno estructurado y consciente del rol para redactar, programar y publicar contenido sin necesitar soporte de ingeniería. Cada pieza publicada a través del CMS llega al feed de anuncios del HUB en tiempo real, dando a iQor un canal directo y confiable para llegar a su fuerza laboral global de más de 44,000 empleados.",
-      s2_title: '02 El Problema',
-      s2_p1: "Antes de que existiera el CMS, las comunicaciones internas de iQor dependían de procesos manuales y fragmentados. Los editores de contenido no tenían herramientas dedicadas. Los anuncios se enrutaban por cadenas de correo electrónico a equipos de ingeniería, se formateaban en documentos ad hoc y se publicaban en canales internos a través de una red de pasos manuales, sin rastro de auditoría ni capacidad de programación.",
-      s2_p2: "Esto creaba un cuello de botella en cada ciclo de publicación. Las actualizaciones críticas se retrasaban horas mientras se esperaba disponibilidad de ingeniería. Las correcciones significaban reabrir el mismo proceso manual. Y como no había una taxonomía estructurada, el contenido rápidamente se volvía imposible de buscar y gestionar a escala. El problema seguía creciendo a medida que el volumen de comunicaciones internas de iQor aumentaba junto con su fuerza laboral.",
-      s3_title: '03 Proceso',
-      s3_p1: "El proceso de diseño comenzó con las personas más cercanas al problema: los editores de contenido y gerentes de comunicaciones que vivían dentro del flujo de trabajo manual roto. Hicimos entrevistas estructuradas con ocho miembros del equipo editorial en dos oficinas regionales, mapeando su proceso de publicación de principio a fin e identificando dónde se concentraban más los retrasos, errores y soluciones improvisadas.",
-      s3_p2: "Las entrevistas revelaron un patrón consistente. Los fallos más críticos no eran sobre funcionalidades faltantes, sino sobre estructura faltante. Los editores no sabían dónde estaba su contenido en la cadena de aprobación, no podían ver cuándo se había publicado algo y no tenían forma de previsualizar cómo se vería una publicación en el HUB antes de salir en vivo. El reto de diseño quedó claro: construir un sistema centrado en visibilidad, control y confianza.",
-      cms_caption: 'iQor CMS, interfaz del editor de contenido y dashboard de publicación',
-      s3_p3: "Con la investigación sintetizada, pasamos a la arquitectura de información. El sistema necesitaba soportar varios tipos de contenido, como anuncios cortos, artículos de forma larga, publicaciones con medios enriquecidos y alertas urgentes, manteniendo la interfaz de autoría unificada y simple. Primero mapeamos el modelo de contenido y luego diseñamos la UI en torno a él.",
-      s3_p4: "Las rondas de wireframes fueron validadas directamente con el equipo editorial en dos ciclos de prueba. La primera ronda expuso una suposición crítica que habíamos planteado mal: los editores necesitaban el flujo de programación y previsualización accesible desde la misma pantalla, no dividido en pasos separados. Ese hallazgo reformuló la composición de la vista del editor antes de producir un solo frame de alta fidelidad.",
-      s4_title: '04 Solución',
-      s4_p1: "El iQor CMS ofrece un entorno de composición en una sola pantalla donde los editores pueden escribir, formatear, adjuntar medios, establecer la segmentación de audiencia por rol o región y programar la publicación, todo sin salir de la vista del editor. Un panel de previsualización en vivo renderiza el contenido exactamente como aparecerá en el feed del HUB, quitando la incertidumbre que impulsaba el ciclo de aprobación manual anterior.",
-      s4_p2: "Un calendario de contenido estructurado da a los gerentes de comunicaciones una vista cronológica de todas las publicaciones programadas y publicadas, con reprogramación mediante arrastrar y soltar e indicadores de estado en línea. El modelo de permisos basado en roles permite que los editores junior redacten y previsualicen contenido libremente, mientras que la publicación final necesita aprobación de un gerente designado. Eso crea una capa de gobernanza liviana sin añadir fricción al flujo de autoría.",
-      cms_solution_caption: 'Vista del calendario de contenido y flujo de publicación basado en roles',
-      s4_p3: "La taxonomía y el etiquetado de contenido se incorporaron al modelo desde el primer día, permitiendo que el feed de anuncios del HUB filtre y muestre publicaciones según el rol, departamento y ubicación del empleado. Así, una actualización de instalaciones para la oficina de Phoenix no llega a los agentes en Manila, un nivel de precisión que el sistema de correo electrónico anterior simplemente no podía ofrecer.",
-      dt_title: 'Proceso de Design Thinking',
-      dt_1: 'Empatizar', dt_1_sub: '8 entrevistas editoriales',
-      dt_2: 'Definir',   dt_2_sub: 'Brechas de visibilidad y control',
-      dt_3: 'Idear',     dt_3_sub: 'Modelo de contenido + IA',
-      dt_4: 'Prototipar',dt_4_sub: '2 ciclos de wireframes probados',
-      dt_5: 'Testear',   dt_5_sub: 'Validación con equipo editorial',
-      hmw_label: 'How Might We',
-      hmw_text: '"¿Cómo podríamos darle a los editores visibilidad y control total sobre su flujo de publicación, sin necesitar un solo ticket de ingeniería?"',
-      persona_title: 'Perfil de Usuario',
-      p_name: 'Sofia R.', p_role: 'Gerente de Comunicaciones', p_context: '3 años en iQor · Comms Corporativas',
-      p_device: 'Desktop · publica 5–10 piezas/semana', p_team: 'Gestiona un equipo de 3 editores', p_reach: 'Audiencia: 44,000+ empleados globales',
-      p_goals_label: 'Objetivos', p_pain_label: 'Puntos de Dolor',
-      p_g1: 'Publicar actualizaciones críticas de inmediato',
-      p_g2: 'Saber exactamente dónde está cada pieza en el flujo',
-      p_g3: 'Segmentar contenido por región y rol',
-      p_p1: 'Espera horas a que ingeniería publique noticias urgentes',
-      p_p2: 'Sin rastro de auditoría, no sabe qué está publicado ni cuándo',
-      p_p3: 'Contenido llega a audiencias incorrectas sin segmentación',
-      p_quote: '"No debería tener que abrir un ticket cada vez que quiero decirle algo importante a 44,000 personas."',
-      flow_title: 'Flujo de Usuario · Publicación de Contenido',
-      flow_subtitle: 'Editor de contenido publica un anuncio',
-      fp_1: 'Crear', fp_1_sub: 'Seleccionar tipo de contenido',
-      fp_2: 'Redactar', fp_2_sub: 'Texto + medios + asistencia IA',
-      fp_3: 'Segmentar', fp_3_sub: 'Rol / región / área',
-      fp_4: 'Programar', fp_4_sub: 'O publicar ahora',
-      fp_5: 'Aprobar', fp_5_sub: 'Visto bueno del manager',
-      fp_6: 'En vivo en HUB', fp_6_sub: 'Difusión en tiempo real',
-      ct_label: 'Tipos de Contenido Soportados',
-      ct_1: 'Anuncio', ct_2: 'Artículo', ct_3: 'Encuesta',
-      ct_4: 'Evaluación', ct_5: 'Post con medios', ct_6: 'Alerta urgente',
-      s5_title: '05 Video Ilustrativo',
-      s5_intro: 'El siguiente video muestra el iQor CMS funcionando en producción. La plataforma integra asistencia de IA directamente en el flujo de autoría, ayudando a los editores a generar y refinar contenido más rápido sin salir de la interfaz. El diseño general refleja un enfoque moderno y enfocado para herramientas internas, donde cada interacción es intencional y la interfaz se mantiene fuera del camino.',
-      video_caption: 'iQor CMS en producción, plataforma de creación de contenido asistida por IA',
-      img_announcement: 'Módulo de Announcement, usado para crear y difundir alertas y actualizaciones internas a toda la fuerza laboral o a segmentos de audiencia específicos.',
-      img_content_editor: 'Editor de contenido, la interfaz principal de autoría para crear contenido estructurado incluyendo artículos, encuestas, evaluaciones y formularios, con redacción asistida por IA integrada.',
+      cs_label: 'Próximamente',
+      cs_title: 'Nueva versión en camino',
+      cs_text: 'Esta case study está siendo actualizada con una nueva versión del proyecto. Vuelve pronto.',
+      cs_back: 'Ver otros proyectos de iQor',
       iqor_work: 'Proyectos iQor',
       iqor_current: 'Página actual',
       all_projects: 'Todos los proyectos',
