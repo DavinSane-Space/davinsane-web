@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -7,100 +7,69 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=Lora:ital,wght@0,500;0,600;0,700;1,500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          "background": "#131313", "surface-container-low": "#1c1b1b",
-          "surface": "#131313", "primary": "#abc7ff",
-          "on-surface-variant": "#c2c6d4", "surface-bright": "#3a3939",
-          "on-background": "#e5e2e1", "text-muted": "#A3A3A3",
-          "outline-variant": "#424752", "surface-variant": "#353534",
-          "surface-container": "#201f1f", "secondary": "#c6c6c7",
-          "surface-container-highest": "#353534", "surface-dim": "#131313",
-          "surface-elevated": "#1A1A1A", "border-low-contrast": "#262626",
-          "on-surface": "#e5e2e1", "outline": "#8c919e"
-        },
-        borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
-        spacing: { "section-gap": "120px", "gutter": "24px", "element-gap": "32px", "margin-desktop": "64px", "margin-mobile": "20px" },
-        fontFamily: { "label-sm": ["JetBrains Mono"], "headline-lg": ["JetBrains Mono"], "headline-lg-mobile": ["JetBrains Mono"], "body-lg": ["Inter"], "label-md": ["JetBrains Mono"], "headline-md": ["JetBrains Mono"], "body-md": ["Inter"] },
-        fontSize: {
-          "label-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
-          "headline-lg-mobile": ["36px", { "lineHeight": "1.15", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-          "headline-lg": ["60px", { "lineHeight": "1.05", "letterSpacing": "-0.02em", "fontWeight": "600" }],
-          "body-lg": ["20px", { "lineHeight": "1.8", "fontWeight": "400" }],
-          "label-md": ["15px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
-          "headline-md": ["30px", { "lineHeight": "1.25", "fontWeight": "500" }],
-          "body-md": ["17px", { "lineHeight": "1.75", "fontWeight": "400" }]
-        }
-      }
-    }
-  }
-</script>
+<script src="../assets/theme.js"></script>
+<link rel="stylesheet" href="../assets/theme.css"/>
+<script src="../assets/click-spark.js" defer></script>
 <style>
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  #particles-bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; overflow: hidden; }
   .prose-content p { margin-bottom: 1.5rem; }
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
   /* Design Thinking bar */
   .dt-phase { display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1; min-width: 0; }
-  .dt-dot { width: 10px; height: 10px; border-radius: 50%; background: #abc7ff; flex-shrink: 0; }
-  .dt-line { flex: 1; height: 1px; background: #abc7ff; opacity: 0.3; }
+  .dt-dot { width: 10px; height: 10px; border-radius: 50%; background: rgb(var(--accent-1)); flex-shrink: 0; }
+  .dt-line { flex: 1; height: 1px; background: rgb(var(--accent-1)); opacity: 0.3; }
 
   /* Flow diagram nodes */
   .flow-col { display: flex; flex-direction: column; align-items: center; gap: 12px; min-width: 0; }
-  .flow-node-box { border-radius: 6px; padding: 12px 18px; font-size: 14px; font-family: 'JetBrains Mono', monospace; font-weight: 500; text-align: center; line-height: 1.4; }
-  .flow-node-home { border: 1px solid rgba(167,139,250,0.5); background: rgba(167,139,250,0.06); color: #c4b5fd; }
-  .flow-node-default { border: 1px solid rgba(171,199,255,0.4); background: rgba(171,199,255,0.05); color: #abc7ff; }
-  .flow-node-pain { border: 1px solid rgba(248,113,113,0.5); background: rgba(248,113,113,0.06); color: #fca5a5; }
-  .flow-node-new { border: 1px solid rgba(52,211,153,0.5); background: rgba(52,211,153,0.06); color: #6ee7b7; }
-  .flow-arr { display: flex; align-items: center; padding-top: 12px; color: #8c919e; flex-shrink: 0; }
-  .flow-subtext { font-size: 12px; color: #A3A3A3; line-height: 1.6; max-width: 160px; text-align: center; font-family: 'Inter', sans-serif; }
-  .ml-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #ffe600; color: #333; font-size: 10px; font-weight: 700; font-family: 'JetBrains Mono', monospace; margin-top: 4px; }
+  .flow-node-box { border-radius: 6px; padding: 12px 18px; font-size: 14px; font-family: 'Instrument Sans', 'Inter', sans-serif; font-weight: 500; text-align: center; line-height: 1.4; }
+  .flow-node-home { border: 1px solid rgba(167,139,250,0.5); background: rgba(167,139,250,0.06); color: #6D28D9; }
+  .flow-node-default { border: 1px solid rgb(var(--accent-1) / 0.4); background: rgb(var(--accent-1) / 0.05); color: rgb(var(--accent-1)); }
+  .flow-node-pain { border: 1px solid rgba(248,113,113,0.5); background: rgba(248,113,113,0.06); color: #B91C1C; }
+  .flow-node-new { border: 1px solid rgba(52,211,153,0.5); background: rgba(52,211,153,0.06); color: #047857; }
+  .flow-arr { display: flex; align-items: center; padding-top: 12px; color: rgb(var(--c-secondary)); flex-shrink: 0; }
+  .flow-subtext { font-size: 12px; color: rgb(var(--c-body)); line-height: 1.6; max-width: 160px; text-align: center; font-family: 'Instrument Sans', 'Inter', sans-serif; }
+  .ml-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #ffe600; color: #333; font-size: 10px; font-weight: 700; font-family: 'Instrument Sans', 'Inter', sans-serif; margin-top: 4px; }
 
   /* Donut chart */
   .donut-wrap { position: relative; width: 160px; height: 160px; flex-shrink: 0; }
   .donut-circle {
     width: 160px; height: 160px; border-radius: 50%;
-    background: conic-gradient(#fcd34d 0% 78.125%, #34d399 78.125% 100%);
+    background: conic-gradient(#F59E0B 0% 78.125%, #10B981 78.125% 100%);
   }
   .donut-hole {
     position: absolute; inset: 32px; border-radius: 50%;
-    background: #131313; display: flex; align-items: center; justify-content: center;
+    background: rgb(var(--c-bg)); display: flex; align-items: center; justify-content: center;
     flex-direction: column;
   }
-  .donut-num { font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 700; color: #e5e2e1; line-height: 1; }
-  .donut-sub { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #A3A3A3; margin-top: 2px; }
+  .donut-num { font-family: 'Instrument Sans', 'Inter', sans-serif; font-size: 26px; font-weight: 700; color: rgb(var(--c-title)); line-height: 1; }
+  .donut-sub { font-family: 'Instrument Sans', 'Inter', sans-serif; font-size: 10px; color: rgb(var(--c-body)); margin-top: 2px; }
 </style>
 </head>
 <body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
-<div id="particles-bg"></div>
-
 <!-- Global site nav -->
-<header id="site-nav" class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border-low-contrast">
-  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 h-16 flex items-center justify-between">
-    <a href="../index.html" class="font-label-md text-label-md text-on-surface uppercase tracking-widest hover:text-primary transition-colors duration-200">SANTIAGO MORALES</a>
-    <nav aria-label="Main" class="hidden md:flex items-center gap-8">
-      <a href="../index.html" class="font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-200 hover:text-primary text-text-muted" data-i18n="nav_home">Home</a>
-      <a href="../index.html#projects" class="font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-200 hover:text-primary text-on-surface" aria-current="page" data-i18n="nav_projects">Projects</a>
-      <a href="../blog.html" class="font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-200 hover:text-primary text-text-muted" data-i18n="nav_blog">Blog</a>
+<header id="site-nav" class="site-nav">
+  <div class="site-nav__bar">
+    <a href="../index.html" class="site-nav__brand">DavinSane</a>
+    <nav aria-label="Main" class="site-nav__links">
+      <a href="../index.html" data-i18n="nav_home">Home</a>
+      <a href="../index.html#projects" aria-current="page" data-i18n="nav_projects">Projects</a>
+      <a href="../blog.html" data-i18n="nav_blog">Blog</a>
     </nav>
-    <button id="site-nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav-menu" class="md:hidden -mr-2 w-10 h-10 flex items-center justify-center text-on-surface hover:text-primary transition-colors duration-200">
-      <span class="material-symbols-outlined" style="font-size:24px;">menu</span>
-    </button>
-  </div>
-  <nav id="site-nav-menu" aria-label="Main" class="hidden md:hidden border-t border-border-low-contrast">
-    <div class="px-margin-mobile py-2 flex flex-col">
-      <a href="../index.html" class="block py-3 font-label-md text-label-md uppercase tracking-widest border-b border-border-low-contrast last:border-b-0 transition-colors duration-200 hover:text-primary text-text-muted" data-i18n="nav_home">Home</a>
-      <a href="../index.html#projects" class="block py-3 font-label-md text-label-md uppercase tracking-widest border-b border-border-low-contrast last:border-b-0 transition-colors duration-200 hover:text-primary text-on-surface" aria-current="page" data-i18n="nav_projects">Projects</a>
-      <a href="../blog.html" class="block py-3 font-label-md text-label-md uppercase tracking-widest border-b border-border-low-contrast last:border-b-0 transition-colors duration-200 hover:text-primary text-text-muted" data-i18n="nav_blog">Blog</a>
+    <div class="site-nav__actions">
+      <a href="../index.html#contact" class="ds-btn ds-btn--sm site-nav__cta"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+      <button id="site-nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav-menu" class="site-nav__toggle">
+        <span class="material-symbols-outlined" style="font-size:22px;">menu</span>
+      </button>
     </div>
+  </div>
+  <nav id="site-nav-menu" aria-label="Main" class="site-nav__menu hidden">
+    <a href="../index.html" data-i18n="nav_home">Home</a>
+    <a href="../index.html#projects" aria-current="page" data-i18n="nav_projects">Projects</a>
+    <a href="../blog.html" data-i18n="nav_blog">Blog</a>
+    <a href="../index.html#contact" class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
   </nav>
 </header>
 <script>
@@ -135,9 +104,9 @@
   <!-- Hero -->
   <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 pt-24 pb-16 fade-in">
     <div class="flex flex-wrap gap-2 mb-6">
-      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">UX Research</span>
-      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Product Design</span>
-      <span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Figma</span>
+      <span class="ds-tag">UX Research</span>
+      <span class="ds-tag">Product Design</span>
+      <span class="ds-tag">Figma</span>
     </div>
     <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6 tracking-tight" data-i18n="hero_title">Estados de Competencia de los Vendedores</h1>
     <p class="font-body-lg text-body-lg text-text-muted" data-i18n="hero_desc">
@@ -145,24 +114,24 @@
     </p>
 
     <!-- Meta grid -->
-    <div class="mt-14 border-t border-border-low-contrast grid grid-cols-2 md:grid-cols-5">
-      <div class="border-l border-border-low-contrast pl-6 py-6">
+    <div class="mt-14 grid grid-cols-2 md:grid-cols-5 gap-3 meta-cards">
+      <div>
         <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_scope_label">Scope</p>
         <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_scope_val">Rediseñar la UX/UI de la competencia de los vendedores</p>
       </div>
-      <div class="border-l border-border-low-contrast pl-6 py-6">
+      <div>
         <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_role_label">Role in team</p>
         <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_role_val">Concept, Research, Visual Identity, UI</p>
       </div>
-      <div class="border-l border-border-low-contrast pl-6 py-6">
+      <div>
         <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_year_label">Year</p>
         <p class="font-label-md text-label-md text-on-surface">2023</p>
       </div>
-      <div class="border-l border-border-low-contrast pl-6 py-6">
+      <div>
         <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_dur_label">Duration</p>
         <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_dur_val">2 Sprints</p>
       </div>
-      <div class="border-l border-border-low-contrast pl-6 py-6">
+      <div>
         <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_tools_label">Tools</p>
         <p class="font-label-md text-label-md text-on-surface">Figma</p>
       </div>
@@ -171,8 +140,8 @@
 
   <!-- Hero image -->
   <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 mb-20 fade-in">
-    <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden">
-      <img src="img/meli1.jpg" alt="Estados de Competencia de los Vendedores, Mercado Libre" class="w-full h-auto block opacity-90"/>
+    <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-img">
+      <img src="img/meli1.jpg" alt="Estados de Competencia de los Vendedores, Mercado Libre" class="w-full h-auto block"/>
     </div>
     <p class="mt-3 font-label-sm text-label-sm text-outline text-center" data-i18n="hero_caption">Competition status embedded in the seller's publication listing, Mercado Libre</p>
   </div>
@@ -392,14 +361,14 @@
               <div>
                 <p class="font-headline-md text-headline-md text-amber-300">25</p>
                 <div class="flex items-center gap-2 mt-1">
-                  <span class="w-3 h-3 rounded-sm flex-shrink-0" style="background:#fcd34d;"></span>
+                  <span class="w-3 h-3 rounded-sm flex-shrink-0" style="background:#F59E0B;"></span>
                   <p class="font-label-sm text-label-sm text-text-muted" data-i18n="chart_leg1">Have trouble visualizing their competition status</p>
                 </div>
               </div>
               <div>
                 <p class="font-headline-md text-headline-md text-emerald-400">7</p>
                 <div class="flex items-center gap-2 mt-1">
-                  <span class="w-3 h-3 rounded-sm flex-shrink-0" style="background:#34d399;"></span>
+                  <span class="w-3 h-3 rounded-sm flex-shrink-0" style="background:#10B981;"></span>
                   <p class="font-label-sm text-label-sm text-text-muted" data-i18n="chart_leg2">Find it easy to locate their competition status</p>
                 </div>
               </div>
@@ -440,8 +409,8 @@
         The publication listing already shows everything for a traditional listing: price, shipping, status. But for catalog listings, that space just sits empty. That's the opportunity. Instead of sending sellers through an edit detour, we could put the competition status right there, in that empty slot, on the screen they're already using.
       </p>
 
-      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden mb-8">
-        <img src="img/solución.png" alt="Solución, espacio de mejora en el listado de publicaciones" class="w-full h-auto block opacity-90"/>
+      <div class="w-full bg-surface-elevated border border-border-low-contrast overflow-hidden mb-8 rounded-img">
+        <img src="img/solución.png" alt="Solución, espacio de mejora en el listado de publicaciones" class="w-full h-auto block"/>
       </div>
       <p class="font-label-sm text-label-sm text-outline text-center mb-8" data-i18n="solucion_caption">The empty slot in catalog listings, the ideal spot to show competition status inline</p>
 
@@ -567,21 +536,14 @@
   </article>
 </main>
 
-<footer class="w-full py-gutter px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-element-gap border-t border-border-low-contrast bg-background font-label-sm text-label-sm opacity-80 hover:opacity-100 transition-opacity">
-  <div class="font-label-md text-label-md uppercase tracking-widest text-on-surface">DavinSane</div>
-  <div class="text-on-surface" data-i18n="footer_copy">© 2026 Santiago Morales - DavinSane. All rights reserved.</div>
-  <nav class="flex gap-6">
-    <a class="text-text-muted hover:text-primary transition-colors" href="#" data-i18n="footer_privacy">Privacy</a>
-    <a class="text-text-muted hover:text-primary transition-colors" href="#">Github</a>
-  </nav>
-</footer>
+<footer class="site-footer" data-site-footer></footer>
+<script src="../assets/site-footer.js"></script>
 
-<button id="lang-toggle" onclick="toggleLang()" aria-label="Toggle language" class="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-3 py-2 bg-surface-elevated border border-border-low-contrast rounded-full font-label-sm text-label-sm text-on-surface hover:border-primary hover:text-primary transition-colors duration-200 shadow-lg">
+<button id="lang-toggle" onclick="toggleLang()" aria-label="Toggle language" class="lang-toggle">
   <span class="material-symbols-outlined" style="font-size:16px;">language</span>
   <span id="lang-label">ES</span>
 </button>
 
-<script type="module" src="../particles-bg.js"></script>
 <script>
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
@@ -590,7 +552,7 @@
 
   const translations = {
     en: {
-      nav_home: 'Home', nav_projects: 'Projects', nav_blog: 'Blog',
+      nav_home: 'Home', nav_projects: 'Projects', nav_blog: 'Blog', nav_cta: "Let's talk",
       nav_back: 'Back',
       hero_title: 'Estados de Competencia de los Vendedores',
       hero_desc: "A seller experience redesign for Mercado Libre's competitive positioning feature. We took a friction-heavy, 3-step flow and turned it into a single, always-visible competition status embedded right in the publication listing.",
@@ -666,7 +628,7 @@
       footer_privacy: 'Privacy'
     },
     es: {
-      nav_home: 'Inicio', nav_projects: 'Proyectos', nav_blog: 'Blog',
+      nav_home: 'Inicio', nav_projects: 'Proyectos', nav_blog: 'Blog', nav_cta: 'Hablemos',
       nav_back: 'Volver',
       hero_title: 'Estados de Competencia de los Vendedores',
       hero_desc: 'Rediseño de la experiencia del vendedor para la funcionalidad de posicionamiento competitivo de Mercado Libre. Tomamos un flujo de 3 pasos lleno de fricción y lo convertimos en un estado de competencia siempre visible, integrado directamente en el listado de publicaciones.',

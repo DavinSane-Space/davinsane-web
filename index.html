@@ -1,197 +1,372 @@
 <!DOCTYPE html>
 
-<html class="dark scroll-smooth" lang="en"><head>
+<html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Santiago Morales</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=Lora:ital,wght@0,500;0,600;0,700;1,500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "background": "#131313",
-                        "surface-container-low": "#1c1b1b",
-                        "on-tertiary-fixed": "#2e1500",
-                        "surface": "#131313",
-                        "primary": "#abc7ff",
-                        "on-surface-variant": "#c2c6d4",
-                        "on-tertiary": "#4c2700",
-                        "surface-tint": "#abc7ff",
-                        "surface-bright": "#3a3939",
-                        "error": "#ffb4ab",
-                        "primary-fixed": "#d7e3ff",
-                        "inverse-surface": "#e5e2e1",
-                        "secondary-fixed": "#e2e2e2",
-                        "on-background": "#e5e2e1",
-                        "on-error": "#690005",
-                        "inverse-on-surface": "#313030",
-                        "text-muted": "#A3A3A3",
-                        "on-tertiary-fixed-variant": "#6c3a00",
-                        "error-container": "#93000a",
-                        "outline-variant": "#424752",
-                        "inverse-primary": "#005cba",
-                        "secondary-container": "#454747",
-                        "surface-variant": "#353534",
-                        "surface-container": "#201f1f",
-                        "secondary": "#c6c6c7",
-                        "tertiary": "#ffb779",
-                        "on-primary-container": "#002959",
-                        "primary-fixed-dim": "#abc7ff",
-                        "tertiary-fixed": "#ffdcc1",
-                        "on-primary": "#002f65",
-                        "primary-container": "#5190f2",
-                        "surface-container-highest": "#353534",
-                        "surface-dim": "#131313",
-                        "surface-elevated": "#1A1A1A",
-                        "border-low-contrast": "#262626",
-                        "on-surface": "#e5e2e1",
-                        "secondary-fixed-dim": "#c6c6c7",
-                        "on-primary-fixed-variant": "#00458f",
-                        "on-secondary-fixed": "#1a1c1c",
-                        "on-secondary": "#2f3131",
-                        "on-tertiary-container": "#422100",
-                        "surface-container-high": "#2a2a2a",
-                        "tertiary-container": "#d47a17",
-                        "on-secondary-fixed-variant": "#454747",
-                        "on-error-container": "#ffdad6",
-                        "tertiary-fixed-dim": "#ffb779",
-                        "on-secondary-container": "#b4b5b5",
-                        "surface-container-lowest": "#0e0e0e",
-                        "on-primary-fixed": "#001b3f",
-                        "outline": "#8c919e"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "section-gap": "120px",
-                        "gutter": "24px",
-                        "element-gap": "32px",
-                        "margin-desktop": "64px",
-                        "margin-mobile": "20px",
-                        "container-max": "1200px"
-                    },
-                    "fontFamily": {
-                        "label-sm": ["JetBrains Mono"],
-                        "headline-lg-mobile": ["JetBrains Mono"],
-                        "headline-lg": ["JetBrains Mono"],
-                        "body-lg": ["Inter"],
-                        "label-md": ["JetBrains Mono"],
-                        "headline-md": ["JetBrains Mono"],
-                        "body-md": ["Inter"]
-                    },
-                    "fontSize": {
-                        "label-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
-                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-                        "headline-lg": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
-                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
-                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
-                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
-                    }
-                }
-            }
-        }
-    </script>
+<script src="assets/theme.js"></script>
+<link rel="stylesheet" href="assets/theme.css"/>
+<script src="assets/click-spark.js" defer></script>
+<script src="assets/star-border.js" defer></script>
+<script src="assets/scroll-stack.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="assets/magic-bento.js" defer></script>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        /* Project cards */
+        .pc { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid #E0E2E6; border-radius: 28px; overflow: hidden; isolation: isolate;
+              box-shadow: 0 1px 2px rgb(18 18 24 / 0.04), 0 10px 30px rgb(18 18 24 / 0.05); transition: box-shadow .35s ease, transform .35s ease; }
+        .pc:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgb(18 18 24 / 0.05), 0 22px 48px rgb(18 18 24 / 0.10); }
+        .pc__media { position: relative; height: 240px; overflow: hidden; }
+        .pc--lg .pc__media { height: 300px; }
+        .pc__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+        .pc:hover .pc__media img { transform: scale(1.05); }
+        .pc__media::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+              background: linear-gradient(to bottom, rgb(255 255 255 / 0) 45%, rgb(255 255 255 / 0.75) 78%, #fff 100%); }
+        .pc__save { position: absolute; top: 16px; right: 16px; z-index: 2; width: 40px; height: 40px; border-radius: 999px; display: flex; align-items: center; justify-content: center;
+              background: rgb(255 255 255 / 0.92); color: #121218; box-shadow: 0 2px 8px rgb(18 18 24 / 0.12); backdrop-filter: blur(6px); transition: transform .3s ease, background-color .3s ease, color .3s ease; }
+        .pc__save .material-symbols-outlined { font-size: 20px; }
+        .pc:hover .pc__save { transform: translate(2px, -2px); background: #1B1B21; color: #fff; }
+        .pc__body { position: relative; z-index: 1; display: flex; flex-direction: column; flex: 1; margin-top: -64px; padding: 0 24px 24px; }
+        .pc__title { font-family: var(--font-sans); font-weight: 600; font-size: 20px; line-height: 26px; letter-spacing: -0.01em; color: #121218; }
+        .pc__sub { margin-top: 2px; font-size: 14px; line-height: 20px; color: #44454C; }
+        .pc__meta { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 8px; font-size: 13px; line-height: 18px; color: #94979E; }
+        .pc__meta span { display: inline-flex; align-items: center; gap: 4px; }
+        .pc__meta .material-symbols-outlined { font-size: 15px; }
+        .pc__foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-top: auto; padding-top: 24px; }
+        .pc__stats { display: flex; align-items: stretch; }
+        .pc__stat { display: flex; flex-direction: column; padding: 0 14px; border-left: 1px solid #E0E2E6; }
+        .pc__stat:first-child { padding-left: 0; border-left: 0; }
+        .pc__stat b { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; font-size: 14px; line-height: 20px; color: #121218; white-space: nowrap; }
+        .pc__stat b .material-symbols-outlined { font-size: 16px; font-variation-settings: 'FILL' 1; }
+        .pc__stat small { font-size: 12px; line-height: 16px; color: #94979E; white-space: nowrap; }
+        .pc__cta { flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; border-radius: 999px; background: #1B1B21; color: #fff;
+              font-weight: 500; font-size: 14px; line-height: 18px; white-space: nowrap; transition: background-color .3s ease, box-shadow .3s ease; }
+        .pc:hover .pc__cta { box-shadow: 0 6px 18px rgb(18 18 24 / 0.22); }
+        .pc:focus-visible { outline: 2px solid #1B1B21; outline-offset: 3px; }
+        /* Scroll stack (vertical, cards pin and stack while scrolling) */
+        .scroll-stack { position: relative; max-width: 1040px; margin: 0 auto; padding-bottom: 260px; }
+        .scroll-stack-end { width: 100%; height: 1px; }
+        /* Tinted variant: brand-colored panel on the left, image on the right fading into it, white frame */
+        .pc--stack { --tint: 18 18 24; background: rgb(var(--tint)); border: 6px solid #fff; border-radius: 34px; color: #fff; backface-visibility: hidden;
+              box-shadow: 0 2px 6px rgb(18 18 24 / 0.06), 0 24px 60px rgb(18 18 24 / 0.16); transition: box-shadow .35s ease; }
+        .pc--stack:hover { transform: none; box-shadow: 0 2px 6px rgb(18 18 24 / 0.08), 0 30px 70px rgb(18 18 24 / 0.22); }
+        .pc--stack .pc__media::after { background: linear-gradient(to bottom, rgb(var(--tint) / 0) 40%, rgb(var(--tint) / 0.8) 78%, rgb(var(--tint)) 100%); }
+        .pc--stack .pc__title { color: #fff; }
+        .pc--stack .pc__sub { color: rgb(255 255 255 / 0.82); }
+        .pc--stack .pc__meta { color: rgb(255 255 255 / 0.62); }
+        .pc--stack .pc__stat { border-left-color: rgb(255 255 255 / 0.22); }
+        .pc--stack .pc__stat b { color: #fff; }
+        .pc--stack .pc__stat small { color: rgb(255 255 255 / 0.62); }
+        .pc--stack .pc__cta { background: #fff; color: #121218; padding: 13px 26px; box-shadow: 0 6px 18px rgb(0 0 0 / 0.22); transition: transform .3s ease, box-shadow .3s ease; }
+        .pc--stack:hover .pc__cta { transform: translateY(-1px); box-shadow: 0 10px 24px rgb(0 0 0 / 0.3); }
+        .pc--stack:focus-visible { outline-offset: 4px; }
+        /* Light variant for logos on white backgrounds */
+        .pc--light .pc__title { color: #121218; }
+        .pc--light .pc__sub { color: #44454C; }
+        .pc--light .pc__meta, .pc--light .pc__stat small { color: #6B6E76; }
+        .pc--light .pc__stat { border-left-color: #E0E2E6; }
+        .pc--light .pc__stat b { color: #121218; }
+        .pc--light .pc__cta { background: #1B1B21; color: #fff; box-shadow: 0 6px 18px rgb(18 18 24 / 0.18); }
+        .pc--light:hover .pc__cta { box-shadow: 0 10px 24px rgb(18 18 24 / 0.26); }
+        @media (min-width: 768px) {
+          .pc--stack { height: 380px; }
+          .pc--stack .pc__media { position: absolute; top: 0; right: 0; bottom: 0; width: 62%; height: auto; }
+          .pc--stack .pc__media::after { background: linear-gradient(to right, rgb(var(--tint)) 0%, rgb(var(--tint) / 0.75) 16%, rgb(var(--tint) / 0.3) 34%, rgb(var(--tint) / 0) 55%); }
+          .pc--stack .pc__body { margin-top: 0; padding: 36px 40px; }
+          .pc--stack .pc__title, .pc--stack .pc__sub, .pc--stack .pc__meta { max-width: 46%; }
+          .pc--stack .pc__title { font-size: 28px; line-height: 34px; }
+          .pc--stack .pc__sub { font-size: 16px; line-height: 24px; margin-top: 6px; }
+          .pc--stack .pc__meta { margin-top: 12px; }
+          .pc--stack .pc__foot { flex-direction: column; align-items: flex-start; gap: 22px; }
+          .pc--stack .pc__stat b { font-size: 22px; line-height: 28px; }
+          .pc--stack .pc__stat b .material-symbols-outlined { font-size: 20px; }
         }
-        #particles-bg {
-            position: fixed;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            overflow: hidden;
+        @media (prefers-reduced-motion: reduce) { .scroll-stack { padding-bottom: 0; } }
+        /* What I do */
+        .wd-head { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 640px; margin: 0 auto 48px; }
+        .wd-h2 { margin-top: 20px; font-family: var(--font-serif); font-weight: 600; font-size: 30px; line-height: 38px; letter-spacing: -0.02em; color: #121218; text-wrap: balance; }
+        @media (min-width: 768px) { .wd-head { margin-bottom: 56px; } .wd-h2 { font-size: 40px; line-height: 48px; } }
+        .wd-lead { max-width: 520px; margin-top: 16px; color: #44454C; }
+        .wd-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+        @media (min-width: 1024px) { .wd-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        .wd-card { display: flex; flex-direction: column; background: #fff; border: 1px solid #E0E2E6; border-radius: 24px; overflow: hidden; }
+        .wd-visual {
+            position: relative; height: 260px; overflow: hidden;
+            display: flex; justify-content: center; align-items: flex-start; padding: 28px 24px 0;
+            background-color: #F7F7F8;
+            background-image: radial-gradient(rgb(18 18 24 / 0.07) 1px, transparent 1px);
+            background-size: 16px 16px;
         }
+        .wd-visual::after { content: ''; position: absolute; inset: auto 0 0 0; height: 96px; background: linear-gradient(to bottom, rgb(255 255 255 / 0), #fff); pointer-events: none; }
+        .wd-body { padding: 32px; }
+        .wd-body .ds-h3 { font-size: 24px; line-height: 32px; letter-spacing: -0.02em; }
+        .wd-body .ds-p { color: #44454C; }
 
-        /* ── AnimatedList-style skill accordion ── */
-        .skill-item {
-            transform: scale(0.7);
-            opacity: 0;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-            margin-bottom: 0.5rem;
-            cursor: pointer;
-        }
-        .skill-item.animate-in {
-            transform: scale(1);
-            opacity: 1;
-        }
-        .skill-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s ease;
-        }
-        .skill-item.expanded .skill-body {
-            max-height: 160px;
-        }
-        .skill-item#skill-0.expanded .skill-body,
-        .skill-item#skill-1.expanded .skill-body,
-        .skill-item#skill-2.expanded .skill-body {
-            max-height: 280px;
-        }
-        .tool-logo {
-            height: 24px;
-            width: auto;
-            opacity: 0.85;
-            transition: opacity 0.2s ease, transform 0.2s ease;
-        }
-        .tool-logo:hover {
-            opacity: 1;
-            transform: translateY(-2px);
-        }
-        .tool-logo--mono-white {
-            filter: brightness(0) invert(1);
-        }
-        .skill-toggle-icon {
-            transition: transform 0.3s ease;
-            flex-shrink: 0;
-        }
-        .skill-item.expanded .skill-toggle-icon {
-            transform: rotate(45deg);
-        }
-        .skill-item.expanded .skill-header-title {
-            color: #abc7ff;
-        }
-        .skill-item.expanded .skill-toggle-icon {
-            color: #abc7ff;
-        }
+        /* Visual 1: design system */
+        .wd-ds { display: flex; align-items: flex-start; gap: 12px; }
+        .wd-tools { display: flex; flex-direction: column; gap: 4px; padding: 6px; background: #fff; border: 1px solid #E0E2E6; border-radius: 14px; box-shadow: 0 1px 2px rgb(18 18 24 / 0.04); }
+        .wd-tool { width: 32px; height: 32px; border-radius: 9px; display: flex; align-items: center; justify-content: center; color: #61646B; }
+        .wd-tool .material-symbols-outlined { font-size: 18px; }
+        .wd-tool.is-active { background: #1B1B21; color: #fff; }
+        .wd-panel { display: flex; gap: 16px; padding: 16px; background: #fff; border: 1px solid #E0E2E6; border-radius: 16px; box-shadow: 0 8px 24px rgb(18 18 24 / 0.06); }
+        .wd-rows { display: flex; flex-direction: column; gap: 10px; }
+        .wd-b { display: flex; align-items: center; justify-content: center; width: 124px; height: 36px; border-radius: 10px; font-family: var(--font-sans); font-weight: 500; font-size: 13px; line-height: 16px; }
+        .wd-b--primary { background: #F1F2F4; color: #121218; }
+        .wd-b--secondary { background: #1B1B21; color: #fff; }
+        .wd-b--outline { background: #fff; color: #121218; border: 1px solid #C9CDD2; }
+        .wd-b--ghost { background: transparent; color: #94979E; }
+        .wd-swatches { display: flex; flex-direction: column; gap: 8px; }
+        .wd-swatches span { width: 24px; height: 48px; border-radius: 999px; background: #E0E2E6; }
+        .wd-swatches span:nth-child(2) { background: #94979E; }
+        .wd-swatches span:nth-child(3) { background: #44454C; }
 
+
+        /* Visual 2: priority board + mentoring */
+        .wd-plan { position: relative; width: 100%; max-width: 300px; }
+        .wd-board { width: 92%; display: flex; flex-direction: column; gap: 14px; padding: 16px; background: #fff; border: 1px solid #E0E2E6; border-radius: 16px; box-shadow: 0 8px 24px rgb(18 18 24 / 0.06); }
+        .wd-board__row { display: flex; align-items: center; gap: 12px; }
+        .wd-board__row:nth-child(2) .wd-board__lines { opacity: 0.7; }
+        .wd-board__row:nth-child(3) .wd-board__lines { opacity: 0.45; }
+        .wd-pill { flex-shrink: 0; min-width: 76px; padding: 6px 10px; border-radius: 999px; text-align: center; font-family: var(--font-sans); font-weight: 500; font-size: 12px; line-height: 16px; white-space: nowrap; }
+        .wd-pill--now { background: #1B1B21; color: #fff; }
+        .wd-pill--next { background: #F1F2F4; color: #44454C; }
+        .wd-pill--later { background: #F7F7F8; color: #94979E; }
+        .wd-board__lines { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+        .wd-board__lines span { height: 8px; border-radius: 999px; background: #E0E2E6; }
+        .wd-board__lines span:first-child { width: 88%; }
+        .wd-board__lines span:last-child { width: 56%; }
+        .wd-board__row:nth-child(2) .wd-board__lines span:first-child { width: 72%; }
+        .wd-board__row:nth-child(2) .wd-board__lines span:last-child { width: 44%; }
+        .wd-board__row:nth-child(3) .wd-board__lines span:first-child { width: 80%; }
+        .wd-board__row:nth-child(3) .wd-board__lines span:last-child { width: 34%; }
+        .wd-mentor { position: absolute; right: 0; top: 112px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding: 12px 14px 14px; background: #fff; border: 1px solid #E0E2E6; border-radius: 14px; box-shadow: 0 8px 24px rgb(18 18 24 / 0.08); }
+        .wd-mentor__label { font-family: var(--font-sans); font-weight: 500; font-size: 13px; line-height: 16px; color: #94979E; }
+        .wd-avatars { display: flex; }
+        .wd-avatars span { width: 32px; height: 32px; border-radius: 999px; border: 2px solid #fff; background: #C9CDD2; }
+        .wd-avatars span + span { margin-left: -10px; }
+        .wd-avatars span:nth-child(2) { background: #94979E; }
+        .wd-avatars span:nth-child(3) { background: #44454C; }
+
+        /* Visual 3: AI tool tiles */
+        .wd-tiles { position: relative; flex-shrink: 0; width: 196px; height: 220px; margin-top: -12px; }
+        .wd-tiles__links { position: absolute; inset: 0; width: 100%; height: 100%; }
+        .wd-tiles__links path { stroke: #C9CDD2; stroke-width: 1; stroke-dasharray: 3 4; }
+        .wd-tile { position: absolute; width: 84px; height: 84px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: #fff; border: 1px solid #E0E2E6; border-radius: 20px; box-shadow: 0 8px 24px rgb(18 18 24 / 0.08); font-family: var(--font-sans); font-weight: 500; font-size: 12px; line-height: 14px; color: #44454C; white-space: nowrap; }
+        .wd-tile img { width: 28px; height: 28px; }
+        .wd-tile.is-featured { background: #1B1B21; border-color: #1B1B21; color: #fff; }
+        .wd-tile.is-featured img { filter: brightness(0) invert(1); }
+        .wd-tile--claude { left: 0; top: 0; }
+        .wd-tile--codex { left: 112px; top: 24px; }
+        .wd-tile--v0 { left: 16px; top: 112px; }
+        .wd-tile--replit { left: 112px; top: 136px; }
+
+        /* Why work with me (bento) */
+        .ww-head { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+        @media (min-width: 1024px) { .ww-head { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 48px; margin-bottom: 48px; } }
+        .ww-pill { background: #fff; border-color: #E0E2E6; }
+        .ww-h2 { max-width: 420px; margin-top: 20px; font-family: var(--font-serif); font-weight: 600; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.15; letter-spacing: -0.02em; color: #121218; text-wrap: balance; }
+        .ww-lead { max-width: 440px; font-family: var(--font-sans); font-size: 16px; line-height: 24px; color: #44454C; }
+        .ww-grid { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr);
+              grid-template-areas: "dark" "b" "c" "a" "d"; }
+        @media (min-width: 768px) { .ww-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "dark dark" "b c" "a d"; } }
+        @media (min-width: 1024px) { .ww-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: 84px minmax(198px, auto) 84px;
+              grid-template-areas: "a c dark" "b c dark" "b d dark"; } }
+        .ww-card { display: flex; flex-direction: column; min-width: 0; padding: 24px; background: #fff; border: 1px solid #E0E2E6; border-radius: 24px; }
+        .ww-card--a { grid-area: a; flex-direction: row; align-items: center; gap: 14px; padding-block: 18px; }
+        .ww-card--b { grid-area: b; }
+        .ww-card--c { grid-area: c; }
+        .ww-card--d { grid-area: d; flex-direction: row; align-items: center; gap: 12px; padding-block: 18px; }
+        .ww-card--dark { grid-area: dark; justify-content: space-between; gap: 32px; border-color: #1B1B21; color: #fff;
+              background: linear-gradient(160deg, #1B1B21 0%, #121218 100%); box-shadow: 0 2px 6px rgb(18 18 24 / 0.08), 0 20px 48px rgb(18 18 24 / 0.16); }
+        .ww-text { font-family: var(--font-sans); font-weight: 500; font-size: 16px; line-height: 24px; color: #121218; }
+        .ww-stat { margin-top: auto; padding-top: 24px; }
+        .ww-num { font-family: var(--font-serif); font-weight: 500; font-size: 64px; line-height: 1; letter-spacing: -0.03em; color: #121218; }
+        .ww-label { margin-top: 6px; font-size: 14px; line-height: 20px; color: #61646B; }
+        .ww-avatars { display: flex; flex-shrink: 0; }
+        .ww-avatars span { width: 40px; height: 40px; border-radius: 999px; border: 2px solid #fff; background: #C9CDD2; }
+        .ww-avatars span + span { margin-left: -12px; }
+        .ww-avatars span:nth-child(2) { background: #94979E; }
+        .ww-avatars span:nth-child(3) { background: #44454C; }
+        .ww-dot { flex-shrink: 0; width: 10px; height: 10px; margin: 0 4px; border-radius: 999px; background: #9BDB5A; box-shadow: 0 0 0 4px rgb(155 219 90 / 0.18), 0 0 12px rgb(155 219 90 / 0.55); }
+        .ww-dark__text { font-family: var(--font-sans); font-size: 18px; line-height: 28px; color: #fff; }
+        .ww-dark__label { font-size: 13px; line-height: 18px; color: rgb(255 255 255 / 0.55); }
+        .ww-dark__names { display: flex; flex-direction: column; gap: 2px; margin-top: 10px; }
+        .ww-dark__names li { font-family: var(--font-serif); font-weight: 500; font-size: 26px; line-height: 34px; letter-spacing: -0.02em; color: #fff; }
+
+        /* Services (how I can help) */
+        .sv-head { display: flex; flex-direction: column; align-items: center; text-align: center; margin: 0 auto 48px; }
+        .sv-h2 { font-family: var(--font-serif); font-weight: 600; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.15; letter-spacing: -0.02em; color: #121218; text-wrap: balance; }
+        .sv-lead { max-width: 520px; margin-top: 16px; font-family: var(--font-sans); font-size: 16px; line-height: 24px; color: #44454C; }
+        .sv-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: center; }
+        @media (min-width: 1024px) { .sv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        .sv-list { display: flex; flex-direction: column; gap: 8px; }
+        .sv-item { display: flex; align-items: flex-start; gap: 16px; width: 100%; padding: 24px; border-radius: 20px; text-align: left; background: transparent; box-shadow: 0 8px 24px rgb(18 18 24 / 0);
+              cursor: pointer; transition: background-color .25s ease, box-shadow .25s ease; }
+        .sv-item[aria-selected="true"] { background: #fff; box-shadow: 0 8px 24px rgb(18 18 24 / 0.06); }
+        .sv-item:focus-visible { outline: 2px solid #1B1B21; outline-offset: 2px; }
+        .sv-icon { flex-shrink: 0; width: 24px; height: 24px; color: #94979E; transition: color .25s ease; }
+        .sv-item[aria-selected="true"] .sv-icon { color: #121218; }
+        .sv-text { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+        .sv-title { font-family: var(--font-sans); font-weight: 500; font-size: 20px; line-height: 26px; color: #121218; }
+        .sv-body { font-family: var(--font-sans); font-size: 16px; line-height: 24px; color: #44454C; }
+
+        /* Services visual: isometric layer stack */
+        .sv-visual { position: relative; height: 560px; overflow: hidden; display: flex; align-items: center; justify-content: center;
+              background: #F7F7F8; border: 1px solid #E0E2E6; border-radius: 24px; perspective: 2400px; }
+        .sv-stack { --sv-scale: 1.15; position: relative; width: 300px; height: 220px; margin-top: 140px; transform-style: preserve-3d;
+              transform: scale(var(--sv-scale)) rotateX(60deg) rotateZ(-45deg); }
+        .sv-layer { --z: 0px; position: absolute; inset: 0; padding: 16px; background: #fff; border: 1px solid #E0E2E6; border-radius: 12px;
+              box-shadow: 0 1px 2px rgb(18 18 24 / 0.05), 0 12px 28px rgb(18 18 24 / 0.08); opacity: .35;
+              transform: translateZ(var(--z)); transition: transform .4s cubic-bezier(.2,.7,.2,1), opacity .4s ease; }
+        .sv-layer.is-active { opacity: 1; transform: translateZ(calc(var(--z) + 20px)); }
+        .sv-layer--design { --z: 140px; }
+        .sv-layer--system { --z: 70px; }
+        .sv-layer--dev { --z: 0px; }
+        .sv-edge { position: absolute; width: 0; height: 140px; border-left: 1px dashed #C9CDD2; transform-origin: top left; transform: rotateX(90deg); }
+        .sv-edge--tl { left: 0; top: 0; }
+        .sv-edge--tr { left: 100%; top: 0; }
+        .sv-edge--bl { left: 0; top: 100%; }
+        .sv-edge--br { left: 100%; top: 100%; }
+        .sv-sk { display: block; border-radius: 6px; background: #E0E2E6; }
+        /* Layer 1: product screen wireframe */
+        .sv-wf { display: flex; flex-direction: column; gap: 10px; height: 100%; }
+        .sv-wf__bar { display: flex; align-items: center; gap: 6px; height: 22px; padding: 0 8px; border-radius: 6px; background: #F1F2F4; }
+        .sv-wf__bar i { width: 7px; height: 7px; border-radius: 999px; background: #C9CDD2; }
+        .sv-wf__bar b { margin-left: auto; width: 48px; height: 7px; border-radius: 999px; background: #C9CDD2; }
+        .sv-wf__hero { flex: 1; }
+        .sv-wf__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; height: 52px; }
+        .sv-wf__cards span { background: #F1F2F4; border: 1px solid #E0E2E6; }
+        /* Layer 2: component grid */
+        .sv-ds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 12px; height: 100%; align-items: center; }
+        .sv-ds__btn { height: 28px; border-radius: 8px; }
+        .sv-ds__btn--dark { background: #1B1B21; }
+        .sv-ds__btn--outline { background: #fff; border: 1px solid #C9CDD2; }
+        .sv-ds__circle { justify-self: center; width: 40px; height: 40px; border-radius: 999px; background: #E0E2E6; }
+        .sv-ds__pill { height: 16px; border-radius: 999px; background: #F1F2F4; border: 1px solid #E0E2E6; }
+        .sv-ds__pill--dark { background: #44454C; border-color: #44454C; }
+        .sv-ds__swatch { height: 36px; border-radius: 8px; }
+        .sv-ds__swatch:nth-of-type(1) { background: #E0E2E6; }
+        .sv-ds__swatch:nth-of-type(2) { background: #94979E; }
+        .sv-ds__swatch:nth-of-type(3) { background: #44454C; }
+        /* Layer 3: code */
+        .sv-code { display: flex; gap: 12px; height: 100%; }
+        .sv-code__nums { display: flex; flex-direction: column; justify-content: space-between; padding-right: 10px; border-right: 1px solid #E0E2E6;
+              font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 10px; line-height: 12px; color: #94979E; text-align: right; }
+        .sv-code__lines { flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 2px 0; }
+        .sv-code__lines span { height: 8px; border-radius: 999px; background: #E0E2E6; }
+        .sv-code__lines span.is-key { background: #94979E; }
+        .sv-code__lines span.is-in { margin-left: 16px; }
+        .sv-code__lines span.is-in2 { margin-left: 32px; }
+        @media (max-width: 767px) {
+          .sv-visual { height: 340px; }
+          .sv-stack { --sv-scale: .7; margin-top: 80px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .sv-item, .sv-icon, .sv-layer { transition: none; }
+        }
+        /* Process stepper */
+        .pr-grid { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
+        @media (min-width: 1024px) {
+          .pr-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 64px; align-items: start; }
+          .pr-intro { position: sticky; top: 120px; }
+        }
+        .pr-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid #E0E2E6; border-radius: 999px; background: #fff;
+              font-family: var(--font-sans); font-weight: 500; font-size: 14px; line-height: 18px; color: #121218; }
+        .pr-pill svg { width: 14px; height: 14px; flex-shrink: 0; }
+        .pr-h2 { margin-top: 20px; font-family: var(--font-serif); font-weight: 600; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.15; letter-spacing: -0.02em; color: #121218; text-wrap: balance; }
+        .pr-lead { max-width: 380px; margin-top: 16px; font-family: var(--font-sans); font-size: 16px; line-height: 24px; color: #44454C; }
+        .pr-steps { position: relative; isolation: isolate; }
+        .pr-list { display: flex; flex-direction: column; gap: 16px; margin: 0; padding: 0; list-style: none; }
+        .pr-track, .pr-fill { position: absolute; z-index: 1; left: 45px; width: 2px; margin-left: -1px; border-radius: 2px; pointer-events: none; }
+        .pr-track { background: #E0E2E6; }
+        .pr-fill { z-index: 2; height: 0; background: #121218; transition: height .35s ease; }
+        .pr-step { position: relative; display: flex; align-items: flex-start; gap: 20px; padding: 24px; border: 1px solid transparent; border-radius: 20px; background: transparent;
+              transition: background-color .35s ease, border-color .35s ease, box-shadow .35s ease; }
+        .pr-node { position: relative; z-index: 3; flex-shrink: 0; width: 40px; height: 40px; border-radius: 999px; display: flex; align-items: center; justify-content: center;
+              background: #fff; color: #94979E; box-shadow: 0 0 0 1px #E0E2E6; transition: box-shadow .35s ease, color .35s ease; }
+        .pr-node svg { width: 18px; height: 18px; }
+        .pr-title { display: block; padding-top: 7px; font-family: var(--font-sans); font-weight: 500; font-size: 20px; line-height: 26px; letter-spacing: -0.01em; color: #94979E; transition: color .35s ease; }
+        .pr-body { display: block; max-width: 440px; margin-top: 6px; font-family: var(--font-sans); font-size: 16px; line-height: 24px; color: #94979E; transition: color .35s ease; }
+        .pr-step.is-revealed { background: #fff; border-color: #E0E2E6; box-shadow: 0 8px 24px rgba(18,18,24,0.06); }
+        .pr-step.is-revealed .pr-node { color: #121218; box-shadow: 0 0 0 1px #E0E2E6, 0 4px 12px rgba(18,18,24,0.10); }
+        .pr-step.is-revealed .pr-title { color: #121218; }
+        .pr-step.is-revealed .pr-body { color: #44454C; }
+        @media (max-width: 767px) {
+          .pr-step { gap: 16px; padding: 20px; }
+          .pr-track, .pr-fill { left: 41px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .pr-step, .pr-node, .pr-title, .pr-body, .pr-fill { transition: none; }
+        }
+        /* Strengths bento */
+        .st-head { max-width: 640px; margin: 0 auto 48px; text-align: center; }
+        .st-lead { max-width: 520px; margin: 16px auto 0; font-family: var(--font-sans); font-size: 16px; line-height: 24px; color: #44454C; }
+        .st-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; max-width: 1200px; margin: 0 auto; padding: 0; list-style: none; }
+        .st-card { position: relative; overflow: hidden; isolation: isolate; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; min-height: 280px; padding: 24px;
+              border: 1px solid #E0E2E6; border-radius: 24px; background: #fff; transition: transform .2s ease, box-shadow .2s ease; }
+        .st-card:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(18,18,24,0.10); }
+        .st-card--wide { grid-column: span 2; }
+        .st-icon { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; background: #fff; color: #121218; box-shadow: 0 4px 12px rgba(18,18,24,0.08); }
+        .st-icon svg { width: 20px; height: 20px; }
+        .st-title { display: block; font-family: var(--font-sans); font-weight: 500; font-size: 20px; line-height: 26px; letter-spacing: -0.01em; color: #121218; }
+        .st-body { display: block; max-width: 440px; margin-top: 8px; font-family: var(--font-sans); font-size: 15px; line-height: 22px; color: #44454C; }
+        .st-card--dark { border-color: #121218; background: #121218; }
+        .st-card--dark::before, .st-card--dark::after { content: ''; position: absolute; z-index: -1; pointer-events: none; }
+        /* Soft blurred glows */
+        .st-card--dark::before { inset: -20%; filter: blur(32px);
+              background: radial-gradient(40% 50% at 85% 15%, rgba(58,58,68,0.55), transparent 70%),
+                          radial-gradient(35% 45% at 15% 90%, rgba(58,58,68,0.40), transparent 70%),
+                          radial-gradient(30% 40% at 55% 55%, rgba(58,58,68,0.30), transparent 70%); }
+        /* Faint concentric rings, faded toward the edges */
+        .st-card--dark::after { inset: 0;
+              background: repeating-radial-gradient(circle at 88% 12%, transparent 0 27px, rgba(255,255,255,0.06) 27px 28px);
+              -webkit-mask-image: radial-gradient(circle at 88% 12%, #000 0, transparent 75%);
+                      mask-image: radial-gradient(circle at 88% 12%, #000 0, transparent 75%); }
+        .st-card--dark .st-icon { background: #24242A; color: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.30); }
+        .st-card--dark .st-title { color: #fff; }
+        .st-card--dark .st-body { color: #94979E; }
+        @media (max-width: 1023px) {
+          .st-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-flow: dense; }
+        }
+        @media (max-width: 767px) {
+          .st-head { margin-bottom: 32px; }
+          .st-grid { grid-template-columns: 1fr; }
+          .st-card--wide { grid-column: auto; }
+          .st-card { min-height: 220px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .st-card { transition: none; }
+          .st-card:hover { transform: none; }
+        }
     </style>
 </head>
-<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col selection:bg-primary selection:text-on-primary">
-<div id="particles-bg"></div>
+<body class="page-textured bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
 <!-- Global site nav -->
-<header id="site-nav" class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border-low-contrast">
-  <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 h-16 flex items-center justify-between">
-    <a href="index.html" class="font-label-md text-label-md text-on-surface uppercase tracking-widest hover:text-primary transition-colors duration-200">SANTIAGO MORALES</a>
-    <nav aria-label="Main" class="hidden md:flex items-center gap-8">
-      <a href="index.html" class="font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-200 hover:text-primary text-on-surface" aria-current="page" data-i18n="nav_home">Home</a>
-      <a href="#projects" class="font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-200 hover:text-primary text-text-muted" data-i18n="nav_projects">Projects</a>
-      <a href="blog.html" class="font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-200 hover:text-primary text-text-muted" data-i18n="nav_blog">Blog</a>
+<header id="site-nav" class="site-nav">
+  <div class="site-nav__bar">
+    <a href="index.html" class="site-nav__brand">DavinSane</a>
+    <nav aria-label="Main" class="site-nav__links">
+      <a href="index.html" aria-current="page" data-i18n="nav_home">Home</a>
+      <a href="#projects" data-i18n="nav_projects">Projects</a>
+      <a href="blog.html" data-i18n="nav_blog">Blog</a>
     </nav>
-    <button id="site-nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav-menu" class="md:hidden -mr-2 w-10 h-10 flex items-center justify-center text-on-surface hover:text-primary transition-colors duration-200">
-      <span class="material-symbols-outlined" style="font-size:24px;">menu</span>
-    </button>
-  </div>
-  <nav id="site-nav-menu" aria-label="Main" class="hidden md:hidden border-t border-border-low-contrast">
-    <div class="px-margin-mobile py-2 flex flex-col">
-      <a href="index.html" class="block py-3 font-label-md text-label-md uppercase tracking-widest border-b border-border-low-contrast last:border-b-0 transition-colors duration-200 hover:text-primary text-on-surface" aria-current="page" data-i18n="nav_home">Home</a>
-      <a href="#projects" class="block py-3 font-label-md text-label-md uppercase tracking-widest border-b border-border-low-contrast last:border-b-0 transition-colors duration-200 hover:text-primary text-text-muted" data-i18n="nav_projects">Projects</a>
-      <a href="blog.html" class="block py-3 font-label-md text-label-md uppercase tracking-widest border-b border-border-low-contrast last:border-b-0 transition-colors duration-200 hover:text-primary text-text-muted" data-i18n="nav_blog">Blog</a>
+    <div class="site-nav__actions">
+      <a href="#contact" class="ds-btn ds-btn--sm site-nav__cta"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+      <button id="site-nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav-menu" class="site-nav__toggle">
+        <span class="material-symbols-outlined" style="font-size:22px;">menu</span>
+      </button>
     </div>
+  </div>
+  <nav id="site-nav-menu" aria-label="Main" class="site-nav__menu hidden">
+    <a href="index.html" aria-current="page" data-i18n="nav_home">Home</a>
+    <a href="#projects" data-i18n="nav_projects">Projects</a>
+    <a href="blog.html" data-i18n="nav_blog">Blog</a>
+    <a href="#contact" class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
   </nav>
 </header>
 <script>
@@ -211,308 +386,711 @@
   })();
 </script>
 <main class="flex-grow">
-<!-- Hero Section -->
-<section class="px-margin-mobile md:px-margin-desktop pt-16 pb-16 flex flex-col max-w-container-max mx-auto w-full relative">
-<!-- Avatar + Name -->
-<div class="flex items-center gap-3 mb-8">
-<div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex-shrink-0 overflow-hidden" id="avatar-container">
-<img alt="Santiago Morales" class="w-full h-full object-cover hidden" id="avatar-img"/>
-</div>
-<span class="font-label-md text-label-md text-on-surface">Santiago Morales</span>
-</div>
-<h1 class="font-headline-lg-mobile md:font-headline-lg text-[20px] md:text-headline-lg text-on-surface max-w-4xl tracking-tight text-balance leading-tight" data-i18n="hero_title">
-                Senior Visual Designer specialized in Product Design &amp; UX/UI Engineering
-            </h1>
-<p class="mt-4 font-body-lg text-body-lg text-on-surface font-medium max-w-4xl" data-i18n="hero_lead">
-                Understanding business needs and their users is what leads to successful products.
-            </p>
-<p class="mt-2 font-body-lg text-body-lg text-text-muted max-w-4xl" data-i18n="hero_desc">
-                I have over 6.5 years designing user-centered digital solutions for Fintech, Ecommerce, and BPO companies, both nationally and internationally, with the technical grounding to know what actually ships.
-            </p>
-<div class="mt-6 flex items-center gap-6">
-<span class="font-label-sm text-label-sm text-primary tracking-widest flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-<span data-i18n="available">AVAILABLE FOR HIRE</span>
-</span>
-</div>
+
+<!-- Hero -->
+<section class="hero-wrap" aria-labelledby="hero-title">
+  <div class="hero-panel">
+    <div class="hero-panel__copy">
+      <h1 id="hero-title" class="hero-title">
+        <span class="hero-title__a" data-i18n="hero_title_a">Success is learning to solve</span>
+        <span class="hero-title__b" data-i18n="hero_title_b">the customer's problem</span>
+      </h1>
+      <p class="hero-sub" data-i18n="hero_sub">I'm Santiago, a product designer. I understand the user, the business and the code, so what I design can actually be built.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="hero-btn hero-btn--primary"><span data-i18n="hero_cta_projects">See projects</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+        <a href="#contact" class="hero-btn hero-btn--secondary"><span data-i18n="hero_cta_contact">Contact me</span></a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <p class="hero-stats__num">6.5+</p>
+          <p class="hero-stats__label" data-i18n="stat1_short">Years of experience</p>
+        </div>
+        <div>
+          <p class="hero-stats__num">5</p>
+          <p class="hero-stats__label" data-i18n="stat2_short">Companies</p>
+        </div>
+        <div>
+          <p class="hero-stats__num">3</p>
+          <p class="hero-stats__label" data-i18n="stat3_short">Years mentoring</p>
+        </div>
+      </div>
+    </div>
+    <!-- TODO: reemplazar por recorte sin fondo (PNG) con overflow arriba -->
+    <div class="hero-photo">
+      <img src="img/SantiagoMorales.png" width="1024" height="1536" fetchpriority="high"
+           alt="Portrait of Santiago Morales, a product designer with curly hair and clear glasses, wearing a black shirt with arms crossed against a gray studio background"
+           data-i18n-alt="hero_photo_alt" class="hero-photo__img"/>
+      <div class="hero-glass">
+        <div class="min-w-0">
+          <p class="hero-glass__eyebrow"><span class="hero-glass__dot"></span><span data-i18n="glass_eyebrow">Available for projects</span></p>
+          <p class="hero-glass__title" data-i18n="glass_title">Let's design together</p>
+          <p class="hero-glass__text" data-i18n="glass_text">Product design and UX/UI</p>
+        </div>
+        <a href="#contact" class="hero-glass__btn" aria-label="Contact me" data-i18n-aria="hero_cta_contact"><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+      </div>
+    </div>
+  </div>
 </section>
-<!-- Case Studies Section -->
-<section id="projects" class="scroll-mt-24 px-margin-mobile md:px-margin-desktop pb-section-gap max-w-container-max mx-auto w-full">
-<div class="flex items-start justify-between mb-16 border-b border-border-low-contrast pb-4">
-<div>
-<h2 class="font-headline-lg-mobile md:font-headline-lg text-[18px] md:text-headline-lg-mobile text-on-surface mb-1" data-i18n="works_title">About My Experience</h2>
-<p class="font-label-md text-label-md text-text-muted tracking-widest" data-i18n="selected_works">SELECTED WORKS</p>
-</div>
-<span class="font-label-sm text-label-sm text-outline-variant">01 / 05</span>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-<!-- Project: iQor HUB -->
-<article class="group flex flex-col gap-6 cursor-pointer" onclick="window.location.href='iqor/iqor.html'">
-<div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-sm transition-colors duration-300 group-hover:border-primary">
-<img alt="iQor HUB Project" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" src="iqor/img/iqorlogo.jpg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-</div>
-<div class="flex justify-between items-start">
-<div>
-<h3 class="font-headline-md text-headline-md text-on-surface">iQor</h3>
-<div class="flex gap-3 mt-3">
-<span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">BPO</span>
-<span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">UX Design</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">
-                            arrow_outward
-                        </span>
-</div>
-</article>
-<!-- Project: Maindstar -->
-<article class="group flex flex-col gap-6 cursor-pointer md:mt-24" onclick="window.location.href='maindstar/maindstar.html'">
-<div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-sm transition-colors duration-300 group-hover:border-primary">
-<img alt="Maindstar Project" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" src="maindstar/img/maindstarlogo1.svg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-</div>
-<div class="flex justify-between items-start">
-<div>
-<h3 class="font-headline-md text-headline-md text-on-surface">Maindstar</h3>
-<div class="flex gap-3 mt-3">
-<span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Brand</span>
-<span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Identity</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">
-                            arrow_outward
-                        </span>
-</div>
-</article>
-<!-- Project: Sistecrédito -->
-<article class="group flex flex-col gap-6 cursor-pointer" onclick="window.location.href='sistecredito/sistecredito.html'">
-<div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-sm transition-colors duration-300 group-hover:border-primary">
-<img alt="Sistecrédito Project" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" src="sistecredito/img/sistecreditologo.svg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-</div>
-<div class="flex justify-between items-start">
-<div>
-<h3 class="font-headline-md text-headline-md text-on-surface">Sistecrédito</h3>
-<div class="flex gap-3 mt-3">
-<span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Fintech</span>
-<span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted">Credit</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">
-                            arrow_outward
-                        </span>
-</div>
-</article>
-<!-- Project: Mercado Libre -->
-<article class="group flex flex-col gap-6 md:mt-24 cursor-pointer card-enter" onclick="window.location.href='mercadolibre/mercadolibre.html'" style="transition-delay: 0.3s">
-<div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-sm transition-colors duration-300 group-hover:border-primary">
-<img alt="Mercado Libre Project" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" src="mercadolibre/img/logomercadolibre.svg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-</div>
-<div class="flex justify-between items-start">
-<div>
-<h3 class="font-headline-md text-headline-md text-on-surface">Mercado Libre</h3>
-<div class="flex gap-3 mt-3">
-<span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="ml_tag1">UX Research</span>
-<span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="ml_tag2">Product Design</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">arrow_outward</span>
-</div>
-</article>
-<!-- Project: Grupo CSF -->
-<article class="group flex flex-col gap-6 cursor-pointer md:mt-24" onclick="window.location.href='csf/csf.html'">
-<div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-sm transition-colors duration-300 group-hover:border-primary">
-<img alt="Grupo CSF Project" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" src="csf/img/csfgroup.png"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-</div>
-<div class="flex justify-between items-start">
-<div>
-<h3 class="font-headline-md text-headline-md text-on-surface">Grupo CSF</h3>
-<div class="flex gap-3 mt-3">
-<span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="csf_tag1">Holding</span>
-<span class="px-3 py-1 rounded-full border border-border-low-contrast font-label-sm text-label-sm text-text-muted" data-i18n="csf_tag2">Brand System</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">arrow_outward</span>
-</div>
-</article>
-</div>
+
+<!-- Clients marquee -->
+<section class="pt-16 md:pt-20 pb-8 md:pb-12" aria-labelledby="clients-label">
+  <div class="ds-container">
+    <p id="clients-label" class="text-center text-[14px] font-medium text-secondary mb-6" data-i18n="clients_label">Companies I have designed for</p>
+  </div>
+  <div class="ds-marquee">
+    <div class="ds-marquee__track">
+      <div class="flex">
+        <span class="ds-marquee__item">iQor</span>
+        <span class="ds-marquee__item">Mercado Libre</span>
+        <span class="ds-marquee__item">Sistecrédito</span>
+        <span class="ds-marquee__item">Grupo CSF</span>
+        <span class="ds-marquee__item">Maindstar</span>
+        <span class="ds-marquee__item">iQor</span>
+        <span class="ds-marquee__item">Mercado Libre</span>
+        <span class="ds-marquee__item">Sistecrédito</span>
+        <span class="ds-marquee__item">Grupo CSF</span>
+        <span class="ds-marquee__item">Maindstar</span>
+      </div>
+      <div class="flex" aria-hidden="true">
+        <span class="ds-marquee__item">iQor</span>
+        <span class="ds-marquee__item">Mercado Libre</span>
+        <span class="ds-marquee__item">Sistecrédito</span>
+        <span class="ds-marquee__item">Grupo CSF</span>
+        <span class="ds-marquee__item">Maindstar</span>
+        <span class="ds-marquee__item">iQor</span>
+        <span class="ds-marquee__item">Mercado Libre</span>
+        <span class="ds-marquee__item">Sistecrédito</span>
+        <span class="ds-marquee__item">Grupo CSF</span>
+        <span class="ds-marquee__item">Maindstar</span>
+      </div>
+    </div>
+  </div>
 </section>
-<!-- About Section -->
-<section class="px-margin-mobile md:px-margin-desktop pb-section-gap max-w-container-max mx-auto w-full relative">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start mb-16 md:mb-24">
-<div class="md:col-span-5 md:col-start-1 mb-12 md:mb-0 flex flex-col gap-4">
-<div class="relative w-full aspect-[3/4] bg-surface-elevated border border-border-low-contrast p-2">
-<img alt="Professional Portrait" class="w-full h-full object-cover object-top opacity-90" src="img/SantiagoMorales.png"/>
-<!-- Decorative structural elements -->
-<div class="absolute top-0 left-0 w-4 h-px bg-on-surface"></div>
-<div class="absolute top-0 left-0 w-px h-4 bg-on-surface"></div>
-<div class="absolute bottom-0 right-0 w-4 h-px bg-on-surface"></div>
-<div class="absolute bottom-0 right-0 w-px h-4 bg-on-surface"></div>
-</div>
-</div>
-<div class="md:col-span-6 md:col-start-7 flex flex-col gap-4">
-<h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2" data-i18n-html="about_title">
-                            About Me
-                        </h3>
-<p class="font-body-lg text-body-lg text-text-muted" data-i18n="about_desc">
-                        I'm David Santiago Morales, or as I'm known online, "DavinSane," a combination of my first names. I'm a visual designer from Fundación Universitaria Bellas Artes de Medellín, and for the past 7 years I've dedicated myself to designing digital products for companies nationally and internationally. I'm very passionate about designing digital products, sharing knowledge, and learning every day about new technologies and tools that let me speed up and optimize my workflow. On a personal note, I really love art, I'm very devoted to visual design and 3D design in Blender and ZBrush. In fact, I have a 3D printer that I use to print useful objects for my home and to sell. I also really love music, singing, and playing guitar. I do a lot of offroading and motocross. I love my pets: at home I have 2 beautiful dogs and 2 cats. I dedicate my life to everything I'm passionate about, and I do it with a lot of love and dedication.
-                    </p>
-</div>
-</div>
-<div class="pt-8 border-t border-border-low-contrast">
-<h4 class="font-headline-lg-mobile md:font-headline-lg text-[18px] md:text-headline-lg-mobile text-on-surface mb-2" data-i18n="skills_title">About My Experience</h4>
-<h2 class="font-label-md text-label-md text-primary tracking-widest mb-10 uppercase" data-i18n="about_label">Visual Designer / Product Designer</h2>
-<div id="skills-list">
 
-  <!-- Design Backed by Real Code -->
-  <div class="skill-item" id="skill-0">
-    <button onclick="toggleSkill('skill-0')" class="w-full flex justify-between items-center py-4 border-b border-border-low-contrast text-left group">
-      <span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors skill-header-title" data-i18n="skill0_title">I Understand and Execute with Strategy Based on Business Needs</span>
-      <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors skill-toggle-icon">add</span>
-    </button>
-    <div class="skill-body">
-      <p class="font-body-md text-body-md text-text-muted py-4 pr-2" data-i18n="skill0_body">
-        I stand out for understanding and analyzing business needs and how their users work. Through interviews and usability testing, I identify opportunities, prioritize solutions, and design experiences that address real problems the business and its different digital products face. In how I work, I use different tools like Notion, Miro, Hotjar, Typeform, SurveyMonkey, Dovetail, Claude AI, and ChatGPT, which help me speed up my research work.
-      </p>
-      <div class="flex flex-wrap items-center gap-6 pb-4 pr-2 tool-logos">
-        <img src="https://cdn.simpleicons.org/notion/ffffff" alt="Notion" title="Notion" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/miro/ffffff" alt="Miro" title="Miro" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/hotjar/FF3C00" alt="Hotjar" title="Hotjar" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/typeform/ffffff" alt="Typeform" title="Typeform" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/surveymonkey/00BF6F" alt="SurveyMonkey" title="SurveyMonkey" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/dovetail/ffffff" alt="Dovetail" title="Dovetail" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude AI" title="Claude AI" class="tool-logo" loading="lazy"/>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_%28symbol%29.svg" alt="ChatGPT" title="ChatGPT" class="tool-logo tool-logo--mono-white" loading="lazy"/>
+<!-- What I do -->
+<section class="ds-section pb-0" aria-labelledby="wd-title">
+  <div class="ds-container">
+    <div class="wd-head">
+      <span class="ds-eyebrow" data-i18n="wd_eyebrow">What I do</span>
+      <h2 id="wd-title" class="wd-h2" data-i18n="wd_title">What makes me different</h2>
+      <p class="ds-p wd-lead" data-i18n="wd_lead">I design products with the user, the business and how they get built in mind.</p>
+    </div>
+    <div class="wd-grid">
+
+      <!-- Card: design systems -->
+      <article class="wd-card">
+        <div class="wd-visual" aria-hidden="true">
+          <div class="wd-ds">
+            <div class="wd-tools">
+              <span class="wd-tool is-active"><span class="material-symbols-outlined">arrow_selector_tool</span></span>
+              <span class="wd-tool"><span class="material-symbols-outlined">auto_fix_high</span></span>
+              <span class="wd-tool"><span class="material-symbols-outlined">circle</span></span>
+              <span class="wd-tool"><span class="material-symbols-outlined">title</span></span>
+            </div>
+            <div class="wd-panel">
+              <div class="wd-rows">
+                <span class="wd-b wd-b--primary">Primary</span>
+                <span class="wd-b wd-b--secondary">Secondary</span>
+                <span class="wd-b wd-b--outline">Outline</span>
+                <span class="wd-b wd-b--ghost">Ghost</span>
+              </div>
+              <div class="wd-swatches"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="wd-body">
+          <h3 class="ds-h3" data-i18n="wd1_title">Clear design systems</h3>
+          <p class="ds-p mt-3" data-i18n="wd1_body">I work on the foundations of iQor's design system and built the one for Grupo CSF, so every screen looks and feels the same.</p>
+        </div>
+      </article>
+
+      <!-- Card: strategy and leadership -->
+      <article class="wd-card">
+        <div class="wd-visual" aria-hidden="true">
+          <div class="wd-plan">
+            <div class="wd-board">
+              <div class="wd-board__row"><span class="wd-pill wd-pill--now" data-i18n="wd_now">Now</span><span class="wd-board__lines"><span></span><span></span></span></div>
+              <div class="wd-board__row"><span class="wd-pill wd-pill--next" data-i18n="wd_next">Next</span><span class="wd-board__lines"><span></span><span></span></span></div>
+              <div class="wd-board__row"><span class="wd-pill wd-pill--later" data-i18n="wd_later">Later</span><span class="wd-board__lines"><span></span><span></span></span></div>
+            </div>
+            <div class="wd-mentor">
+              <span class="wd-mentor__label" data-i18n="wd_mentoring">Mentoring</span>
+              <span class="wd-avatars"><span></span><span></span><span></span></span>
+            </div>
+          </div>
+        </div>
+        <div class="wd-body">
+          <h3 class="ds-h3" data-i18n="wd2_title">Strategy and leadership</h3>
+          <p class="ds-p mt-3" data-i18n="wd2_body">I've spent over a year leading design at iQor, 3 years mentoring designers, and I lead design across the 4 business units of Grupo CSF. I help decide what gets built first and why.</p>
+        </div>
+      </article>
+
+      <!-- Card: AI workflow -->
+      <article class="wd-card">
+        <div class="wd-visual" aria-hidden="true">
+          <div class="wd-tiles">
+            <svg class="wd-tiles__links" viewBox="0 0 196 220" fill="none">
+              <path d="M42 42 L154 66 L154 178 L58 154 Z" />
+            </svg>
+            <span class="wd-tile wd-tile--claude is-featured"><img src="assets/logos/claude.svg" alt="" width="28" height="28"><span>Claude Code</span></span>
+            <span class="wd-tile wd-tile--codex"><span>Codex</span></span>
+            <span class="wd-tile wd-tile--v0"><img src="assets/logos/v0.svg" alt="" width="28" height="28"><span>v0</span></span>
+            <span class="wd-tile wd-tile--replit"><img src="assets/logos/replit.svg" alt="" width="28" height="28"><span>Replit</span></span>
+          </div>
+        </div>
+        <div class="wd-body">
+          <h3 class="ds-h3" data-i18n="wd3_title">AI is part of how I work</h3>
+          <p class="ds-p mt-3" data-i18n="wd3_body">I use Claude Code, Codex, v0 and Replit across my process, from exploring ideas to building, so I move faster without lowering the quality of what I deliver.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Why work with me -->
+<section class="ds-section pb-0" aria-labelledby="ww-title">
+  <div class="ds-container">
+    <div class="ww-head">
+      <div>
+        <span class="ds-eyebrow ww-pill" data-i18n="ww_eyebrow">Why work with me</span>
+        <h2 id="ww-title" class="ww-h2" data-i18n="ww_title">Design with judgment, from idea to production</h2>
+      </div>
+      <p class="ww-lead" data-i18n="ww_lead">I combine strategy, visual design and code so what I design works for the user and for the business.</p>
+    </div>
+    <div class="ww-grid">
+      <div class="ww-card ww-card--a">
+        <span class="ww-avatars" aria-hidden="true"><span></span><span></span><span></span></span>
+        <p class="ww-text" data-i18n="ww_a">Fintech, Ecommerce and BPO</p>
+      </div>
+      <div class="ww-card ww-card--b">
+        <p class="ww-text" data-i18n="ww_b_text">One design system across the whole business.</p>
+        <div class="ww-stat">
+          <p class="ww-num">4</p>
+          <p class="ww-label" data-i18n="ww_b_label">Grupo CSF business units, one identity</p>
+        </div>
+      </div>
+      <div class="ww-card ww-card--c">
+        <p class="ww-text" data-i18n="ww_c_text">Teams and clients in different countries, same way of working.</p>
+        <div class="ww-stat">
+          <p class="ww-num">2</p>
+          <p class="ww-label" data-i18n="ww_c_label">Countries: Colombia and the US</p>
+        </div>
+      </div>
+      <div class="ww-card ww-card--d">
+        <span class="ww-dot" aria-hidden="true"></span>
+        <p class="ww-text" data-i18n="ww_d">Available for projects</p>
+      </div>
+      <div class="ww-card ww-card--dark">
+        <p class="ww-dark__text" data-i18n="ww_dark_text">I help teams and companies turn ideas into clear digital products that make sense and can be built.</p>
+        <div>
+          <p class="ww-dark__label" data-i18n="ww_dark_label">I've worked with</p>
+          <ul class="ww-dark__names">
+            <li>iQor</li>
+            <li>Mercado Libre</li>
+            <li>Sistecrédito</li>
+            <li>Grupo CSF</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- AI Is Part of How I Work -->
-  <div class="skill-item" id="skill-1">
-    <button onclick="toggleSkill('skill-1')" class="w-full flex justify-between items-center py-4 border-b border-border-low-contrast text-left group">
-      <span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors skill-header-title" data-i18n="skill1_title">AI With Design Judgment</span>
-      <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors skill-toggle-icon">add</span>
-    </button>
-    <div class="skill-body">
-      <p class="font-body-md text-body-md text-text-muted py-4 pr-2" data-i18n="skill1_body">
-        I bring AI into organizing findings, exploring hypotheses, and building prototypes faster. I evaluate its suggestions against what I learned in research, the product's context, and people's needs before turning them into design decisions. Some of the tools I use are: Codex, Claude, Claude Code, ChatGPT, V0, and Replit.
-      </p>
-      <div class="flex flex-wrap items-center gap-6 pb-4 pr-2 tool-logos">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_%28symbol%29.svg" alt="Codex" title="Codex" class="tool-logo tool-logo--mono-white" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude" title="Claude" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude Code" title="Claude Code" class="tool-logo" loading="lazy"/>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_%28symbol%29.svg" alt="ChatGPT" title="ChatGPT" class="tool-logo tool-logo--mono-white" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/v0/ffffff" alt="V0" title="V0" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/replit/F26207" alt="Replit" title="Replit" class="tool-logo" loading="lazy"/>
+<!-- Services -->
+<section class="ds-section pb-0" aria-labelledby="sv-title">
+  <div class="ds-container">
+    <div class="sv-head">
+      <h2 id="sv-title" class="sv-h2" data-i18n="sv_title">How I can help</h2>
+      <p class="sv-lead" data-i18n="sv_lead">I can help you design the product, organize it into a system and, if needed, build it.</p>
+    </div>
+    <div class="sv-grid">
+      <div class="sv-list" role="tablist" aria-labelledby="sv-title" aria-orientation="vertical">
+        <button type="button" class="sv-item" role="tab" id="sv-tab-design" aria-selected="true" aria-controls="sv-panel" tabindex="0" data-layer="design">
+          <!-- Lucide wand-sparkles (ISC) -->
+          <svg class="sv-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/></svg>
+          <span class="sv-text">
+            <span class="sv-title" data-i18n="sv1_title">Product design</span>
+            <span class="sv-body" data-i18n="sv1_body">I design interfaces and flows for apps, platforms and websites, starting from what I learn by talking to users.</span>
+          </span>
+        </button>
+        <button type="button" class="sv-item" role="tab" id="sv-tab-system" aria-selected="false" aria-controls="sv-panel" tabindex="-1" data-layer="system">
+          <!-- Lucide drafting-compass (ISC) -->
+          <svg class="sv-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.99 6.74 1.93 3.44"/><path d="M19.136 12a10 10 0 0 1-14.271 0"/><path d="m21 21-2.16-3.84"/><path d="m3 21 8.02-14.26"/><circle cx="12" cy="5" r="2"/></svg>
+          <span class="sv-text">
+            <span class="sv-title" data-i18n="sv2_title">Design systems</span>
+            <span class="sv-body" data-i18n="sv2_body">I create visual systems and component libraries so the product looks and feels the same on every screen.</span>
+          </span>
+        </button>
+        <button type="button" class="sv-item" role="tab" id="sv-tab-dev" aria-selected="false" aria-controls="sv-panel" tabindex="-1" data-layer="dev">
+          <!-- Lucide code-xml (ISC) -->
+          <svg class="sv-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+          <span class="sv-text">
+            <span class="sv-title" data-i18n="sv3_title">Development</span>
+            <span class="sv-body" data-i18n="sv3_body">I build websites and admin panels with HTML, Tailwind and Supabase, supported by AI tools.</span>
+          </span>
+        </button>
+      </div>
+      <div class="sv-visual" id="sv-panel" role="tabpanel" aria-labelledby="sv-tab-design">
+        <div class="sv-stack" aria-hidden="true">
+          <div class="sv-layer sv-layer--dev" data-layer="dev">
+            <div class="sv-code">
+              <div class="sv-code__nums"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+              <div class="sv-code__lines">
+                <span class="is-key" style="width:58%"></span>
+                <span class="is-in" style="width:72%"></span>
+                <span class="is-in2" style="width:48%"></span>
+                <span class="is-in2" style="width:64%"></span>
+                <span class="is-in is-key" style="width:30%"></span>
+                <span class="is-in" style="width:80%"></span>
+                <span class="is-in2" style="width:40%"></span>
+                <span class="is-in" style="width:22%"></span>
+                <span class="is-key" style="width:12%"></span>
+              </div>
+            </div>
+          </div>
+          <div class="sv-layer sv-layer--system" data-layer="system">
+            <div class="sv-ds">
+              <span class="sv-ds__btn sv-ds__btn--dark"></span>
+              <span class="sv-ds__btn sv-ds__btn--outline"></span>
+              <span class="sv-ds__circle"></span>
+              <span class="sv-ds__pill sv-ds__pill--dark"></span>
+              <span class="sv-ds__pill"></span>
+              <span class="sv-ds__pill"></span>
+              <i class="sv-ds__swatch"></i>
+              <i class="sv-ds__swatch"></i>
+              <i class="sv-ds__swatch"></i>
+            </div>
+          </div>
+          <div class="sv-layer sv-layer--design is-active" data-layer="design">
+            <div class="sv-wf">
+              <div class="sv-wf__bar"><i></i><i></i><i></i><b></b></div>
+              <span class="sv-sk sv-wf__hero"></span>
+              <div class="sv-wf__cards"><span class="sv-sk"></span><span class="sv-sk"></span></div>
+            </div>
+          </div>
+          <span class="sv-edge sv-edge--tl"></span>
+          <span class="sv-edge sv-edge--tr"></span>
+          <span class="sv-edge sv-edge--bl"></span>
+          <span class="sv-edge sv-edge--br"></span>
+        </div>
       </div>
     </div>
   </div>
+</section>
+<script>
+  (function () {
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.sv-item[role="tab"]'));
+    var panel = document.getElementById('sv-panel');
+    var layers = document.querySelectorAll('.sv-layer');
+    var canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+    function select(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+      });
+      layers.forEach(function (l) { l.classList.toggle('is-active', l.dataset.layer === tab.dataset.layer); });
+      panel.setAttribute('aria-labelledby', tab.id);
+      if (focus) tab.focus();
+    }
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () { select(tab, false); });
+      tab.addEventListener('mouseenter', function () { if (canHover.matches) select(tab, false); });
+      tab.addEventListener('keydown', function (e) {
+        var next = null;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+        else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if (e.key === 'Home') next = tabs[0];
+        else if (e.key === 'End') next = tabs[tabs.length - 1];
+        if (!next) return;
+        e.preventDefault();
+        select(next, true);
+      });
+    });
+  })();
+</script>
 
-  <!-- Research That Starts With the User -->
-  <div class="skill-item" id="skill-2">
-    <button onclick="toggleSkill('skill-2')" class="w-full flex justify-between items-center py-4 border-b border-border-low-contrast text-left group">
-      <span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors skill-header-title" data-i18n="skill2_title">I Build Effective, Scalable Design Systems</span>
-      <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors skill-toggle-icon">add</span>
-    </button>
-    <div class="skill-body">
-      <p class="font-body-md text-body-md text-text-muted py-4 pr-2" data-i18n="skill2_body">
-        My specialty is building design systems that work across any platform and device. I build them either in Figma or tokenized as CSS styles so they can be used by any AI, which speeds up building complex products from day one. Some of the tools I use for this are: Figma, Claude, Claude Code, and Visual Studio Code.
-      </p>
-      <div class="flex flex-wrap items-center gap-6 pb-4 pr-2 tool-logos">
-        <img src="https://cdn.simpleicons.org/figma/F24E1E" alt="Figma" title="Figma" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude" title="Claude" class="tool-logo" loading="lazy"/>
-        <img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude Code" title="Claude Code" class="tool-logo" loading="lazy"/>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="Visual Studio Code" title="Visual Studio Code" class="tool-logo" loading="lazy"/>
+<!-- Process -->
+<section class="ds-section pb-0" aria-labelledby="pr-title">
+  <div class="ds-container">
+    <div class="pr-grid">
+      <div class="pr-intro">
+        <span class="pr-pill">
+          <!-- Lucide trophy (ISC) -->
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978"/><path d="M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978"/><path d="M18 9h1.5a1 1 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6 9H4.5a1 1 0 0 1 0-5H6"/></svg>
+          <span data-i18n="pr_eyebrow">Process</span>
+        </span>
+        <h2 id="pr-title" class="pr-h2" data-i18n="pr_title">How I work, step by step</h2>
+        <p class="pr-lead" data-i18n="pr_lead">A simple, collaborative process that takes an idea from the first sketch to a working product.</p>
+      </div>
+      <div class="pr-steps" id="pr-steps">
+        <span class="pr-track" aria-hidden="true"></span>
+        <span class="pr-fill" aria-hidden="true"></span>
+        <ol class="pr-list" aria-labelledby="pr-title">
+          <li class="pr-step is-revealed" aria-current="step">
+            <!-- Lucide users (ISC) -->
+            <span class="pr-node"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <span>
+              <span class="pr-title" data-i18n="pr1_title">Understand</span>
+              <span class="pr-body" data-i18n="pr1_body">I start by understanding the problem, the user and what the business needs. I talk to the people who will use the product.</span>
+            </span>
+          </li>
+          <li class="pr-step">
+            <!-- Lucide target (ISC) -->
+            <span class="pr-node"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+            <span>
+              <span class="pr-title" data-i18n="pr2_title">Define</span>
+              <span class="pr-body" data-i18n="pr2_body">With what I learn, I work with the team to define what gets built first and why.</span>
+            </span>
+          </li>
+          <li class="pr-step">
+            <!-- Lucide pencil-ruler (ISC) -->
+            <span class="pr-node"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 7 8.7 2.7a2.41 2.41 0 0 0-3.4 0L2.7 5.3a2.41 2.41 0 0 0 0 3.4L7 13"/><path d="m8 6 2-2"/><path d="m18 16 2-2"/><path d="m17 11 4.3 4.3c.94.94.94 2.46 0 3.4l-2.6 2.6c-.94.94-2.46.94-3.4 0L11 17"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg></span>
+            <span>
+              <span class="pr-title" data-i18n="pr3_title">Explore</span>
+              <span class="pr-body" data-i18n="pr3_body">I make sketches, flows and wireframes to test ideas quickly, before polishing anything.</span>
+            </span>
+          </li>
+          <li class="pr-step">
+            <!-- Lucide layers (ISC) -->
+            <span class="pr-node"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg></span>
+            <span>
+              <span class="pr-title" data-i18n="pr4_title">Design</span>
+              <span class="pr-body" data-i18n="pr4_body">I design the screens and system components, caring about detail so the product is usable and accessible.</span>
+            </span>
+          </li>
+          <li class="pr-step">
+            <!-- Lucide terminal (ISC) -->
+            <span class="pr-node"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg></span>
+            <span>
+              <span class="pr-title" data-i18n="pr5_title">Build</span>
+              <span class="pr-body" data-i18n="pr5_body">When needed, I turn the design into code with HTML, Tailwind and Supabase, or hand it off ready for the team to build without guessing.</span>
+            </span>
+          </li>
+          <li class="pr-step">
+            <!-- Lucide rocket (ISC) -->
+            <span class="pr-node"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span>
+            <span>
+              <span class="pr-title" data-i18n="pr6_title">Deliver and adjust</span>
+              <span class="pr-body" data-i18n="pr6_body">I deliver, watch how it gets used and adjust. Each version teaches something for the next one.</span>
+            </span>
+          </li>
+        </ol>
       </div>
     </div>
   </div>
+</section>
+<script>
+  (function () {
+    var wrap = document.getElementById('pr-steps');
+    if (!wrap) return;
+    var steps = Array.prototype.slice.call(wrap.querySelectorAll('.pr-step'));
+    var nodes = steps.map(function (s) { return s.querySelector('.pr-node'); });
+    var track = wrap.querySelector('.pr-track');
+    var fill = wrap.querySelector('.pr-fill');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var active = 0;
 
-  <!-- Mentoring Designers -->
-  <div class="skill-item" id="skill-3">
-    <button onclick="toggleSkill('skill-3')" class="w-full flex justify-between items-center py-4 border-b border-border-low-contrast text-left group">
-      <span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors skill-header-title" data-i18n="skill3_title">Mentoring Designers</span>
-      <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors skill-toggle-icon">add</span>
-    </button>
-    <div class="skill-body">
-      <p class="font-body-md text-body-md text-text-muted py-4 pr-2" data-i18n="skill3_body">
-        Besides designing, I spend time developing other designers. I've spent 3 years mentoring interns and junior, mid-level, and senior visual and product designers, helping them build better judgment and grow in their professional and personal process; it's not just about getting the day's tasks done.
-      </p>
+    function nodeCenter(i) {
+      var r = nodes[i].getBoundingClientRect();
+      return r.top + r.height / 2 - wrap.getBoundingClientRect().top;
+    }
+    function render() {
+      var shown = reduced.matches ? steps.length - 1 : active;
+      steps.forEach(function (s, i) {
+        s.classList.toggle('is-revealed', i <= shown);
+        if (i === active) s.setAttribute('aria-current', 'step');
+        else s.removeAttribute('aria-current');
+      });
+      var top = nodeCenter(0);
+      track.style.top = fill.style.top = top + 'px';
+      track.style.height = (nodeCenter(steps.length - 1) - top) + 'px';
+      fill.style.height = (nodeCenter(shown) - top) + 'px';
+    }
+    // Active step = last step whose top has crossed the viewport center.
+    // Before the section this is step 1; past the section it stays on the last one.
+    function sync() {
+      var mid = window.innerHeight / 2;
+      var next = 0;
+      steps.forEach(function (s, i) { if (s.getBoundingClientRect().top < mid) next = i; });
+      if (next !== active) { active = next; render(); }
+    }
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(sync, { rootMargin: '-45% 0px -45% 0px' });
+      steps.forEach(function (s) { io.observe(s); });
+    }
+    // Fast scrolls can jump over the center band without an observer callback.
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; sync(); });
+    }, { passive: true });
+    // Card heights change with viewport width and language, so re-measure the line.
+    if ('ResizeObserver' in window) new ResizeObserver(render).observe(wrap);
+    else window.addEventListener('resize', render);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(render);
+    if (reduced.addEventListener) reduced.addEventListener('change', render);
+    sync();
+    render();
+  })();
+</script>
+
+<!-- Strengths -->
+<section class="ds-section pb-0" aria-labelledby="st-title">
+  <div class="ds-container">
+    <div class="st-head">
+      <span class="pr-pill" data-i18n="st_eyebrow">Strengths</span>
+      <h2 id="st-title" class="pr-h2" data-i18n="st_title">What I bring to your team</h2>
+      <p class="st-lead" data-i18n="st_lead">I mix strategy, design and code so ideas become clear and ready to launch.</p>
+    </div>
+    <ul class="st-grid">
+      <li class="st-card">
+        <!-- Lucide palette (ISC) -->
+        <span class="st-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></svg></span>
+        <div>
+          <h3 class="st-title" data-i18n="st1_title">Consistency</h3>
+          <span class="st-body" data-i18n="st1_body">I keep one visual language across the whole product, backed by design systems.</span>
+        </div>
+      </li>
+      <li class="st-card">
+        <!-- Lucide scaling (ISC) -->
+        <span class="st-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M14 15H9v-5"/><path d="M16 3h5v5"/><path d="M21 3 9 15"/></svg></span>
+        <div>
+          <h3 class="st-title" data-i18n="st2_title">Scalability</h3>
+          <span class="st-body" data-i18n="st2_body">I design components and tokens built to grow without breaking what already exists.</span>
+        </div>
+      </li>
+      <li class="st-card">
+        <!-- Lucide blocks (ISC) -->
+        <span class="st-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="14" y="3" rx="1"/><path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"/></svg></span>
+        <div>
+          <h3 class="st-title" data-i18n="st3_title">Technical judgment</h3>
+          <span class="st-body" data-i18n="st3_body">I know what's feasible from the start, so what I deliver can be built.</span>
+        </div>
+      </li>
+      <li class="st-card st-card--wide st-card--dark">
+        <!-- Lucide zap (ISC) -->
+        <span class="st-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></span>
+        <div>
+          <h3 class="st-title" data-i18n="st4_title">Speed</h3>
+          <span class="st-body" data-i18n="st4_body">With AI and code I get to something testable fast, without lowering quality.</span>
+        </div>
+      </li>
+      <li class="st-card">
+        <!-- Lucide search (ISC) -->
+        <span class="st-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+        <div>
+          <h3 class="st-title" data-i18n="st5_title">Research</h3>
+          <span class="st-body" data-i18n="st5_body">I talk to users and turn what I hear into design decisions.</span>
+        </div>
+      </li>
+      <li class="st-card st-card--wide">
+        <!-- Lucide handshake (ISC) -->
+        <span class="st-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></span>
+        <div>
+          <h3 class="st-title" data-i18n="st6_title">Collaboration</h3>
+          <span class="st-body" data-i18n="st6_body">I work side by side with developers, stakeholders and clients, in person or remotely, so we all move in the same direction.</span>
+        </div>
+      </li>
+      <li class="st-card">
+        <!-- Lucide graduation-cap (ISC) -->
+        <span class="st-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></span>
+        <div>
+          <h3 class="st-title" data-i18n="st7_title">Mentoring</h3>
+          <span class="st-body" data-i18n="st7_body">I help other designers sharpen their judgment and grow in their process.</span>
+        </div>
+      </li>
+      <li class="st-card">
+        <!-- Lucide languages (ISC) -->
+        <span class="st-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg></span>
+        <div>
+          <h3 class="st-title" data-i18n="st8_title">Languages</h3>
+          <span class="st-body" data-i18n="st8_body">I work in Spanish and English with teams in Colombia and the US.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Case Studies -->
+<section id="projects" class="ds-section scroll-mt-24">
+  <div class="ds-container">
+    <div class="mb-10 md:mb-14 max-w-2xl">
+      <span class="ds-eyebrow" data-i18n="selected_works">SELECTED WORKS</span>
+      <h2 class="ds-h2 mt-5" data-i18n="works_title">About My Experience</h2>
+    </div>
+    <div class="scroll-stack" data-item-distance="80" data-item-stack-distance="28" data-stack-position="18%" data-scale-end-position="8%" data-base-scale="0.88" data-item-scale="0.025">
+
+      <!-- Project: iQor -->
+      <a href="iqor/iqor.html" class="pc pc--stack scroll-stack-card" style="--tint: 15 52 112">
+        <div class="pc__media">
+          <img alt="iQor HUB Project" src="iqor/img/iqorlogo.jpg"/>
+          <span class="pc__save" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
+        </div>
+        <div class="pc__body">
+          <h3 class="pc__title">iQor</h3>
+          <p class="pc__sub">Senior UX/UI Designer</p>
+          <div class="pc__meta">
+            <span><span class="material-symbols-outlined">work</span>BPO</span>
+            <span><span class="material-symbols-outlined">design_services</span>UX Design</span>
+          </div>
+          <div class="pc__foot">
+            <div class="pc__stats">
+              <div class="pc__stat"><b><span class="material-symbols-outlined">star</span>4</b><small data-i18n="pc_cases">case studies</small></div>
+              <div class="pc__stat"><b>2025</b><small data-i18n="pc_since">since</small></div>
+            </div>
+            <span class="pc__cta" data-i18n="pc_view">View case</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project: Mercado Libre -->
+      <a href="mercadolibre/mercadolibre.html" class="pc pc--stack pc--light scroll-stack-card" style="--tint: 255 255 255">
+        <div class="pc__media">
+          <img alt="Mercado Libre Project" src="mercadolibre/img/logomercadolibre.svg"/>
+          <span class="pc__save" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
+        </div>
+        <div class="pc__body">
+          <h3 class="pc__title">Mercado Libre</h3>
+          <p class="pc__sub" data-i18n="ml_sub">Research &amp; product design for e-commerce</p>
+          <div class="pc__meta">
+            <span><span class="material-symbols-outlined">search</span><span data-i18n="ml_tag1">UX Research</span></span>
+            <span><span class="material-symbols-outlined">design_services</span><span data-i18n="ml_tag2">Product Design</span></span>
+          </div>
+          <div class="pc__foot">
+            <div class="pc__stats">
+              <div class="pc__stat"><b><span class="material-symbols-outlined">star</span>5</b><small data-i18n="pc_cases">case studies</small></div>
+              <div class="pc__stat"><b>E-commerce</b><small data-i18n="pc_industry">industry</small></div>
+            </div>
+            <span class="pc__cta" data-i18n="pc_view">View case</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project: Sistecrédito -->
+      <a href="sistecredito/sistecredito.html" class="pc pc--stack pc--light scroll-stack-card" style="--tint: 255 255 255">
+        <div class="pc__media">
+          <img alt="Sistecrédito Project" src="sistecredito/img/sistecreditologo.svg"/>
+          <span class="pc__save" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
+        </div>
+        <div class="pc__body">
+          <h3 class="pc__title">Sistecrédito</h3>
+          <p class="pc__sub" data-i18n="sc_sub">Credit and collections flows</p>
+          <div class="pc__meta">
+            <span><span class="material-symbols-outlined">account_balance</span>Fintech</span>
+            <span><span class="material-symbols-outlined">credit_card</span>Credit</span>
+          </div>
+          <div class="pc__foot">
+            <div class="pc__stats">
+              <div class="pc__stat"><b><span class="material-symbols-outlined">star</span>2</b><small data-i18n="pc_cases">case studies</small></div>
+              <div class="pc__stat"><b>Fintech</b><small data-i18n="pc_industry">industry</small></div>
+            </div>
+            <span class="pc__cta" data-i18n="pc_view">View case</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project: Maindstar -->
+      <a href="maindstar/maindstar.html" class="pc pc--stack scroll-stack-card" style="--tint: 10 36 128">
+        <div class="pc__media">
+          <img alt="Maindstar Project" src="maindstar/img/maindstarlogo1.svg"/>
+          <span class="pc__save" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
+        </div>
+        <div class="pc__body">
+          <h3 class="pc__title">Maindstar</h3>
+          <p class="pc__sub">Lead Designer</p>
+          <div class="pc__meta">
+            <span><span class="material-symbols-outlined">palette</span>Brand</span>
+            <span><span class="material-symbols-outlined">auto_awesome</span>Identity</span>
+          </div>
+          <div class="pc__foot">
+            <div class="pc__stats">
+              <div class="pc__stat"><b>2024–25</b><small data-i18n="pc_period">period</small></div>
+              <div class="pc__stat"><b>Brand</b><small data-i18n="pc_focus">focus</small></div>
+            </div>
+            <span class="pc__cta" data-i18n="pc_view">View case</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project: Grupo CSF -->
+      <a href="csf/csf.html" class="pc pc--stack scroll-stack-card" style="--tint: 22 20 22">
+        <div class="pc__media">
+          <img alt="Grupo CSF Project" src="csf/img/csfgroup.png"/>
+          <span class="pc__save" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
+        </div>
+        <div class="pc__body">
+          <h3 class="pc__title">Grupo CSF</h3>
+          <p class="pc__sub">Lead Product Designer</p>
+          <div class="pc__meta">
+            <span><span class="material-symbols-outlined">domain</span><span data-i18n="csf_tag1">Holding</span></span>
+            <span><span class="material-symbols-outlined">category</span><span data-i18n="csf_tag2">Brand System</span></span>
+          </div>
+          <div class="pc__foot">
+            <div class="pc__stats">
+              <div class="pc__stat"><b><span class="material-symbols-outlined">star</span>4</b><small data-i18n="pc_units">business units</small></div>
+              <div class="pc__stat"><b>2025–26</b><small data-i18n="pc_period">period</small></div>
+            </div>
+            <span class="pc__cta" data-i18n="pc_view">View case</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="scroll-stack-end" aria-hidden="true"></div>
     </div>
   </div>
+</section>
 
-  <!-- Design Ops & Growth Strategy -->
-  <div class="skill-item" id="skill-4">
-    <button onclick="toggleSkill('skill-4')" class="w-full flex justify-between items-center py-4 border-b border-border-low-contrast text-left group">
-      <span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors skill-header-title" data-i18n="skill4_title">Design Ops & Growth Strategy for the Product Design and Technology Team</span>
-      <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors skill-toggle-icon">add</span>
-    </button>
-    <div class="skill-body">
-      <p class="font-body-md text-body-md text-text-muted py-4 pr-2" data-i18n="skill4_body">
-        I focus on building the design team's processes through Design Ops: documentation, handoffs, ways of working with other teams, and design strategies that help the team and designers do their work better.
-      </p>
+<!-- Contact -->
+<section id="contact" class="ds-section pt-0 scroll-mt-24">
+  <div class="ds-container">
+    <div class="ds-panel px-6 py-14 md:px-16 md:py-20 flex flex-col items-start gap-6">
+      <span class="ds-eyebrow"><span class="ds-dot ds-dot--live"></span><span data-i18n="available">AVAILABLE FOR HIRE</span></span>
+      <h2 class="ds-h2 max-w-2xl" data-i18n="contact_title">Let's build your next product</h2>
+      <p class="ds-p max-w-2xl" data-i18n="contact_desc">Download my CV to see my full experience, or explore the case studies to see how I work.</p>
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="files/CVSantiagoMorales.pdf" download class="ds-btn"><span data-i18n="cv_btn">Download my CV</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+        <a href="#projects" class="ds-btn ds-btn--ghost"><span data-i18n="hero_cta_projects">See projects</span></a>
+      </div>
     </div>
   </div>
-
-</div>
-</div>
 </section>
 </main>
-<!-- Footer Component -->
-<footer class="w-full py-gutter px-margin-desktop mt-section-gap flex flex-col md:flex-row justify-between items-center gap-element-gap border-t border-border-low-contrast dark:border-border-low-contrast bg-background dark:bg-background text-primary dark:text-primary font-label-sm text-label-sm opacity-80 hover:opacity-100 transition-opacity">
-<div class="font-label-md text-label-md uppercase tracking-widest text-on-surface">
-            DavinSane
-        </div>
-<div class="text-on-surface dark:text-on-surface" data-i18n="footer_copy">
-            © 2026 Santiago Morales - DavinSane. All rights reserved.
-        </div>
-<nav class="flex gap-6">
-<a class="text-text-muted dark:text-text-muted hover:text-primary dark:hover:text-primary transition-colors duration-200" href="#" data-i18n="footer_privacy">Privacy</a>
-<a class="text-text-muted dark:text-text-muted hover:text-primary dark:hover:text-primary transition-colors duration-200" href="#" data-i18n="footer_terms">Terms</a>
-<a class="text-text-muted dark:text-text-muted hover:text-primary dark:hover:text-primary transition-colors duration-200" href="#">Github</a>
-</nav>
-</footer>
+
+<!-- Footer -->
+<footer class="site-footer" data-site-footer></footer>
+<script src="assets/site-footer.js"></script>
+
 <!-- Floating language toggle -->
-<button id="lang-toggle" onclick="toggleLang()" aria-label="Toggle language" class="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-3 py-2 bg-surface-elevated border border-border-low-contrast rounded-full font-label-sm text-label-sm text-on-surface hover:border-primary hover:text-primary transition-colors duration-200 shadow-lg">
-  <span class="material-symbols-outlined" style="font-size:16px;">language</span>
+<button id="lang-toggle" onclick="toggleLang()" aria-label="Toggle language" class="lang-toggle">
+  <span class="material-symbols-outlined">language</span>
   <span id="lang-label">ES</span>
 </button>
 
-<script type="module" src="particles-bg.js"></script>
-
 <script>
-  // ── Expandable skill accordion ──
-  function toggleSkill(id) {
-    const item = document.getElementById(id);
-    const isExpanded = item.classList.contains('expanded');
-    document.querySelectorAll('.skill-item').forEach(el => el.classList.remove('expanded'));
-    if (!isExpanded) item.classList.add('expanded');
-  }
-
-  // ── AnimatedList: animate items in/out as they enter/leave the viewport ──
-  const skillObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const idx = parseInt(entry.target.dataset.skillIdx || 0);
-        setTimeout(() => entry.target.classList.add('animate-in'), idx * 80);
-        skillObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.4 });
-
-  document.querySelectorAll('.skill-item').forEach((item, idx) => {
-    item.dataset.skillIdx = idx;
-    skillObserver.observe(item);
-  });
-
   // ── i18n translations ──
   const translations = {
     en: {
-      nav_home: 'Home', nav_projects: 'Projects', nav_blog: 'Blog',
-      hero_title:     'Senior Visual Designer specialized in Product Design & UX/UI Engineering',
-      hero_lead:      'Understanding business needs and their users is what leads to successful products.',
-      hero_desc:      'I have 7 years designing digital products centered on the user for Fintech, Ecommerce, and BPO companies, both nationally and internationally, following different visual and product design methodologies to reach a product that\'s viable, usable, and accessible.',
+      nav_home: 'Home', nav_projects: 'Projects', nav_blog: 'Blog', nav_cta: "Let's talk",
+      hero_cta_projects: 'See projects',
+      clients_label:  'Companies I have designed for',
+      contact_title:  "Let's build your next product",
+      contact_desc:   'Download my CV to see my full experience, or explore the case studies to see how I work.',
+      hero_title_a:      'Success is learning to solve',
+      hero_title_b:      "the customer's problem",
+      hero_sub:          "I'm Santiago, a product designer. I understand the user, the business and the code, so what I design can actually be built.",
+      hero_cta_contact:  'Contact me',
+      hero_photo_alt:    'Portrait of Santiago Morales, a product designer with curly hair and clear glasses, wearing a black shirt with arms crossed against a gray studio background',
+      glass_eyebrow:     'Available for projects',
+      glass_title:       "Let's design together",
+      glass_text:        'Product design and UX/UI',
+      hero_cutout_alt:   'Portrait of Santiago Morales, a product designer with curly hair and clear glasses, wearing a black shirt with arms crossed',
+      stat1_short:       'Years of experience',
+      stat2_short:       'Companies',
+      stat3_short:       'Years mentoring',
       available:      'AVAILABLE FOR HIRE',
       cv_btn:         'Download my CV',
       works_title:    'About My Experience',
@@ -520,30 +1098,97 @@
       coming_soon:    'Coming Soon',
       ml_tag1: 'UX Research', ml_tag2: 'Product Design',
       csf_tag1: 'Holding', csf_tag2: 'Brand System',
-      about_label:    'Visual Designer / Product Designer',
-      about_title:    'About Me',
-      about_desc:     'I\'m David Santiago Morales, or as I\'m known online, "DavinSane," a combination of my first names. I\'m a visual designer from Fundación Universitaria Bellas Artes de Medellín, and for the past 7 years I\'ve dedicated myself to designing digital products for companies nationally and internationally. I\'m very passionate about designing digital products, sharing knowledge, and learning every day about new technologies and tools that let me speed up and optimize my workflow. On a personal note, I really love art, I\'m very devoted to visual design and 3D design in Blender and ZBrush. In fact, I have a 3D printer that I use to print useful objects for my home and to sell. I also really love music, singing, and playing guitar. I do a lot of offroading and motocross. I love my pets: at home I have 2 beautiful dogs and 2 cats. I dedicate my life to everything I\'m passionate about, and I do it with a lot of love and dedication.',
-      skills_title:   'About My Skills',
-      skill0_title:   'I Understand and Execute with Strategy Based on Business Needs',
-      skill0_body:    "I stand out for understanding and analyzing business needs and how their users work. Through interviews and usability testing, I identify opportunities, prioritize solutions, and design experiences that address real problems the business and its different digital products face. In how I work, I use different tools like Notion, Miro, Hotjar, Typeform, SurveyMonkey, Dovetail, Claude AI, and ChatGPT, which help me speed up my research work.",
-      skill1_title:   'AI With Design Judgment',
-      skill1_body:    "I bring AI into organizing findings, exploring hypotheses, and building prototypes faster. I evaluate its suggestions against what I learned in research, the product's context, and people's needs before turning them into design decisions. Some of the tools I use are: Codex, Claude, Claude Code, ChatGPT, V0, and Replit.",
-      skill2_title:   'I Build Effective, Scalable Design Systems',
-      skill2_body:    'My specialty is building design systems that work across any platform and device. I build them either in Figma or tokenized as CSS styles so they can be used by any AI, which speeds up building complex products from day one. Some of the tools I use for this are: Figma, Claude, Claude Code, and Visual Studio Code.',
-      skill3_title:   'Mentoring Designers',
-      skill3_body:    "Besides designing, I spend time developing other designers. I've spent 3 years mentoring interns and junior, mid-level, and senior visual and product designers, helping them build better judgment and grow in their professional and personal process; it's not just about getting the day's tasks done.",
-      skill4_title:   'Design Ops & Growth Strategy for the Product Design and Technology Team',
-      skill4_body:    "I focus on building the design team's processes through Design Ops: documentation, handoffs, ways of working with other teams, and design strategies that help the team and designers do their work better.",
+      pc_cases: 'case studies', pc_since: 'since', pc_view: 'View case', pc_industry: 'industry', pc_period: 'period', pc_focus: 'focus', pc_units: 'business units',
+      ml_sub: 'Research & product design for e-commerce', sc_sub: 'Credit and collections flows',
+      wd_eyebrow:     'What I do',
+      wd_title:       'What makes me different',
+      wd_lead:        'I design products with the user, the business and how they get built in mind.',
+      wd1_title:      'Clear design systems',
+      wd1_body:       "I work on the foundations of iQor's design system and built the one for Grupo CSF, so every screen looks and feels the same.",
+      wd2_title:      'Strategy and leadership',
+      wd2_body:       "I've spent over a year leading design at iQor, 3 years mentoring designers, and I lead design across the 4 business units of Grupo CSF. I help decide what gets built first and why.",
+      wd3_title:      'AI is part of how I work',
+      wd3_body:       'I use Claude Code, Codex, v0 and Replit across my process, from exploring ideas to building, so I move faster without lowering the quality of what I deliver.',
+      wd_now:         'Now',
+      wd_next:        'Next',
+      wd_later:       'Later',
+      wd_mentoring:   'Mentoring',
+      ww_eyebrow:     'Why work with me',
+      ww_title:       'Design with judgment, from idea to production',
+      ww_lead:        'I combine strategy, visual design and code so what I design works for the user and for the business.',
+      ww_a:           'Fintech, Ecommerce and BPO',
+      ww_b_text:      'One design system across the whole business.',
+      ww_b_label:     'Grupo CSF business units, one identity',
+      ww_c_text:      'Teams and clients in different countries, same way of working.',
+      ww_c_label:     'Countries: Colombia and the US',
+      ww_d:           'Available for projects',
+      ww_dark_text:   'I help teams and companies turn ideas into clear digital products that make sense and can be built.',
+      ww_dark_label:  "I've worked with",
+      sv_title:       'How I can help',
+      sv_lead:        'I can help you design the product, organize it into a system and, if needed, build it.',
+      sv1_title:      'Product design',
+      sv1_body:       'I design interfaces and flows for apps, platforms and websites, starting from what I learn by talking to users.',
+      sv2_title:      'Design systems',
+      sv2_body:       'I create visual systems and component libraries so the product looks and feels the same on every screen.',
+      sv3_title:      'Development',
+      sv3_body:       'I build websites and admin panels with HTML, Tailwind and Supabase, supported by AI tools.',
+      pr_eyebrow:     'Process',
+      pr_title:       'How I work, step by step',
+      pr_lead:        'A simple, collaborative process that takes an idea from the first sketch to a working product.',
+      pr1_title:      'Understand',
+      pr1_body:       'I start by understanding the problem, the user and what the business needs. I talk to the people who will use the product.',
+      pr2_title:      'Define',
+      pr2_body:       'With what I learn, I work with the team to define what gets built first and why.',
+      pr3_title:      'Explore',
+      pr3_body:       'I make sketches, flows and wireframes to test ideas quickly, before polishing anything.',
+      pr4_title:      'Design',
+      pr4_body:       'I design the screens and system components, caring about detail so the product is usable and accessible.',
+      pr5_title:      'Build',
+      pr5_body:       'When needed, I turn the design into code with HTML, Tailwind and Supabase, or hand it off ready for the team to build without guessing.',
+      pr6_title:      'Deliver and adjust',
+      pr6_body:       'I deliver, watch how it gets used and adjust. Each version teaches something for the next one.',
+      st_eyebrow:     'Strengths',
+      st_title:       'What I bring to your team',
+      st_lead:        'I mix strategy, design and code so ideas become clear and ready to launch.',
+      st1_title:      'Consistency',
+      st1_body:       'I keep one visual language across the whole product, backed by design systems.',
+      st2_title:      'Scalability',
+      st2_body:       'I design components and tokens built to grow without breaking what already exists.',
+      st3_title:      'Technical judgment',
+      st3_body:       "I know what's feasible from the start, so what I deliver can be built.",
+      st4_title:      'Speed',
+      st4_body:       'With AI and code I get to something testable fast, without lowering quality.',
+      st5_title:      'Research',
+      st5_body:       'I talk to users and turn what I hear into design decisions.',
+      st6_title:      'Collaboration',
+      st6_body:       'I work side by side with developers, stakeholders and clients, in person or remotely, so we all move in the same direction.',
+      st7_title:      'Mentoring',
+      st7_body:       'I help other designers sharpen their judgment and grow in their process.',
+      st8_title:      'Languages',
+      st8_body:       'I work in Spanish and English with teams in Colombia and the US.',
       cv_card_title:  'Download my CV',
       footer_copy:    '© 2026 Santiago Morales - DavinSane. All rights reserved.',
       footer_privacy: 'Privacy',
       footer_terms:   'Terms',
     },
     es: {
-      nav_home: 'Inicio', nav_projects: 'Proyectos', nav_blog: 'Blog',
-      hero_title:     'Senior Visual Designer especializado en Product Design & UX/UI Engineering',
-      hero_lead:      'Entender las necesidades del negocio y a sus usuarios llevan a crear productos exitosos.',
-      hero_desc:      'Tengo 7 años diseñando productos digitales centrados en el usuario para empresas Fintech, Ecommerce y BPO, a nivel nacional e internacional, siguiendo diferentes metodologías de diseño visual y de producto con el fin de llegar a un producto viable, usable y accesible.',
+      nav_home: 'Inicio', nav_projects: 'Proyectos', nav_blog: 'Blog', nav_cta: 'Hablemos',
+      hero_cta_projects: 'Ver proyectos',
+      clients_label:  'Empresas para las que he diseñado',
+      contact_title:  'Construyamos tu próximo producto',
+      contact_desc:   'Descarga mi CV para ver mi experiencia completa, o explora los casos de estudio para ver cómo trabajo.',
+      hero_title_a:      'El éxito es aprender a resolver',
+      hero_title_b:      'el problema del cliente',
+      hero_sub:          'Soy Santiago, diseñador de producto. Entiendo al usuario, al negocio y también el código, para que lo que diseño se pueda construir.',
+      hero_cta_contact:  'Contáctame',
+      hero_photo_alt:    'Retrato de Santiago Morales, diseñador de producto con cabello rizado y gafas transparentes, con camisa negra y brazos cruzados sobre un fondo gris de estudio',
+      glass_eyebrow:     'Disponible para proyectos',
+      glass_title:       'Diseñemos juntos',
+      glass_text:        'Diseño de producto y UX/UI',
+      hero_cutout_alt:   'Retrato de Santiago Morales, diseñador de producto con cabello rizado y gafas transparentes, con camisa negra y brazos cruzados',
+      stat1_short:       'Años de experiencia',
+      stat2_short:       'Empresas',
+      stat3_short:       'Años de mentoría',
       available:      'DISPONIBLE PARA CONTRATAR',
       cv_btn:         'Descarga mi CV',
       works_title:    'Sobre mi Experiencia',
@@ -551,20 +1196,74 @@
       coming_soon:    'Próximamente',
       ml_tag1: 'UX Research', ml_tag2: 'Diseño de Producto',
       csf_tag1: 'Holding', csf_tag2: 'Sistema de Marca',
-      about_label:    'Visual Designer / Product Designer',
-      about_title:    'About Me',
-      about_desc:     'Soy David Santiago Morales, o como me llamo digitalmente, "DavinSane", por la combinación de mis primeros nombres. Soy diseñador visual de la Fundación Universitaria Bellas Artes de Medellín y me he dedicado durante 7 años a diseñar productos digitales para empresas a nivel nacional e internacional. Me apasiona mucho diseñar productos digitales, aportar conocimiento y aprender todos los días de las nuevas tecnologías y herramientas que me permiten agilizar y optimizar mi flujo de trabajo. A modo personal, me gusta mucho el arte, soy muy entregado al diseño visual y al diseño 3D en Blender y ZBrush. De hecho, tengo una impresora 3D en la que imprimo muchos objetos útiles para mi hogar y para venderlos. También me gusta mucho la música, cantar y tocar guitarra. Practico mucho offroad y motocross. Amo mis mascotas: en casa tengo 2 hermosos perros y 2 gatos. Dedico mi vida a todo lo que me apasiona y lo hago con mucho amor y dedicación.',
-      skills_title:   'Sobre mis Habilidades',
-      skill0_title:   'Entiendo y ejecuto con estrategia en base a las necesidades del negocio',
-      skill0_body:    'Me destaco por entender y analizar las necesidades del negocio y cómo trabajan sus usuarios. A partir de entrevistas y pruebas de usabilidad, identifico oportunidades, priorizo soluciones y diseño experiencias que responden a problemas reales que tiene el negocio y sus diferentes productos digitales. En mi forma de trabajar uso diferentes herramientas como Notion, Miro, Hotjar, Typeform, SurveyMonkey, Dovetail, Claude AI y ChatGPT, las cuales me sirven para agilizar mi trabajo investigativo.',
-      skill1_title:   'AI con criterio de diseño',
-      skill1_body:    'Integro la IA para organizar hallazgos, explorar hipótesis y crear prototipos con mayor agilidad. Evalúo sus propuestas según lo aprendido en la investigación, el contexto del producto y las necesidades de las personas antes de convertirlas en decisiones de diseño. Entre las herramientas de trabajo que uso están: Codex, Claude, Claude Code, ChatGPT, V0 y Replit.',
-      skill2_title:   'Construyo Sistemas de Diseño efectivos y escalables',
-      skill2_body:    'Tengo como especialidad construir sistemas de diseño usables en cualquier tipo de plataforma y dispositivo. Los hago ya sea en Figma o tokenizados como estilos CSS para que puedan ser usados por cualquier inteligencia artificial, lo que permite agilizar la construcción de productos complejos desde el inicio. Entre las herramientas que uso para esto están: Figma, Claude, Claude Code y Visual Studio Code.',
-      skill3_title:   'Mentor de diseñadores',
-      skill3_body:    'Además de diseñar, dedico tiempo a formar a otros diseñadores. Llevo 3 años acompañando a practicantes, diseñadores visuales y de producto junior, semi senior y senior, ayudándoles a mejorar su criterio y a crecer en su proceso profesional y humano; no solo resolvemos las tareas del día a día.',
-      skill4_title:   'Design Ops y Estrategia de crecimiento del área de Diseño de producto y tecnología',
-      skill4_body:    'Me enfoco en construir los procesos del área de diseño por medio de Design Ops: documentación, handoffs, formas de trabajar con otras áreas, y estrategias de diseño que permiten al área y a los diseñadores hacer mejor su trabajo.',
+      pc_cases: 'casos de estudio', pc_since: 'desde', pc_view: 'Ver caso', pc_industry: 'industria', pc_period: 'periodo', pc_focus: 'enfoque', pc_units: 'unidades de negocio',
+      ml_sub: 'Research y diseño de producto para e-commerce', sc_sub: 'Flujos de crédito y cobranza',
+      wd_eyebrow:     'Lo que hago',
+      wd_title:       'Lo que me hace distinto',
+      wd_lead:        'Diseño productos pensando en el usuario, el negocio y en cómo se construyen.',
+      wd1_title:      'Sistemas de diseño claros',
+      wd1_body:       'Trabajo en los cimientos del design system de iQor y creé el de Grupo CSF, para que cada pantalla se vea y se sienta igual.',
+      wd2_title:      'Estrategia y liderazgo',
+      wd2_body:       'Llevo más de un año liderando diseño en iQor, 3 años mentorando diseñadores y lidero el diseño de las 4 unidades de Grupo CSF. Ayudo a decidir qué se construye primero y por qué.',
+      wd3_title:      'La IA es parte de cómo trabajo',
+      wd3_body:       'Uso Claude Code, Codex, v0 y Replit en distintas partes de mi proceso, desde explorar ideas hasta construir, para moverme más rápido sin bajar la calidad de lo que entrego.',
+      wd_now:         'Ahora',
+      wd_next:        'Siguiente',
+      wd_later:       'Después',
+      wd_mentoring:   'Mentoría',
+      ww_eyebrow:     'Por qué trabajar conmigo',
+      ww_title:       'Diseño con criterio, de la idea a producción',
+      ww_lead:        'Combino estrategia, diseño visual y código para que lo que diseño funcione para el usuario y también para el negocio.',
+      ww_a:           'Fintech, Ecommerce y BPO',
+      ww_b_text:      'Un mismo sistema de diseño para todo el negocio.',
+      ww_b_label:     'Unidades de Grupo CSF con una sola identidad',
+      ww_c_text:      'Equipos y clientes en distintos países, con la misma forma de trabajar.',
+      ww_c_label:     'Países: Colombia y EE. UU.',
+      ww_d:           'Disponible para proyectos',
+      ww_dark_text:   'Ayudo a equipos y empresas a convertir ideas en productos digitales claros, que se entienden y se pueden construir.',
+      ww_dark_label:  'He trabajado con',
+      sv_title:       'Cómo puedo ayudarte',
+      sv_lead:        'Te ayudo a diseñar el producto, ordenarlo en un sistema y, si hace falta, construirlo.',
+      sv1_title:      'Diseño de producto',
+      sv1_body:       'Diseño interfaces y flujos para apps, plataformas y sitios web, partiendo de lo que aprendo hablando con los usuarios.',
+      sv2_title:      'Sistemas de diseño',
+      sv2_body:       'Creo sistemas visuales y librerías de componentes para que el producto se vea y se sienta igual en cada pantalla.',
+      sv3_title:      'Desarrollo',
+      sv3_body:       'Construyo sitios y paneles de administración con HTML, Tailwind y Supabase, apoyado en herramientas de IA.',
+      pr_eyebrow:     'Proceso',
+      pr_title:       'Así trabajo, paso a paso',
+      pr_lead:        'Un proceso simple y colaborativo para llevar una idea desde el primer boceto hasta un producto funcionando.',
+      pr1_title:      'Entender',
+      pr1_body:       'Empiezo por entender el problema, al usuario y lo que necesita el negocio. Hablo con las personas que van a usar el producto.',
+      pr2_title:      'Definir',
+      pr2_body:       'Con lo que aprendo, defino con el equipo qué se construye primero y por qué.',
+      pr3_title:      'Explorar',
+      pr3_body:       'Hago bocetos, flujos y wireframes para probar ideas rápido, antes de pulir nada.',
+      pr4_title:      'Diseñar',
+      pr4_body:       'Diseño las pantallas y los componentes del sistema, cuidando el detalle para que el producto sea usable y accesible.',
+      pr5_title:      'Construir',
+      pr5_body:       'Cuando hace falta, paso el diseño a código con HTML, Tailwind y Supabase, o lo dejo listo para que el equipo lo construya sin adivinar.',
+      pr6_title:      'Entregar y ajustar',
+      pr6_body:       'Entrego, observo cómo se usa y ajusto. Cada versión enseña algo para la siguiente.',
+      st_eyebrow:     'Fortalezas',
+      st_title:       'Lo que aporto a tu equipo',
+      st_lead:        'Mezclo estrategia, diseño y código para que las ideas se vuelvan claras y listas para lanzar.',
+      st1_title:      'Consistencia',
+      st1_body:       'Mantengo un mismo lenguaje visual en todo el producto, apoyado en sistemas de diseño.',
+      st2_title:      'Escalabilidad',
+      st2_body:       'Diseño componentes y tokens pensados para crecer sin romper lo que ya existe.',
+      st3_title:      'Criterio técnico',
+      st3_body:       'Sé qué es viable desde el principio, así que lo que entrego se puede construir.',
+      st4_title:      'Velocidad',
+      st4_body:       'Con IA y código llego rápido a algo que se puede probar, sin bajar la calidad.',
+      st5_title:      'Investigación',
+      st5_body:       'Hablo con los usuarios y convierto lo que escucho en decisiones de diseño.',
+      st6_title:      'Colaboración',
+      st6_body:       'Trabajo de la mano con desarrolladores, stakeholders y clientes, en persona o a distancia, para que todos vayamos en la misma dirección.',
+      st7_title:      'Mentoría',
+      st7_body:       'Acompaño a otros diseñadores a mejorar su criterio y a crecer en su proceso.',
+      st8_title:      'Idiomas',
+      st8_body:       'Trabajo en español e inglés con equipos de Colombia y Estados Unidos.',
       cv_card_title:  'Descarga mi CV',
       footer_copy:    '© 2026 Santiago Morales - DavinSane. Todos los derechos reservados.',
       footer_privacy: 'Privacidad',
@@ -583,6 +1282,14 @@
     document.querySelectorAll('[data-i18n-html]').forEach(el => {
       const key = el.dataset.i18nHtml;
       if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+      const key = el.dataset.i18nAlt;
+      if (t[key] !== undefined) el.alt = t[key];
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+      const key = el.dataset.i18nAria;
+      if (t[key] !== undefined) el.setAttribute('aria-label', t[key]);
     });
     document.getElementById('lang-label').textContent = lang === 'en' ? 'ES' : 'EN';
     document.documentElement.lang = lang;
