@@ -25,6 +25,7 @@
     <nav aria-label="Main" class="site-nav__links">
       <a href="../index.html" data-i18n="nav_home">Home</a>
       <a href="../index.html#projects" aria-current="page" data-i18n="nav_projects">Projects</a>
+      <a href="../sobre-mi/sobre-mi.html" data-i18n="nav_about">About</a>
       <a href="../blog.html" data-i18n="nav_blog">Blog</a>
     </nav>
     <div class="site-nav__actions">
@@ -37,6 +38,7 @@
   <nav id="site-nav-menu" aria-label="Main" class="site-nav__menu hidden">
     <a href="../index.html" data-i18n="nav_home">Home</a>
     <a href="../index.html#projects" aria-current="page" data-i18n="nav_projects">Projects</a>
+    <a href="../sobre-mi/sobre-mi.html" data-i18n="nav_about">About</a>
     <a href="../blog.html" data-i18n="nav_blog">Blog</a>
     <a href="../index.html#contact" class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
   </nav>
@@ -98,77 +100,89 @@
       <span class="font-label-sm text-label-sm text-outline-variant">01 / 04</span>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+    <div class="pc-grid">
 
       <!-- Grupo CSF -->
-      <article class="group flex flex-col gap-6 cursor-pointer card-enter" onclick="window.location.href='csf-grupo.html'" style="transition-delay: 0.05s">
-        <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-img transition-colors duration-300 group-hover:border-primary">
-          <img alt="Grupo CSF" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out" src="img/csfgroup.png"/>
+      <div class="card-enter" style="transition-delay: 0.05s">
+        <a href="csf-grupo.html" class="pc">
+        <div class="pc__media">
+          <img alt="Grupo CSF" src="img/csfgroup.png"/>
+          <span class="pc__save" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
         </div>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="font-headline-md text-headline-md text-on-surface" data-i18n="card1_title">Grupo CSF</h3>
-            <div class="flex gap-3 mt-3">
-              <span class="ds-tag" data-i18n="tag_brand">Brand System</span>
-              <span class="ds-tag" data-i18n="tag_corp">Corporate Site</span>
-            </div>
+        <div class="pc__body">
+          <h3 class="pc__title" data-i18n="card1_title">Grupo CSF</h3>
+          <div class="pc__meta">
+            <span><span class="material-symbols-outlined">palette</span><span data-i18n="tag_brand">Brand System</span></span>
+            <span><span class="material-symbols-outlined">domain</span><span data-i18n="tag_corp">Corporate Site</span></span>
           </div>
-          <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">arrow_outward</span>
+          <div class="pc__foot">
+            <div class="pc__stats"><div class="pc__stat"><b>01</b><small data-i18n="pc_case">case</small></div></div>
+            <span class="pc__cta" data-i18n="pc_view">View case</span>
+          </div>
         </div>
-      </article>
+        </a>
+      </div>
 
       <!-- CSF Investments -->
-      <article class="group flex flex-col gap-6 cursor-pointer card-enter md:mt-16" onclick="window.location.href='csf-investments.html'" style="transition-delay: 0.15s">
-        <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-img transition-colors duration-300 group-hover:border-primary">
-          <img alt="CSF Investments" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out" src="img/cardinversiones.png"/>
+      <div class="card-enter" style="transition-delay: 0.15s">
+        <a href="csf-investments.html" class="pc">
+        <div class="pc__media">
+          <img alt="CSF Investments" src="img/cardinversiones.png"/>
+          <span class="pc__save" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
         </div>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="font-headline-md text-headline-md text-on-surface" data-i18n="card2_title">CSF Investments</h3>
-            <div class="flex gap-3 mt-3">
-              <span class="ds-tag" data-i18n="tag_realestate">Real Estate</span>
-              <span class="ds-tag" data-i18n="tag_fullstack">Full Stack</span>
-            </div>
+        <div class="pc__body">
+          <h3 class="pc__title" data-i18n="card2_title">CSF Investments</h3>
+          <div class="pc__meta">
+            <span><span class="material-symbols-outlined">apartment</span><span data-i18n="tag_realestate">Real Estate</span></span>
+            <span><span class="material-symbols-outlined">code</span><span data-i18n="tag_fullstack">Full Stack</span></span>
           </div>
-          <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">arrow_outward</span>
+          <div class="pc__foot">
+            <div class="pc__stats"><div class="pc__stat"><b>02</b><small data-i18n="pc_case">case</small></div></div>
+            <span class="pc__cta" data-i18n="pc_view">View case</span>
+          </div>
         </div>
-      </article>
+        </a>
+      </div>
 
       <!-- CSF Compraventa -->
-      <article class="group flex flex-col gap-6 cursor-pointer card-enter" onclick="window.location.href='csf-compraventa.html'" style="transition-delay: 0.25s">
-        <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-img transition-colors duration-300 group-hover:border-primary">
-          <img alt="CSF Compraventa" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out" src="img/cardcompraventa.png"/>
+      <div class="card-enter" style="transition-delay: 0.25s">
+        <a href="csf-compraventa.html" class="pc">
+        <div class="pc__media">
+          <img alt="CSF Compraventa" src="img/cardcompraventa.png"/>
+          <span class="pc__save" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
         </div>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="font-headline-md text-headline-md text-on-surface" data-i18n="card3_title">CSF Compraventa</h3>
-            <div class="flex gap-3 mt-3">
-              <span class="ds-tag" data-i18n="tag_marketplace">Marketplace</span>
-              <span class="ds-tag" data-i18n="tag_admin">Admin Panel</span>
-            </div>
+        <div class="pc__body">
+          <h3 class="pc__title" data-i18n="card3_title">CSF Compraventa</h3>
+          <div class="pc__meta">
+            <span><span class="material-symbols-outlined">storefront</span><span data-i18n="tag_marketplace">Marketplace</span></span>
+            <span><span class="material-symbols-outlined">dashboard</span><span data-i18n="tag_admin">Admin Panel</span></span>
           </div>
-          <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">arrow_outward</span>
+          <div class="pc__foot">
+            <div class="pc__stats"><div class="pc__stat"><b>03</b><small data-i18n="pc_case">case</small></div></div>
+            <span class="pc__cta" data-i18n="pc_view">View case</span>
+          </div>
         </div>
-      </article>
+        </a>
+      </div>
 
       <!-- CSF Rentals -->
-      <article class="flex flex-col gap-6 cursor-default opacity-60 card-enter md:mt-16" style="transition-delay: 0.35s">
-        <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-img">
-          <img alt="CSF Rentals" class="w-full h-full object-cover opacity-60" src="img/cardrentals.png"/>
-          <div class="absolute inset-0 bg-background/40 flex items-center justify-center">
-            <span class="px-3 py-1 border border-border-low-contrast font-label-sm text-label-sm text-text-muted rounded-full" data-i18n="tag_progress">Coming Soon</span>
+      <div class="card-enter" style="transition-delay: 0.35s">
+        <div class="pc pc--soon">
+        <div class="pc__media">
+          <img alt="CSF Rentals" src="img/cardrentals.png"/>
+        </div>
+        <div class="pc__body">
+          <h3 class="pc__title" data-i18n="card4_title">CSF Rentals</h3>
+          <div class="pc__meta">
+            <span><span class="material-symbols-outlined">key</span><span data-i18n="tag_rental">Rental Management</span></span>
+          </div>
+          <div class="pc__foot">
+            <div class="pc__stats"><div class="pc__stat"><b>04</b><small data-i18n="pc_case">case</small></div></div>
+            <span class="pc__pill" data-i18n="soon">Coming soon</span>
           </div>
         </div>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="font-headline-md text-headline-md text-on-surface" data-i18n="card4_title">CSF Rentals</h3>
-            <div class="flex gap-3 mt-3">
-              <span class="ds-tag" data-i18n="tag_rental">Rental Management</span>
-              <span class="ds-tag" data-i18n="tag_progress">Coming Soon</span>
-            </div>
-          </div>
         </div>
-      </article>
+      </div>
 
     </div>
   </section>
@@ -192,7 +206,8 @@
 
   const translations = {
     en: {
-      nav_home: 'Home', nav_projects: 'Projects', nav_blog: 'Blog', nav_cta: "Let's talk",
+      pc_case: 'case', pc_view: 'View case', soon: 'Coming soon',
+      nav_home: 'Home', nav_projects: 'Projects', nav_about: 'About', nav_blog: 'Blog', nav_cta: "Let's talk",
       header_label: 'HOLDING · MULTI-BUSINESS',
       header_desc: "Product and brand design work for Grupo CSF, a Colombian holding company with 4 business units. I lead the design system and digital development for each unit, keeping brand coherence across businesses with very different paces and needs.",
       meta_role: 'Role',
@@ -216,7 +231,8 @@
       footer_privacy: 'Privacy'
     },
     es: {
-      nav_home: 'Inicio', nav_projects: 'Proyectos', nav_blog: 'Blog', nav_cta: 'Hablemos',
+      pc_case: 'caso', pc_view: 'Ver caso', soon: 'Próximamente',
+      nav_home: 'Inicio', nav_projects: 'Proyectos', nav_about: 'Sobre mí', nav_blog: 'Blog', nav_cta: 'Hablemos',
       header_label: 'HOLDING · MULTI-NEGOCIO',
       header_desc: 'Trabajo de diseño de producto y marca para Grupo CSF, un holding colombiano con 4 unidades de negocio. Lidero el sistema de diseño y el desarrollo digital de cada unidad, manteniendo coherencia de marca entre negocios con ritmos y necesidades muy distintas.',
       meta_role: 'Rol',

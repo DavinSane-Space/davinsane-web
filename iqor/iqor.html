@@ -25,6 +25,7 @@
     <nav aria-label="Main" class="site-nav__links">
       <a href="../index.html" data-i18n="nav_home">Home</a>
       <a href="../index.html#projects" aria-current="page" data-i18n="nav_projects">Projects</a>
+      <a href="../sobre-mi/sobre-mi.html" data-i18n="nav_about">About</a>
       <a href="../blog.html" data-i18n="nav_blog">Blog</a>
     </nav>
     <div class="site-nav__actions">
@@ -37,6 +38,7 @@
   <nav id="site-nav-menu" aria-label="Main" class="site-nav__menu hidden">
     <a href="../index.html" data-i18n="nav_home">Home</a>
     <a href="../index.html#projects" aria-current="page" data-i18n="nav_projects">Projects</a>
+    <a href="../sobre-mi/sobre-mi.html" data-i18n="nav_about">About</a>
     <a href="../blog.html" data-i18n="nav_blog">Blog</a>
     <a href="../index.html#contact" class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
   </nav>
@@ -86,75 +88,88 @@
       <span class="font-label-sm text-label-sm text-outline-variant">01 / 04</span>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+    <div class="pc-grid">
 
       <!-- iQor HUB -->
-      <article class="group flex flex-col gap-6 cursor-pointer card-enter" onclick="window.location.href='iqor-hub.html'" style="transition-delay: 0.05s">
-        <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-img transition-colors duration-300 group-hover:border-primary">
-          <img alt="iQor HUB" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out" src="img/HUBV1.jpg"/>
+      <div class="card-enter" style="transition-delay: 0.05s">
+        <a href="iqor-hub.html" class="pc">
+        <div class="pc__media">
+          <img alt="iQor HUB" src="img/HUBV1.jpg"/>
+          <span class="pc__save" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
         </div>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="font-headline-md text-headline-md text-on-surface" data-i18n="card1_title">iQor HUB V1</h3>
-            <div class="flex gap-3 mt-3">
-              <span class="ds-tag" data-i18n="tag_intranet">Intranet</span>
-              <span class="ds-tag" data-i18n="tag_ux">UX Design</span>
-            </div>
+        <div class="pc__body">
+          <h3 class="pc__title" data-i18n="card1_title">iQor HUB V1</h3>
+          <div class="pc__meta">
+            <span><span class="material-symbols-outlined">lan</span><span data-i18n="tag_intranet">Intranet</span></span>
+            <span><span class="material-symbols-outlined">design_services</span><span data-i18n="tag_ux">UX Design</span></span>
           </div>
-          <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">arrow_outward</span>
+          <div class="pc__foot">
+            <div class="pc__stats"><div class="pc__stat"><b>01</b><small data-i18n="pc_case">case</small></div></div>
+            <span class="pc__cta" data-i18n="pc_view">View case</span>
+          </div>
         </div>
-      </article>
+        </a>
+      </div>
 
       <!-- iQor HUB V2 -->
-      <article class="group flex flex-col gap-6 cursor-pointer card-enter md:mt-16" onclick="window.location.href='iqor-academy.html'" style="transition-delay: 0.15s">
-        <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-img transition-colors duration-300 group-hover:border-primary">
-          <img alt="iQor HUB V2" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out" src="img/iQorHUB.jpg"/>
+      <div class="card-enter" style="transition-delay: 0.15s">
+        <a href="iqor-academy.html" class="pc">
+        <div class="pc__media">
+          <img alt="iQor HUB V2" src="img/iQorHUB.jpg"/>
+          <span class="pc__save" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
         </div>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="font-headline-md text-headline-md text-on-surface" data-i18n="card2_title">iQor HUB V2</h3>
-            <div class="flex gap-3 mt-3">
-              <span class="ds-tag" data-i18n="tag_intranet">Intranet</span>
-              <span class="ds-tag" data-i18n="tag_ux">UX Design</span>
-            </div>
+        <div class="pc__body">
+          <h3 class="pc__title" data-i18n="card2_title">iQor HUB V2</h3>
+          <div class="pc__meta">
+            <span><span class="material-symbols-outlined">lan</span><span data-i18n="tag_intranet">Intranet</span></span>
+            <span><span class="material-symbols-outlined">design_services</span><span data-i18n="tag_ux">UX Design</span></span>
           </div>
-          <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">arrow_outward</span>
+          <div class="pc__foot">
+            <div class="pc__stats"><div class="pc__stat"><b>02</b><small data-i18n="pc_case">case</small></div></div>
+            <span class="pc__cta" data-i18n="pc_view">View case</span>
+          </div>
         </div>
-      </article>
+        </a>
+      </div>
 
       <!-- iQor CMS V1 -->
-      <article class="group flex flex-col gap-6 cursor-pointer card-enter" onclick="window.location.href='iqor-cms.html'" style="transition-delay: 0.25s">
-        <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-img transition-colors duration-300 group-hover:border-primary">
-          <img alt="iQor CMS" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out" src="img/CMS.jpg"/>
+      <div class="card-enter" style="transition-delay: 0.25s">
+        <a href="iqor-cms.html" class="pc">
+        <div class="pc__media">
+          <img alt="iQor CMS" src="img/CMS.jpg"/>
+          <span class="pc__save" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
         </div>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="font-headline-md text-headline-md text-on-surface" data-i18n="card3_title">iQor CMS V1</h3>
-            <div class="flex gap-3 mt-3">
-              <span class="ds-tag" data-i18n="tag_cms">CMS</span>
-              <span class="ds-tag" data-i18n="tag_tool">Internal Tool</span>
-            </div>
+        <div class="pc__body">
+          <h3 class="pc__title" data-i18n="card3_title">iQor CMS V1</h3>
+          <div class="pc__meta">
+            <span><span class="material-symbols-outlined">edit_note</span><span data-i18n="tag_cms">CMS</span></span>
+            <span><span class="material-symbols-outlined">construction</span><span data-i18n="tag_tool">Internal Tool</span></span>
           </div>
-          <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">arrow_outward</span>
+          <div class="pc__foot">
+            <div class="pc__stats"><div class="pc__stat"><b>03</b><small data-i18n="pc_case">case</small></div></div>
+            <span class="pc__cta" data-i18n="pc_view">View case</span>
+          </div>
         </div>
-      </article>
+        </a>
+      </div>
 
       <!-- iQor CMS V2 (coming soon, not clickable yet) -->
-      <article class="flex flex-col gap-6 cursor-default card-enter" style="transition-delay: 0.35s">
-        <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-dashed border-border-low-contrast overflow-hidden rounded-img flex flex-col items-center justify-center gap-4">
-          <span class="material-symbols-outlined text-outline-variant" style="font-size:40px;">update</span>
-          <span class="px-3 py-1 rounded-full border border-primary/40 font-label-sm text-label-sm text-primary uppercase tracking-widest" data-i18n="soon">Coming soon</span>
-        </div>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="font-headline-md text-headline-md text-on-surface" data-i18n="card4_title">iQor CMS V2</h3>
-            <div class="flex gap-3 mt-3">
-              <span class="ds-tag" data-i18n="tag_cms">CMS</span>
-              <span class="ds-tag" data-i18n="tag_tool">Internal Tool</span>
-            </div>
+      <div class="card-enter" style="transition-delay: 0.35s">
+        <div class="pc pc--soon">
+        <div class="pc__media pc__media--empty"><span class="material-symbols-outlined" aria-hidden="true">update</span></div>
+        <div class="pc__body">
+          <h3 class="pc__title" data-i18n="card4_title">iQor CMS V2</h3>
+          <div class="pc__meta">
+            <span><span class="material-symbols-outlined">edit_note</span><span data-i18n="tag_cms">CMS</span></span>
+            <span><span class="material-symbols-outlined">construction</span><span data-i18n="tag_tool">Internal Tool</span></span>
+          </div>
+          <div class="pc__foot">
+            <div class="pc__stats"><div class="pc__stat"><b>04</b><small data-i18n="pc_case">case</small></div></div>
+            <span class="pc__pill" data-i18n="soon">Coming soon</span>
           </div>
         </div>
-      </article>
+        </div>
+      </div>
 
     </div>
   </section>
@@ -178,7 +193,8 @@
 
   const translations = {
     en: {
-      nav_home: 'Home', nav_projects: 'Projects', nav_blog: 'Blog', nav_cta: "Let's talk",
+      pc_case: 'case', pc_view: 'View case',
+      nav_home: 'Home', nav_projects: 'Projects', nav_about: 'About', nav_blog: 'Blog', nav_cta: "Let's talk",
       header_label: 'BPO · Enterprise',
       header_desc: "I've been working at iQor since March 5, 2025 as a Senior UX/UI Designer. I've designed key products for the company, such as the HUB (the company's intranet and main product) from its V1 to its V2, and I'm currently designing the CMS (Content Studio Management), also from V1 to V2. I also work on improving the design team's processes through Design Ops, Design / Dev Hand Off, Harness and AI tools, keeping a modern methodology so we can build products in an agile way without leaving research and documentation behind. I also mentor and guide design interns and in-house designers to improve their workflows, build better digital products, run more effective meetings, and more.",
       projects: 'PROJECTS',
@@ -194,7 +210,8 @@
       tag_tool: 'Internal Tool'
     },
     es: {
-      nav_home: 'Inicio', nav_projects: 'Proyectos', nav_blog: 'Blog', nav_cta: 'Hablemos',
+      pc_case: 'caso', pc_view: 'Ver caso',
+      nav_home: 'Inicio', nav_projects: 'Proyectos', nav_about: 'Sobre mí', nav_blog: 'Blog', nav_cta: 'Hablemos',
       header_label: 'BPO · Enterprise',
       header_desc: 'Trabajo en iQor desde el 5 de marzo de 2025 como Senior UX/UI Designer. He diseñado productos clave de la compañía como el HUB (la intranet y producto principal de la compañía), desde su V1 hasta su V2, y actualmente estoy diseñando el CMS (Content Studio Management), también desde su V1 hasta su V2. Además, me dedico a mejorar los procesos del área de diseño mediante estrategias de Design Ops, Hand Off Design / Dev, Harness y herramientas de IA, manteniendo una metodología moderna que nos permita construir productos de forma ágil sin dejar de lado la investigación y la documentación. También mentorizo y guío a practicantes de diseño y diseñadores de planta para mejorar sus flujos de trabajo, construir mejores productos digitales, tener reuniones más efectivas, entre otros.',
       projects: 'PROYECTOS',

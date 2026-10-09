@@ -17,37 +17,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="assets/magic-bento.js" defer></script>
 <style>
-        /* Project cards */
-        .pc { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid #E0E2E6; border-radius: 28px; overflow: hidden; isolation: isolate;
-              box-shadow: 0 1px 2px rgb(18 18 24 / 0.04), 0 10px 30px rgb(18 18 24 / 0.05); transition: box-shadow .35s ease, transform .35s ease; }
-        .pc:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgb(18 18 24 / 0.05), 0 22px 48px rgb(18 18 24 / 0.10); }
-        .pc__media { position: relative; height: 240px; overflow: hidden; }
-        .pc--lg .pc__media { height: 300px; }
-        .pc__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
-        .pc:hover .pc__media img { transform: scale(1.05); }
-        .pc__media::after { content: ''; position: absolute; inset: 0; pointer-events: none;
-              background: linear-gradient(to bottom, rgb(255 255 255 / 0) 45%, rgb(255 255 255 / 0.75) 78%, #fff 100%); }
-        .pc__save { position: absolute; top: 16px; right: 16px; z-index: 2; width: 40px; height: 40px; border-radius: 999px; display: flex; align-items: center; justify-content: center;
-              background: rgb(255 255 255 / 0.92); color: #121218; box-shadow: 0 2px 8px rgb(18 18 24 / 0.12); backdrop-filter: blur(6px); transition: transform .3s ease, background-color .3s ease, color .3s ease; }
-        .pc__save .material-symbols-outlined { font-size: 20px; }
-        .pc:hover .pc__save { transform: translate(2px, -2px); background: #1B1B21; color: #fff; }
-        .pc__body { position: relative; z-index: 1; display: flex; flex-direction: column; flex: 1; margin-top: -64px; padding: 0 24px 24px; }
-        .pc__title { font-family: var(--font-sans); font-weight: 600; font-size: 20px; line-height: 26px; letter-spacing: -0.01em; color: #121218; }
-        .pc__sub { margin-top: 2px; font-size: 14px; line-height: 20px; color: #44454C; }
-        .pc__meta { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 8px; font-size: 13px; line-height: 18px; color: #94979E; }
-        .pc__meta span { display: inline-flex; align-items: center; gap: 4px; }
-        .pc__meta .material-symbols-outlined { font-size: 15px; }
-        .pc__foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-top: auto; padding-top: 24px; }
-        .pc__stats { display: flex; align-items: stretch; }
-        .pc__stat { display: flex; flex-direction: column; padding: 0 14px; border-left: 1px solid #E0E2E6; }
-        .pc__stat:first-child { padding-left: 0; border-left: 0; }
-        .pc__stat b { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; font-size: 14px; line-height: 20px; color: #121218; white-space: nowrap; }
-        .pc__stat b .material-symbols-outlined { font-size: 16px; font-variation-settings: 'FILL' 1; }
-        .pc__stat small { font-size: 12px; line-height: 16px; color: #94979E; white-space: nowrap; }
-        .pc__cta { flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; border-radius: 999px; background: #1B1B21; color: #fff;
-              font-weight: 500; font-size: 14px; line-height: 18px; white-space: nowrap; transition: background-color .3s ease, box-shadow .3s ease; }
-        .pc:hover .pc__cta { box-shadow: 0 6px 18px rgb(18 18 24 / 0.22); }
-        .pc:focus-visible { outline: 2px solid #1B1B21; outline-offset: 3px; }
         /* Scroll stack (vertical, cards pin and stack while scrolling) */
         .scroll-stack { position: relative; max-width: 1040px; margin: 0 auto; padding-bottom: 260px; }
         .scroll-stack-end { width: 100%; height: 1px; }
@@ -295,12 +264,46 @@
         .pr-step.is-revealed .pr-node { color: #121218; box-shadow: 0 0 0 1px #E0E2E6, 0 4px 12px rgba(18,18,24,0.10); }
         .pr-step.is-revealed .pr-title { color: #121218; }
         .pr-step.is-revealed .pr-body { color: #44454C; }
-        @media (max-width: 767px) {
-          .pr-step { gap: 16px; padding: 20px; }
-          .pr-track, .pr-fill { left: 41px; }
+        @media (max-width: 768px), (max-width: 1023px) and (pointer: coarse) {
+          /* Track sits on the node center: padding 16 + border 1 + node 34 / 2 */
+          .pr-step { gap: 14px; padding: 16px; }
+          .pr-node { width: 34px; height: 34px; }
+          .pr-node svg { width: 16px; height: 16px; }
+          .pr-track, .pr-fill { left: 34px; }
+          .pr-title { padding-top: 5px; font-size: 18px; line-height: 24px; }
+          .pr-step.is-revealed { box-shadow: 0 2px 8px rgba(18,18,24,0.04); }
+          .pr-step.is-revealed .pr-node { box-shadow: 0 0 0 1px #E0E2E6; }
+          /* Dimmed but readable: 4.5:1 on the page background */
+          .pr-title, .pr-body { color: #63666D; }
+        }
+        .pr-steps { transition: opacity .2s ease; }
+        .pr-steps.is-fading { opacity: 0; }
+        /* Method toggle: equal columns so the thumb slides exactly one column */
+        .pr-mode { position: relative; display: inline-grid; grid-template-columns: 1fr 1fr; margin-top: 28px; padding: 4px; border: 1px solid #E0E2E6; border-radius: 999px; background: transparent; }
+        .pr-mode__thumb { position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc(50% - 4px); border-radius: 999px; background: #1B1B21;
+              transition: transform .3s cubic-bezier(.4, 0, .2, 1); pointer-events: none; }
+        .pr-mode[data-active="lu"] .pr-mode__thumb { transform: translateX(100%); }
+        .pr-mode__tab { position: relative; z-index: 1; padding: 8px 18px; border: 0; border-radius: 999px; background: transparent; cursor: pointer; white-space: nowrap;
+              font-family: var(--font-sans); font-weight: 500; font-size: 14px; line-height: 20px; color: #61646B; transition: color .3s ease; }
+        .pr-mode__tab[aria-selected="true"] { color: #fff; }
+        .pr-mode__tab:focus-visible { outline: 2px solid #1B1B21; outline-offset: 2px; }
+        .pr-note { max-width: 380px; margin-top: 12px; font-family: var(--font-sans); font-size: 14px; line-height: 20px; color: #61646B; }
+        /* Both texts of a mode pair share one grid cell, so the taller one sets the
+           height and switching modes never shifts the content below. */
+        .pr-swap { display: grid; }
+        .pr-swap > * { grid-area: 1 / 1; }
+        .pr-swap > [aria-hidden="true"] { visibility: hidden; }
+        @media (max-width: 768px), (max-width: 1023px) and (pointer: coarse) {
+          .pr-intro .pr-h2 { font-size: 32px; line-height: 1.2; }
+          .pr-mode { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); width: 100%; }
+          .pr-mode__tab { min-height: 44px; padding: 8px 10px; }
+          .pr-note { max-width: none; }
+        }
+        @media (max-width: 359px) {
+          .pr-mode__tab { padding: 8px 6px; }
         }
         @media (prefers-reduced-motion: reduce) {
-          .pr-step, .pr-node, .pr-title, .pr-body, .pr-fill { transition: none; }
+          .pr-step, .pr-node, .pr-title, .pr-body, .pr-fill, .pr-steps, .pr-mode__thumb, .pr-mode__tab { transition: none; }
         }
         /* Strengths bento */
         .st-head { max-width: 640px; margin: 0 auto 48px; text-align: center; }
@@ -352,6 +355,7 @@
     <nav aria-label="Main" class="site-nav__links">
       <a href="index.html" aria-current="page" data-i18n="nav_home">Home</a>
       <a href="#projects" data-i18n="nav_projects">Projects</a>
+      <a href="sobre-mi/sobre-mi.html" data-i18n="nav_about">About</a>
       <a href="blog.html" data-i18n="nav_blog">Blog</a>
     </nav>
     <div class="site-nav__actions">
@@ -364,6 +368,7 @@
   <nav id="site-nav-menu" aria-label="Main" class="site-nav__menu hidden">
     <a href="index.html" aria-current="page" data-i18n="nav_home">Home</a>
     <a href="#projects" data-i18n="nav_projects">Projects</a>
+    <a href="sobre-mi/sobre-mi.html" data-i18n="nav_about">About</a>
     <a href="blog.html" data-i18n="nav_blog">Blog</a>
     <a href="#contact" class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
   </nav>
@@ -432,7 +437,7 @@
 </section>
 
 <!-- Clients marquee -->
-<section class="py-32 md:py-48" aria-labelledby="clients-label">
+<section class="pt-32 md:pt-48 pb-20 md:pb-[200px]" aria-labelledby="clients-label">
   <div class="ds-container">
     <p id="clients-label" class="text-center text-[14px] font-medium text-secondary mb-6" data-i18n="clients_label">Companies I have designed for</p>
   </div>
@@ -747,61 +752,25 @@
           <span data-i18n="pr_eyebrow">Process</span>
         </span>
         <h2 id="pr-title" class="pr-h2" data-i18n="pr_title">How I work, step by step</h2>
-        <p class="pr-lead" data-i18n="pr_lead">An agile, strategic and collaborative process that takes a product from a need to a functional, usable product.</p>
+        <div class="pr-swap" id="pr-lead">
+          <p class="pr-lead" data-mode="dt" data-i18n="pr_lead">An agile, strategic and collaborative process that takes a product from a need to a functional, usable product.</p>
+          <p class="pr-lead" data-mode="lu" data-i18n="pr_lead_lu" aria-hidden="true">A short loop of assumptions, tests and learning to ship fast without betting blind.</p>
+        </div>
+        <div class="pr-mode" id="pr-mode" role="tablist" data-active="dt" data-i18n-aria="pr_mode_aria" aria-label="Working method">
+          <span class="pr-mode__thumb" aria-hidden="true"></span>
+          <button type="button" class="pr-mode__tab" id="pr-tab-dt" role="tab" data-mode="dt" aria-selected="true" aria-controls="pr-steps" data-i18n="pr_mode_dt">Design Thinking</button>
+          <button type="button" class="pr-mode__tab" id="pr-tab-lu" role="tab" data-mode="lu" aria-selected="false" aria-controls="pr-steps" tabindex="-1" data-i18n="pr_mode_lu">Lean UX</button>
+        </div>
+        <div class="pr-swap" id="pr-note">
+          <p class="pr-note" data-mode="dt" data-i18n="pr_note_dt">When the problem is still uncertain and deep research pays off.</p>
+          <p class="pr-note" data-mode="lu" data-i18n="pr_note_lu" aria-hidden="true">When speed matters: test with real users and adjust as you go.</p>
+        </div>
       </div>
-      <div class="pr-steps" id="pr-steps">
+      <div class="pr-steps" id="pr-steps" role="tabpanel" aria-labelledby="pr-tab-dt">
         <span class="pr-track" aria-hidden="true"></span>
         <span class="pr-fill" aria-hidden="true"></span>
-        <ol class="pr-list" aria-labelledby="pr-title">
-          <li class="pr-step is-revealed" aria-current="step">
-            <!-- Lucide users (ISC) -->
-            <span class="pr-node"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-            <span>
-              <span class="pr-title" data-i18n="pr1_title">Understand</span>
-              <span class="pr-body" data-i18n="pr1_body">I start by understanding the problem, the user and what the business needs. I talk to the people who will use the product.</span>
-            </span>
-          </li>
-          <li class="pr-step">
-            <!-- Lucide target (ISC) -->
-            <span class="pr-node"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-            <span>
-              <span class="pr-title" data-i18n="pr2_title">Define</span>
-              <span class="pr-body" data-i18n="pr2_body">With what I learn, I work with the team to define what gets built first and why.</span>
-            </span>
-          </li>
-          <li class="pr-step">
-            <!-- Lucide pencil-ruler (ISC) -->
-            <span class="pr-node"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 7 8.7 2.7a2.41 2.41 0 0 0-3.4 0L2.7 5.3a2.41 2.41 0 0 0 0 3.4L7 13"/><path d="m8 6 2-2"/><path d="m18 16 2-2"/><path d="m17 11 4.3 4.3c.94.94.94 2.46 0 3.4l-2.6 2.6c-.94.94-2.46.94-3.4 0L11 17"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg></span>
-            <span>
-              <span class="pr-title" data-i18n="pr3_title">Explore</span>
-              <span class="pr-body" data-i18n="pr3_body">I make sketches, flows and wireframes to test ideas quickly, before polishing anything.</span>
-            </span>
-          </li>
-          <li class="pr-step">
-            <!-- Lucide layers (ISC) -->
-            <span class="pr-node"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg></span>
-            <span>
-              <span class="pr-title" data-i18n="pr4_title">Design</span>
-              <span class="pr-body" data-i18n="pr4_body">I design the screens and system components, caring about detail so the product is usable and accessible.</span>
-            </span>
-          </li>
-          <li class="pr-step">
-            <!-- Lucide terminal (ISC) -->
-            <span class="pr-node"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg></span>
-            <span>
-              <span class="pr-title" data-i18n="pr5_title">Build</span>
-              <span class="pr-body" data-i18n="pr5_body">When needed, I turn the design into code with HTML, Tailwind and Supabase, or hand it off ready for the team to build without guessing.</span>
-            </span>
-          </li>
-          <li class="pr-step">
-            <!-- Lucide rocket (ISC) -->
-            <span class="pr-node"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span>
-            <span>
-              <span class="pr-title" data-i18n="pr6_title">Deliver and adjust</span>
-              <span class="pr-body" data-i18n="pr6_body">I deliver, watch how it gets used and adjust. Each version teaches something for the next one.</span>
-            </span>
-          </li>
-        </ol>
+        <!-- Steps are rendered from MODES below; copy lives in translations -->
+        <ol class="pr-list" aria-labelledby="pr-title"></ol>
       </div>
     </div>
   </div>
@@ -810,12 +779,74 @@
   (function () {
     var wrap = document.getElementById('pr-steps');
     if (!wrap) return;
-    var steps = Array.prototype.slice.call(wrap.querySelectorAll('.pr-step'));
-    var nodes = steps.map(function (s) { return s.querySelector('.pr-node'); });
+    var list = wrap.querySelector('.pr-list');
     var track = wrap.querySelector('.pr-track');
     var fill = wrap.querySelector('.pr-fill');
+    var tablist = document.getElementById('pr-mode');
+    var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
+    var swaps = Array.prototype.slice.call(document.querySelectorAll('#pr-lead > [data-mode], #pr-note > [data-mode]'));
+    var nav = document.getElementById('site-nav');
+    var mobile = window.matchMedia('(max-width: 768px), (max-width: 1023px) and (pointer: coarse)');
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    // Lucide icons (ISC)
+    var ICONS = {
+      users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+      target: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+      pencilRuler: '<path d="M13 7 8.7 2.7a2.41 2.41 0 0 0-3.4 0L2.7 5.3a2.41 2.41 0 0 0 0 3.4L7 13"/><path d="m8 6 2-2"/><path d="m18 16 2-2"/><path d="m17 11 4.3 4.3c.94.94.94 2.46 0 3.4l-2.6 2.6c-.94.94-2.46.94-3.4 0L11 17"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/>',
+      layers: '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/>',
+      terminal: '<polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/>',
+      rocket: '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>',
+      compass: '<path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/><circle cx="12" cy="12" r="10"/>',
+      flask: '<path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2"/><path d="M6.453 15h11.094"/><path d="M8.5 2h7"/>',
+      penTool: '<path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z"/><path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18"/><path d="m2.3 2.3 7.286 7.286"/><circle cx="11" cy="11" r="2"/>',
+      circleCheck: '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+      refresh: '<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>'
+    };
+    // Each step key maps to <key>_title / <key>_body in translations.
+    var MODES = {
+      dt: { steps: [
+        { key: 'pr1', icon: 'users' }, { key: 'pr2', icon: 'target' }, { key: 'pr3', icon: 'pencilRuler' },
+        { key: 'pr4', icon: 'layers' }, { key: 'pr5', icon: 'terminal' }, { key: 'pr6', icon: 'rocket' }
+      ] },
+      lu: { steps: [
+        { key: 'lu1', icon: 'compass' }, { key: 'lu2', icon: 'flask' }, { key: 'lu3', icon: 'penTool' },
+        { key: 'lu4', icon: 'circleCheck' }, { key: 'lu5', icon: 'refresh' }
+      ] }
+    };
+    var mode = 'dt';
+    var steps = [], nodes = [];
     var active = 0;
+    var swapTimer = 0;
+    var io = 'IntersectionObserver' in window
+      ? new IntersectionObserver(function () { sync(); }, { rootMargin: '-40% 0px -40% 0px' })
+      : null;
+
+    // translations/currentLang are declared by the i18n script further down; until it
+    // runs this returns '' and applyLang() fills every data-i18n node on init.
+    function t(key) {
+      if (typeof translations === 'undefined' || typeof currentLang === 'undefined') return '';
+      return translations[currentLang][key] || '';
+    }
+    function setText(el, key) {
+      el.setAttribute('data-i18n', key);
+      var s = t(key);
+      if (s) el.textContent = s;
+    }
+    function build() {
+      list.innerHTML = MODES[mode].steps.map(function (s) {
+        return '<li class="pr-step"><span class="pr-node"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+          ICONS[s.icon] + '</svg></span><span><span class="pr-title"></span><span class="pr-body"></span></span></li>';
+      }).join('');
+      steps = Array.prototype.slice.call(list.children);
+      nodes = steps.map(function (s) { return s.querySelector('.pr-node'); });
+      steps.forEach(function (li, i) {
+        var key = MODES[mode].steps[i].key;
+        setText(li.querySelector('.pr-title'), key + '_title');
+        setText(li.querySelector('.pr-body'), key + '_body');
+      });
+      if (io) { io.disconnect(); steps.forEach(function (s) { io.observe(s); }); }
+    }
 
     function nodeCenter(i) {
       var r = nodes[i].getBoundingClientRect();
@@ -835,17 +866,72 @@
     }
     // Active step = last step whose top has crossed the viewport center.
     // Before the section this is step 1; past the section it stays on the last one.
-    function sync() {
+    function sync(force) {
       var mid = window.innerHeight / 2;
       var next = 0;
       steps.forEach(function (s, i) { if (s.getBoundingClientRect().top < mid) next = i; });
-      if (next !== active) { active = next; render(); }
+      if (force === true || next !== active) { active = next; render(); }
     }
 
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(sync, { rootMargin: '-45% 0px -45% 0px' });
-      steps.forEach(function (s) { io.observe(s); });
+    // A new list starts from zero: line collapsed, then it grows to the current scroll position.
+    function swap() {
+      build();
+      fill.style.transition = 'none';
+      fill.style.height = '0px';
+      void fill.offsetHeight;
+      fill.style.transition = '';
+      active = 0;
+      sync(true);
     }
+    function setMode(next) {
+      if (next === mode) return;
+      mode = next;
+      tablist.setAttribute('data-active', mode);
+      tabs.forEach(function (tab) {
+        var on = tab.getAttribute('data-mode') === mode;
+        tab.setAttribute('aria-selected', on ? 'true' : 'false');
+        tab.tabIndex = on ? 0 : -1;
+        if (on) wrap.setAttribute('aria-labelledby', tab.id);
+      });
+      swaps.forEach(function (p) {
+        if (p.getAttribute('data-mode') === mode) p.removeAttribute('aria-hidden');
+        else p.setAttribute('aria-hidden', 'true');
+      });
+      // On phones (incl. landscape), bring the stepper start back into view below the
+      // floating navbar so the reset list is read from step 1 instead of mid-way.
+      if (mobile.matches) {
+        var navBottom = nav ? Math.max(0, nav.getBoundingClientRect().bottom) : 0;
+        var top = wrap.getBoundingClientRect().top;
+        if (top < navBottom || top > window.innerHeight) {
+          window.scrollTo({ top: window.scrollY + top - navBottom - 16, behavior: reduced.matches ? 'instant' : 'smooth' });
+        }
+      }
+      clearTimeout(swapTimer);
+      if (reduced.matches) { wrap.classList.remove('is-fading'); swap(); return; }
+      wrap.classList.add('is-fading');
+      swapTimer = setTimeout(function () {
+        swap();
+        wrap.classList.remove('is-fading');
+      }, 200);
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () { setMode(tab.getAttribute('data-mode')); });
+    });
+    tablist.addEventListener('keydown', function (e) {
+      var i = tabs.indexOf(document.activeElement);
+      if (i < 0) return;
+      var j;
+      if (e.key === 'ArrowRight') j = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') j = 0;
+      else if (e.key === 'End') j = tabs.length - 1;
+      else return;
+      e.preventDefault();
+      tabs[j].focus();
+      setMode(tabs[j].getAttribute('data-mode'));
+    });
+
     // Fast scrolls can jump over the center band without an observer callback.
     var ticking = false;
     window.addEventListener('scroll', function () {
@@ -858,8 +944,8 @@
     else window.addEventListener('resize', render);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(render);
     if (reduced.addEventListener) reduced.addEventListener('change', render);
-    sync();
-    render();
+    build();
+    sync(true);
   })();
 </script>
 
@@ -1099,7 +1185,7 @@
   // ── i18n translations ──
   const translations = {
     en: {
-      nav_home: 'Home', nav_projects: 'Projects', nav_blog: 'Blog', nav_cta: "Let's talk",
+      nav_home: 'Home', nav_projects: 'Projects', nav_about: 'About', nav_blog: 'Blog', nav_cta: "Let's talk",
       hero_cta_projects: 'See projects',
       clients_label:  'Companies I have designed for',
       contact_title:  "Let's build your next product",
@@ -1165,15 +1251,31 @@
       pr1_title:      'Understand',
       pr1_body:       'I start by understanding the problem, the user and what the business needs. I talk to the people who will use the product.',
       pr2_title:      'Define',
-      pr2_body:       'With what I learn, I work with the team to define what gets built first and why.',
+      pr2_body:       'I define the real problem, the scope of the first release and the success metric, aligned with the business and the team.',
       pr3_title:      'Explore',
-      pr3_body:       'I make sketches, flows and wireframes to test ideas quickly, before polishing anything.',
+      pr3_body:       'I dive into the real process where abstract ideas become tangible solutions, through visual and strategic exercises and constant validation with the business, users and technical sketches.',
       pr4_title:      'Design',
       pr4_body:       'I design the screens and system components, caring about detail so the product is usable and accessible.',
       pr5_title:      'Build',
-      pr5_body:       'When needed, I turn the design into code with HTML, Tailwind and Supabase, or hand it off ready for the team to build without guessing.',
+      pr5_body:       'When needed, I turn the design into code with HTML, Tailwind and Supabase, or hand it off ready for the team to build in detail.',
       pr6_title:      'Deliver and adjust',
       pr6_body:       'I deliver, watch how it gets used and adjust. Each version teaches something for the next one.',
+      pr_mode_aria:   'Working method',
+      pr_mode_dt:     'Design Thinking',
+      pr_mode_lu:     'Lean UX',
+      pr_note_dt:     'When the problem is still uncertain and deep research pays off.',
+      pr_note_lu:     'When speed matters: test with real users and adjust as you go.',
+      pr_lead_lu:     'A short loop of assumptions, tests and learning to ship fast without betting blind.',
+      lu1_title:      'Assume',
+      lu1_body:       'I lay out what is believed or taken for granted about the user and the business, so I can cross each one off as research confirms or disproves it.',
+      lu2_title:      'Hypothesize',
+      lu2_body:       "I turn each assumption into a measurable hypothesis: if we do this, that will happen, and we'll know by this metric.",
+      lu3_title:      'Prototype',
+      lu3_body:       'I design the minimum needed to test the hypothesis: a flow or a screen, not the whole product.',
+      lu4_title:      'Validate',
+      lu4_body:       'I put the prototype in front of real users or real data, with short tests and a clear success criterion.',
+      lu5_title:      'Learn',
+      lu5_body:       'Based on what I learn we decide to continue, pivot or drop it, and the loop starts again.',
       st_eyebrow:     'Strengths',
       st_title:       'What I bring to your team',
       st_lead:        'I mix strategy, design and code so ideas become clear and ready to launch.',
@@ -1199,7 +1301,7 @@
       footer_terms:   'Terms',
     },
     es: {
-      nav_home: 'Inicio', nav_projects: 'Proyectos', nav_blog: 'Blog', nav_cta: 'Hablemos',
+      nav_home: 'Inicio', nav_projects: 'Proyectos', nav_about: 'Sobre mí', nav_blog: 'Blog', nav_cta: 'Hablemos',
       hero_cta_projects: 'Ver proyectos',
       clients_label:  'Empresas para las que he diseñado',
       contact_title:  'Construyamos tu próximo producto',
@@ -1265,15 +1367,31 @@
       pr1_title:      'Entender',
       pr1_body:       'Empiezo por entender el problema, al usuario y lo que necesita el negocio. Hablo con las personas que van a usar el producto.',
       pr2_title:      'Definir',
-      pr2_body:       'Con lo que aprendo, defino con el equipo qué se construye primero y por qué.',
+      pr2_body:       'Defino el problema real, el alcance de la primera entrega y la métrica de éxito, alineado con negocio y con el equipo.',
       pr3_title:      'Explorar',
-      pr3_body:       'Hago bocetos, flujos y wireframes para probar ideas rápido, antes de pulir nada.',
+      pr3_body:       'Me sumerjo en el proceso real donde las ideas abstractas se transforman en soluciones tangibles, realizando ejercicios visuales, estratégicos y de validación constante con el negocio, usuarios y bocetos técnicos.',
       pr4_title:      'Diseñar',
       pr4_body:       'Diseño las pantallas y los componentes del sistema, cuidando el detalle para que el producto sea usable y accesible.',
       pr5_title:      'Construir',
-      pr5_body:       'Cuando hace falta, paso el diseño a código con HTML, Tailwind y Supabase, o lo dejo listo para que el equipo lo construya sin adivinar.',
+      pr5_body:       'Cuando hace falta, paso el diseño a código con HTML, Tailwind y Supabase, o lo dejo listo para que el equipo lo construya con detalle.',
       pr6_title:      'Entregar y ajustar',
       pr6_body:       'Entrego, observo cómo se usa y ajusto. Cada versión enseña algo para la siguiente.',
+      pr_mode_aria:   'Método de trabajo',
+      pr_mode_dt:     'Design Thinking',
+      pr_mode_lu:     'Lean UX',
+      pr_note_dt:     'Cuando el problema todavía es incierto y vale la pena investigar a fondo.',
+      pr_note_lu:     'Cuando hay que salir rápido, probar con usuarios reales y ajustar sobre la marcha.',
+      pr_lead_lu:     'Un ciclo corto de supuestos, pruebas y aprendizaje para salir rápido sin apostar a ciegas.',
+      lu1_title:      'Suponer',
+      lu1_body:       'Dejo a la vista lo que se cree o se da por hecho del usuario y del negocio, para ir descartándolo a medida que la investigación lo confirme o lo desmienta.',
+      lu2_title:      'Hipotetizar',
+      lu2_body:       'Convierto cada supuesto en una hipótesis medible: si hacemos esto, pasará aquello, y lo sabremos por esta métrica.',
+      lu3_title:      'Prototipar',
+      lu3_body:       'Diseño lo mínimo necesario para probar la hipótesis: un flujo o una pantalla, no el producto completo.',
+      lu4_title:      'Validar',
+      lu4_body:       'Pongo el prototipo frente a usuarios o datos reales, con pruebas cortas y un criterio claro de éxito.',
+      lu5_title:      'Aprender',
+      lu5_body:       'Con lo que aprendo decidimos si seguimos, cambiamos de rumbo o descartamos, y el ciclo arranca de nuevo.',
       st_eyebrow:     'Fortalezas',
       st_title:       'Lo que aporto a tu equipo',
       st_lead:        'Mezclo estrategia, diseño y código para que las ideas se vuelvan claras y listas para lanzar.',

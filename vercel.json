@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/sobre-mi", "destination": "/sobre-mi/sobre-mi" }
+  ],
   "headers": [
     {
       "source": "/(.*)",

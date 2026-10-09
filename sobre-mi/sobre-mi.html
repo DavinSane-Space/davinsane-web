@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About · Santiago Morales</title>
+<meta name="description" content="Santiago Morales is a senior UX/UI designer in Medellín with over 6 years in fintech, e-commerce, BPO and startups. He leads design and design systems, and builds with code and AI."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=Lora:ital,wght@0,500;0,600;0,700;1,500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="../assets/theme.js"></script>
+<link rel="stylesheet" href="../assets/theme.css"/>
+<script src="../assets/click-spark.js" defer></script>
+<style>
+        /* Shared section heading pieces (same as the home) */
+        .pr-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid #E0E2E6; border-radius: 999px; background: #fff;
+              font-family: var(--font-sans); font-weight: 500; font-size: 14px; line-height: 18px; color: #121218; }
+        .pr-pill svg { width: 14px; height: 14px; flex-shrink: 0; }
+        .pr-h2 { margin-top: 20px; font-family: var(--font-serif); font-weight: 600; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.15; letter-spacing: -0.02em; color: #121218; text-wrap: balance; }
+        .pr-lead { max-width: 380px; margin-top: 16px; font-family: var(--font-sans); font-size: 16px; line-height: 24px; color: #44454C; }
+        /* Intro */
+        .am-hero { padding-block: 64px 0; }
+        @media (min-width: 1024px) { .am-hero { padding-block: 96px 0; } }
+        .am-hero__grid { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
+        @media (min-width: 769px) {
+          .am-hero__grid { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+        }
+        @media (min-width: 1024px) { .am-hero__grid { gap: 80px; } }
+        .am-h1 { margin-top: 20px; font-family: var(--font-serif); font-weight: 600; font-size: clamp(36px, 4.6vw, 60px); line-height: 1.08; letter-spacing: -0.025em; color: #121218; text-wrap: balance; }
+        .am-intro { max-width: 520px; margin-top: 20px; font-family: var(--font-sans); font-size: 18px; line-height: 28px; color: #44454C; }
+        .am-photo { width: 100%; max-width: 420px; justify-self: end; margin: 0; aspect-ratio: 4 / 5; border-radius: 24px; overflow: hidden; background: #E0E2E6; }
+        .am-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+        @media (max-width: 768px) {
+          .am-h1 { font-size: 36px; line-height: 1.12; }
+          .am-intro { max-width: none; font-size: 16px; line-height: 26px; }
+          .am-photo { justify-self: start; max-width: 340px; }
+        }
+        /* About: experience timeline */
+        .ab-grid { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
+        @media (min-width: 769px) {
+          .ab-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 48px; align-items: start; }
+          .ab-intro { position: sticky; top: 120px; }
+        }
+        @media (min-width: 1024px) { .ab-grid { gap: 64px; } }
+        .ab-tl { position: relative; margin: 0; padding: 0; list-style: none; }
+        /* Line runs through the dot centers: dot 12px wide, line 1px at 5.5px */
+        .ab-tl::before { content: ''; position: absolute; top: 6px; bottom: 6px; left: 5.5px; width: 1px; background: #E0E2E6; }
+        .ab-item { position: relative; padding: 0 0 48px 40px; }
+        .ab-item:last-child { padding-bottom: 0; }
+        .ab-dot { position: absolute; top: 2px; left: 0; width: 12px; height: 12px; border-radius: 999px; background: #E0E2E6;
+              box-shadow: 0 0 0 4px rgb(var(--c-bg)); transition: background-color .5s ease, box-shadow .5s ease; }
+        .ab-item.is-in .ab-dot { background: #C9CDD2; }
+        .ab-item--current.is-in .ab-dot { background: #1B1B21; box-shadow: 0 0 0 4px rgb(var(--c-bg)), 0 0 0 7px rgba(27,27,33,0.12); }
+        .ab-date { display: block; font-family: var(--font-sans); font-weight: 500; font-size: 12px; line-height: 16px; letter-spacing: 0.06em; text-transform: uppercase; color: #94979E; }
+        .ab-role { display: block; margin-top: 8px; font-family: var(--font-sans); font-weight: 500; font-size: 22px; line-height: 28px; letter-spacing: -0.01em; color: #121218; }
+        .ab-date:empty + .ab-role { margin-top: 0; }
+        .ab-company { display: block; margin-top: 4px; font-family: var(--font-sans); font-size: 14px; line-height: 20px; color: #61646B; }
+        .ab-body { max-width: 560px; margin: 12px 0 0; font-family: var(--font-sans); font-size: 16px; line-height: 26px; color: #44454C; }
+        .ab-role, .ab-company, .ab-body { overflow-wrap: break-word; }
+        /* Reveal only runs once JS has opted the list in, so content is never hidden without it */
+        .ab-tl.is-animated .ab-item { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+        .ab-tl.is-animated .ab-item.is-in { opacity: 1; transform: none; }
+        #stack-slot { margin-top: 96px; }
+        #stack-slot:empty { display: none; }
+        @media (max-width: 768px) {
+          .ab-intro .pr-h2 { font-size: 32px; line-height: 1.2; }
+          .ab-intro .pr-lead { max-width: none; }
+          .ab-tl::before { top: 5px; bottom: 5px; left: 4.5px; }
+          .ab-item { padding: 0 0 40px 26px; }
+          .ab-dot { top: 3px; width: 10px; height: 10px; }
+          .ab-role { font-size: 20px; line-height: 26px; }
+          .ab-body { font-size: 15px; line-height: 24px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .ab-dot, .ab-tl.is-animated .ab-item { transition: none; }
+          .ab-tl.is-animated .ab-item { opacity: 1; transform: none; }
+        }
+        /* Reach: dotted globe with flags */
+        .gl-section { padding-top: 96px; }
+        @media (min-width: 1024px) { .gl-section { padding-top: 128px; } }
+        .gl-grid { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
+        @media (min-width: 769px) {
+          .gl-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 48px; align-items: center; }
+        }
+        @media (min-width: 1024px) { .gl-grid { gap: 64px; } }
+        .gl-stage { position: relative; width: 100%; max-width: 520px; aspect-ratio: 1; justify-self: center; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; }
+        .gl-stage.is-dragging { cursor: grabbing; }
+        .gl-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+        .gl-marker { position: absolute; top: 0; left: 0; width: 44px; height: 44px; margin: -22px 0 0 -22px; display: grid; place-items: center;
+              border: 1px solid #E0E2E6; border-radius: 999px; background: #fff; opacity: 0; pointer-events: none; will-change: transform, opacity;
+              box-shadow: 0 6px 16px rgba(18,18,24,0.08), 0 1px 3px rgba(18,18,24,0.06); }
+        .gl-marker img { width: 28px; height: 28px; border-radius: 999px; display: block; }
+        @media (max-width: 768px) {
+          .gl-stage { max-width: 420px; }
+          .gl-marker { width: 36px; height: 36px; margin: -18px 0 0 -18px; }
+          .gl-marker img { width: 22px; height: 22px; }
+        }
+        /* Closing */
+        .am-close { padding-top: 96px; padding-bottom: 96px; }
+        @media (min-width: 1024px) { .am-close { padding-top: 128px; padding-bottom: 128px; } }
+        .am-close .ds-btn { min-height: 44px; }
+</style>
+</head>
+<body class="bg-page text-title antialiased min-h-screen flex flex-col">
+<!-- Global site nav -->
+<header id="site-nav" class="site-nav">
+  <div class="site-nav__bar">
+    <a href="../index.html" class="site-nav__brand">DavinSane</a>
+    <nav aria-label="Main" class="site-nav__links">
+      <a href="../index.html" data-i18n="nav_home">Home</a>
+      <a href="../index.html#projects" data-i18n="nav_projects">Projects</a>
+      <a href="sobre-mi.html" aria-current="page" data-i18n="nav_about">About</a>
+      <a href="../blog.html" data-i18n="nav_blog">Blog</a>
+    </nav>
+    <div class="site-nav__actions">
+      <a href="../index.html#contact" class="ds-btn ds-btn--sm site-nav__cta"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+      <button id="site-nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav-menu" class="site-nav__toggle">
+        <span class="material-symbols-outlined" style="font-size:22px;">menu</span>
+      </button>
+    </div>
+  </div>
+  <nav id="site-nav-menu" aria-label="Main" class="site-nav__menu hidden">
+    <a href="../index.html" data-i18n="nav_home">Home</a>
+    <a href="../index.html#projects" data-i18n="nav_projects">Projects</a>
+    <a href="sobre-mi.html" aria-current="page" data-i18n="nav_about">About</a>
+    <a href="../blog.html" data-i18n="nav_blog">Blog</a>
+    <a href="../index.html#contact" class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+  </nav>
+</header>
+<script>
+  (function () {
+    var btn = document.getElementById('site-nav-toggle');
+    var menu = document.getElementById('site-nav-menu');
+    var icon = btn.querySelector('.material-symbols-outlined');
+    function setOpen(open) {
+      menu.classList.toggle('hidden', !open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      icon.textContent = open ? 'close' : 'menu';
+    }
+    btn.addEventListener('click', function () { setOpen(menu.classList.contains('hidden')); });
+    menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth >= 768) setOpen(false); });
+  })();
+</script>
+
+<main class="flex-grow">
+<!-- Intro -->
+<section class="am-hero" aria-labelledby="am-title">
+  <div class="ds-container">
+    <div class="am-hero__grid">
+      <div>
+        <span class="pr-pill">
+          <!-- Lucide user (ISC) -->
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span data-i18n="ab_eyebrow">About me</span>
+        </span>
+        <h1 id="am-title" class="am-h1" data-i18n="am_title">I design products and I build them too.</h1>
+        <p class="am-intro" data-i18n="am_intro">I'm a senior UX/UI designer based in Medellín, with over 6 years in fintech, e-commerce, BPO and startups. Today I lead design and design systems, and I build with code and AI.</p>
+      </div>
+      <figure class="am-photo">
+        <img src="../img/SantiagoMorales.png" width="1024" height="1536" fetchpriority="high"
+             alt="Portrait of Santiago Morales, a product designer with curly hair and clear glasses, wearing a black shirt with arms crossed against a gray studio background"
+             data-i18n-alt="am_photo_alt"/>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience" class="ds-section pb-0" aria-labelledby="ab-title">
+  <div class="ds-container">
+    <div class="ab-grid">
+      <div class="ab-intro">
+        <h2 id="ab-title" class="pr-h2" style="margin-top:0" data-i18n="ab_title">Experience</h2>
+        <p class="pr-lead" data-i18n="ab_lead">Over 6 years designing products in fintech, e-commerce, BPO and startups, and today leading design, design systems and teams.</p>
+      </div>
+      <!-- Items are rendered from JOBS below; copy lives in translations -->
+      <ol class="ab-tl" id="ab-tl" aria-labelledby="ab-title"></ol>
+    </div>
+    <!-- My stack: the sphere goes here -->
+    <div id="stack-slot"></div>
+  </div>
+</section>
+<script>
+  (function () {
+    var list = document.getElementById('ab-tl');
+    if (!list) return;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    // Most recent first. Each key maps to <key>_role / <key>_company / <key>_body in translations.
+    // Dates are 'YYYY-MM', 'YYYY' or 'present'; an empty start or end hides the item's date.
+    var JOBS = [
+      { key: 'ab1', start: '2025-03', end: 'present', current: true },
+      { key: 'ab2', start: '', end: '' },
+      { key: 'ab3', start: '', end: '2025-12' },
+      { key: 'ab4', start: '2024', end: 'present' },
+      { key: 'ab5', start: '2022-09', end: '2024-10' },
+      { key: 'ab6', start: '2020-08', end: '2022' }
+    ];
+
+    // translations/currentLang are declared by the i18n script further down.
+    function t(key) {
+      if (typeof translations === 'undefined' || typeof currentLang === 'undefined') return '';
+      return translations[currentLang][key] || '';
+    }
+    function formatPoint(v) {
+      if (v === 'present') return t('ab_present');
+      var parts = v.split('-');
+      if (parts.length === 1) return parts[0];
+      return t('ab_months').split(',')[parseInt(parts[1], 10) - 1] + ' ' + parts[0];
+    }
+    function formatRange(job) {
+      if (!job.start || !job.end) return '';
+      return formatPoint(job.start) + ' - ' + formatPoint(job.end);
+    }
+
+    list.innerHTML = JOBS.map(function (job) {
+      return '<li class="ab-item' + (job.current ? ' ab-item--current' : '') + '"' + (job.current ? ' aria-current="true"' : '') + '>' +
+        '<span class="ab-dot" aria-hidden="true"></span>' +
+        '<span class="ab-date"></span>' +
+        '<h3 class="ab-role" data-i18n="' + job.key + '_role"></h3>' +
+        '<span class="ab-company" data-i18n="' + job.key + '_company"></span>' +
+        '<p class="ab-body" data-i18n="' + job.key + '_body"></p></li>';
+    }).join('');
+    var items = Array.prototype.slice.call(list.children);
+    var dates = items.map(function (li) { return li.querySelector('.ab-date'); });
+
+    // Dates are composed, not plain keys, so redraw them whenever applyLang() switches <html lang>.
+    function renderDates() {
+      dates.forEach(function (el, i) { el.textContent = formatRange(JOBS[i]); });
+    }
+    if ('MutationObserver' in window) {
+      new MutationObserver(renderDates).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    }
+    document.addEventListener('DOMContentLoaded', renderDates);
+
+    function revealAll() { items.forEach(function (li) { li.classList.add('is-in'); }); }
+    if (reduced.matches || !('IntersectionObserver' in window)) { revealAll(); return; }
+    list.classList.add('is-animated');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+    items.forEach(function (li) { io.observe(li); });
+  })();
+</script>
+
+<!-- Reach: dotted globe. Land points come from data/globe-land.json (npm run build:globe). -->
+<section class="gl-section ds-section pb-0" aria-labelledby="gl-title">
+  <div class="ds-container">
+    <div class="gl-grid">
+      <div>
+        <span class="pr-pill">
+          <!-- Lucide globe (ISC) -->
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          <span data-i18n="gl_eyebrow">Reach</span>
+        </span>
+        <h2 id="gl-title" class="pr-h2" data-i18n="gl_title">Teams and clients around the world</h2>
+        <p class="pr-lead" data-i18n="gl_lead">I've worked with people from the United States, Colombia, India, the Philippines, Argentina and Mexico.</p>
+      </div>
+      <div class="gl-stage" id="gl-stage" aria-hidden="true">
+        <canvas id="gl-canvas"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  (function () {
+    var stage = document.getElementById('gl-stage');
+    var canvas = document.getElementById('gl-canvas');
+    if (!stage || !canvas || !canvas.getContext) return;
+    var ctx = canvas.getContext('2d');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var mobile = window.matchMedia('(max-width: 768px)');
+
+    var TILT = 15 * Math.PI / 180;          // north pole leans toward the viewer
+    var SPEED = 6 * Math.PI / 180;          // auto-rotation, radians per second
+    var BANDS = 10;                         // depth buckets so each frame is ~10 fills, not one per dot
+    var NEAR = [0x12, 0x12, 0x18], FAR = [0xC9, 0xCD, 0xD2];
+    var PLACES = [
+      { code: 'us', lat: 39, lon: -98 },
+      { code: 'co', lat: 4.6, lon: -74 },
+      { code: 'ar', lat: -34, lon: -64 },
+      { code: 'mx', lat: 23, lon: -102 },
+      { code: 'in', lat: 21, lon: 78 },
+      { code: 'ph', lat: 13, lon: 122 }
+    ];
+
+    var all = [], dots = [];
+    var rot = 75 * Math.PI / 180;           // start with Colombia facing front
+    var size = 0, dpr = 1, raf = 0, last = 0, visible = true;
+    var drag = null, velocity = 0;
+
+    var colors = [];
+    for (var b = 0; b < BANDS; b++) {
+      var k = b / (BANDS - 1);
+      colors.push('rgb(' + FAR.map(function (f, i) { return Math.round(f + (NEAR[i] - f) * k); }).join(',') + ')');
+    }
+
+    function toXYZ(lat, lon) {
+      var la = lat * Math.PI / 180, lo = lon * Math.PI / 180;
+      return [Math.cos(la) * Math.sin(lo), Math.sin(la), Math.cos(la) * Math.cos(lo)];
+    }
+    function useDots() {
+      dots = mobile.matches ? all.filter(function (_, i) { return i % 2 === 0; }) : all;
+    }
+
+    var markers = PLACES.map(function (p) {
+      var el = document.createElement('span');
+      el.className = 'gl-marker';
+      el.innerHTML = '<img src="../img/flags/' + p.code + '.svg" alt="" width="28" height="28" draggable="false"/>';
+      stage.appendChild(el);
+      return { el: el, xyz: toXYZ(p.lat, p.lon) };
+    });
+
+    // Rotate around Y by rot, then tilt around X. Returns [screenX, screenY, depth(-1..1)].
+    var cosR, sinR, cosT = Math.cos(TILT), sinT = Math.sin(TILT);
+    function project(p, out) {
+      var x = p[0] * cosR + p[2] * sinR;
+      var z = -p[0] * sinR + p[2] * cosR;
+      out[0] = x; out[1] = p[1] * cosT - z * sinT; out[2] = z * cosT + p[1] * sinT;
+      return out;
+    }
+
+    function resize() {
+      size = stage.clientWidth;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(size * dpr);
+      canvas.height = Math.round(size * dpr);
+      useDots();
+      draw();
+    }
+
+    var tmp = [0, 0, 0];
+    function draw() {
+      if (!size) return;
+      cosR = Math.cos(rot); sinR = Math.sin(rot);
+      var c = size / 2, R = size / 2 - 24;
+      var small = mobile.matches;
+      var rMin = small ? 0.7 : 0.9, rMax = small ? 1.6 : 2.1;
+
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, size, size);
+      ctx.fillStyle = '#EDEEF1';
+      ctx.beginPath(); ctx.arc(c, c, R, 0, Math.PI * 2); ctx.fill();
+
+      var paths = [];
+      for (var b = 0; b < BANDS; b++) paths.push(new Path2D());
+      for (var i = 0; i < dots.length; i++) {
+        project(dots[i], tmp);
+        if (tmp[2] <= 0) continue;           // hidden hemisphere is not drawn
+        var band = Math.min(BANDS - 1, Math.floor(tmp[2] * BANDS));
+        var x = c + tmp[0] * R, y = c - tmp[1] * R;
+        var r = rMin + (rMax - rMin) * tmp[2];
+        paths[band].moveTo(x + r, y);
+        paths[band].arc(x, y, r, 0, Math.PI * 2);
+      }
+      for (b = 0; b < BANDS; b++) { ctx.fillStyle = colors[b]; ctx.fill(paths[b]); }
+
+      for (var m = 0; m < markers.length; m++) {
+        project(markers[m].xyz, tmp);
+        var fade = Math.max(0, Math.min(1, tmp[2] / 0.2));
+        var s = 0.85 + 0.15 * Math.max(0, tmp[2]);
+        var st = markers[m].el.style;
+        st.opacity = fade;
+        st.zIndex = Math.round((tmp[2] + 1) * 100);
+        st.transform = 'translate3d(' + (c + tmp[0] * R).toFixed(1) + 'px,' + (c - tmp[1] * R).toFixed(1) + 'px,0) scale(' + s.toFixed(3) + ')';
+      }
+    }
+
+    function tick(now) {
+      raf = 0;
+      var dt = last ? Math.min(0.05, (now - last) / 1000) : 0;
+      last = now;
+      if (!drag) {
+        if (Math.abs(velocity) > 0.0001) { rot += velocity * dt; velocity *= Math.pow(0.04, dt); }
+        else velocity = 0;
+        if (!reduced.matches) rot += SPEED * dt;
+      }
+      draw();
+      if (shouldAnimate()) raf = requestAnimationFrame(tick);
+    }
+    function shouldAnimate() {
+      return visible && !document.hidden && (!reduced.matches || drag || velocity !== 0);
+    }
+    function start() {
+      if (!raf && shouldAnimate()) { last = 0; raf = requestAnimationFrame(tick); }
+    }
+
+    // Drag to spin; vertical swipes still scroll the page (touch-action: pan-y).
+    stage.addEventListener('pointerdown', function (e) {
+      drag = { x: e.clientX, t: performance.now() };
+      velocity = 0;
+      stage.classList.add('is-dragging');
+      if (stage.setPointerCapture) stage.setPointerCapture(e.pointerId);
+      start();
+    });
+    stage.addEventListener('pointermove', function (e) {
+      if (!drag) return;
+      var now = performance.now(), dx = e.clientX - drag.x;
+      var delta = dx / (size || 1) * Math.PI;
+      rot += delta;
+      velocity = delta / Math.max(0.016, (now - drag.t) / 1000);
+      drag.x = e.clientX; drag.t = now;
+    });
+    function endDrag() {
+      if (!drag) return;
+      if (performance.now() - drag.t > 80) velocity = 0;
+      drag = null;
+      stage.classList.remove('is-dragging');
+      start();
+    }
+    stage.addEventListener('pointerup', endDrag);
+    stage.addEventListener('pointercancel', endDrag);
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+        start();
+      }).observe(stage);
+    }
+    document.addEventListener('visibilitychange', start);
+    if (reduced.addEventListener) reduced.addEventListener('change', start);
+    if (mobile.addEventListener) mobile.addEventListener('change', resize);
+    if ('ResizeObserver' in window) new ResizeObserver(resize).observe(stage);
+    else window.addEventListener('resize', resize);
+
+    resize();
+    start();
+    fetch('../data/globe-land.json')
+      .then(function (r) { return r.json(); })
+      .then(function (pts) {
+        all = pts.map(function (p) { return toXYZ(p[0], p[1]); });
+        useDots();
+        draw();
+      })
+      .catch(function () { /* markers and the base sphere still render */ });
+  })();
+</script>
+
+<!-- Closing -->
+<section class="am-close ds-section" aria-labelledby="am-close-title">
+  <div class="ds-container">
+    <div class="ds-panel px-6 py-14 md:px-16 md:py-20 flex flex-col items-start gap-6">
+      <h2 id="am-close-title" class="ds-h2 max-w-2xl" data-i18n="am_close_title">Have a product in mind?</h2>
+      <p class="ds-p max-w-2xl" data-i18n="am_close_desc">Tell me what you're working on and we'll figure out the next step together.</p>
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="../index.html#contact" class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+        <a href="../index.html#projects" class="ds-btn ds-btn--ghost"><span data-i18n="am_close_projects">See projects</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer" data-site-footer></footer>
+<script src="../assets/site-footer.js"></script>
+
+<!-- Floating language toggle -->
+<button id="lang-toggle" onclick="toggleLang()" aria-label="Toggle language" class="lang-toggle">
+  <span class="material-symbols-outlined" style="font-size:16px;">language</span>
+  <span id="lang-label">ES</span>
+</button>
+
+<script>
+  const translations = {
+    en: {
+      nav_home: 'Home', nav_projects: 'Projects', nav_about: 'About', nav_blog: 'Blog', nav_cta: "Let's talk",
+      page_title:     'About · Santiago Morales',
+      page_desc:      'Santiago Morales is a senior UX/UI designer in Medellín with over 6 years in fintech, e-commerce, BPO and startups. He leads design and design systems, and builds with code and AI.',
+      am_title:       'I design products and I build them too.',
+      am_intro:       "I'm a senior UX/UI designer based in Medellín, with over 6 years in fintech, e-commerce, BPO and startups. Today I lead design and design systems, and I build with code and AI.",
+      am_photo_alt:   'Portrait of Santiago Morales, a product designer with curly hair and clear glasses, wearing a black shirt with arms crossed against a gray studio background',
+      am_close_title: 'Have a product in mind?',
+      am_close_desc:  "Tell me what you're working on and we'll figure out the next step together.",
+      am_close_projects: 'See projects',
+      ab_eyebrow:     'About me',
+      ab_title:       'Experience',
+      ab_lead:        'Over 6 years designing products in fintech, e-commerce, BPO and startups, and today leading design, design systems and teams.',
+      ab_present:     'Present',
+      ab_months:      'Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec',
+      ab1_role:       'Senior UX/UI Designer (Lead Designer)',
+      ab1_company:    'iQor',
+      ab1_body:       'I lead the Foundations section of a Design System within a Design Ops initiative, and I mentor design interns.',
+      ab2_role:       'Lead Product Designer',
+      ab2_company:    'Grupo CSF (via Maindstar)',
+      ab2_body:       "I lead design across the holding's 4 business units: brand and corporate site, real estate platform, motorcycle catalog and rental system.",
+      ab3_role:       'Senior UX/UI Designer',
+      ab3_company:    'RAIO',
+      ab3_body:       'I redesigned the analytics dashboard of a B2B platform for operations teams, so each role sees what it needs without the noise. I also designed its offline-first mobile app for field teams and its brand system.',
+      ab4_role:       'Founder, design and development',
+      ab4_company:    'Maindstar',
+      ab4_body:       'My design and development studio. I build complete products with Claude Code, from strategy to production.',
+      ab5_role:       'UX/UI Designer',
+      ab5_company:    'Mercado Libre',
+      ab5_body:       'I worked on the seller experience, making it easier for sellers to track their competition and manage how they rank against other sellers. I also designed for products that were not yet part of the catalog.',
+      ab6_role:       'UX/UI Designer',
+      ab6_company:    'Sistecrédito',
+      ab6_body:       'I redesigned the customer login and designed an internal portal to manage payments. The goal was to simplify processes that used to be slow and confusing, for users and for the internal team.',
+      gl_eyebrow:     'Reach',
+      gl_title:       'Teams and clients around the world',
+      gl_lead:        "I've worked with people from the United States, Colombia, India, the Philippines, Argentina and Mexico."
+    },
+    es: {
+      nav_home: 'Inicio', nav_projects: 'Proyectos', nav_about: 'Sobre mí', nav_blog: 'Blog', nav_cta: 'Hablemos',
+      page_title:     'Sobre mí · Santiago Morales',
+      page_desc:      'Santiago Morales es diseñador UX/UI senior en Medellín, con más de 6 años en fintech, e-commerce, BPO y startups. Lidera diseño y sistemas de diseño, y construye con código e IA.',
+      am_title:       'Diseño producto y también lo construyo.',
+      am_intro:       'Soy diseñador UX/UI senior en Medellín, con más de 6 años en fintech, e-commerce, BPO y startups. Hoy lidero diseño y sistemas de diseño, y construyo con código y con IA.',
+      am_photo_alt:   'Retrato de Santiago Morales, diseñador de producto de pelo crespo y gafas transparentes, con camisa negra y brazos cruzados sobre un fondo gris de estudio',
+      am_close_title: '¿Tienes un producto en mente?',
+      am_close_desc:  'Cuéntame en qué estás trabajando y vemos juntos cuál es el siguiente paso.',
+      am_close_projects: 'Ver proyectos',
+      ab_eyebrow:     'Sobre mí',
+      ab_title:       'Experiencia',
+      ab_lead:        'Más de 6 años diseñando producto en fintech, e-commerce, BPO y startups, y hoy liderando diseño, sistemas de diseño y equipos.',
+      ab_present:     'Presente',
+      ab_months:      'Ene,Feb,Mar,Abr,May,Jun,Jul,Ago,Sep,Oct,Nov,Dic',
+      ab1_role:       'Senior UX/UI Designer (Lead Designer)',
+      ab1_company:    'iQor',
+      ab1_body:       'Lidero la sección de Foundations de un Design System dentro de una iniciativa de Design Ops, y mentoro a practicantes de diseño.',
+      ab2_role:       'Lead Product Designer',
+      ab2_company:    'Grupo CSF (vía Maindstar)',
+      ab2_body:       'Lidero el diseño de las 4 unidades del holding: marca y sitio corporativo, plataforma inmobiliaria, catálogo de motos y sistema de alquiler.',
+      ab3_role:       'Senior UX/UI Designer',
+      ab3_company:    'RAIO',
+      ab3_body:       'Rediseñé el dashboard de analítica de una plataforma B2B para equipos de operaciones, para que cada rol vea lo que necesita sin ruido. También diseñé su app móvil offline-first para equipos en campo y su sistema de marca.',
+      ab4_role:       'Fundador, diseño y desarrollo',
+      ab4_company:    'Maindstar',
+      ab4_body:       'Mi estudio de diseño y desarrollo. Construyo productos completos con Claude Code, desde la estrategia hasta producción.',
+      ab5_role:       'UX/UI Designer',
+      ab5_company:    'Mercado Libre',
+      ab5_body:       'Trabajé en la experiencia del vendedor, para que los sellers pudieran seguir a su competencia y gestionar mejor su posicionamiento. También diseñé para productos que todavía no estaban en el catálogo.',
+      ab6_role:       'UX/UI Designer',
+      ab6_company:    'Sistecrédito',
+      ab6_body:       'Rediseñé el login para clientes y diseñé un portal interno para gestionar pagos. La idea era simplificar procesos que antes eran lentos y confusos, tanto para los usuarios como para el equipo interno.',
+      gl_eyebrow:     'Alcance',
+      gl_title:       'Equipos y clientes en todo el mundo',
+      gl_lead:        'He trabajado con personas de Estados Unidos, Colombia, India, Filipinas, Argentina y México.'
+    }
+  };
+
+  let currentLang = localStorage.getItem('lang') || 'en';
+
+  function applyLang(lang) {
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+      const key = el.dataset.i18nAlt;
+      if (t[key] !== undefined) el.alt = t[key];
+    });
+    document.title = t.page_title;
+    document.querySelector('meta[name="description"]').setAttribute('content', t.page_desc);
+    document.getElementById('lang-label').textContent = lang === 'en' ? 'ES' : 'EN';
+    document.documentElement.lang = lang;
+  }
+
+  function toggleLang() {
+    currentLang = currentLang === 'en' ? 'es' : 'en';
+    localStorage.setItem('lang', currentLang);
+    applyLang(currentLang);
+  }
+
+  applyLang(currentLang);
+</script>
+</body>
+</html>

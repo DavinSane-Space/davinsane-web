@@ -25,6 +25,7 @@
     <nav aria-label="Main" class="site-nav__links">
       <a href="../index.html" data-i18n="nav_home">Home</a>
       <a href="../index.html#projects" aria-current="page" data-i18n="nav_projects">Projects</a>
+      <a href="../sobre-mi/sobre-mi.html" data-i18n="nav_about">About</a>
       <a href="../blog.html" data-i18n="nav_blog">Blog</a>
     </nav>
     <div class="site-nav__actions">
@@ -37,6 +38,7 @@
   <nav id="site-nav-menu" aria-label="Main" class="site-nav__menu hidden">
     <a href="../index.html" data-i18n="nav_home">Home</a>
     <a href="../index.html#projects" aria-current="page" data-i18n="nav_projects">Projects</a>
+    <a href="../sobre-mi/sobre-mi.html" data-i18n="nav_about">About</a>
     <a href="../blog.html" data-i18n="nav_blog">Blog</a>
     <a href="../index.html#contact" class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
   </nav>
@@ -86,41 +88,49 @@
       <span class="font-label-sm text-label-sm text-outline-variant">01 / 02</span>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+    <div class="pc-grid">
 
       <!-- Sistecrédito Rediseño de Login -->
-      <article class="group flex flex-col gap-6 cursor-pointer card-enter" onclick="window.location.href='sistecredito-login.html'" style="transition-delay: 0.05s">
-        <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-img transition-colors duration-300 group-hover:border-primary">
-          <img alt="Rediseño de Login Sistecrédito" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out" src="img/loginnuevosiste.jpg"/>
+      <div class="card-enter" style="transition-delay: 0.05s">
+        <a href="sistecredito-login.html" class="pc">
+        <div class="pc__media">
+          <img alt="Rediseño de Login Sistecrédito" src="img/loginnuevosiste.jpg"/>
+          <span class="pc__save" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
         </div>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="font-headline-md text-headline-md text-on-surface" data-i18n="p1_title">Rediseño de Login</h3>
-            <div class="flex gap-3 mt-3">
-              <span class="ds-tag" data-i18n="p1_tag1">UI Design</span>
-              <span class="ds-tag" data-i18n="p1_tag2">Figma</span>
-            </div>
+        <div class="pc__body">
+          <h3 class="pc__title" data-i18n="p1_title">Rediseño de Login</h3>
+          <div class="pc__meta">
+            <span><span class="material-symbols-outlined">brush</span><span data-i18n="p1_tag1">UI Design</span></span>
+            <span><span class="material-symbols-outlined">draw</span><span data-i18n="p1_tag2">Figma</span></span>
           </div>
-          <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">arrow_outward</span>
+          <div class="pc__foot">
+            <div class="pc__stats"><div class="pc__stat"><b>01</b><small data-i18n="pc_case">case</small></div></div>
+            <span class="pc__cta" data-i18n="pc_view">View case</span>
+          </div>
         </div>
-      </article>
+        </a>
+      </div>
 
       <!-- Sistecrédito Portal de Pagos -->
-      <article class="group flex flex-col gap-6 cursor-pointer card-enter md:mt-16" onclick="window.location.href='sistecredito-cobros.html'" style="transition-delay: 0.15s">
-        <div class="relative w-full aspect-[4/3] bg-surface-elevated border border-border-low-contrast overflow-hidden rounded-img transition-colors duration-300 group-hover:border-primary">
-          <img alt="Sistecrédito Portal de Pagos" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out" src="img/portalcobro.jpg"/>
+      <div class="card-enter" style="transition-delay: 0.15s">
+        <a href="sistecredito-cobros.html" class="pc">
+        <div class="pc__media">
+          <img alt="Sistecrédito Portal de Pagos" src="img/portalcobro.jpg"/>
+          <span class="pc__save" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
         </div>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="font-headline-md text-headline-md text-on-surface" data-i18n="p2_title">Portal de Pagos</h3>
-            <div class="flex gap-3 mt-3">
-              <span class="ds-tag" data-i18n="p2_tag1">UX Research</span>
-              <span class="ds-tag" data-i18n="p2_tag2">UI Design</span>
-            </div>
+        <div class="pc__body">
+          <h3 class="pc__title" data-i18n="p2_title">Portal de Pagos</h3>
+          <div class="pc__meta">
+            <span><span class="material-symbols-outlined">search</span><span data-i18n="p2_tag1">UX Research</span></span>
+            <span><span class="material-symbols-outlined">brush</span><span data-i18n="p2_tag2">UI Design</span></span>
           </div>
-          <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors transform group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">arrow_outward</span>
+          <div class="pc__foot">
+            <div class="pc__stats"><div class="pc__stat"><b>02</b><small data-i18n="pc_case">case</small></div></div>
+            <span class="pc__cta" data-i18n="pc_view">View case</span>
+          </div>
         </div>
-      </article>
+        </a>
+      </div>
 
     </div>
   </section>
@@ -144,7 +154,8 @@
 
   const translations = {
     en: {
-      nav_home: 'Home', nav_projects: 'Projects', nav_blog: 'Blog', nav_cta: "Let's talk",
+      pc_case: 'case', pc_view: 'View case', soon: 'Coming soon',
+      nav_home: 'Home', nav_projects: 'Projects', nav_about: 'About', nav_blog: 'Blog', nav_cta: "Let's talk",
       nav_back: 'All projects',
       header_label: 'Fintech · Consumer Credit',
       header_desc: 'Digital product design work for Sistecrédito, one of Colombia\'s leading consumer credit platforms. I worked on a customer login redesign and an internal payments management portal, with the goal of simplifying processes that used to be slow and confusing for both users and the internal team.',
@@ -155,7 +166,8 @@
       footer_privacy: 'Privacy'
     },
     es: {
-      nav_home: 'Inicio', nav_projects: 'Proyectos', nav_blog: 'Blog', nav_cta: 'Hablemos',
+      pc_case: 'caso', pc_view: 'Ver caso', soon: 'Próximamente',
+      nav_home: 'Inicio', nav_projects: 'Proyectos', nav_about: 'Sobre mí', nav_blog: 'Blog', nav_cta: 'Hablemos',
       nav_back: 'Todos los proyectos',
       header_label: 'Fintech · Crédito al Consumo',
       header_desc: 'Diseño de producto digital para Sistecrédito, una de las principales plataformas de crédito al consumo de Colombia. Trabajé en el rediseño del login para clientes y en un portal interno de gestión de pagos, con el objetivo de simplificar procesos que antes eran lentos y confusos tanto para usuarios como para el equipo interno.',
