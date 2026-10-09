@@ -5,7 +5,7 @@
  * To introduce color later, change --accent-1 / --accent-2 / --accent-3 only.
  */
 :root {
-  --c-bg:         247 247 248;  /* #F7F7F8 page background */
+  --c-bg:         248 246 243;  /* #F8F6F3 page background */
   --c-surface:    255 255 255;  /* #FFFFFF cards */
   --c-subtle:     241 242 244;  /* #F1F2F4 quiet fills */
   --c-panel-from: 237 238 241;  /* #EDEEF1 hero panel start */
@@ -17,6 +17,7 @@
   --c-border:     224 226 230;  /* #E0E2E6 borders */
   --c-ink:        27 27 33;     /* #1B1B21 primary button */
   --c-on-ink:     255 255 255;
+  --c-texture:    221 214 204;  /* #DDD6CC diagonal lines on the page background */
 
   /* Reserved accent slots, neutral for now */
   --accent-1:     27 27 33;     /* highlights, links, active states */
@@ -254,7 +255,7 @@ body {
 
 .page-textured {
   background-color: rgb(var(--c-bg));
-  background-image: repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.015) 0 1px, transparent 1px 4px);
+  background-image: repeating-linear-gradient(135deg, rgb(var(--c-texture) / 0.22) 0 1px, transparent 1px 4px);
 }
 
 /* Hero width */
@@ -339,9 +340,13 @@ body {
 }
 @media (min-width: 1024px) {
   .hero-glass {
-    position: absolute; right: 24px; bottom: 24px; margin: 0;
+    position: absolute; left: 24px; bottom: 24px; margin: 0;
     width: min(360px, calc(100% - 48px));
-    background: rgba(30, 30, 35, 0.45); text-shadow: 0 1px 2px rgb(0 0 0 / 0.3);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.02));
+    -webkit-backdrop-filter: blur(8px) saturate(180%); backdrop-filter: blur(8px) saturate(180%);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 8px 32px rgba(0, 0, 0, 0.18);
+    text-shadow: 0 1px 2px rgb(0 0 0 / 0.3);
   }
 }
 .hero-glass__eyebrow { display: flex; align-items: center; gap: 8px; font-size: 13px; line-height: 18px; font-weight: 500; color: rgba(255, 255, 255, 0.9); }

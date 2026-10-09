@@ -174,10 +174,10 @@
         .ww-grid { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr);
               grid-template-areas: "dark" "b" "c" "a" "d"; }
         @media (min-width: 768px) { .ww-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "dark dark" "b c" "a d"; } }
-        @media (min-width: 1024px) { .ww-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: 84px minmax(198px, auto) 84px;
+        @media (min-width: 1024px) { .ww-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto minmax(198px, auto) 84px;
               grid-template-areas: "a c dark" "b c dark" "b d dark"; } }
         .ww-card { display: flex; flex-direction: column; min-width: 0; padding: 24px; background: #fff; border: 1px solid #E0E2E6; border-radius: 24px; }
-        .ww-card--a { grid-area: a; flex-direction: row; align-items: center; gap: 14px; padding-block: 18px; }
+        .ww-card--a { grid-area: a; }
         .ww-card--b { grid-area: b; }
         .ww-card--c { grid-area: c; }
         .ww-card--d { grid-area: d; flex-direction: row; align-items: center; gap: 12px; padding-block: 18px; }
@@ -187,11 +187,10 @@
         .ww-stat { margin-top: auto; padding-top: 24px; }
         .ww-num { font-family: var(--font-serif); font-weight: 500; font-size: 64px; line-height: 1; letter-spacing: -0.03em; color: #121218; }
         .ww-label { margin-top: 6px; font-size: 14px; line-height: 20px; color: #61646B; }
-        .ww-avatars { display: flex; flex-shrink: 0; }
-        .ww-avatars span { width: 40px; height: 40px; border-radius: 999px; border: 2px solid #fff; background: #C9CDD2; }
-        .ww-avatars span + span { margin-left: -12px; }
-        .ww-avatars span:nth-child(2) { background: #94979E; }
-        .ww-avatars span:nth-child(3) { background: #44454C; }
+        .ww-countries__label { font-family: var(--font-sans); font-size: 12px; line-height: 16px; color: #94979E; }
+        .ww-countries { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; padding: 0; list-style: none; }
+        .ww-countries li { padding: 6px 12px; border: 1px solid #E0E2E6; border-radius: 999px; background: #fff;
+              font-family: var(--font-sans); font-weight: 500; font-size: 13px; line-height: 18px; color: #44454C; white-space: nowrap; }
         .ww-dot { flex-shrink: 0; width: 10px; height: 10px; margin: 0 4px; border-radius: 999px; background: #9BDB5A; box-shadow: 0 0 0 4px rgb(155 219 90 / 0.18), 0 0 12px rgb(155 219 90 / 0.55); }
         .ww-dark__text { font-family: var(--font-sans); font-size: 18px; line-height: 28px; color: #fff; }
         .ww-dark__label { font-size: 13px; line-height: 18px; color: rgb(255 255 255 / 0.55); }
@@ -402,11 +401,11 @@
       </div>
       <div class="hero-stats">
         <div>
-          <p class="hero-stats__num">6.5+</p>
+          <p class="hero-stats__num">7+</p>
           <p class="hero-stats__label" data-i18n="stat1_short">Years of experience</p>
         </div>
         <div>
-          <p class="hero-stats__num">5</p>
+          <p class="hero-stats__num">8</p>
           <p class="hero-stats__label" data-i18n="stat2_short">Companies</p>
         </div>
         <div>
@@ -433,7 +432,7 @@
 </section>
 
 <!-- Clients marquee -->
-<section class="pt-16 md:pt-20 pb-8 md:pb-12" aria-labelledby="clients-label">
+<section class="py-32 md:py-48" aria-labelledby="clients-label">
   <div class="ds-container">
     <p id="clients-label" class="text-center text-[14px] font-medium text-secondary mb-6" data-i18n="clients_label">Companies I have designed for</p>
   </div>
@@ -445,11 +444,17 @@
         <span class="ds-marquee__item">Sistecrédito</span>
         <span class="ds-marquee__item">Grupo CSF</span>
         <span class="ds-marquee__item">Maindstar</span>
+        <span class="ds-marquee__item">Evolv Consulting</span>
+        <span class="ds-marquee__item">Toyota Motors USA</span>
+        <span class="ds-marquee__item">RAIO</span>
         <span class="ds-marquee__item">iQor</span>
         <span class="ds-marquee__item">Mercado Libre</span>
         <span class="ds-marquee__item">Sistecrédito</span>
         <span class="ds-marquee__item">Grupo CSF</span>
         <span class="ds-marquee__item">Maindstar</span>
+        <span class="ds-marquee__item">Evolv Consulting</span>
+        <span class="ds-marquee__item">Toyota Motors USA</span>
+        <span class="ds-marquee__item">RAIO</span>
       </div>
       <div class="flex" aria-hidden="true">
         <span class="ds-marquee__item">iQor</span>
@@ -457,23 +462,29 @@
         <span class="ds-marquee__item">Sistecrédito</span>
         <span class="ds-marquee__item">Grupo CSF</span>
         <span class="ds-marquee__item">Maindstar</span>
+        <span class="ds-marquee__item">Evolv Consulting</span>
+        <span class="ds-marquee__item">Toyota Motors USA</span>
+        <span class="ds-marquee__item">RAIO</span>
         <span class="ds-marquee__item">iQor</span>
         <span class="ds-marquee__item">Mercado Libre</span>
         <span class="ds-marquee__item">Sistecrédito</span>
         <span class="ds-marquee__item">Grupo CSF</span>
         <span class="ds-marquee__item">Maindstar</span>
+        <span class="ds-marquee__item">Evolv Consulting</span>
+        <span class="ds-marquee__item">Toyota Motors USA</span>
+        <span class="ds-marquee__item">RAIO</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- What I do -->
-<section class="ds-section pb-0" aria-labelledby="wd-title">
+<section class="ds-section pt-0 pb-0" aria-labelledby="wd-title">
   <div class="ds-container">
     <div class="wd-head">
       <span class="ds-eyebrow" data-i18n="wd_eyebrow">What I do</span>
       <h2 id="wd-title" class="wd-h2" data-i18n="wd_title">What makes me different</h2>
-      <p class="ds-p wd-lead" data-i18n="wd_lead">I design products with the user, the business and how they get built in mind.</p>
+      <p class="ds-p wd-lead" data-i18n="wd_lead">I design products with the user, the business and how they get built in mind, following different product design methodologies and business strategies that make the product usable, accessible and valuable.</p>
     </div>
     <div class="wd-grid">
 
@@ -500,7 +511,7 @@
         </div>
         <div class="wd-body">
           <h3 class="ds-h3" data-i18n="wd1_title">Clear design systems</h3>
-          <p class="ds-p mt-3" data-i18n="wd1_body">I work on the foundations of iQor's design system and built the one for Grupo CSF, so every screen looks and feels the same.</p>
+          <p class="ds-p mt-3" data-i18n="wd1_body">I define reusable patterns, tokens and components that streamline the workflow between design and development, ensuring the product scales cleanly and consistently.</p>
         </div>
       </article>
 
@@ -521,7 +532,7 @@
         </div>
         <div class="wd-body">
           <h3 class="ds-h3" data-i18n="wd2_title">Strategy and leadership</h3>
-          <p class="ds-p mt-3" data-i18n="wd2_body">I've spent over a year leading design at iQor, 3 years mentoring designers, and I lead design across the 4 business units of Grupo CSF. I help decide what gets built first and why.</p>
+          <p class="ds-p mt-3" data-i18n="wd2_body">I shape product design strategies to build great digital products that are usable for every user, and I have the ability to lead challenging design teams and projects. I currently have 2 years of experience as a mentor to designers.</p>
         </div>
       </article>
 
@@ -539,8 +550,8 @@
           </div>
         </div>
         <div class="wd-body">
-          <h3 class="ds-h3" data-i18n="wd3_title">AI is part of how I work</h3>
-          <p class="ds-p mt-3" data-i18n="wd3_body">I use Claude Code, Codex, v0 and Replit across my process, from exploring ideas to building, so I move faster without lowering the quality of what I deliver.</p>
+          <h3 class="ds-h3" data-i18n="wd3_title">Design Engineer thanks to AI</h3>
+          <p class="ds-p mt-3" data-i18n="wd3_body">My workflow is at the forefront of new tools and technologies. Across my research, design and development process I work with Claude Code, Codex, Replit and v0 to build more robust products in an agile way.</p>
         </div>
       </article>
 
@@ -560,21 +571,35 @@
     </div>
     <div class="ww-grid">
       <div class="ww-card ww-card--a">
-        <span class="ww-avatars" aria-hidden="true"><span></span><span></span><span></span></span>
-        <p class="ww-text" data-i18n="ww_a">Fintech, Ecommerce and BPO</p>
+        <p class="ww-countries__label" data-i18n="ww_a_label">I've worked in industries like</p>
+        <ul class="ww-countries">
+          <li data-i18n="ww_a_fintech">Fintech</li>
+          <li data-i18n="ww_a_ecommerce">E-commerce</li>
+          <li data-i18n="ww_a_bpo">BPO</li>
+          <li data-i18n="ww_a_startups">Startups</li>
+          <li data-i18n="ww_a_auto">Automotive</li>
+          <li data-i18n="ww_a_consulting">Consulting</li>
+        </ul>
       </div>
       <div class="ww-card ww-card--b">
-        <p class="ww-text" data-i18n="ww_b_text">One design system across the whole business.</p>
+        <p class="ww-text" data-i18n="ww_b_text">Design systems for very different teams and businesses.</p>
         <div class="ww-stat">
-          <p class="ww-num">4</p>
-          <p class="ww-label" data-i18n="ww_b_label">Grupo CSF business units, one identity</p>
+          <p class="ww-num">5</p>
+          <p class="ww-label" data-i18n="ww_b_label">Companies with a design system: iQor, RAIO, SelectUs, Toyota Motors and Grupo CSF</p>
         </div>
       </div>
       <div class="ww-card ww-card--c">
         <p class="ww-text" data-i18n="ww_c_text">Teams and clients in different countries, same way of working.</p>
         <div class="ww-stat">
-          <p class="ww-num">2</p>
-          <p class="ww-label" data-i18n="ww_c_label">Countries: Colombia and the US</p>
+          <p class="ww-countries__label" data-i18n="ww_c_label">I work with people from</p>
+          <ul class="ww-countries">
+            <li data-i18n="ww_c_us">United States</li>
+            <li data-i18n="ww_c_co">Colombia</li>
+            <li data-i18n="ww_c_in">India</li>
+            <li data-i18n="ww_c_ph">Philippines</li>
+            <li data-i18n="ww_c_ar">Argentina</li>
+            <li data-i18n="ww_c_mx">Mexico</li>
+          </ul>
         </div>
       </div>
       <div class="ww-card ww-card--d">
@@ -1102,13 +1127,13 @@
       ml_sub: 'Research & product design for e-commerce', sc_sub: 'Credit and collections flows',
       wd_eyebrow:     'What I do',
       wd_title:       'What makes me different',
-      wd_lead:        'I design products with the user, the business and how they get built in mind.',
+      wd_lead:        'I design products with the user, the business and how they get built in mind, following different product design methodologies and business strategies that make the product usable, accessible and valuable.',
       wd1_title:      'Clear design systems',
-      wd1_body:       "I work on the foundations of iQor's design system and built the one for Grupo CSF, so every screen looks and feels the same.",
+      wd1_body:       "I define reusable patterns, tokens and components that streamline the workflow between design and development, ensuring the product scales cleanly and consistently.",
       wd2_title:      'Strategy and leadership',
-      wd2_body:       "I've spent over a year leading design at iQor, 3 years mentoring designers, and I lead design across the 4 business units of Grupo CSF. I help decide what gets built first and why.",
-      wd3_title:      'AI is part of how I work',
-      wd3_body:       'I use Claude Code, Codex, v0 and Replit across my process, from exploring ideas to building, so I move faster without lowering the quality of what I deliver.',
+      wd2_body:       "I shape product design strategies to build great digital products that are usable for every user, and I have the ability to lead challenging design teams and projects. I currently have 2 years of experience as a mentor to designers.",
+      wd3_title:      'Design Engineer thanks to AI',
+      wd3_body:       'My workflow is at the forefront of new tools and technologies. Across my research, design and development process I work with Claude Code, Codex, Replit and v0 to build more robust products in an agile way.',
       wd_now:         'Now',
       wd_next:        'Next',
       wd_later:       'Later',
@@ -1116,11 +1141,13 @@
       ww_eyebrow:     'Why work with me',
       ww_title:       'Design with judgment, from idea to production',
       ww_lead:        'I combine strategy, visual design and code so what I design works for the user and for the business.',
-      ww_a:           'Fintech, Ecommerce and BPO',
-      ww_b_text:      'One design system across the whole business.',
-      ww_b_label:     'Grupo CSF business units, one identity',
+      ww_a_label:     "I've worked in industries like",
+      ww_a_fintech: 'Fintech', ww_a_ecommerce: 'E-commerce', ww_a_bpo: 'BPO', ww_a_startups: 'Startups', ww_a_auto: 'Automotive', ww_a_consulting: 'Consulting',
+      ww_b_text:      'Design systems for very different teams and businesses.',
+      ww_b_label:     'Companies with a design system: iQor, RAIO, SelectUs, Toyota Motors and Grupo CSF',
       ww_c_text:      'Teams and clients in different countries, same way of working.',
-      ww_c_label:     'Countries: Colombia and the US',
+      ww_c_label:     'I work with people from',
+      ww_c_us: 'United States', ww_c_co: 'Colombia', ww_c_in: 'India', ww_c_ph: 'Philippines', ww_c_ar: 'Argentina', ww_c_mx: 'Mexico',
       ww_d:           'Available for projects',
       ww_dark_text:   'I help teams and companies turn ideas into clear digital products that make sense and can be built.',
       ww_dark_label:  "I've worked with",
@@ -1200,13 +1227,13 @@
       ml_sub: 'Research y diseño de producto para e-commerce', sc_sub: 'Flujos de crédito y cobranza',
       wd_eyebrow:     'Lo que hago',
       wd_title:       'Lo que me hace distinto',
-      wd_lead:        'Diseño productos pensando en el usuario, el negocio y en cómo se construyen.',
+      wd_lead:        'Diseño productos pensando en el usuario, el negocio y en cómo se construyen, siguiendo diferentes metodologías de diseño de producto y estrategias de negocio que hagan del producto usable, accesible y valioso.',
       wd1_title:      'Sistemas de diseño claros',
-      wd1_body:       'Trabajo en los cimientos del design system de iQor y creé el de Grupo CSF, para que cada pantalla se vea y se sienta igual.',
+      wd1_body:       'Defino patrones, tokens y componentes reutilizables que simplifican el flujo de trabajo entre diseño y desarrollo, asegurando que el producto escale de forma limpia y coherente.',
       wd2_title:      'Estrategia y liderazgo',
-      wd2_body:       'Llevo más de un año liderando diseño en iQor, 3 años mentorando diseñadores y lidero el diseño de las 4 unidades de Grupo CSF. Ayudo a decidir qué se construye primero y por qué.',
-      wd3_title:      'La IA es parte de cómo trabajo',
-      wd3_body:       'Uso Claude Code, Codex, v0 y Replit en distintas partes de mi proceso, desde explorar ideas hasta construir, para moverme más rápido sin bajar la calidad de lo que entrego.',
+      wd2_body:       'Planteo estrategias de diseño de producto para construir excelentes productos digitales que sean usables para todos los usuarios. Además, tengo la habilidad de liderar equipos y proyectos de diseño desafiantes. Actualmente cuento con 2 años de experiencia como mentor de diseñadores.',
+      wd3_title:      'Design Engineer gracias a la IA',
+      wd3_body:       'Mi flujo de trabajo está a la vanguardia de las nuevas herramientas y tecnologías. En mi proceso de investigación, diseño y desarrollo trabajo con Claude Code, Codex, Replit y v0 con el fin de construir productos más robustos de forma ágil.',
       wd_now:         'Ahora',
       wd_next:        'Siguiente',
       wd_later:       'Después',
@@ -1214,11 +1241,13 @@
       ww_eyebrow:     'Por qué trabajar conmigo',
       ww_title:       'Diseño con criterio, de la idea a producción',
       ww_lead:        'Combino estrategia, diseño visual y código para que lo que diseño funcione para el usuario y también para el negocio.',
-      ww_a:           'Fintech, Ecommerce y BPO',
-      ww_b_text:      'Un mismo sistema de diseño para todo el negocio.',
-      ww_b_label:     'Unidades de Grupo CSF con una sola identidad',
+      ww_a_label:     'He trabajado en industrias como',
+      ww_a_fintech: 'Fintech', ww_a_ecommerce: 'Ecommerce', ww_a_bpo: 'BPO', ww_a_startups: 'Startups', ww_a_auto: 'Automotriz', ww_a_consulting: 'Consultoras',
+      ww_b_text:      'Sistemas de diseño para equipos y negocios muy distintos.',
+      ww_b_label:     'Empresas con sistema de diseño: iQor, RAIO, SelectUs, Toyota Motors y Grupo CSF',
       ww_c_text:      'Equipos y clientes en distintos países, con la misma forma de trabajar.',
-      ww_c_label:     'Países: Colombia y EE. UU.',
+      ww_c_label:     'Trabajo con personas de',
+      ww_c_us: 'Estados Unidos', ww_c_co: 'Colombia', ww_c_in: 'India', ww_c_ph: 'Filipinas', ww_c_ar: 'Argentina', ww_c_mx: 'México',
       ww_d:           'Disponible para proyectos',
       ww_dark_text:   'Ayudo a equipos y empresas a convertir ideas en productos digitales claros, que se entienden y se pueden construir.',
       ww_dark_label:  'He trabajado con',
