@@ -41,6 +41,7 @@
       <a href="../blog.html" data-i18n="nav_blog">Blog</a>
     </nav>
     <div class="site-nav__actions">
+      <button id="lang-toggle" type="button" onclick="toggleLang()" aria-label="Toggle language" class="lang-toggle"><span class="material-symbols-outlined" aria-hidden="true">language</span><span id="lang-label" class="lang-label">ES</span></button>
       <a href="../index.html#contact" class="ds-btn ds-btn--sm site-nav__cta"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
       <button id="site-nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav-menu" class="site-nav__toggle">
         <span class="material-symbols-outlined" style="font-size:22px;">menu</span>
@@ -522,11 +523,6 @@
 <footer class="site-footer" data-site-footer></footer>
 <script src="../assets/site-footer.js"></script>
 
-<!-- Floating language toggle -->
-<button id="lang-toggle" onclick="toggleLang()" aria-label="Toggle language" class="lang-toggle">
-  <span class="material-symbols-outlined" style="font-size:16px;">language</span>
-  <span id="lang-label">ES</span>
-</button>
 
 <script>
   const observer = new IntersectionObserver(entries => {
@@ -691,7 +687,7 @@
       const key = el.dataset.i18n;
       if (t[key] !== undefined) el.textContent = t[key];
     });
-    document.getElementById('lang-label').textContent = lang === 'en' ? 'ES' : 'EN';
+    document.querySelectorAll('.lang-label').forEach(function (el) { el.textContent = lang === 'en' ? 'ES' : 'EN'; });
     document.documentElement.lang = lang;
   }
 
