@@ -110,7 +110,7 @@
         .am-close .ds-btn { min-height: 44px; }
 </style>
 </head>
-<body class="bg-page text-title antialiased min-h-screen flex flex-col">
+<body class="page-textured bg-page text-title antialiased min-h-screen flex flex-col">
 <!-- Global site nav -->
 <header id="site-nav" class="site-nav">
   <div class="site-nav__bar">
@@ -208,11 +208,11 @@
     // Dates are 'YYYY-MM-DD', 'YYYY-MM', 'YYYY' or 'present'; an empty start or end hides the item's date.
     var JOBS = [
       { key: 'ab1', start: '2025-03-05', end: 'present', current: true, link: '../iqor/iqor.html', body2: true },
-      { key: 'ab2', start: '2025-06', end: '2025-08' },
+      { key: 'ab2', start: '2026-06', end: '2026-08' },
       { key: 'ab7', start: '2026-01', end: '2026-06' },
-      { key: 'ab3', start: '', end: '2025-12' },
-      { key: 'ab5', start: '2022-09', end: '2024-10' },
-      { key: 'ab6', start: '2020-08', end: '2022' }
+      { key: 'ab3', start: '2024-08', end: '2025-12' },
+      { key: 'ab5', start: '2022-09', end: '2024-05' },
+      { key: 'ab6', start: '2020-08', end: '2022-09' }
     ];
 
     // translations/currentLang are declared by the i18n script further down.
@@ -220,19 +220,16 @@
       if (typeof translations === 'undefined' || typeof currentLang === 'undefined') return '';
       return translations[currentLang][key] || '';
     }
-    function formatPoint(v, hideYear) {
+    function formatPoint(v) {
       if (v === 'present') return t('ab_present');
       var parts = v.split('-');
       if (parts.length === 1) return parts[0];
-      var month = t('ab_months').split(',')[parseInt(parts[1], 10) - 1];
-      var monthYear = hideYear ? month : month + ' ' + parts[0];
+      var monthYear = t('ab_months').split(',')[parseInt(parts[1], 10) - 1] + ' ' + parts[0];
       return parts.length === 3 ? parts[2] + ' ' + monthYear : monthYear;
     }
     function formatRange(job) {
       if (!job.start || !job.end) return '';
-      // Same-year ranges print the year once: "June - August 2025".
-      var sameYear = job.start.length > 4 && job.start.slice(0, 4) === job.end.slice(0, 4);
-      return formatPoint(job.start, sameYear) + ' - ' + formatPoint(job.end);
+      return formatPoint(job.start) + ' - ' + formatPoint(job.end);
     }
 
     list.innerHTML = JOBS.map(function (job) {
@@ -284,7 +281,7 @@
           <span data-i18n="gl_eyebrow">Reach</span>
         </span>
         <h2 id="gl-title" class="pr-h2" data-i18n="gl_title">Teams and clients around the world</h2>
-        <p class="pr-lead" data-i18n="gl_lead">I've worked with people from the United States, Colombia, India, the Philippines, Argentina and Mexico.</p>
+        <p class="pr-lead" data-i18n="gl_lead">Designing for global contexts takes empathy and flexibility. Throughout my career, I've co-created digital products with leaders, developers and designers in the US, Colombia, India, the Philippines, Argentina and Mexico, building bridges between culture and technology.</p>
       </div>
       <div class="gl-stage" id="gl-stage" aria-hidden="true">
         <canvas id="gl-canvas"></canvas>
@@ -506,27 +503,27 @@
       ab_months:      'January,February,March,April,May,June,July,August,September,October,November,December',
       ab1_role:       'Senior UX/UI Designer (Lead Designer)',
       ab1_company:    'iQor',
-      ab1_body:       "I've designed several internal products for the company. The most important one is the HUB, which solved a range of usability problems for employees worldwide. I also designed a CMS that brings together communication features for every iQor employee around the world.",
+      ab1_body:       "I've designed a range of internal products for the company, most notably the global HUB, which solved key usability problems for employees around the world. I also created a CMS that centralizes and streamlines internal communication for iQor's teams.",
       ab1_link:       'See projects',
-      ab1_body2:      "Today I'm the Mentor Lead Designer for the team's designers, helping them grow professionally in visual and product design. I also design strategies to improve the team's processes through inclusive Design Ops and design-to-dev handoff.",
+      ab1_body2:      "I currently serve as Mentor Lead Designer, guiding the team's professional growth in visual and product design. I also drive operational efficiency through inclusive DesignOps strategies and a smooth handoff between design and development.",
       ab2_role:       'Lead Product Designer',
       ab2_company:    'Grupo CSF (Freelance)',
       ab2_body:       "I led design across the holding's 4 business units: brand and corporate site, real estate platform, motorcycle catalog and rental system. Here I solved a complex problem: the company had no design system and no visual language consistent with CSF's personality. Working methodically and always alongside the stakeholder, I designed and built a coherent digital product for the brand's 4 companies.",
       ab7_role:       'Senior UX/UI Designer',
       ab7_company:    'Evolv Consulting - Client Toyota Motors USA (Freelance)',
-      ab7_body:       "I designed a design system for Toyota's OneTech Design initiative. I also took part in the research for an internal platform for employees at Toyota's car assembly plants, where I proposed how they would use a mobile app in charge of safety at each assembly plant.",
+      ab7_body:       "I led the creation of the design system for Toyota's OneTech Design initiative. I also took part in the UX research for its internal platform, where I proposed a mobile app focused on managing operational safety at the assembly plants.",
       ab3_role:       'Senior UX/UI Designer',
       ab3_company:    'RAIO',
-      ab3_body:       'I redesigned the analytics dashboard of a B2B platform for operations teams, so each role sees what it needs without the noise. I also designed its offline-first mobile app for field teams and its brand system.',
+      ab3_body:       "I built the design system that served as the foundation for the development team to implement the app in Angular. I then took on the English-learning platform, defining the navigation architecture and the interface in Figma, and relying on AI for the prototype's animations.",
       ab5_role:       'UX/UI Designer',
       ab5_company:    'Mercado Libre',
-      ab5_body:       'I worked on the seller experience, making it easier for sellers to track their competition and manage how they rank against other sellers. I also designed for products that were not yet part of the catalog.',
+      ab5_body:       "I designed and iterated on Mercado Libre's listing flows for sellers, covering both creating products outside the catalog and the experience of competing for the Buy Box (Catalog). I also standardized a master document as the design team's source of truth, documenting the flows live in production and their UX rationale.",
       ab6_role:       'UX/UI Designer',
       ab6_company:    'Sistecrédito',
-      ab6_body:       'I redesigned the customer login and designed an internal portal to manage payments. The goal was to simplify processes that used to be slow and confusing, for users and for the internal team.',
+      ab6_body:       "I designed Sistecrédito's payment portal, letting users across Colombia manage and pay their loans quickly and easily. I also led the redesign of Credinet (the internal hub/intranet) to streamline operations, and built the design system that ensured visual and interaction consistency across both products.",
       gl_eyebrow:     'Reach',
       gl_title:       'Teams and clients around the world',
-      gl_lead:        "I've worked with people from the United States, Colombia, India, the Philippines, Argentina and Mexico."
+      gl_lead:        "Designing for global contexts takes empathy and flexibility. Throughout my career, I've co-created digital products with leaders, developers and designers in the US, Colombia, India, the Philippines, Argentina and Mexico, building bridges between culture and technology."
     },
     es: {
       nav_home: 'Inicio', nav_projects: 'Proyectos', nav_about: 'Sobre mí', nav_blog: 'Blog', nav_cta: 'Hablemos',
@@ -547,27 +544,27 @@
       ab_months:      'Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre',
       ab1_role:       'Senior UX/UI Designer (Lead Designer)',
       ab1_company:    'iQor',
-      ab1_body:       'He diseñado diferentes productos internos de la compañía. El más importante ha sido el HUB, que resolvió distintos problemas de usabilidad de los colaboradores de la empresa a nivel mundial. También diseñé un CMS que integra diferentes funcionalidades de comunicación para todos los empleados de iQor en el mundo.',
+      ab1_body:       'He diseñado diversos productos internos para la compañía, destacando el HUB global, que resolvió problemas clave de usabilidad para los colaboradores en todo el mundo. También creé un CMS que centraliza y optimiza la comunicación interna para los equipos de iQor.',
       ab1_link:       'Ver proyectos',
-      ab1_body2:      'Actualmente soy Mentor Lead Designer de los diseñadores del área y les ayudo a crecer profesionalmente en diseño visual y de producto. También diseño estrategias para mejorar los procesos del área por medio de un Design Ops inclusivo y del handoff entre diseño y desarrollo.',
+      ab1_body2:      'Actualmente me desempeño como Mentor Lead Designer, guiando el crecimiento profesional del equipo en diseño visual y de producto. Además, impulso la eficiencia operativa mediante estrategias de DesignOps inclusivo y un handoff fluido entre diseño y desarrollo.',
       ab2_role:       'Lead Product Designer',
       ab2_company:    'Grupo CSF (Freelance)',
       ab2_body:       'Lideré el diseño de las 4 unidades del holding: marca y sitio corporativo, plataforma inmobiliaria, catálogo de motos y sistema de alquiler. Aquí resolví un problema complejo de la empresa, que no tenía un sistema de diseño ni un lenguaje visual coherente con la personalidad de CSF. Trabajando de forma metodológica y siempre de la mano del stakeholder, logré diseñar y desarrollar un producto digital coherente para las 4 compañías de la marca.',
       ab7_role:       'Senior UX/UI Designer',
       ab7_company:    'Evolv Consulting - Cliente Toyota Motors USA (Freelance)',
-      ab7_body:       'Me encargué de diseñar un design system para la iniciativa OneTech Design de Toyota. Además, participé en la investigación para crear una plataforma interna para los empleados de la ensambladora de autos de Toyota, donde propuse cómo usarían una aplicación móvil encargada de la seguridad en cada planta de ensamblaje.',
+      ab7_body:       'Lideré la creación del sistema de diseño para la iniciativa OneTech Design en Toyota. También participé en la investigación UX para su plataforma interna, donde propuse una aplicación móvil orientada a gestionar la seguridad operativa en las plantas de ensamblaje.',
       ab3_role:       'Senior UX/UI Designer',
       ab3_company:    'RAIO',
-      ab3_body:       'Rediseñé el dashboard de analítica de una plataforma B2B para equipos de operaciones, para que cada rol vea lo que necesita sin ruido. También diseñé su app móvil offline-first para equipos en campo y su sistema de marca.',
+      ab3_body:       'Construí el sistema de diseño que sirvió como base para que el equipo de desarrollo implementara la app en Angular. Luego me encargué de la plataforma para aprender inglés, definiendo la arquitectura de navegación, la interfaz en Figma y apoyándome en IA para las animaciones del prototipo.',
       ab5_role:       'UX/UI Designer',
       ab5_company:    'Mercado Libre',
-      ab5_body:       'Trabajé en la experiencia del vendedor, para que los sellers pudieran seguir a su competencia y gestionar mejor su posicionamiento. También diseñé para productos que todavía no estaban en el catálogo.',
+      ab5_body:       'Diseñé e iteré los flujos de publicación para vendedores en Mercado Libre, abarcando tanto la creación de productos fuera de catálogo como la experiencia para competir por la Buy Box (Catálogo). Además, estandaricé un documento maestro como fuente de la verdad para el equipo de diseño, documentando los flujos activos en producción y sus racionales de UX.',
       ab6_role:       'UX/UI Designer',
       ab6_company:    'Sistecrédito',
-      ab6_body:       'Rediseñé el login para clientes y diseñé un portal interno para gestionar pagos. La idea era simplificar procesos que antes eran lentos y confusos, tanto para los usuarios como para el equipo interno.',
+      ab6_body:       'Diseñé el portal de pagos de Sistecrédito, permitiendo a usuarios en toda Colombia gestionar y pagar sus créditos de forma ágil y sencilla. Además, lideré el rediseño de Credinet (el hub/intranet interno) para optimizar la gestión operativa y construí el sistema de diseño que garantizó la consistencia visual y de interacción en ambos productos.',
       gl_eyebrow:     'Alcance',
       gl_title:       'Equipos y clientes en todo el mundo',
-      gl_lead:        'He trabajado con personas de Estados Unidos, Colombia, India, Filipinas, Argentina y México.'
+      gl_lead:        'Diseñar para contextos globales requiere empatía y flexibilidad. A lo largo de mi trayectoria, he co-creado productos digitales con líderes, desarrolladores y diseñadores en EE. UU., Colombia, India, Filipinas, Argentina y México, construyendo puentes entre cultura y tecnología.'
     }
   };
 
