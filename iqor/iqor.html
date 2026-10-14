@@ -30,7 +30,7 @@
     </nav>
     <div class="site-nav__actions">
       <button id="lang-toggle" type="button" onclick="toggleLang()" aria-label="Toggle language" class="lang-toggle"><span class="material-symbols-outlined" aria-hidden="true">language</span><span id="lang-label" class="lang-label">ES</span></button>
-      <a href="../index.html#contact" class="ds-btn ds-btn--sm site-nav__cta"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+      <button type="button" data-contact-open class="ds-btn ds-btn--sm site-nav__cta"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></button>
       <button id="site-nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav-menu" class="site-nav__toggle">
         <span class="material-symbols-outlined" style="font-size:22px;">menu</span>
       </button>
@@ -41,7 +41,7 @@
     <a href="../index.html#projects" aria-current="page" data-i18n="nav_projects">Projects</a>
     <a href="../sobre-mi/sobre-mi.html" data-i18n="nav_about">About</a>
     <a href="../blog.html" data-i18n="nav_blog">Blog</a>
-    <a href="../index.html#contact" class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+    <button type="button" data-contact-open class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></button>
   </nav>
 </header>
 <script>
@@ -178,6 +178,7 @@
 </main>
 
 <footer class="site-footer" data-site-footer></footer>
+<script src="../assets/contact.js"></script>
 <script src="../assets/site-footer.js"></script>
 
 
@@ -191,6 +192,14 @@
     en: {
       pc_case: 'case', pc_view: 'View case',
       nav_home: 'Home', nav_projects: 'Projects', nav_about: 'About', nav_blog: 'Blog', nav_cta: "Let's talk",
+      ct_title: 'Write to me',
+      ct_note: 'I reply by email.',
+      ct_copy: 'Copy',
+      ct_copied: 'Copied',
+      ct_write: 'Write an email ↗',
+      ct_subject: 'Project from your portfolio',
+      ct_close: 'Close',
+      ct_copy_aria: 'Copy email address',
       header_label: 'BPO · Enterprise',
       header_desc: "I've been working at iQor since March 5, 2025 as a Senior UX/UI Designer. I've designed key products for the company, such as the HUB (the company's intranet and main product) from its V1 to its V2, and I'm currently designing the CMS (Content Studio Management), also from V1 to V2. I also work on improving the design team's processes through Design Ops, Design / Dev Hand Off, Harness and AI tools, keeping a modern methodology so we can build products in an agile way without leaving research and documentation behind. I also mentor and guide design interns and in-house designers to improve their workflows, build better digital products, run more effective meetings, and more.",
       projects: 'PROJECTS',
@@ -208,6 +217,14 @@
     es: {
       pc_case: 'caso', pc_view: 'Ver caso',
       nav_home: 'Inicio', nav_projects: 'Proyectos', nav_about: 'Sobre mí', nav_blog: 'Blog', nav_cta: 'Hablemos',
+      ct_title: 'Escríbeme',
+      ct_note: 'Respondo por correo.',
+      ct_copy: 'Copiar',
+      ct_copied: 'Copiado',
+      ct_write: 'Escribir un correo ↗',
+      ct_subject: 'Proyecto desde tu portafolio',
+      ct_close: 'Cerrar',
+      ct_copy_aria: 'Copiar correo',
       header_label: 'BPO · Enterprise',
       header_desc: 'Trabajo en iQor desde el 5 de marzo de 2025 como Senior UX/UI Designer. He diseñado productos clave de la compañía como el HUB (la intranet y producto principal de la compañía), desde su V1 hasta su V2, y actualmente estoy diseñando el CMS (Content Studio Management), también desde su V1 hasta su V2. Además, me dedico a mejorar los procesos del área de diseño mediante estrategias de Design Ops, Hand Off Design / Dev, Harness y herramientas de IA, manteniendo una metodología moderna que nos permita construir productos de forma ágil sin dejar de lado la investigación y la documentación. También mentorizo y guío a practicantes de diseño y diseñadores de planta para mejorar sus flujos de trabajo, construir mejores productos digitales, tener reuniones más efectivas, entre otros.',
       projects: 'PROYECTOS',

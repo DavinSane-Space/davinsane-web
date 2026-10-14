@@ -9,7 +9,7 @@
   var root = new URL('..', script.src).href; // site root, works from any folder depth
 
   var CONTACT = {
-    email: '',            // e.g. 'hola@davinsane.com'
+    email: window.CONTACT_EMAIL || '', // defined once in assets/contact.js
     location: 'Colombia'
   };
 

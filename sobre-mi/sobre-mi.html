@@ -123,7 +123,7 @@
     </nav>
     <div class="site-nav__actions">
       <button id="lang-toggle" type="button" onclick="toggleLang()" aria-label="Toggle language" class="lang-toggle"><span class="material-symbols-outlined" aria-hidden="true">language</span><span id="lang-label" class="lang-label">ES</span></button>
-      <a href="../index.html#contact" class="ds-btn ds-btn--sm site-nav__cta"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+      <button type="button" data-contact-open class="ds-btn ds-btn--sm site-nav__cta"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></button>
       <button id="site-nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav-menu" class="site-nav__toggle">
         <span class="material-symbols-outlined" style="font-size:22px;">menu</span>
       </button>
@@ -134,7 +134,7 @@
     <a href="../index.html#projects" data-i18n="nav_projects">Projects</a>
     <a href="sobre-mi.html" aria-current="page" data-i18n="nav_about">About</a>
     <a href="../blog.html" data-i18n="nav_blog">Blog</a>
-    <a href="../index.html#contact" class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+    <button type="button" data-contact-open class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></button>
   </nav>
 </header>
 <script>
@@ -469,9 +469,12 @@
     <div class="ds-panel px-6 py-14 md:px-16 md:py-20 flex flex-col items-start gap-6">
       <h2 id="am-close-title" class="ds-h2 max-w-2xl" data-i18n="am_close_title">Have a product in mind?</h2>
       <p class="ds-p max-w-2xl" data-i18n="am_close_desc">Tell me what you're working on and we'll figure out the next step together.</p>
-      <div class="flex flex-wrap items-center gap-3">
-        <a href="../index.html#contact" class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
-        <a href="../index.html#projects" class="ds-btn ds-btn--ghost"><span data-i18n="am_close_projects">See projects</span></a>
+      <div class="ct-cta">
+        <div class="ct-cta__row">
+          <a class="ct-cta__main" data-contact-mailto href="#"><span class="material-symbols-outlined" aria-hidden="true">mail</span><span class="ct-cta__email" data-contact-email></span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+          <button type="button" class="ct-icon-btn" data-contact-copy data-copy-icon aria-label="Copy email address"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span></button>
+        </div>
+        <a href="../index.html#projects" class="ct-cta__link" data-i18n="ct_projects">View projects ↗</a>
       </div>
     </div>
   </div>
@@ -479,6 +482,7 @@
 </main>
 
 <footer class="site-footer" data-site-footer></footer>
+<script src="../assets/contact.js"></script>
 <script src="../assets/site-footer.js"></script>
 
 
@@ -486,6 +490,14 @@
   const translations = {
     en: {
       nav_home: 'Home', nav_projects: 'Projects', nav_about: 'About', nav_blog: 'Blog', nav_cta: "Let's talk",
+      ct_title: 'Write to me',
+      ct_note: 'I reply by email.',
+      ct_copy: 'Copy',
+      ct_copied: 'Copied',
+      ct_write: 'Write an email ↗',
+      ct_subject: 'Project from your portfolio',
+      ct_close: 'Close',
+      ct_copy_aria: 'Copy email address',
       page_title:     'About · Santiago Morales',
       page_desc:      'Santiago Morales is a senior UX/UI designer in Medellín with over 6 years in fintech, e-commerce, BPO and startups. He leads design and design systems, and builds with code and AI.',
       am_title:       '“Brands don’t sell products; they sell the stories those products make possible.”',
@@ -495,7 +507,7 @@
       am_photo_alt:   'Portrait of Santiago Morales, a product designer with curly hair and clear glasses, wearing a black shirt with arms crossed against a gray studio background',
       am_close_title: 'Have a product in mind?',
       am_close_desc:  "Tell me what you're working on and we'll figure out the next step together.",
-      am_close_projects: 'See projects',
+      ct_projects: 'View projects ↗',
       ab_eyebrow:     'About me',
       ab_title:       'My experience',
       ab_lead:        "I have 7 years designing digital products from scratch or iterating on existing ones. I've worked in fintech, e-commerce, BPO, startups, consultancies and holdings in Colombia and abroad. Here's my journey through these businesses, where I've connected strategic vision with users through visual, UX/UI and product design.",
@@ -527,6 +539,14 @@
     },
     es: {
       nav_home: 'Inicio', nav_projects: 'Proyectos', nav_about: 'Sobre mí', nav_blog: 'Blog', nav_cta: 'Hablemos',
+      ct_title: 'Escríbeme',
+      ct_note: 'Respondo por correo.',
+      ct_copy: 'Copiar',
+      ct_copied: 'Copiado',
+      ct_write: 'Escribir un correo ↗',
+      ct_subject: 'Proyecto desde tu portafolio',
+      ct_close: 'Cerrar',
+      ct_copy_aria: 'Copiar correo',
       page_title:     'Sobre mí · Santiago Morales',
       page_desc:      'Santiago Morales es diseñador UX/UI senior en Medellín, con más de 6 años en fintech, e-commerce, BPO y startups. Lidera diseño y sistemas de diseño, y construye con código e IA.',
       am_title:       '“Las marcas no venden productos; venden las historias que los productos hacen posibles.”',
@@ -536,7 +556,7 @@
       am_photo_alt:   'Retrato de Santiago Morales, diseñador de producto de pelo crespo y gafas transparentes, con camisa negra y brazos cruzados sobre un fondo gris de estudio',
       am_close_title: '¿Tienes un producto en mente?',
       am_close_desc:  'Cuéntame en qué estás trabajando y vemos juntos cuál es el siguiente paso.',
-      am_close_projects: 'Ver proyectos',
+      ct_projects: 'Ver proyectos ↗',
       ab_eyebrow:     'Sobre mí',
       ab_title:       'Te cuento mi experiencia',
       ab_lead:        'Cuento con 7 años diseñando productos digitales desde cero o iterándolos si ya existen. He trabajado en fintech, e-commerce, BPO, startups, consultoras y holdings a nivel nacional e internacional. Aquí te cuento mi recorrido por todos estos negocios, donde he conectado la visión estratégica con los usuarios a través del diseño visual, UX/UI y de producto.',

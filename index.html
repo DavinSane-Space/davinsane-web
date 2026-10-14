@@ -63,7 +63,7 @@
         .wd-lead { max-width: 520px; margin-top: 16px; color: #44454C; }
         .wd-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
         @media (min-width: 1024px) { .wd-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-        .wd-card { display: flex; flex-direction: column; background: #fff; border: 1px solid #E0E2E6; border-radius: 24px; overflow: hidden; }
+        .wd-card { --wd-accent-1: #5B5BD6; --wd-accent-2: #F59E0B; --wd-accent-3: #14B8A6; --wd-accent-3-ink: #0F766E; display: flex; flex-direction: column; background: #fff; border: 1px solid #E0E2E6; border-radius: 24px; overflow: hidden; }
         .wd-visual {
             position: relative; height: 260px; overflow: hidden;
             display: flex; justify-content: center; align-items: flex-start; padding: 28px 24px 0;
@@ -81,18 +81,20 @@
         .wd-tools { display: flex; flex-direction: column; gap: 4px; padding: 6px; background: #fff; border: 1px solid #E0E2E6; border-radius: 14px; box-shadow: 0 1px 2px rgb(18 18 24 / 0.04); }
         .wd-tool { width: 32px; height: 32px; border-radius: 9px; display: flex; align-items: center; justify-content: center; color: #61646B; }
         .wd-tool .material-symbols-outlined { font-size: 18px; }
-        .wd-tool.is-active { background: #1B1B21; color: #fff; }
+        .wd-tool { transition: background-color 200ms ease, color 200ms ease; }
+        .wd-tool.is-active { background: var(--wd-accent-1); color: #fff; }
         .wd-panel { display: flex; gap: 16px; padding: 16px; background: #fff; border: 1px solid #E0E2E6; border-radius: 16px; box-shadow: 0 8px 24px rgb(18 18 24 / 0.06); }
         .wd-rows { display: flex; flex-direction: column; gap: 10px; }
         .wd-b { display: flex; align-items: center; justify-content: center; width: 124px; height: 36px; border-radius: 10px; font-family: var(--font-sans); font-weight: 500; font-size: 13px; line-height: 16px; }
-        .wd-b--primary { background: #F1F2F4; color: #121218; }
+        .wd-b { transition: background-color 200ms ease, color 200ms ease; }
+        .wd-b--primary { background: var(--wd-accent-1); color: #fff; }
         .wd-b--secondary { background: #1B1B21; color: #fff; }
         .wd-b--outline { background: #fff; color: #121218; border: 1px solid #C9CDD2; }
         .wd-b--ghost { background: transparent; color: #94979E; }
         .wd-swatches { display: flex; flex-direction: column; gap: 8px; }
-        .wd-swatches span { width: 24px; height: 48px; border-radius: 999px; background: #E0E2E6; }
-        .wd-swatches span:nth-child(2) { background: #94979E; }
-        .wd-swatches span:nth-child(3) { background: #44454C; }
+        .wd-swatches span { width: 24px; height: 48px; border-radius: 999px; background: #A5A5F0; transition: background-color 200ms ease; }
+        .wd-swatches span:nth-child(2) { background: var(--wd-accent-1); }
+        .wd-swatches span:nth-child(3) { background: #8B5CF6; }
 
 
         /* Visual 2: priority board + mentoring */
@@ -102,7 +104,8 @@
         .wd-board__row:nth-child(2) .wd-board__lines { opacity: 0.7; }
         .wd-board__row:nth-child(3) .wd-board__lines { opacity: 0.45; }
         .wd-pill { flex-shrink: 0; min-width: 76px; padding: 6px 10px; border-radius: 999px; text-align: center; font-family: var(--font-sans); font-weight: 500; font-size: 12px; line-height: 16px; white-space: nowrap; }
-        .wd-pill--now { background: #1B1B21; color: #fff; }
+        .wd-pill { transition: background-color 200ms ease, color 200ms ease; }
+        .wd-pill--now { background: var(--wd-accent-2); color: #1B1B21; }
         .wd-pill--next { background: #F1F2F4; color: #44454C; }
         .wd-pill--later { background: #F7F7F8; color: #94979E; }
         .wd-board__lines { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
@@ -116,29 +119,35 @@
         .wd-mentor { position: absolute; right: 0; top: 112px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding: 12px 14px 14px; background: #fff; border: 1px solid #E0E2E6; border-radius: 14px; box-shadow: 0 8px 24px rgb(18 18 24 / 0.08); }
         .wd-mentor__label { font-family: var(--font-sans); font-weight: 500; font-size: 13px; line-height: 16px; color: #94979E; }
         .wd-avatars { display: flex; }
-        .wd-avatars span { width: 32px; height: 32px; border-radius: 999px; border: 2px solid #fff; background: #C9CDD2; }
+        .wd-avatars span { position: relative; overflow: hidden; width: 32px; height: 32px; border-radius: 999px; border: 2px solid #fff; background: #F59E0B; transition: background-color 200ms ease; }
         .wd-avatars span + span { margin-left: -10px; }
-        .wd-avatars span:nth-child(2) { background: #94979E; }
-        .wd-avatars span:nth-child(3) { background: #44454C; }
+        .wd-avatars span::before, .wd-avatars span::after { content: ''; position: absolute; left: 50%; background: rgb(255 255 255 / 0.9); transform: translateX(-50%); }
+        .wd-avatars span::before { top: 5px; width: 10px; height: 10px; border-radius: 999px; }
+        .wd-avatars span::after { top: 18px; width: 22px; height: 18px; border-radius: 11px 11px 0 0; }
+        .wd-avatars span:nth-child(2) { background: #F97362; }
+        .wd-avatars span:nth-child(3) { background: #C9B79C; }
 
         /* Visual 3: AI tool tiles */
         .wd-tiles { position: relative; flex-shrink: 0; width: 196px; height: 220px; margin-top: -12px; }
         .wd-tiles__links { position: absolute; inset: 0; width: 100%; height: 100%; }
-        .wd-tiles__links path { stroke: #C9CDD2; stroke-width: 1; stroke-dasharray: 3 4; }
-        .wd-tile { position: absolute; width: 84px; height: 84px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: #fff; border: 1px solid #E0E2E6; border-radius: 20px; box-shadow: 0 8px 24px rgb(18 18 24 / 0.08); font-family: var(--font-sans); font-weight: 500; font-size: 12px; line-height: 14px; color: #44454C; white-space: nowrap; }
+        .wd-tiles__links path { stroke: var(--wd-accent-3); stroke-opacity: 0.4; stroke-width: 1; stroke-dasharray: 3 4; transition: stroke-opacity 200ms ease; }
+        .wd-card:hover .wd-tiles__links path { stroke-opacity: 0.7; }
+        .wd-tile { position: absolute; width: 84px; height: 84px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: #fff; border: 1px solid #E0E2E6; border-radius: 20px; box-shadow: 0 8px 24px rgb(18 18 24 / 0.08); font-family: var(--font-sans); font-weight: 500; font-size: 12px; line-height: 14px; color: #44454C; white-space: nowrap; transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease; }
         .wd-tile img { width: 28px; height: 28px; }
-        .wd-tile.is-featured { background: #1B1B21; border-color: #1B1B21; color: #fff; }
-        .wd-tile.is-featured img { filter: brightness(0) invert(1); }
+        .wd-tile.is-featured { color: #121218; }
         .wd-tile--claude { left: 0; top: 0; }
         .wd-tile--codex { left: 112px; top: 24px; }
         .wd-tile--v0 { left: 16px; top: 112px; }
         .wd-tile--replit { left: 112px; top: 136px; }
+        @media (prefers-reduced-motion: reduce) { .wd-card *, .wd-card *::after { transition: none !important; } }
 
         /* Why work with me (bento) */
         .ww-head { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
         @media (min-width: 1024px) { .ww-head { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 48px; margin-bottom: 48px; } }
         .ww-pill { background: #fff; border-color: #E0E2E6; }
-        .ww-h2 { max-width: 420px; margin-top: 20px; font-family: var(--font-serif); font-weight: 600; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.15; letter-spacing: -0.02em; color: #121218; text-wrap: balance; }
+        .ww-h2 { max-width: 560px; margin-top: 20px; font-family: var(--font-serif); font-weight: 600; font-size: clamp(26px, 3.4vw, 44px); line-height: 1.15; letter-spacing: -0.02em; color: #121218; text-wrap: balance; }
+        @media (max-width: 380px) { .ww-h2 { font-size: 23px; } }
+        @media (max-width: 340px) { .ww-h2 { font-size: 20px; } }
         .ww-lead { max-width: 440px; font-family: var(--font-sans); font-size: 16px; line-height: 24px; color: #44454C; }
         .ww-grid { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr);
               grid-template-areas: "dark" "b" "c" "a" "d"; }
@@ -360,7 +369,7 @@
     </nav>
     <div class="site-nav__actions">
       <button id="lang-toggle" type="button" onclick="toggleLang()" aria-label="Toggle language" class="lang-toggle"><span class="material-symbols-outlined" aria-hidden="true">language</span><span id="lang-label" class="lang-label">ES</span></button>
-      <a href="#contact" class="ds-btn ds-btn--sm site-nav__cta"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+      <button type="button" data-contact-open class="ds-btn ds-btn--sm site-nav__cta"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></button>
       <button id="site-nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav-menu" class="site-nav__toggle">
         <span class="material-symbols-outlined" style="font-size:22px;">menu</span>
       </button>
@@ -371,7 +380,7 @@
     <a href="#projects" data-i18n="nav_projects">Projects</a>
     <a href="sobre-mi/sobre-mi.html" data-i18n="nav_about">About</a>
     <a href="blog.html" data-i18n="nav_blog">Blog</a>
-    <a href="#contact" class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+    <button type="button" data-contact-open class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></button>
   </nav>
 </header>
 <script>
@@ -403,7 +412,7 @@
       <p class="hero-sub" data-i18n="hero_sub">I'm Santiago, a product designer. I understand the user, the business and the code, so what I design can actually be built.</p>
       <div class="hero-actions">
         <a href="#projects" class="hero-btn hero-btn--primary"><span data-i18n="hero_cta_projects">See projects</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
-        <a href="#contact" class="hero-btn hero-btn--secondary"><span data-i18n="hero_cta_contact">Contact me</span></a>
+        <a href="#contact" data-contact-open class="hero-btn hero-btn--secondary"><span data-i18n="hero_cta_contact">Contact me</span></a>
       </div>
       <div class="hero-stats">
         <div>
@@ -431,7 +440,7 @@
           <p class="hero-glass__title" data-i18n="glass_title">Let's design together</p>
           <p class="hero-glass__text" data-i18n="glass_text">Product design and UX/UI</p>
         </div>
-        <a href="#contact" class="hero-glass__btn" aria-label="Contact me" data-i18n-aria="hero_cta_contact"><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+        <a href="#contact" data-contact-open class="hero-glass__btn" aria-label="Contact me" data-i18n-aria="hero_cta_contact"><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
       </div>
     </div>
   </div>
@@ -550,7 +559,7 @@
               <path d="M42 42 L154 66 L154 178 L58 154 Z" />
             </svg>
             <span class="wd-tile wd-tile--claude is-featured"><img src="assets/logos/claude.svg" alt="" width="28" height="28"><span>Claude Code</span></span>
-            <span class="wd-tile wd-tile--codex"><span>Codex</span></span>
+            <span class="wd-tile wd-tile--codex"><img src="assets/logos/codex.svg" alt="" width="28" height="28"><span>Codex</span></span>
             <span class="wd-tile wd-tile--v0"><img src="assets/logos/v0.svg" alt="" width="28" height="28"><span>v0</span></span>
             <span class="wd-tile wd-tile--replit"><img src="assets/logos/replit.svg" alt="" width="28" height="28"><span>Replit</span></span>
           </div>
@@ -1163,9 +1172,12 @@
       <span class="ds-eyebrow"><span class="ds-dot ds-dot--live"></span><span data-i18n="available">AVAILABLE FOR HIRE</span></span>
       <h2 class="ds-h2 max-w-2xl" data-i18n="contact_title">Let's build your next product</h2>
       <p class="ds-p max-w-2xl" data-i18n="contact_desc">Download my CV to see my full experience, or explore the case studies to see how I work.</p>
-      <div class="flex flex-wrap items-center gap-3">
-        <a href="files/CVSantiagoMorales.pdf" download class="ds-btn"><span data-i18n="cv_btn">Download my CV</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
-        <a href="#projects" class="ds-btn ds-btn--ghost"><span data-i18n="hero_cta_projects">See projects</span></a>
+      <div class="ct-cta">
+        <div class="ct-cta__row">
+          <a class="ct-cta__main" data-contact-mailto href="#"><span class="material-symbols-outlined" aria-hidden="true">mail</span><span class="ct-cta__email" data-contact-email></span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+          <button type="button" class="ct-icon-btn" data-contact-copy data-copy-icon aria-label="Copy email address"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span></button>
+        </div>
+        <a href="#projects" class="ct-cta__link" data-i18n="ct_projects">View projects ↗</a>
       </div>
     </div>
   </div>
@@ -1174,6 +1186,7 @@
 
 <!-- Footer -->
 <footer class="site-footer" data-site-footer></footer>
+<script src="assets/contact.js"></script>
 <script src="assets/site-footer.js"></script>
 
 
@@ -1182,10 +1195,19 @@
   const translations = {
     en: {
       nav_home: 'Home', nav_projects: 'Projects', nav_about: 'About', nav_blog: 'Blog', nav_cta: "Let's talk",
+      ct_title: 'Write to me',
+      ct_note: 'I reply by email.',
+      ct_copy: 'Copy',
+      ct_copied: 'Copied',
+      ct_write: 'Write an email ↗',
+      ct_subject: 'Project from your portfolio',
+      ct_close: 'Close',
+      ct_copy_aria: 'Copy email address',
       hero_cta_projects: 'See projects',
       clients_label:  'Companies I have designed for',
       contact_title:  "Let's build your next product",
-      contact_desc:   'Download my CV to see my full experience, or explore the case studies to see how I work.',
+      contact_desc:   "Tell me what you're working on and we'll figure out the next step together.",
+      ct_projects:    'View projects ↗',
       hero_title_a:      'Success is learning to solve',
       hero_title_b:      "the customer's problem",
       hero_sub:          "I'm Santiago, a product designer. I understand the user, the business and the code, so what I design can actually be built.",
@@ -1199,7 +1221,6 @@
       stat2_short:       'Companies',
       stat3_short:       'Years mentoring',
       available:      'AVAILABLE FOR HIRE',
-      cv_btn:         'Download my CV',
       works_title:    'About My Experience',
       selected_works: 'SELECTED WORKS',
       coming_soon:    'Coming Soon',
@@ -1291,20 +1312,28 @@
       st7_body:       'I help other designers sharpen their judgment and grow in their process.',
       st8_title:      'Languages',
       st8_body:       'I work in Spanish and English with teams in Colombia and the US.',
-      cv_card_title:  'Download my CV',
       footer_copy:    '© 2026 Santiago Morales - DavinSane. All rights reserved.',
       footer_privacy: 'Privacy',
       footer_terms:   'Terms',
     },
     es: {
       nav_home: 'Inicio', nav_projects: 'Proyectos', nav_about: 'Sobre mí', nav_blog: 'Blog', nav_cta: 'Hablemos',
+      ct_title: 'Escríbeme',
+      ct_note: 'Respondo por correo.',
+      ct_copy: 'Copiar',
+      ct_copied: 'Copiado',
+      ct_write: 'Escribir un correo ↗',
+      ct_subject: 'Proyecto desde tu portafolio',
+      ct_close: 'Cerrar',
+      ct_copy_aria: 'Copiar correo',
       hero_cta_projects: 'Ver proyectos',
       clients_label:  'Empresas para las que he diseñado',
       contact_title:  'Construyamos tu próximo producto',
-      contact_desc:   'Descarga mi CV para ver mi experiencia completa, o explora los casos de estudio para ver cómo trabajo.',
+      contact_desc:   'Cuéntame en qué estás trabajando y vemos juntos cuál es el siguiente paso.',
+      ct_projects:    'Ver proyectos ↗',
       hero_title_a:      'El éxito es aprender a resolver',
       hero_title_b:      'el problema del cliente',
-      hero_sub:          'Soy Santiago, diseñador de producto. Entiendo al usuario, al negocio y también el código, para que lo que diseño se pueda construir.',
+      hero_sub:          'Detrás de cada gran producto hay una conversación entre lo que las personas necesitan y lo que el negocio busca construir. Soy Santiago, diseñador de producto, y me dedico a conectar esos dos mundos: traduzco problemas complejos en experiencias intuitivas y trabajo de la mano con los equipos de ingeniería para asegurar que cada idea se convierta en una realidad funcional y escalable.',
       hero_cta_contact:  'Contáctame',
       hero_photo_alt:    'Retrato de Santiago Morales, diseñador de producto con cabello rizado y gafas transparentes, con camisa negra y brazos cruzados sobre un fondo gris de estudio',
       glass_eyebrow:     'Disponible para proyectos',
@@ -1315,7 +1344,6 @@
       stat2_short:       'Empresas',
       stat3_short:       'Años de mentoría',
       available:      'DISPONIBLE PARA CONTRATAR',
-      cv_btn:         'Descarga mi CV',
       works_title:    'Sobre mi Experiencia',
       selected_works: 'TRABAJOS SELECCIONADOS',
       coming_soon:    'Próximamente',
@@ -1327,39 +1355,39 @@
       wd_title:       'Lo que me hace distinto',
       wd_lead:        'Diseño productos pensando en el usuario, el negocio y en cómo se construyen, siguiendo diferentes metodologías de diseño de producto y estrategias de negocio que hagan del producto usable, accesible y valioso.',
       wd1_title:      'Sistemas de diseño claros',
-      wd1_body:       'Defino patrones, tokens y componentes reutilizables que simplifican el flujo de trabajo entre diseño y desarrollo, asegurando que el producto escale de forma limpia y coherente.',
+      wd1_body:       'Un sistema de diseño es la conversación que conecta a diseñadores y desarrolladores. Al estructurar tokens, patrones y componentes reutilizables, no solo elimino la fricción en la entrega, sino que aseguro que el producto crezca de forma ordenada, coherente y sostenible en el tiempo.',
       wd2_title:      'Estrategia y liderazgo',
-      wd2_body:       'Planteo estrategias de diseño de producto para construir excelentes productos digitales que sean usables para todos los usuarios. Además, tengo la habilidad de liderar equipos y proyectos de diseño desafiantes. Actualmente cuento con 2 años de experiencia como mentor de diseñadores.',
+      wd2_body:       'Liderar en diseño significa alinear la visión de producto con el potencial del equipo. Defino estrategias UX que aseguran productos digitales intuitivos y accesibles para todos. Además, cuento con más de dos años guiando y potenciando el talento de diseñadores como mentor, ayudándoles a elevar sus habilidades técnicas y de producto.',
       wd3_title:      'Design Engineer gracias a la IA',
-      wd3_body:       'Mi flujo de trabajo está a la vanguardia de las nuevas herramientas y tecnologías. En mi proceso de investigación, diseño y desarrollo trabajo con Claude Code, Codex, Replit y v0 con el fin de construir productos más robustos de forma ágil.',
+      wd3_body:       'La inteligencia artificial no reemplaza el criterio de diseño, potencia su ejecución. Integro herramientas como Claude Code, Codex, Replit y v0 en mi flujo de trabajo para prototipar en código, validar ideas rápidamente y entregar productos más sólidos en el menor tiempo posible.',
       wd_now:         'Ahora',
       wd_next:        'Siguiente',
       wd_later:       'Después',
       wd_mentoring:   'Mentoría',
       ww_eyebrow:     'Por qué trabajar conmigo',
-      ww_title:       'Diseño con criterio, de la idea a producción',
-      ww_lead:        'Combino estrategia, diseño visual y código para que lo que diseño funcione para el usuario y también para el negocio.',
+      ww_title:       'Por qué tengo criterio de diseño para crear experiencias que funcionan',
+      ww_lead:        'Combino investigación, interfaz y entendimiento técnico para asegurar que cada decisión tenga un propósito claro. Diseño productos digitales que resuelven problemas reales y se integran de forma fluida a producción.',
       ww_a_label:     'He trabajado en industrias como',
       ww_a_fintech: 'Fintech', ww_a_ecommerce: 'Ecommerce', ww_a_bpo: 'BPO', ww_a_startups: 'Startups', ww_a_auto: 'Automotriz', ww_a_consulting: 'Consultoras',
-      ww_b_text:      'Sistemas de diseño para equipos y negocios muy distintos.',
-      ww_b_label:     'Empresas con sistema de diseño: iQor, RAIO, SelectUs, Toyota Motors y Grupo CSF',
+      ww_b_text:      'Sistemas de diseño adaptados a cada negocio.',
+      ww_b_label:     'Implementados en iQor, RAIO, SelectUs, Toyota Motors USA y Grupo CSF',
       ww_c_text:      'Equipos y clientes en distintos países, con la misma forma de trabajar.',
       ww_c_label:     'Trabajo con personas de',
       ww_c_us: 'Estados Unidos', ww_c_co: 'Colombia', ww_c_in: 'India', ww_c_ph: 'Filipinas', ww_c_ar: 'Argentina', ww_c_mx: 'México',
       ww_d:           'Disponible para proyectos',
-      ww_dark_text:   'Ayudo a equipos y empresas a convertir ideas en productos digitales claros, que se entienden y se pueden construir.',
+      ww_dark_text:   'Acompaño a empresas y equipos a transformar ideas complejas en productos digitales intuitivos, escalables y listos para producción.',
       ww_dark_label:  'He trabajado con',
       sv_title:       'Cómo puedo ayudarte',
-      sv_lead:        'Te ayudo a diseñar el producto, ordenarlo en un sistema y, si hace falta, construirlo.',
+      sv_lead:        'Te acompaño a estructurar la visión de tu producto desde cero: desde el diseño de la experiencia y la creación de un sistema escalable, hasta su prototipado e implementación técnica.',
       sv1_title:      'Diseño de producto',
-      sv1_body:       'Diseño experiencias e interfaces para apps, plataformas y sitios web, partiendo de lo que entiendo del negocio e investigo de los usuarios.',
+      sv1_body:       'Creo experiencias e interfaces para aplicaciones y plataformas digitales uniendo dos pilares clave: la investigación profunda con usuarios y la visión estratégica del negocio.',
       sv2_title:      'Sistemas de diseño',
-      sv2_body:       'Creo sistemas visuales y librerías de componentes para que el producto se vea y se sienta igual en cada pantalla.',
+      sv2_body:       'Diseño ecosistemas de componentes, tokens y patrones reutilizables. Esto permite que el producto crezca sin perder consistencia visual, optimizando el tiempo de entrega de todo el equipo.',
       sv3_title:      'Desarrollo',
-      sv3_body:       'Construyo sitios y paneles de administración con HTML, Tailwind y Supabase, apoyado en herramientas de IA.',
+      sv3_body:       'Traduzco la experiencia de diseño en código funcional, construyendo interfaces y plataformas listas para producción. Acelero la validación del producto materializando ideas en prototipos interactivos de alta fidelidad.',
       pr_eyebrow:     'Proceso',
-      pr_title:       'Así trabajo, paso a paso',
-      pr_lead:        'Un proceso ágil, estratégico y colaborativo para llevar un producto desde una necesidad hasta convertirlo en un producto funcional y usable.',
+      pr_title:       'Así trabajo: metodología adaptable según el reto',
+      pr_lead:        'Un enfoque estratégico y colaborativo para guiar cada proyecto desde el descubrimiento inicial hasta la entrega de un producto vivo.',
       pr1_title:      'Entender',
       pr1_body:       'Empiezo por entender el problema, al usuario y lo que necesita el negocio. Hablo con las personas que van a usar el producto.',
       pr2_title:      'Definir',
@@ -1377,7 +1405,7 @@
       pr_mode_lu:     'Lean UX',
       pr_note_dt:     'Cuando el problema todavía es incierto y vale la pena investigar a fondo.',
       pr_note_lu:     'Cuando hay que salir rápido, probar con usuarios reales y ajustar sobre la marcha.',
-      pr_lead_lu:     'Un ciclo corto de supuestos, pruebas y aprendizaje para salir rápido sin apostar a ciegas.',
+      pr_lead_lu:     'Ideal cuando necesitamos iterar con agilidad, lanzar experimentos con usuarios reales y optimizar el producto sobre la marcha basándonos en datos.',
       lu1_title:      'Suponer',
       lu1_body:       'Dejo a la vista lo que se cree o se da por hecho del usuario y del negocio, para ir descartándolo a medida que la investigación lo confirme o lo desmienta.',
       lu2_title:      'Hipotetizar',
@@ -1407,7 +1435,6 @@
       st7_body:       'Acompaño a otros diseñadores a mejorar su criterio y a crecer en su proceso.',
       st8_title:      'Idiomas',
       st8_body:       'Trabajo en español e inglés con equipos de Colombia y Estados Unidos.',
-      cv_card_title:  'Descarga mi CV',
       footer_copy:    '© 2026 Santiago Morales - DavinSane. Todos los derechos reservados.',
       footer_privacy: 'Privacidad',
       footer_terms:   'Términos',

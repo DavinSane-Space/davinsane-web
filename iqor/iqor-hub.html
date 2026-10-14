@@ -42,7 +42,7 @@
     </nav>
     <div class="site-nav__actions">
       <button id="lang-toggle" type="button" onclick="toggleLang()" aria-label="Toggle language" class="lang-toggle"><span class="material-symbols-outlined" aria-hidden="true">language</span><span id="lang-label" class="lang-label">ES</span></button>
-      <a href="../index.html#contact" class="ds-btn ds-btn--sm site-nav__cta"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+      <button type="button" data-contact-open class="ds-btn ds-btn--sm site-nav__cta"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></button>
       <button id="site-nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav-menu" class="site-nav__toggle">
         <span class="material-symbols-outlined" style="font-size:22px;">menu</span>
       </button>
@@ -53,7 +53,7 @@
     <a href="../index.html#projects" aria-current="page" data-i18n="nav_projects">Projects</a>
     <a href="../sobre-mi/sobre-mi.html" data-i18n="nav_about">About</a>
     <a href="../blog.html" data-i18n="nav_blog">Blog</a>
-    <a href="../index.html#contact" class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+    <button type="button" data-contact-open class="ds-btn"><span data-i18n="nav_cta">Let's talk</span><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></button>
   </nav>
 </header>
 <script>
@@ -521,6 +521,7 @@
 </main>
 
 <footer class="site-footer" data-site-footer></footer>
+<script src="../assets/contact.js"></script>
 <script src="../assets/site-footer.js"></script>
 
 
@@ -533,6 +534,14 @@
   const translations = {
     en: {
       nav_home: 'Home', nav_projects: 'Projects', nav_about: 'About', nav_blog: 'Blog', nav_cta: "Let's talk",
+      ct_title: 'Write to me',
+      ct_note: 'I reply by email.',
+      ct_copy: 'Copy',
+      ct_copied: 'Copied',
+      ct_write: 'Write an email ↗',
+      ct_subject: 'Project from your portfolio',
+      ct_close: 'Close',
+      ct_copy_aria: 'Copy email address',
       nav_back: 'Back',
       nav_next: 'Next →',
       hero_desc: "iQor HUB is an intranet that brings together all the applications and needs of every iQor user around the world, adapting to each user's role. The product was born from a big problem the company had: all its important applications and tools were scattered across different places, which made work slow and difficult. The HUB came to solve all of that.",
@@ -606,6 +615,14 @@
     },
     es: {
       nav_home: 'Inicio', nav_projects: 'Proyectos', nav_about: 'Sobre mí', nav_blog: 'Blog', nav_cta: 'Hablemos',
+      ct_title: 'Escríbeme',
+      ct_note: 'Respondo por correo.',
+      ct_copy: 'Copiar',
+      ct_copied: 'Copiado',
+      ct_write: 'Escribir un correo ↗',
+      ct_subject: 'Proyecto desde tu portafolio',
+      ct_close: 'Cerrar',
+      ct_copy_aria: 'Copiar correo',
       nav_back: 'Atrás',
       nav_next: 'Siguiente →',
       hero_desc: "iQor HUB es una intranet que reúne todos los aplicativos y necesidades de los usuarios de iQor alrededor del mundo y se adapta según el rol de cada usuario. Este producto nació de un problema muy grande que tenía la compañía: todos los aplicativos y herramientas importantes estaban dispersos en diferentes lugares, lo que hacía que trabajar fuera muy demorado y difícil. El HUB llegó a solucionar todo esto.",
