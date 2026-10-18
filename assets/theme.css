@@ -555,3 +555,16 @@ body {
   .ct-cta__main { padding: 10px 14px; gap: 8px; }
   .ct-cta__email { letter-spacing: -0.1px; }
 }
+
+/* ── Case card with a secondary link (cover link + discreet demo link) ── */
+.pc__cover { position: absolute; inset: 0; z-index: 0; border-radius: inherit; }
+.pc__cover:focus-visible { outline: 2px solid #1B1B21; outline-offset: -4px; }
+.pc:has(.pc__cover) .pc__body { pointer-events: none; }
+.pc__actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: nowrap; gap: 8px; margin-left: auto; }
+@media (max-width: 400px) { .pc__actions .pc__demo, .pc__actions .pc__cta { padding: 10px 14px; } .pc__foot { gap: 10px; } }
+.pc__demo { flex-shrink: 0; position: relative; z-index: 2; pointer-events: auto; display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 999px; border: 1px solid #C9CBD1; background: transparent; color: #121218; text-decoration: none; font-weight: 500; font-size: 14px; line-height: 18px; white-space: nowrap; transition: background-color .3s ease, border-color .3s ease; }
+.pc__demo:hover { background: rgb(18 18 24 / 0.04); border-color: #121218; }
+.pc__demo:focus-visible { outline: 2px solid #1B1B21; outline-offset: 3px; }
+/* Three cards: 3 columns on desktop; on tablet the odd last card spans the row so there is no empty slot */
+@media (min-width: 768px) and (max-width: 1023px) { .pc-grid--3 > :last-child:nth-child(odd) { grid-column: 1 / -1; } }
+@media (min-width: 1024px) { .pc-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

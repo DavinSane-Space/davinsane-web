@@ -15,6 +15,29 @@
 <style>
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .prose-content p { margin-bottom: 1.5rem; }
+  .prose-content h2 { margin-top: 3rem; margin-bottom: 1rem; }
+  .cs-demo { display: flex; flex-direction: column; align-items: stretch; gap: 10px; margin-bottom: 28px; }
+  .cs-demo__btn { width: 100%; min-height: 44px; }
+  .cs-demo-card { display: flex; flex-direction: column-reverse; gap: 16px; padding: 18px 20px; background: rgb(var(--c-surface)); border: 1px solid rgb(var(--c-border)); border-radius: var(--radius-img); }
+  .cs-demo-card__btn { width: 100%; min-height: 50px; }
+  .cs-demo-card__text { min-width: 0; }
+  .cs-demo-card__title { margin: 0; font-size: 16px; line-height: 24px; font-weight: 500; color: #121218; }
+  .cs-demo-card__note { margin: 0; font-size: 14px; line-height: 20px; color: #61646B; }
+  @media (min-width: 769px) {
+    .cs-demo-card { flex-direction: row; align-items: center; gap: 24px; }
+    .cs-demo-card__btn { width: auto; flex: none; }
+  }
+  .cs-after { margin-top: 24px; }
+  .cs-list { list-style: disc; padding-left: 1.25rem; margin-top: 16px; }
+  .cs-pending { font-size: 16px; line-height: 24px; color: #94979E; }
+  .cs-shot { margin: 24px 0 0; }
+  .cs-shot__box { display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 16 / 9; border-radius: 20px; border: 1px solid #E0E2E6; background: #F1F2F4; font-size: 14px; line-height: 20px; color: #94979E; }
+  @media (min-width: 768px) {
+    .cs-demo { align-items: flex-start; max-width: 300px; margin-bottom: 0; }
+    .cs-demo__btn { width: auto; }
+    .cs-demo--end { max-width: none; margin-bottom: 0; }
+  }
 </style>
 </head>
 <body class="page-textured bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
@@ -85,11 +108,20 @@
       A dedicated content management system built to power every announcement, update, and editorial piece published across iQor's internal digital ecosystem. Built for speed, structure, and scale.
     </p>
 
+    <!-- Demo card -->
+    <div class="mt-14 cs-demo-card">
+      <a href="https://cms.davinsane.com" target="_blank" rel="noopener noreferrer" class="ds-btn cs-demo-card__btn" data-i18n="demo_btn" data-i18n-aria="demo_aria" aria-label="Opens the demo in a new tab">View live demo ↗</a>
+      <div class="cs-demo-card__text">
+        <p class="cs-demo-card__title" data-i18n="demo_try">Try it yourself</p>
+        <p class="cs-demo-card__note" data-i18n="demo_note">Demo with fictional data. Your changes are only saved in your browser.</p>
+      </div>
+    </div>
+
     <!-- Meta row -->
     <div class="mt-14 grid grid-cols-2 md:grid-cols-5 gap-3 meta-cards">
       <div>
         <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_role">Role</p>
-        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_role_val">Lead Designer</p>
+        <p class="font-label-md text-label-md text-on-surface" data-i18n="meta_role_val">Senior UX/UI Designer</p>
       </div>
       <div>
         <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2" data-i18n="meta_year">Year</p>
@@ -110,19 +142,61 @@
     </div>
   </section>
 
-  <!-- Coming soon: case study being updated with v2 -->
-  <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 mb-24 fade-in">
-    <div class="border border-border-low-contrast bg-surface-elevated px-6 py-16 md:px-16 md:py-24 flex flex-col items-center text-center gap-6 rounded-card">
-      <span class="px-3 py-1 rounded-full border border-primary/40 font-label-sm text-label-sm text-primary uppercase tracking-widest" data-i18n="cs_label">Coming soon</span>
-      <span class="material-symbols-outlined text-primary" style="font-size:40px;">update</span>
-      <h2 class="font-headline-md text-headline-md text-on-surface" data-i18n="cs_title">A new version is on the way</h2>
-      <p class="font-body-lg text-body-lg text-text-muted max-w-2xl" data-i18n="cs_text">This case study is being updated with a new version of the project. Check back soon.</p>
-      <a href="iqor.html" class="mt-2 flex items-center gap-2 font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors duration-200 group">
-        <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style="font-size:16px;">arrow_back</span>
-        <span data-i18n="cs_back">See other iQor projects</span>
-      </a>
-    </div>
-  </section>
+  <!-- Case study walkthrough. Each section is a placeholder until Santiago writes it.
+       03: how the app went from Replit to a real product. 06: what the demo is, what it does and what stays "coming soon". -->
+  <article class="max-w-[1280px] mx-auto px-margin-mobile md:px-16 prose-content">
+    <section class="mb-16 fade-in">
+      <h2 class="ds-h2 mb-4" data-i18n="s1_title">01 Context and problem</h2>
+      <p class="ds-p" data-i18n="s1_p1">iQor is a global company with a lot of people who need to hear the same thing at the same time: announcements, articles, surveys, forms and courses. All of that lives in the HUB, the app employees use. But someone has to create it, review it and publish it, and that part didn't have a place of its own.</p>
+      <p class="ds-p" data-i18n="s1_p2">In practice, content was scattered across loose documents and several separate apps that weren't built for this. To see each piece, people had to open a different app and go through many steps.</p>
+      <p class="ds-p" data-i18n="s1_p3">The problem was building that place: a CMS where the people who produce content can write, approve and publish without friction, with consistent templates and visual themes, and where content reaches the HUB with the right structure. It had to be clear for people using it every day and flexible enough for so many different content types.</p>
+    </section>
+
+    <section class="mb-16 fade-in">
+      <h2 class="ds-h2 mb-4" data-i18n="s2_title">02 My role and the team</h2>
+      <p class="ds-p" data-i18n="s2_p1">I was the Senior UX/UI Designer on the project. I designed the interface, the components and the handoff specs, and I used Replit AI and Claude AI to turn those designs into a working product. It took about eight weeks.</p>
+      <p class="ds-p" data-i18n="s2_p2">I worked with the product director, the Lead Product Owner, the DevOps director and the people who use the app, iQor's call center agents, who helped me understand what they needed day to day.</p>
+    </section>
+
+    <section class="mb-16 fade-in">
+      <h2 class="ds-h2 mb-4" data-i18n="s3_title">03 From Replit to a real product</h2>
+      <p class="cs-pending" data-i18n="pending">[PENDING: Santiago will fill this in]</p>
+      <figure class="cs-shot"><div class="cs-shot__box"><span data-i18n="shot_pending">Screenshot pending</span></div></figure>
+    </section>
+
+    <section class="mb-16 fade-in">
+      <h2 class="ds-h2 mb-4" data-i18n="s4_title">04 Design decisions</h2>
+      <p class="cs-pending" data-i18n="pending">[PENDING: Santiago will fill this in]</p>
+      <p class="ds-p cs-after" data-i18n="s4_p">The hardest part wasn't on the screen, it was judgment. Several user stories, as they were written, didn't give a good experience or a clear logic for the people who would use the app. When that happened, I questioned them, talked it through with product and changed them so navigation was simpler. A user story is a starting point, not a contract.</p>
+      <figure class="cs-shot"><div class="cs-shot__box"><span data-i18n="shot_pending">Screenshot pending</span></div></figure>
+    </section>
+
+    <section class="mb-16 fade-in">
+      <h2 class="ds-h2 mb-4" data-i18n="s5_title">05 AI inside the product</h2>
+      <p class="cs-pending" data-i18n="pending">[PENDING: Santiago will fill this in]</p>
+      <figure class="cs-shot"><div class="cs-shot__box"><span data-i18n="shot_pending">Screenshot pending</span></div></figure>
+    </section>
+
+    <section class="mb-16 fade-in">
+      <h2 class="ds-h2 mb-4" data-i18n="s6_title">06 The demo</h2>
+      <p class="cs-pending" data-i18n="pending">[PENDING: Santiago will fill this in]</p>
+      <figure class="cs-shot"><div class="cs-shot__box"><span data-i18n="shot_pending">Screenshot pending</span></div></figure>
+    </section>
+
+    <section class="mb-16 fade-in">
+      <h2 class="ds-h2 mb-4" data-i18n="s7_title">07 What I learned</h2>
+      <span class="ds-eyebrow mb-3" data-i18n="s7_outcome_label">Outcome</span>
+      <p class="ds-p" data-i18n="s7_outcome">Today the product remains stable in use globally at iQor, and it hasn't needed to be redesigned to iterate on it.</p>
+      <p class="cs-pending" data-i18n="pending">[PENDING: Santiago will fill this in]</p>
+      <ul class="cs-list"><li class="ds-p" data-i18n="s7_p5">Changing a decision early is cheaper than defending it: if the experience doesn't work, say so with reasons and adjust it.</li></ul>
+    </section>
+
+    <section class="mb-24 fade-in">
+      <div class="cs-demo cs-demo--end">
+        <a href="https://cms.davinsane.com" target="_blank" rel="noopener noreferrer" class="ds-btn cs-demo__btn" data-i18n="demo_btn" data-i18n-aria="demo_aria" aria-label="Opens the demo in a new tab">View live demo ↗</a>
+      </div>
+    </section>
+  </article>
 
   <!-- iQor Projects -->
   <div class="border-t border-border-low-contrast">
@@ -226,7 +300,7 @@
       nav_next: 'Next →',
       hero_desc: "A dedicated content management system built to power every announcement, update, and editorial piece published across iQor's internal digital ecosystem. Built for speed, structure, and scale.",
       meta_role: 'Role',
-      meta_role_val: 'Lead Designer',
+      meta_role_val: 'Senior UX/UI Designer',
       meta_year: 'Year',
       meta_duration: 'Duration',
       meta_duration_val: '8 weeks',
@@ -234,10 +308,28 @@
       meta_deliverables_val: 'UI Design, Components, HandOff Specs',
       meta_tools: 'Tools',
       meta_tools_val: 'Replit AI, Claude AI',
-      cs_label: 'Coming soon',
-      cs_title: 'A new version is on the way',
-      cs_text: 'This case study is being updated with a new version of the project. Check back soon.',
-      cs_back: 'See other iQor projects',
+      demo_btn: 'View live demo ↗',
+      demo_aria: 'Opens the demo in a new tab',
+      demo_try: 'Try it yourself',
+      demo_note: 'Demo with fictional data. Your changes are only saved in your browser.',
+      pending: '[PENDING: Santiago will fill this in]',
+      shot_pending: 'Screenshot pending',
+      s1_title: '01 Context and problem',
+      s2_title: '02 My role and the team',
+      s3_title: '03 From Replit to a real product',
+      s4_title: '04 Design decisions',
+      s5_title: '05 AI inside the product',
+      s6_title: '06 The demo',
+      s7_title: '07 What I learned',
+      s1_p1: "iQor is a global company with a lot of people who need to hear the same thing at the same time: announcements, articles, surveys, forms and courses. All of that lives in the HUB, the app employees use. But someone has to create it, review it and publish it, and that part didn't have a place of its own.",
+      s1_p2: "In practice, content was scattered across loose documents and several separate apps that weren't built for this. To see each piece, people had to open a different app and go through many steps.",
+      s1_p3: "The problem was building that place: a CMS where the people who produce content can write, approve and publish without friction, with consistent templates and visual themes, and where content reaches the HUB with the right structure. It had to be clear for people using it every day and flexible enough for so many different content types.",
+      s2_p1: "I was the Senior UX/UI Designer on the project. I designed the interface, the components and the handoff specs, and I used Replit AI and Claude AI to turn those designs into a working product. It took about eight weeks.",
+      s2_p2: "I worked with the product director, the Lead Product Owner, the DevOps director and the people who use the app, iQor's call center agents, who helped me understand what they needed day to day.",
+      s4_p: "The hardest part wasn't on the screen, it was judgment. Several user stories, as they were written, didn't give a good experience or a clear logic for the people who would use the app. When that happened, I questioned them, talked it through with product and changed them so navigation was simpler. A user story is a starting point, not a contract.",
+      s7_outcome_label: 'Outcome',
+      s7_outcome: "Today the product remains stable in use globally at iQor, and it hasn't needed to be redesigned to iterate on it.",
+      s7_p5: "Changing a decision early is cheaper than defending it: if the experience doesn't work, say so with reasons and adjust it.",
       iqor_work: 'iQor Work',
       iqor_current: 'Current page',
       all_projects: 'All projects',
@@ -258,7 +350,7 @@
       nav_next: 'Siguiente →',
       hero_desc: "Un sistema de gestión de contenido dedicado a alimentar cada anuncio, actualización y pieza editorial publicada en el ecosistema digital interno de iQor. Construido para velocidad, estructura y escala.",
       meta_role: 'Rol',
-      meta_role_val: 'Diseñador Principal',
+      meta_role_val: 'Senior UX/UI Designer',
       meta_year: 'Año',
       meta_duration: 'Duración',
       meta_duration_val: '8 semanas',
@@ -266,10 +358,28 @@
       meta_deliverables_val: 'Diseño UI, Componentes, HandOff Specs',
       meta_tools: 'Herramientas',
       meta_tools_val: 'Replit AI, Claude AI',
-      cs_label: 'Próximamente',
-      cs_title: 'Nueva versión en camino',
-      cs_text: 'Esta case study está siendo actualizada con una nueva versión del proyecto. Vuelve pronto.',
-      cs_back: 'Ver otros proyectos de iQor',
+      demo_btn: 'Ver demo ↗',
+      demo_aria: 'Abre el demo en una pestaña nueva',
+      demo_try: 'Pruébalo tú mismo',
+      demo_note: 'Demo con datos ficticios. Tus cambios solo se guardan en tu navegador.',
+      pending: '[PENDIENTE: lo completa Santiago]',
+      shot_pending: 'Captura pendiente',
+      s1_title: '01 Contexto y problema',
+      s2_title: '02 Mi rol y el equipo',
+      s3_title: '03 De Replit a un producto real',
+      s4_title: '04 Decisiones de diseño',
+      s5_title: '05 La IA dentro del producto',
+      s6_title: '06 El demo',
+      s7_title: '07 Qué aprendí',
+      s1_p1: "iQor es una empresa global con mucha gente que necesita enterarse de lo mismo al mismo tiempo: anuncios, artículos, encuestas, formularios y cursos. Todo eso vive en el HUB, la app que usan los empleados. Pero alguien tiene que crearlo, revisarlo y publicarlo, y esa parte no tenía un lugar propio.",
+      s1_p2: "En la práctica, el contenido se repartía entre documentos sueltos y varias aplicaciones separadas que no estaban pensadas para esto. Para ver cada pieza, la gente tenía que abrir una app distinta y hacer muchos pasos.",
+      s1_p3: "El problema era armar ese lugar: un CMS donde quien produce contenido pueda escribir, aprobar y publicar sin fricción, con plantillas y temas visuales coherentes, y donde el contenido llegue al HUB con la estructura correcta. Tenía que ser claro para quien lo usa a diario y lo bastante flexible para tantos tipos de contenido distintos.",
+      s2_p1: "Fui Senior UX/UI Designer del proyecto. Diseñé la interfaz, los componentes y las especificaciones de entrega, y usé Replit AI y Claude AI para llevar esos diseños a un producto funcional. Tomó unas ocho semanas.",
+      s2_p2: "Trabajé con la directora de producto, el Lead Product Owner, el director de DevOps y con las personas que usan la app, los agentes de call center de iQor, que me ayudaron a entender qué necesitaban en el día a día.",
+      s4_p: "Lo más difícil no fue de pantalla, fue de criterio. Varias historias de usuario, tal como estaban escritas, no daban una buena experiencia ni tenían una lógica clara para quien iba a usar la app. Cuando pasaba, las cuestionaba, lo conversaba con producto y las cambiaba para que la navegación fuera más sencilla. Una historia de usuario es un punto de partida, no un contrato.",
+      s7_outcome_label: 'Resultado',
+      s7_outcome: "Hoy el producto se mantiene estable en uso a nivel global en iQor, y no ha hecho falta volver a rediseñarlo para iterarlo.",
+      s7_p5: "Cambiar una decisión a tiempo sale más barato que defenderla: si la experiencia no funciona, hay que decirlo con razones y ajustarla.",
       iqor_work: 'Proyectos iQor',
       iqor_current: 'Página actual',
       all_projects: 'Todos los proyectos',
@@ -285,6 +395,10 @@
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.dataset.i18n;
       if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+      const key = el.dataset.i18nAria;
+      if (t[key] !== undefined) el.setAttribute('aria-label', t[key]);
     });
     document.querySelectorAll('.lang-label').forEach(function (el) { el.textContent = lang === 'en' ? 'ES' : 'EN'; });
     document.documentElement.lang = lang;
